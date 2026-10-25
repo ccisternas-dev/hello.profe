@@ -205,7 +205,7 @@ export function IconButton({
   label,
   icon,
   ...props
-}: { label: string icon: IconName } & ButtonHTMLAttributes<HTMLButtonElement>) {
+}: { label: string; icon: IconName } & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <Button variant="icon" icon={icon} label={label} title={label} {...props} />
   )
@@ -471,6 +471,39 @@ export function Toast({
   description: string
   action?: ReactNode
 }) {
+  if (!open) return null
+  return (
+    <div className="toast" role="status">
+      <span className="toast-icon">
+        <Icon name="check" />
+      </span>
+      <div>
+        <strong>{title}</strong>
+        <p>{description}</p>
+      </div>
+      {action}
+      <IconButton label="Dismiss" icon="close" onClick={onClose} />
+    </div>
+  )
+}
+
+export function Dialog({
+  open,
+  title,
+  description,
+  confirmLabel,
+  destructive,
+  onCancel,
+  onConfirm,
+}: {
+  open: boolean
+  title: string
+  description: string
+  confirmLabel: string
+  destructive?: boolean
+  onCancel: () => void
+  onConfirm: () => void
+}) {
   const dialogRef = useRef<HTMLDivElement>(null)
   const descriptionId = useId()
 
@@ -513,39 +546,6 @@ export function Toast({
     }
   }, [open, onCancel])
 
-  if (!open) return null
-  return (
-    <div className="toast" role="status">
-      <span className="toast-icon">
-        <Icon name="check" />
-      </span>
-      <div>
-        <strong>{title}</strong>
-        <p>{description}</p>
-      </div>
-      {action}
-      <IconButton label="Dismiss" icon="close" onClick={onClose} />
-    </div>
-  )
-}
-
-export function Dialog({
-  open,
-  title,
-  description,
-  confirmLabel,
-  destructive,
-  onCancel,
-  onConfirm,
-}: {
-  open: boolean
-  title: string
-  description: string
-  confirmLabel: string
-  destructive?: boolean
-  onCancel: () => void
-  onConfirm: () => void
-}) {
   if (!open) return null
   return (
     <div className="dialog-backdrop" role="presentation" onMouseDown={onCancel}>

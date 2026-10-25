@@ -99,7 +99,7 @@ See [BUILD_GUIDE.md](BUILD_GUIDE.md) for the implementation sequence, estimates 
 
 ## Development status
 
-There are no runnable application setup instructions yet. After scaffolding, replace this section with tested prerequisites, install commands, environment configuration, development commands and checks. Add a live demo link only after deployment.
+A runnable frontend prototype is now scaffolded with React, TypeScript and Vite, with views for translation, word exploration, the vocabulary notebook and practice, alongside design-system foundations and reusable components. These screens demonstrate the interface; the full product features remain in development. The component errors have been fixed, and TypeScript validation (`pnpm exec tsc --noEmit`) and the production build (`pnpm build`) pass. Run `pnpm dev` to start the local development server. Installation from a clean checkout and a live deployment have not yet been verified.
 
 ## Quality, privacy and cost
 
