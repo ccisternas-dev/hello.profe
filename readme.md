@@ -4,12 +4,17 @@ The working practice screen uses **917 cards in nine decks** from the supplied B
 
 Reveal answers, navigate, shuffle, mark Again/Remembered, and repeat the Again queue. Results are self-assessments. Progress is session-only; leaving Practice or reloading resets it. Translation, exploration and notebook screens remain labelled interface prototypes. Offline support, accounts, saved progress and automatic spaced repetition are not implemented.
 
+## Interface languages
+
+Use the language selector for English, French, Dutch or German. The choice is remembered on this device, and switching languages preserves the active study session. Learning content retains its original language. See [internationalization](docs/internationalization.md) for translation maintenance and checks.
+
 ## Run and verify
 
 Use Node 22.22.0 and pnpm 10.34.3 (CI pins both):
 
 ```sh
 npx --yes pnpm@10.34.3 install --frozen-lockfile
+npx --yes pnpm@10.34.3 i18n:check
 npx --yes pnpm@10.34.3 data:validate
 npx --yes pnpm@10.34.3 test
 npx --yes pnpm@10.34.3 typecheck

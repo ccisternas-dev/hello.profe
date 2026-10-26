@@ -17,6 +17,7 @@ jobs:
           node-version: '22.22.0'
       - run: npm install --global pnpm@10.34.3
       - run: pnpm install --frozen-lockfile
+      - run: pnpm i18n:check
       - run: pnpm data:validate
       - run: pnpm test
       - run: pnpm typecheck

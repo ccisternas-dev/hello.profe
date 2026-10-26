@@ -1,4 +1,5 @@
-import StudyPractice from './StudyPractice'
+import { useI18n, LocaleSelector, type MessageKey } from "./i18n"
+import StudyPractice from "./StudyPractice"
 import { useEffect, useRef, useState } from "react"
 import {
   Alert,
@@ -20,7 +21,13 @@ import {
 
 type View = "translate" | "explore" | "notebook" | "practice" | "foundations" | "components"
 
-const languages = ["English", "Spanish", "German", "French", "Dutch"]
+const languages: MessageKey[] = [
+  "English",
+  "Spanish",
+  "German",
+  "French",
+  "Dutch",
+]
 
 function Logo() {
   return (
@@ -45,9 +52,11 @@ function AppShell({
   setView: (view: View) => void
   children: React.ReactNode
 }) {
+  const { t } = useI18n()
+
   const primaryNav: {
     id: View
-    label: string
+    label: MessageKey
     icon: "translate" | "book" | "practice"
   }[] = [
     { id: "translate", label: "Translate", icon: "translate" },
@@ -58,11 +67,11 @@ function AppShell({
   return (
     <div className="app-shell">
       <a className="skip-link" href="#main-content">
-        Skip to main content
+        {t("Skip to main content")}
       </a>
       <aside className="sidebar">
         <Logo />
-        <nav aria-label="Main navigation">
+        <nav aria-label={t("Main navigation")}>
           {primaryNav.map((item) => (
             <button
               type="button"
@@ -82,12 +91,12 @@ function AppShell({
               onClick={() => setView(item.id)}
             >
               <Icon name={item.icon} />
-              <span>{item.label}</span>
+              <span>{t(item.label)}</span>
             </button>
           ))}
         </nav>
         <div className="sidebar-section">
-          <span className="nav-label">Design system</span>
+          <span className="nav-label">{t("Design system")}</span>
           <button
             type="button"
             className={`nav-item ${view === "foundations" ? "selected" : ""}`}
@@ -95,7 +104,7 @@ function AppShell({
             onClick={() => setView("foundations")}
           >
             <Icon name="palette" />
-            <span>Foundations</span>
+            <span>{t("Foundations")}</span>
           </button>
           <button
             type="button"
@@ -104,14 +113,14 @@ function AppShell({
             onClick={() => setView("components")}
           >
             <Icon name="grid" />
-            <span>Components</span>
+            <span>{t("Components")}</span>
           </button>
         </div>
         <div className="offline-note">
           <span className="status-dot" />
           <div>
-            <strong>Saved on this device</strong>
-            <small>No account needed</small>
+            <strong>{t("Saved on this device")}</strong>
+            <small>{t("No account needed")}</small>
           </div>
         </div>
       </aside>
@@ -119,18 +128,27 @@ function AppShell({
       <header className="mobile-header">
         <Logo />
         <IconButton
-          label="Open design system foundations"
+          label={t("Open design system foundations")}
           icon="grid"
           onClick={() => setView("foundations")}
         />
       </header>
 
       <div className="content-shell" id="main-content" tabIndex={-1}>
-        {view !== "practice" && <div className="prototype-notice" role="note">Interface prototype — translation and notebook features are simulated. Use Practice for the working German trainer.</div>}
+        <div className="locale-toolbar">
+          <LocaleSelector />
+        </div>
+        {view !== "practice" && (
+          <div className="prototype-notice" role="note">
+            {t(
+              "Interface prototype — translation and notebook features are simulated. Use Practice for the working German trainer.",
+            )}
+          </div>
+        )}
         {children}
       </div>
 
-      <nav className="bottom-nav" aria-label="Mobile navigation">
+      <nav className="bottom-nav" aria-label={t("Mobile navigation")}>
         {primaryNav.map((item) => (
           <button
             type="button"
@@ -150,7 +168,7 @@ function AppShell({
             onClick={() => setView(item.id)}
           >
             <Icon name={item.icon} />
-            <span>{item.label}</span>
+            <span>{t(item.label)}</span>
           </button>
         ))}
       </nav>
@@ -188,6 +206,8 @@ function TranslateView({
   onExplore: () => void
   onSaved: () => void
 }) {
+  const { t } = useI18n()
+
   const [text, setText] = useState("to learn")
   const [loading, setLoading] = useState(false)
   const [translated, setTranslated] = useState(true)
@@ -216,12 +236,14 @@ function TranslateView({
   return (
     <main className="page translate-page">
       <PageHeader
-        eyebrow="Translate"
-        title="What would you like to say?"
-        description="Translate a word, sentence or short paragraph into up to four languages."
+        eyebrow={t("Translate")}
+        title={t("What would you like to say?")}
+        description={t(
+          "Translate a word, sentence or short paragraph into up to four languages.",
+        )}
         actions={
           <Button variant="text" icon="history">
-            Recent
+            {t("Recent")}
           </Button>
         }
       />
@@ -231,26 +253,33 @@ function TranslateView({
         aria-labelledby="translation-input-heading"
       >
         <div className="translator-controls">
-          <LanguageSelect label="From" value="English" options={languages} />
-          <IconButton label="Swap source and target languages" icon="swap" />
+          <LanguageSelect
+            label={t("From")}
+            value="English"
+            options={languages}
+          />
+          <IconButton
+            label={t("Swap source and target languages")}
+            icon="swap"
+          />
           <div
             className="target-control"
             role="group"
             aria-labelledby="target-language-label"
           >
             <span className="field-label" id="target-language-label">
-              To · choose up to four
+              {t("To · choose up to four")}
             </span>
             <div className="target-chips">
               {languages
                 .filter((language) => language !== "English")
                 .map((language) => (
                   <Chip
-                    key={language}
+                    key={t(language)}
                     selected={targets.includes(language)}
                     onClick={() => toggleTarget(language)}
                   >
-                    {language}
+                    {t(language)}
                   </Chip>
                 ))}
             </div>
@@ -259,17 +288,20 @@ function TranslateView({
 
         <div className="translation-input">
           <label id="translation-input-heading" htmlFor="translation-text">
-            Text to translate
+            {t("Text to translate")}
           </label>
           <textarea
+            lang="en"
             id="translation-text"
             value={text}
             maxLength={1000}
             onChange={(event) => setText(event.target.value)}
-            placeholder="Type or paste text here…"
+            placeholder={t("Type or paste text here…")}
           />
           <div className="input-footer">
-            <span>{text.length} / 1,000</span>
+            <span>
+              {t("{count} / {total}", { count: text.length, total: 1000 })}
+            </span>
             <Button
               variant="primary"
               icon="spark"
@@ -277,7 +309,7 @@ function TranslateView({
               disabled={!text.trim()}
               onClick={translate}
             >
-              Translate
+              {t("Translate")}
             </Button>
           </div>
         </div>
@@ -286,7 +318,7 @@ function TranslateView({
       {loading && (
         <section
           className="results-grid"
-          aria-label="Loading translations"
+          aria-label={t("Loading translations")}
           aria-busy="true"
         >
           {[1, 2, 3].map((item) => (
@@ -299,74 +331,76 @@ function TranslateView({
         <section className="results-section" aria-live="polite">
           <div className="section-title-row">
             <div>
-              <span className="eyebrow">Results</span>
-              <h2>Three translations</h2>
+              <span className="eyebrow">{t("Results")}</span>
+              <h2>{t("Three translations")}</h2>
             </div>
             <span className="sample-note">
-              <Icon name="info" /> Illustrative translations—verify before use
+              <Icon name="info" />{" "}
+              {t("Illustrative translations—verify before use")}
             </span>
           </div>
           <div className="results-grid">
             <article className="result-card">
               <div className="result-top">
-                <Badge tone="language">Spanish</Badge>
-                <IconButton label="More options" icon="more" />
+                <Badge tone="language">{t("Spanish")}</Badge>
+                <IconButton label={t("More options")} icon="more" />
               </div>
               <div className="result-content">
-                <span className="part-of-speech">verb</span>
-                <h3>aprender</h3>
+                <span className="part-of-speech">{t("verb")}</span>
+                <h3 lang="es">aprender</h3>
                 <p className="pronunciation">/a.pɾenˈdeɾ/</p>
               </div>
               <div className="result-actions">
                 <Button variant="text" icon="copy">
-                  Copy
+                  {t("Copy")}
                 </Button>
                 <Button variant="text" icon="bookmark" onClick={onSaved}>
-                  Save
+                  {t("Save")}
                 </Button>
                 <Button variant="secondary" icon="arrow" onClick={onExplore}>
-                  Explore word
+                  {t("Explore word")}
                 </Button>
               </div>
             </article>
 
             <article className="result-card">
               <div className="result-top">
-                <Badge tone="language">German</Badge>
-                <IconButton label="More options" icon="more" />
+                <Badge tone="language">{t("German")}</Badge>
+                <IconButton label={t("More options")} icon="more" />
               </div>
               <div className="result-content">
-                <span className="part-of-speech">verb</span>
-                <h3>lernen</h3>
+                <span className="part-of-speech">{t("verb")}</span>
+                <h3 lang="de">lernen</h3>
                 <p className="pronunciation">/ˈlɛʁnən/</p>
               </div>
               <div className="result-actions">
                 <Button variant="text" icon="copy">
-                  Copy
+                  {t("Copy")}
                 </Button>
                 <Button variant="text" icon="bookmark" onClick={onSaved}>
-                  Save
+                  {t("Save")}
                 </Button>
                 <Button variant="secondary" icon="arrow">
-                  Explore word
+                  {t("Explore word")}
                 </Button>
               </div>
             </article>
 
             <article className="result-card result-card--error">
               <div className="result-top">
-                <Badge tone="language">French</Badge>
+                <Badge tone="language">{t("French")}</Badge>
                 <Icon name="warning" />
               </div>
               <div className="error-copy">
-                <h3>Translation unavailable</h3>
+                <h3>{t("Translation unavailable")}</h3>
                 <p>
-                  We could not reach this language service. Your other
-                  translations are still available.
+                  {t(
+                    "We could not reach this language service. Your other translations are still available.",
+                  )}
                 </p>
               </div>
               <Button variant="secondary" icon="retry">
-                Try French again
+                {t("Try French again")}
               </Button>
             </article>
           </div>
@@ -376,8 +410,10 @@ function TranslateView({
       {!loading && !text.trim() && (
         <EmptyState
           icon="translate"
-          title="Start with a word or phrase"
-          description="Your translations will appear here, grouped by language."
+          title={t("Start with a word or phrase")}
+          description={t(
+            "Your translations will appear here, grouped by language.",
+          )}
         />
       )}
     </main>
@@ -393,6 +429,8 @@ function ExploreView({
   onSave: () => void
   saved: boolean
 }) {
+  const { t } = useI18n()
+
   const [tab, setTab] = useState("Meanings")
   const [showConjugation, setShowConjugation] = useState(true)
   const conjugations = [
@@ -407,26 +445,31 @@ function ExploreView({
   return (
     <main className="page explore-page">
       <Button variant="text" icon="back" onClick={onBack}>
-        Back to translation
+        {t("Back to translation")}
       </Button>
       <div className="word-hero">
         <div>
           <div className="word-meta">
-            <Badge tone="language">Spanish</Badge>
-            <Badge>verb</Badge>
+            <Badge tone="language">{t("Spanish")}</Badge>
+            <Badge>{t("verb")}</Badge>
           </div>
-          <h1>aprender</h1>
+          <h1 lang="es">aprender</h1>
           <p className="pronunciation">
             /a.pɾenˈdeɾ/{" "}
-            <Button variant="icon" icon="audio" label="Play pronunciation" />
+            <Button
+              variant="icon"
+              icon="audio"
+              label={t("Play pronunciation")}
+            />
           </p>
         </div>
         <Button
           variant={saved ? "secondary" : "primary"}
           icon={saved ? "check" : "bookmark"}
           onClick={onSave}
+          label={saved ? t("Saved") : t("Save word")}
         >
-          {saved ? "Saved" : "Save word"}
+          {saved ? t("Saved") : t("Save word")}
         </Button>
       </div>
 
@@ -444,35 +487,41 @@ function ExploreView({
                 <div className="meaning-heading">
                   <span className="meaning-number">1</span>
                   <div>
-                    <h2>to learn</h2>
-                    <p>
+                    <h2 lang="en">to learn</h2>
+                    <p lang="en">
                       To gain knowledge or skill through study or experience.
                     </p>
                   </div>
                 </div>
                 <div className="example">
-                  <span>Example</span>
-                  <p>Quiero aprender español este año.</p>
-                  <p>I want to learn Spanish this year.</p>
+                  <span>{t("Example")}</span>
+                  <p lang="es">Quiero aprender español este año.</p>
+                  <p lang="en">I want to learn Spanish this year.</p>
                 </div>
                 <div className="synonyms">
-                  <span>Similar meaning</span>
-                  <Chip>estudiar</Chip>
-                  <Chip>descubrir</Chip>
+                  <span>{t("Similar meaning")}</span>
+                  <span lang="es">
+                    <Chip>estudiar</Chip>
+                  </span>
+                  <span lang="es">
+                    <Chip>descubrir</Chip>
+                  </span>
                 </div>
               </section>
               <section className="detail-card">
                 <div className="meaning-heading">
                   <span className="meaning-number">2</span>
                   <div>
-                    <h2>to find out</h2>
-                    <p>To become aware of a fact or piece of information.</p>
+                    <h2 lang="en">to find out</h2>
+                    <p lang="en">
+                      To become aware of a fact or piece of information.
+                    </p>
                   </div>
                 </div>
                 <div className="example">
-                  <span>Example</span>
-                  <p>Aprendí la noticia esta mañana.</p>
-                  <p>I found out the news this morning.</p>
+                  <span>{t("Example")}</span>
+                  <p lang="es">Aprendí la noticia esta mañana.</p>
+                  <p lang="en">I found out the news this morning.</p>
                 </div>
               </section>
             </>
@@ -482,36 +531,38 @@ function ExploreView({
             <section className="detail-card">
               <div className="table-heading">
                 <div>
-                  <span className="eyebrow">Indicative</span>
-                  <h2>Common forms</h2>
+                  <span className="eyebrow">{t("Indicative")}</span>
+                  <h2>{t("Common forms")}</h2>
                 </div>
                 <Button
                   variant="text"
                   icon={showConjugation ? "chevronUp" : "chevronDown"}
                   onClick={() => setShowConjugation(!showConjugation)}
                 >
-                  {showConjugation ? "Collapse" : "Expand"}
+                  {showConjugation ? t("Collapse") : t("Expand")}
                 </Button>
               </div>
               {showConjugation && (
                 <div
                   className="table-scroll"
                   tabIndex={0}
-                  aria-label="Scrollable conjugation table"
+                  aria-label={t("Scrollable conjugation table")}
                 >
                   <table>
                     <thead>
                       <tr>
-                        <th>Pronoun</th>
-                        <th>Present</th>
-                        <th>Preterite</th>
+                        <th>{t("Pronoun")}</th>
+                        <th>{t("Present")}</th>
+                        <th>{t("Preterite")}</th>
                       </tr>
                     </thead>
                     <tbody>
                       {conjugations.map((row) => (
                         <tr key={row[0]}>
                           {row.map((cell) => (
-                            <td key={cell}>{cell}</td>
+                            <td key={cell} lang="es">
+                              {cell}
+                            </td>
                           ))}
                         </tr>
                       ))}
@@ -524,19 +575,21 @@ function ExploreView({
 
           {tab === "Examples" && (
             <section className="detail-card">
-              <h2>Examples in context</h2>
+              <h2>{t("Examples in context")}</h2>
               <div className="example-list">
                 <div>
-                  <p>Estamos aprendiendo a cocinar juntos.</p>
-                  <span>We are learning to cook together.</span>
+                  <p lang="es">Estamos aprendiendo a cocinar juntos.</p>
+                  <span lang="en">We are learning to cook together.</span>
                 </div>
                 <div>
-                  <p>Nunca es tarde para aprender algo nuevo.</p>
-                  <span>It is never too late to learn something new.</span>
+                  <p lang="es">Nunca es tarde para aprender algo nuevo.</p>
+                  <span lang="en">
+                    It is never too late to learn something new.
+                  </span>
                 </div>
                 <div>
-                  <p>Aprende de tus errores.</p>
-                  <span>Learn from your mistakes.</span>
+                  <p lang="es">Aprende de tus errores.</p>
+                  <span lang="en">Learn from your mistakes.</span>
                 </div>
               </div>
             </section>
@@ -547,29 +600,34 @@ function ExploreView({
           <div className="source-card">
             <Icon name="book" />
             <div>
-              <strong>Dictionary facts</strong>
-              <p>Meanings and forms adapted from open dictionary data.</p>
-              <Button variant="text">View sources</Button>
+              <strong>{t("Dictionary facts")}</strong>
+              <p>
+                {t("Meanings and forms adapted from open dictionary data.")}
+              </p>
+              <Button variant="text">{t("View sources")}</Button>
             </div>
           </div>
           <div className="source-card source-card--generated">
             <Icon name="spark" />
             <div>
-              <strong>Generated explanation</strong>
-              <p>Examples are illustrative and may require verification.</p>
+              <strong>{t("Generated explanation")}</strong>
+              <p>
+                {t("Examples are illustrative and may require verification.")}
+              </p>
             </div>
           </div>
           <Field
-            label="Your context sentence"
-            hint="Optional · saved only on this device"
+            label={t("Your context sentence")}
+            hint={t("Optional · saved only on this device")}
           >
             <textarea
-              placeholder="Add a sentence that helps you remember…"
+              placeholder={t("Add a sentence that helps you remember…")}
+              lang="es"
               defaultValue="Quiero aprender español este año."
             />
           </Field>
-          <Alert tone="neutral" title="Information unavailable">
-            Regional usage notes are not available for this word.
+          <Alert tone="neutral" title={t("Information unavailable")}>
+            {t("Regional usage notes are not available for this word.")}
           </Alert>
         </aside>
       </div>
@@ -586,22 +644,26 @@ function NotebookView({
   onExplore: () => void
   onDelete: () => void
 }) {
+  const { t, plural } = useI18n()
+
   const [search, setSearch] = useState("")
   const [deleteOpen, setDeleteOpen] = useState(false)
 
   return (
     <main className="page notebook-page">
       <PageHeader
-        eyebrow="Vocabulary notebook"
-        title="Words worth keeping"
-        description="Your entries are stored only on this device and remain available offline."
+        eyebrow={t("Vocabulary notebook")}
+        title={t("Words worth keeping")}
+        description={t(
+          "Your entries are stored only on this device and remain available offline.",
+        )}
         actions={
           <>
             <Button variant="secondary" icon="import">
-              Import
+              {t("Import")}
             </Button>
             <Button variant="secondary" icon="export">
-              Export
+              {t("Export")}
             </Button>
           </>
         }
@@ -610,39 +672,43 @@ function NotebookView({
         <>
           <div className="notebook-tools">
             <SearchField
-              label="Search saved vocabulary"
+              label={t("Search saved vocabulary")}
               value={search}
               onChange={setSearch}
-              placeholder="Search words or examples…"
+              placeholder={t("Search words or examples…")}
             />
             <div className="filter-row">
-              <Chip selected>All languages</Chip>
-              <Chip>Spanish</Chip>
-              <Chip>German</Chip>
-              <Chip>Verbs</Chip>
+              <Chip selected>{t("All languages")}</Chip>
+              <Chip>{t("Spanish")}</Chip>
+              <Chip>{t("German")}</Chip>
+              <Chip>{t("Verbs")}</Chip>
             </div>
           </div>
           <div className="notebook-count">
-            <span>1 saved word</span>
-            <span>Last updated today</span>
+            <span>
+              {plural("{count} saved word", "{count} saved words", 1)}
+            </span>
+            <span>{t("Last updated today")}</span>
           </div>
           <article className="vocab-card">
             <button type="button" className="vocab-main" onClick={onExplore}>
               <div className="vocab-word">
-                <Badge tone="language">Spanish</Badge>
-                <h2>aprender</h2>
-                <span>verb · to learn</span>
+                <Badge tone="language">{t("Spanish")}</Badge>
+                <h2 lang="es">aprender</h2>
+                <span>
+                  {t("verb")} · <span lang="en">to learn</span>
+                </span>
               </div>
               <div className="personal-example">
-                <span>Your example</span>
-                <p>Quiero aprender español este año.</p>
+                <span>{t("Your example")}</span>
+                <p lang="es">Quiero aprender español este año.</p>
               </div>
               <Icon name="chevronRight" />
             </button>
             <div className="vocab-actions">
-              <IconButton label="Edit aprender" icon="edit" />
+              <IconButton label={t("Edit aprender")} icon="edit" />
               <IconButton
-                label="Delete aprender"
+                label={t("Delete aprender")}
                 icon="trash"
                 onClick={() => setDeleteOpen(true)}
               />
@@ -652,20 +718,24 @@ function NotebookView({
       ) : (
         <EmptyState
           icon="bookmark"
-          title="Your notebook is ready"
-          description="Save a translation or a word you explore. Add your own example to make it easier to remember."
+          title={t("Your notebook is ready")}
+          description={t(
+            "Save a translation or a word you explore. Add your own example to make it easier to remember.",
+          )}
           action={
             <Button variant="primary" icon="translate">
-              Translate your first word
+              {t("Translate your first word")}
             </Button>
           }
         />
       )}
       <Dialog
         open={deleteOpen}
-        title="Delete “aprender”?"
-        description="This removes the word and your personal example from this device. This action cannot be undone."
-        confirmLabel="Delete word"
+        title={t("Delete “aprender”?")}
+        description={t(
+          "This removes the word and your personal example from this device. This action cannot be undone.",
+        )}
+        confirmLabel={t("Delete word")}
         destructive
         onCancel={() => setDeleteOpen(false)}
         onConfirm={() => {
@@ -678,6 +748,8 @@ function NotebookView({
 }
 
 function FoundationsView() {
+  const { t } = useI18n()
+
   const colors = [
     ["surface-default", "#F7F4ED"],
     ["surface-raised", "#FFFFFF"],
@@ -700,16 +772,19 @@ function FoundationsView() {
   return (
     <main className="page system-page">
       <PageHeader
-        eyebrow="Design system / 01"
-        title="Foundations"
-        description="A warm, accessible language notebook built on semantic decisions—not one-off values."
+        eyebrow={t("Design system / 01")}
+        title={t("Foundations")}
+        description={t(
+          "A warm, accessible language notebook built on semantic decisions—not one-off values.",
+        )}
       />
       <section className="foundation-section">
         <div className="foundation-intro">
-          <span>Colour</span>
+          <span>{t("Colour")}</span>
           <p>
-            Primitive values map to semantic roles. Components consume only
-            semantic tokens, ready for a future dark theme.
+            {t(
+              "Primitive values map to semantic roles. Components consume only semantic tokens, ready for a future dark theme.",
+            )}
           </p>
         </div>
         <div className="color-grid">
@@ -724,37 +799,42 @@ function FoundationsView() {
       </section>
       <section className="foundation-section">
         <div className="foundation-intro">
-          <span>Typography</span>
+          <span>{t("Typography")}</span>
           <p>
-            Source Sans 3 is highly legible and supports every product language,
-            including é, ñ, ü, ß and ë.
+            {t(
+              "Source Sans 3 is highly legible and supports every product language, including é, ñ, ü, ß and ë.",
+            )}
           </p>
         </div>
         <div className="type-specimens">
           <div>
-            <span>Display / 48</span>
-            <h2>Every word opens a door.</h2>
+            <span>{t("Display / 48")}</span>
+            <h2>{t("Every word opens a door.")}</h2>
           </div>
           <div>
-            <span>Heading / 30</span>
-            <h3>Aprender · lernen · apprendre</h3>
+            <span>{t("Heading / 30")}</span>
+            <h3>
+              <span lang="es">Aprender</span> · <span lang="de">lernen</span> ·{" "}
+              <span lang="fr">apprendre</span>
+            </h3>
           </div>
           <div>
-            <span>Body / 16</span>
+            <span>{t("Body / 16")}</span>
             <p>
-              Clear forms and generous line spacing keep longer translations
-              comfortable to read.
+              {t(
+                "Clear forms and generous line spacing keep longer translations comfortable to read.",
+              )}
             </p>
           </div>
           <div>
-            <span>Label / 13</span>
-            <strong>SPANISH · PRESENT INDICATIVE</strong>
+            <span>{t("Label / 13")}</span>
+            <strong>{t("SPANISH · PRESENT INDICATIVE")}</strong>
           </div>
         </div>
       </section>
       <section className="foundation-section foundation-grid">
         <div>
-          <span className="foundation-label">Spacing</span>
+          <span className="foundation-label">{t("Spacing")}</span>
           <div className="spacing-list">
             {spacing.map((item, index) => (
               <div key={item}>
@@ -765,7 +845,7 @@ function FoundationsView() {
           </div>
         </div>
         <div>
-          <span className="foundation-label">Shape & elevation</span>
+          <span className="foundation-label">{t("Shape & elevation")}</span>
           <div className="shape-row">
             <div>
               radius-sm
@@ -780,111 +860,122 @@ function FoundationsView() {
             <div>
               elevation-1
               <br />
-              subtle
+              {t("subtle")}
             </div>
           </div>
         </div>
         <div>
-          <span className="foundation-label">Focus & motion</span>
-          <div className="focus-demo">Visible focus ring</div>
+          <span className="foundation-label">{t("Focus & motion")}</span>
+          <div className="focus-demo">{t("Visible focus ring")}</div>
           <p className="small-note">
-            Fast 160ms transitions. Motion is removed when the operating system
-            requests reduced motion.
+            {t(
+              "Fast 160ms transitions. Motion is removed when the operating system requests reduced motion.",
+            )}
           </p>
         </div>
       </section>
-      <Alert tone="neutral" title="Responsive rule">
-        The app uses a compact sidebar from 960px and bottom navigation below
-        it. Content has a readable maximum width while tables scroll
-        horizontally on small screens.
+      <Alert tone="neutral" title={t("Responsive rule")}>
+        {t(
+          "The app uses a compact sidebar from 960px and bottom navigation below it. Content has a readable maximum width while tables scroll horizontally on small screens.",
+        )}
       </Alert>
     </main>
   )
 }
 
 function ComponentsView() {
+  const { t } = useI18n()
+
   const [tab, setTab] = useState("Default")
   const [toast, setToast] = useState(false)
   return (
     <main className="page system-page">
       <PageHeader
-        eyebrow="Design system / 02"
-        title="Components"
-        description="Reusable, accessible patterns with consistent states, anatomy and language."
+        eyebrow={t("Design system / 02")}
+        title={t("Components")}
+        description={t(
+          "Reusable, accessible patterns with consistent states, anatomy and language.",
+        )}
       />
       <section className="showcase">
         <div className="showcase-heading">
           <span>01</span>
           <div>
-            <h2>Actions</h2>
+            <h2>{t("Actions")}</h2>
             <p>
-              Primary is reserved for one clear next step. Secondary supports;
-              text and icon actions stay quiet.
+              {t(
+                "Primary is reserved for one clear next step. Secondary supports; text and icon actions stay quiet.",
+              )}
             </p>
           </div>
         </div>
         <div className="component-demo">
-          <Button variant="primary">Primary action</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button variant="text">Text action</Button>
-          <IconButton label="Bookmark" icon="bookmark" />
+          <Button variant="primary">{t("Primary action")}</Button>
+          <Button variant="secondary">{t("Secondary")}</Button>
+          <Button variant="text">{t("Text action")}</Button>
+          <IconButton label={t("Bookmark")} icon="bookmark" />
           <Button variant="primary" loading>
-            Translating
+            {t("Translating")}
           </Button>
           <Button variant="primary" disabled>
-            Disabled
+            {t("Disabled")}
           </Button>
         </div>
         <div className="anatomy">
-          <Badge>1 · Label</Badge>
-          <Badge>2 · Optional icon</Badge>
-          <Badge>3 · State feedback</Badge>
+          <Badge>{t("1 · Label")}</Badge>
+          <Badge>{t("2 · Optional icon")}</Badge>
+          <Badge>{t("3 · State feedback")}</Badge>
         </div>
       </section>
       <section className="showcase">
         <div className="showcase-heading">
           <span>02</span>
           <div>
-            <h2>Inputs & selection</h2>
+            <h2>{t("Inputs & selection")}</h2>
             <p>
-              Labels remain visible. Validation pairs colour with icons and
-              explanatory copy.
+              {t(
+                "Labels remain visible. Validation pairs colour with icons and explanatory copy.",
+              )}
             </p>
           </div>
         </div>
         <div className="input-demo">
-          <Field label="Default input" hint="Helpful guidance">
-            <input placeholder="Type a word…" />
+          <Field label={t("Default input")} hint={t("Helpful guidance")}>
+            <input placeholder={t("Type a word…")} />
           </Field>
-          <Field label="Validated input" error="Enter a word before continuing">
+          <Field
+            label={t("Validated input")}
+            error={t("Enter a word before continuing")}
+          >
             <input className="invalid" defaultValue="" />
           </Field>
           <LanguageSelect
-            label="Language"
+            label={t("Language")}
             value="Spanish"
             options={languages}
           />
           <SearchField
-            label="Search"
+            label={t("Search")}
             value=""
             onChange={() => {}}
-            placeholder="Search vocabulary…"
+            placeholder={t("Search vocabulary…")}
           />
         </div>
         <div className="component-demo">
-          <Chip>French</Chip>
-          <Chip selected>Spanish</Chip>
-          <Chip disabled>German</Chip>
+          <Chip>{t("French")}</Chip>
+          <Chip selected>{t("Spanish")}</Chip>
+          <Chip disabled>{t("German")}</Chip>
         </div>
       </section>
       <section className="showcase">
         <div className="showcase-heading">
           <span>03</span>
           <div>
-            <h2>Navigation & feedback</h2>
+            <h2>{t("Navigation & feedback")}</h2>
             <p>
-              Tabs switch peer content. Alerts persist; toasts confirm
-              lightweight actions; dialogs protect destructive actions.
+              {t(
+                "Tabs switch peer content. Alerts persist; toasts confirm lightweight actions; dialogs protect destructive actions.",
+              )}
             </p>
           </div>
         </div>
@@ -894,33 +985,36 @@ function ComponentsView() {
           onChange={setTab}
         />
         <div className="feedback-grid">
-          <Alert tone="success" title="Saved to your notebook">
-            “aprender” is available for offline practice.
+          <Alert tone="success" title={t("Saved to your notebook")}>
+            {t("“aprender” is available for offline practice.")}
           </Alert>
-          <Alert tone="error" title="Daily translation limit reached">
-            Saved vocabulary and practice are still available. Try new
-            translations tomorrow.
+          <Alert tone="error" title={t("Daily translation limit reached")}>
+            {t(
+              "Saved vocabulary and practice are still available. Try new translations tomorrow.",
+            )}
           </Alert>
-          <Alert tone="warning" title="You’re offline">
-            New translations require internet. Your notebook and supported
-            practice remain available.
+          <Alert tone="warning" title={t("You’re offline")}>
+            {t(
+              "New translations require internet. Your notebook and supported practice remain available.",
+            )}
           </Alert>
-          <Alert tone="neutral" title="Information unavailable">
-            No etymology was found for this entry.
+          <Alert tone="neutral" title={t("Information unavailable")}>
+            {t("No etymology was found for this entry.")}
           </Alert>
         </div>
         <Button variant="secondary" onClick={() => setToast(true)}>
-          Show save confirmation
+          {t("Show save confirmation")}
         </Button>
       </section>
       <section className="showcase">
         <div className="showcase-heading">
           <span>04</span>
           <div>
-            <h2>Loading, empty & progress</h2>
+            <h2>{t("Loading, empty & progress")}</h2>
             <p>
-              Skeletons preserve layout while data loads. Empty states explain
-              both what happened and what to do next.
+              {t(
+                "Skeletons preserve layout while data loads. Empty states explain both what happened and what to do next.",
+              )}
             </p>
           </div>
         </div>
@@ -928,35 +1022,49 @@ function ComponentsView() {
           <Skeleton />
           <EmptyState
             icon="book"
-            title="No saved words yet"
-            description="Save a translation to build your personal notebook."
+            title={t("No saved words yet")}
+            description={t(
+              "Save a translation to build your personal notebook.",
+            )}
           />
           <div className="progress-demo">
             <Progress value={60} />
-            <span>6 of 10 complete</span>
+            <span>
+              {t("{count} of {total} complete", { count: 6, total: 10 })}
+            </span>
           </div>
         </div>
       </section>
       <Toast
         open={toast}
         onClose={() => setToast(false)}
-        title="Saved to notebook"
-        description="“aprender” is now available offline."
+        title={t("Saved to notebook")}
+        description={t("“aprender” is now available offline.")}
       />
     </main>
   )
 }
 
 export default function App() {
+  const { t } = useI18n()
+
   const [view, setView] = useState<View>("practice")
   const initialView = useRef(true)
-  const [saved, setSaved] = useState(
-    () => { try { return window.localStorage.getItem("hello-profe-saved") === "true" } catch { return false } },
-  )
+  const [saved, setSaved] = useState(() => {
+    try {
+      return window.localStorage.getItem("hello-profe-saved") === "true"
+    } catch {
+      return false
+    }
+  })
   const [toast, setToast] = useState(false)
 
   useEffect(() => {
-    try { window.localStorage.setItem("hello-profe-saved", String(saved)) } catch { /* Storage may be unavailable. */ }
+    try {
+      window.localStorage.setItem("hello-profe-saved", String(saved))
+    } catch {
+      /* Storage may be unavailable. */
+    }
   }, [saved])
 
   useEffect(() => {
@@ -1000,11 +1108,11 @@ export default function App() {
       <Toast
         open={toast}
         onClose={() => setToast(false)}
-        title="Saved to notebook"
-        description="Prototype notebook updated."
+        title={t("Saved to notebook")}
+        description={t("Prototype notebook updated.")}
         action={
           <Button variant="text" onClick={() => setView("notebook")}>
-            View notebook
+            {t("View notebook")}
           </Button>
         }
       />
