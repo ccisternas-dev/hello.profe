@@ -1,3 +1,4 @@
+import { useI18n, type MessageKey } from "./i18n"
 import {
   cloneElement,
   isValidElement,
@@ -205,7 +206,10 @@ export function IconButton({
   label,
   icon,
   ...props
-}: { label: string; icon: IconName } & ButtonHTMLAttributes<HTMLButtonElement>) {
+}: {
+  label: string
+  icon: IconName
+} & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <Button variant="icon" icon={icon} label={label} title={label} {...props} />
   )
@@ -293,14 +297,17 @@ export function LanguageSelect({
 }: {
   label: string
   value: string
-  options: string[]
+  options: MessageKey[]
 }) {
+  const { t } = useI18n()
   return (
     <label className="language-select">
       <span className="field-label">{label}</span>
       <select defaultValue={value}>
         {options.map((option) => (
-          <option key={option}>{option}</option>
+          <option key={option} value={option}>
+            {t(option)}
+          </option>
         ))}
       </select>
     </label>
@@ -337,10 +344,12 @@ export function Tabs({
   selected,
   onChange,
 }: {
-  items: string[]
+  items: MessageKey[]
   selected: string
   onChange: (item: string) => void
 }) {
+  const { t } = useI18n()
+
   const handleKeyDown = (
     event: ReactKeyboardEvent<HTMLButtonElement>,
     index: number,
@@ -361,7 +370,7 @@ export function Tabs({
   }
 
   return (
-    <div className="tabs" role="tablist" aria-label="Content sections">
+    <div className="tabs" role="tablist" aria-label={t("Content sections")}>
       {items.map((item, index) => (
         <button
           type="button"
@@ -372,7 +381,7 @@ export function Tabs({
           onClick={() => onChange(item)}
           onKeyDown={(event) => handleKeyDown(event, index)}
         >
-          {item}
+          {t(item)}
         </button>
       ))}
     </div>
@@ -409,6 +418,7 @@ export function Alert({
 }
 
 export function Progress({ value }: { value: number }) {
+  const { t, percent } = useI18n()
   return (
     <div
       className="progress"
@@ -416,7 +426,10 @@ export function Progress({ value }: { value: number }) {
       aria-valuenow={value}
       aria-valuemin={0}
       aria-valuemax={100}
-      aria-valuetext={`${value}% complete`}
+      aria-label={t("{percent} complete", { percent: percent(value / 100) })}
+      aria-valuetext={t("{percent} complete", {
+        percent: percent(value / 100),
+      })}
     >
       <span style={{ width: `${value}%` }} />
     </div>
@@ -424,9 +437,11 @@ export function Progress({ value }: { value: number }) {
 }
 
 export function Skeleton() {
+  const { t } = useI18n()
+
   return (
     <div className="skeleton" role="status" aria-live="polite">
-      <span className="sr-only">Loading content</span>
+      <span className="sr-only">{t("Loading content")}</span>
       <i />
       <i />
       <i />
@@ -471,6 +486,8 @@ export function Toast({
   description: string
   action?: ReactNode
 }) {
+  const { t } = useI18n()
+
   if (!open) return null
   return (
     <div className="toast" role="status">
@@ -482,7 +499,7 @@ export function Toast({
         <p>{description}</p>
       </div>
       {action}
-      <IconButton label="Dismiss" icon="close" onClick={onClose} />
+      <IconButton label={t("Dismiss")} icon="close" onClick={onClose} />
     </div>
   )
 }
@@ -504,6 +521,8 @@ export function Dialog({
   onCancel: () => void
   onConfirm: () => void
 }) {
+  const { t } = useI18n()
+
   const dialogRef = useRef<HTMLDivElement>(null)
   const descriptionId = useId()
 
@@ -565,7 +584,7 @@ export function Dialog({
         <p id={descriptionId}>{description}</p>
         <div>
           <Button variant="secondary" onClick={onCancel}>
-            Cancel
+            {t("Cancel")}
           </Button>
           <Button
             className={destructive ? "button--danger" : ""}

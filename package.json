@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "data:convert": "python3 scripts/convert_practice.py",
     "data:validate": "node scripts/validate-data.mjs",
-    "test": "node --experimental-strip-types --test scripts/study-session.test.mjs"
+    "test": "node --experimental-strip-types --test scripts/*.test.mjs",
+    "i18n:check": "node scripts/check-i18n.mjs"
   },
   "dependencies": {
     "react": "^19.0.0",

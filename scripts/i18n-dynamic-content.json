@@ -1,0 +1,37 @@
+{
+  "src/App.tsx": {
+    "children": "React content",
+    "eyebrow": "Translated component prop",
+    "title": "Translated component prop",
+    "description": "Translated component prop",
+    "actions": "React action elements",
+    "cell": "Spanish conjugation study data",
+    "name": "CSS design token identifier",
+    "value": "CSS colour value",
+    "item": "CSS spacing token identifier"
+  },
+  "src/StudyPractice.tsx": {
+    "card.prompt": "German study content",
+    "card.answer": "Study answer, language marked separately",
+    "card.detail": "German study hint/example; model-answer UI note is translated separately",
+    "value": "Supplied study translation"
+  },
+  "src/components.tsx": {
+    "paths[name]": "React element or translated caller prop",
+    "children": "React element or translated caller prop",
+    "label": "React element or translated caller prop",
+    "control": "React element or translated caller prop",
+    "title": "React element or translated caller prop",
+    "description": "React element or translated caller prop",
+    "action": "React element or translated caller prop",
+    "confirmLabel": "React element or translated caller prop",
+    "hint": "React element or translated caller prop",
+    "error": "React element or translated caller prop",
+    "success": "React element or translated caller prop",
+    "placeholder": "Translated caller prop"
+  },
+  "src/i18n.tsx": {
+    "children": "React content",
+    "name": "Native language name; option has its own lang attribute"
+  }
+}
