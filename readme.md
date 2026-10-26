@@ -1,8 +1,46 @@
+# German study release
+
+The working practice screen uses **917 cards in nine decks** from the supplied B2 Excel workbooks: 592 verb-form cards, 140 health cards, 101 friendship cards, 28 temporal connector cards and 56 exercises across five exercise decks. It opens without saving a notebook word.
+
+Reveal answers, navigate, shuffle, mark Again/Remembered, and repeat the Again queue. Results are self-assessments. Progress is session-only; leaving Practice or reloading resets it. Translation, exploration and notebook screens remain labelled interface prototypes. Offline support, accounts, saved progress and automatic spaced repetition are not implemented.
+
+## Run and verify
+
+Use Node 22.22.0 and pnpm 10.34.3 (CI pins both):
+
+```sh
+npx --yes pnpm@10.34.3 install --frozen-lockfile
+npx --yes pnpm@10.34.3 data:validate
+npx --yes pnpm@10.34.3 test
+npx --yes pnpm@10.34.3 typecheck
+npx --yes pnpm@10.34.3 dev
+```
+
+Regenerate JSON with `python3 scripts/convert_practice.py` after placing the three original `.xlsx` files in `practice/`. Python 3 standard-library tools read workbook relationships, shared/inline strings and sparse cells. Raw workbooks remain local and are not bundled or published. See [data notes](docs/study-release.md) and [row/card counts](docs/practice-data-audit.json).
+
+## GitHub Pages
+
+The workflow checks pull requests and builds/deploys `main`. Set Settings → Pages → Source to GitHub Actions. `GITHUB_PAGES=true` selects `/hello.profe/` independently of Figma preview configuration. Navigation stays on one page; no server routing is needed.
+
+Expected deployment address: https://ccisternas-dev.github.io/hello.profe/ (deployment verification is recorded below when available).
+
+To preview the production subpath locally:
+
+```sh
+GITHUB_PAGES=true npx --yes pnpm@10.34.3 build
+npx --yes pnpm@10.34.3 preview --host 127.0.0.1
+# Open http://127.0.0.1:8443/hello.profe/
+```
+
+Personal GitHub operations use `GH_CONFIG_DIR="$HOME/.config/gh-personal"`; this repository already sets the personal commit email locally. Global identity/settings are unchanged.
+
+---
+
 # hello.profe
 
 Translate, explore words, and practise verb conjugations across five languages.
 
-**Status: planning.** This README describes the intended product. The application, installation workflow and live demo have not been implemented or verified yet.
+**Status: planning.** This README describes the intended product. The broader product remains in development; see the study release status above.
 
 ## About
 
@@ -42,7 +80,7 @@ Example journeys:
 
 ## Planned features
 
-All features below are planned, not completed.
+The broader features below are planned; the static practice release described above is implemented.
 
 | Area | Initial scope |
 | --- | --- |
@@ -95,7 +133,7 @@ The initial release excludes document uploads, OCR, speech recognition, native A
 - [ ] Add PWA behaviour and verify Android/Mac use.
 - [ ] Publish the portfolio case study and document remaining limitations.
 
-See [BUILD_GUIDE.md](BUILD_GUIDE.md) for the implementation sequence, estimates and completion criteria.
+See [issues.md](issues.md) for the current release plan.
 
 ## Development status
 

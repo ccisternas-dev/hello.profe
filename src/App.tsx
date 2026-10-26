@@ -1,3 +1,4 @@
+import StudyPractice from './StudyPractice'
 import { useEffect, useRef, useState } from "react"
 import {
   Alert,
@@ -18,7 +19,6 @@ import {
 } from "./components"
 
 type View = "translate" | "explore" | "notebook" | "practice" | "foundations" | "components"
-type PracticeState = "answering" | "incorrect" | "correct"
 
 const languages = ["English", "Spanish", "German", "French", "Dutch"]
 
@@ -126,6 +126,7 @@ function AppShell({
       </header>
 
       <div className="content-shell" id="main-content" tabIndex={-1}>
+        {view !== "practice" && <div className="prototype-notice" role="note">Interface prototype — translation and notebook features are simulated. Use Practice for the working German trainer.</div>}
         {children}
       </div>
 
@@ -676,211 +677,6 @@ function NotebookView({
   )
 }
 
-function PracticeView({ hasWords }: { hasWords: boolean }) {
-  const [practiceState, setPracticeState] = useState<PracticeState>("answering")
-  const [answer, setAnswer] = useState("")
-  const [position, setPosition] = useState(3)
-  const [summary, setSummary] = useState(false)
-
-  const check = () => {
-    const normalized = answer.trim().toLocaleLowerCase()
-    setPracticeState(normalized === "aprendes" ? "correct" : "incorrect")
-  }
-
-  const next = () => {
-    if (position === 10) {
-      setSummary(true)
-      return
-    }
-    setPosition(Math.min(position + 1, 10))
-    setAnswer("")
-    setPracticeState("answering")
-  }
-
-  if (!hasWords) {
-    return (
-      <main className="page">
-        <PageHeader
-          eyebrow="Conjugation practice"
-          title="Practise at your pace"
-          description="Calm, focused prompts based on the verbs in your notebook."
-        />
-        <EmptyState
-          icon="practice"
-          title="Save a verb to start practising"
-          description="Conjugation practice uses verbs from your vocabulary notebook and works offline."
-        />
-      </main>
-    )
-  }
-
-  return (
-    <main className="page practice-page">
-      <PageHeader
-        eyebrow="Conjugation practice"
-        title="Present tense"
-        description="Spanish · Saved verbs"
-        actions={
-          <Button variant="secondary" icon="settings">
-            Session settings
-          </Button>
-        }
-      />
-      <div className="practice-layout">
-        <section className="practice-card">
-          {summary ? (
-            <div className="session-summary">
-              <span className="empty-icon">
-                <Icon name="check" />
-              </span>
-              <span className="eyebrow">Session complete</span>
-              <h2>Good, focused work.</h2>
-              <p>
-                You answered 8 of 10 correctly. Two forms are ready for a calm
-                review.
-              </p>
-              <div className="summary-stats">
-                <div>
-                  <strong>8</strong>
-                  <span>Correct</span>
-                </div>
-                <div>
-                  <strong>2</strong>
-                  <span>Review</span>
-                </div>
-              </div>
-              <div className="review-item">
-                <div>
-                  <Badge tone="language">Review</Badge>
-                  <strong>tú · aprender</strong>
-                </div>
-                <span>aprendes</span>
-              </div>
-              <div className="practice-actions">
-                <Button
-                  variant="secondary"
-                  onClick={() => {
-                    setPosition(1)
-                    setSummary(false)
-                  }}
-                >
-                  Start again
-                </Button>
-                <Button variant="primary">Review mistakes</Button>
-              </div>
-            </div>
-          ) : (
-            <>
-              <div className="progress-header">
-                <span>Question {position} of 10</span>
-                <span>{Math.round((position / 10) * 100)}% complete</span>
-              </div>
-              <Progress value={position * 10} />
-              <div className="prompt">
-                <Badge tone="language">aprender</Badge>
-                <p>Present indicative</p>
-                <h2>
-                  tú <span>_____</span>
-                </h2>
-                <p className="prompt-help">
-                  Write the form of <strong>aprender</strong> for{" "}
-                  <strong>tú</strong>.
-                </p>
-              </div>
-              <Field
-                label="Your answer"
-                error={
-                  practiceState === "incorrect"
-                    ? "Not quite. The correct form is “aprendes”."
-                    : undefined
-                }
-                success={
-                  practiceState === "correct"
-                    ? "Correct — tú aprendes."
-                    : undefined
-                }
-                hint={
-                  practiceState === "answering"
-                    ? "Accents matter. You can type á, é, í, ó, ú and ñ."
-                    : undefined
-                }
-              >
-                <input
-                  value={answer}
-                  onChange={(event) => {
-                    setAnswer(event.target.value)
-                    setPracticeState("answering")
-                  }}
-                  onKeyDown={(event) =>
-                    event.key === "Enter" && answer && check()
-                  }
-                  placeholder="Type the conjugated verb"
-                />
-              </Field>
-              {practiceState === "incorrect" && (
-                <div className="feedback feedback--error">
-                  <Icon name="retry" />
-                  <div>
-                    <strong>Take another look</strong>
-                    <p>
-                      For regular -er verbs, the tú ending in the present tense
-                      is <strong>-es</strong>.
-                    </p>
-                  </div>
-                </div>
-              )}
-              {practiceState === "correct" && (
-                <div className="feedback feedback--success">
-                  <Icon name="check" />
-                  <div>
-                    <strong>That’s right</strong>
-                    <p>
-                      <strong>Aprendes</strong> is the expected answer. “Tú te
-                      aprendes” can also be valid in a reflexive context, but
-                      not for this prompt.
-                    </p>
-                  </div>
-                </div>
-              )}
-              <div className="practice-actions">
-                <Button variant="text">I’m not sure</Button>
-                {practiceState === "answering" ? (
-                  <Button variant="primary" onClick={check} disabled={!answer}>
-                    Check answer
-                  </Button>
-                ) : (
-                  <Button variant="primary" icon="arrow" onClick={next}>
-                    {position === 10 ? "View summary" : "Next question"}
-                  </Button>
-                )}
-              </div>
-            </>
-          )}
-        </section>
-
-        <aside className="session-card">
-          <span className="eyebrow">This session</span>
-          <div className="session-stat">
-            <strong>2</strong>
-            <span>Correct</span>
-          </div>
-          <div className="session-stat">
-            <strong>1</strong>
-            <span>To review</span>
-          </div>
-          <hr />
-          <p>
-            Mistakes will appear in a calm review at the end of your session.
-          </p>
-          <Button variant="text" icon="close">
-            End session
-          </Button>
-        </aside>
-      </div>
-    </main>
-  )
-}
-
 function FoundationsView() {
   const colors = [
     ["surface-default", "#F7F4ED"],
@@ -1152,15 +948,15 @@ function ComponentsView() {
 }
 
 export default function App() {
-  const [view, setView] = useState<View>("translate")
+  const [view, setView] = useState<View>("practice")
   const initialView = useRef(true)
   const [saved, setSaved] = useState(
-    () => window.localStorage.getItem("hello-profe-saved") === "true",
+    () => { try { return window.localStorage.getItem("hello-profe-saved") === "true" } catch { return false } },
   )
   const [toast, setToast] = useState(false)
 
   useEffect(() => {
-    window.localStorage.setItem("hello-profe-saved", String(saved))
+    try { window.localStorage.setItem("hello-profe-saved", String(saved)) } catch { /* Storage may be unavailable. */ }
   }, [saved])
 
   useEffect(() => {
@@ -1198,14 +994,14 @@ export default function App() {
           onDelete={() => setSaved(false)}
         />
       )}
-      {view === "practice" && <PracticeView hasWords={saved} />}
+      {view === "practice" && <StudyPractice />}
       {view === "foundations" && <FoundationsView />}
       {view === "components" && <ComponentsView />}
       <Toast
         open={toast}
         onClose={() => setToast(false)}
         title="Saved to notebook"
-        description="“aprender” is ready for offline practice."
+        description="Prototype notebook updated."
         action={
           <Button variant="text" onClick={() => setView("notebook")}>
             View notebook
