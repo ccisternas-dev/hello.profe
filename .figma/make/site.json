@@ -1,10 +1,11 @@
 {
-  "description": "This app offers language training and translation services, empowering users to learn new languages and communicate effectively with ease.",
+  "description": "Practice German B2 vocabulary, verb forms and temporal connectors with flashcards.",
   "robots": {
     "index": false
   },
   "accessibility": {
     "addBypassLinks": false,
     "ignoreReducedMotion": false
-  }
+  },
+  "title": "hello.profe \u2014 German practice"
 }

@@ -12,7 +12,9 @@ export default defineConfig(({ mode }) => {
   const emitSourcemaps = mode === "development"
 
   return {
-    base: process.env.FIGMA_PUBLIC_URL
+    base: process.env.GITHUB_PAGES === "true"
+      ? "/hello.profe/"
+      : process.env.FIGMA_PUBLIC_URL
       ? `${process.env.FIGMA_PUBLIC_URL}/`
       : "/",
     build: {
@@ -163,7 +165,7 @@ function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
         if (favicon) {
           tags.push({
             tag: "link",
-            attrs: { rel: "icon", href: favicon },
+            attrs: { rel: "icon", href: process.env.GITHUB_PAGES === "true" && favicon.startsWith("/") ? `/hello.profe${favicon}` : favicon },
             injectTo: "head",
           })
         }

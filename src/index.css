@@ -409,3 +409,17 @@ td:not(:first-child) { font-weight: 650; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Static study release */
+.study-deck-label { display: block; margin-bottom: 8px; font-weight: 600; }
+.study-deck-select { width: 100%; max-width: 760px; padding: 12px; border: 1px solid var(--border-default); border-radius: var(--radius-sm); background: var(--surface-raised); color: var(--text-primary); font: inherit; }
+.study-toolbar { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+.study-card { min-width: 0; overflow-wrap: anywhere; }
+.study-card .prompt h2 { font-size: clamp(24px, 4vw, 36px); }
+.study-answer { padding: 20px; background: var(--surface-selected); border-radius: var(--radius-sm); }
+.study-answer-text { font-size: 24px; font-weight: 600; }
+.study-detail { white-space: pre-line; }
+.study-summary { display: grid; gap: 16px; padding-top: 24px; }
+.prototype-notice { margin: 16px 24px 0; padding: 12px; border: 1px solid var(--border-default); border-radius: var(--radius-sm); background: var(--feedback-warning-subtle); }
+.study-deck-select:focus-visible { outline: 3px solid var(--action-primary); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
