@@ -10,6 +10,7 @@ import en from "./locales/en.json"
 import fr from "./locales/fr.json"
 import nl from "./locales/nl.json"
 import de from "./locales/de.json"
+import es from "./locales/es.json"
 import {
   detectLocale,
   formatMessage,
@@ -21,7 +22,13 @@ import {
 } from "./i18n-core"
 
 export type MessageKey = keyof typeof en
-const catalogs: Record<Locale, Record<MessageKey, string>> = { en, fr, nl, de }
+const catalogs: Record<Locale, Record<MessageKey, string>> = {
+  en,
+  fr,
+  nl,
+  de,
+  es,
+}
 
 function createTranslator(locale: Locale) {
   const t = (key: MessageKey, values?: Values) =>
@@ -112,6 +119,7 @@ const nativeNames: Record<Locale, string> = {
   fr: "Français",
   nl: "Nederlands",
   de: "Deutsch",
+  es: "Español",
 }
 export function LocaleSelector() {
   const { locale, setLocale, t } = useI18n()
