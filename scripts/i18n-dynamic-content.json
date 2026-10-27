@@ -3,12 +3,6 @@
     "children": "React content",
     "cell": "Spanish conjugation study data"
   },
-  "src/StudyPractice.tsx": {
-    "card.prompt": "German study content",
-    "card.answer": "Study answer, language marked separately",
-    "card.detail": "German study hint/example; model-answer UI note is translated separately",
-    "value": "Supplied study translation"
-  },
   "src/components.tsx": {
     "paths[name]": "React element or translated caller prop",
     "children": "React element or translated caller prop",
@@ -38,5 +32,10 @@
     "character": "German character input data",
     "answer.canonical": "German learning answer",
     "verb.cues[settings.language]": "Learning prompt in the selected source language"
+  },
+  "src/VerbFlashcards.tsx": {
+    "verb.id": "German verb lemma from workbook",
+    "verb.cues[language]": "Workbook translation with its language marked",
+    "verb.forms.present.canonical": "German present form from workbook"
   }
 }

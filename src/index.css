@@ -489,3 +489,38 @@ td:not(:first-child) { font-weight: 650; }
   .learning-mode-description { font-size: 15px; }
   .learning-mode-recommended { grid-column: 2 / -1; grid-row: 2; justify-self: start; margin: 0; }
 }
+
+/* Reading-only verb cards: all forms stay visible, without challenge controls. */
+.verb-flashcards { max-width: 600px; margin: 0 auto; padding: 24px; background: #effbf7; border-radius: 18px; }
+.verb-reference-card { padding: 28px; background: var(--surface-raised); border-radius: 18px; box-shadow: 0 3px 6px #163b3320; overflow-wrap: anywhere; }
+.verb-reference-heading { display: flex; align-items: center; gap: 8px; color: var(--primitive-teal-700); font-size: 15px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.verb-reference-heading svg { flex-shrink: 0; width: 24px; height: 24px; }
+.verb-reference-card h2 { margin: 42px 0 20px; text-align: center; font-size: clamp(32px, 7vw, 48px); font-weight: 700; line-height: 1.15; }
+.verb-translations { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0; }
+.verb-translations > div { padding: 9px 11px; background: #eaf6f3; border-radius: 5px; }
+.verb-translations dt { color: var(--primitive-teal-700); font-size: 12px; font-weight: 700; }
+.verb-translations dd { margin: 3px 0 0; font-size: 16px; }
+.verb-present { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; width: fit-content; margin: 12px auto 28px; padding: 6px 16px; border-radius: 24px; background: #e3f1ed; font-size: 14px; }
+.verb-matrix-title { width: fit-content; margin: 0 auto 16px; padding: 8px 18px; background: #eaf6f3; border-radius: 24px; font-size: 14px; font-weight: 400; text-transform: uppercase; letter-spacing: .06em; }
+.verb-form-matrix { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 0; padding: 6px; border-radius: 12px; background: #eaf6f3; }
+.verb-form-matrix > div { min-width: 0; padding: 14px 12px; border-radius: 6px; background: var(--surface-raised); }
+.verb-form-matrix dt { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--text-secondary); }
+.verb-form-matrix dd { margin: 8px 0 0; font-size: 21px; font-weight: 600; }
+.verb-form-matrix > div:nth-child(2) { color: var(--primitive-teal-700); }
+.verb-present-alternatives { display: grid; gap: 4px; font-size: 14px; margin-bottom: 0; }
+.verb-card-navigation { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+.verb-card-navigation .button { min-height: 50px; white-space: normal; }
+.verb-card-position { text-align: center; color: var(--text-secondary); font-size: 13px; margin: 14px 0 0; }
+@media (max-width: 600px) {
+  .verb-flashcards { padding: 12px; }
+  .verb-reference-card { padding: 20px 16px; }
+  .verb-reference-heading { font-size: 12px; }
+  .verb-reference-card h2 { margin-top: 32px; }
+  .verb-form-matrix > div { padding: 12px 8px; }
+  .verb-form-matrix dd { font-size: 18px; }
+  .verb-card-navigation { gap: 8px; }
+  .verb-card-navigation .button { padding: 10px 8px; font-size: 14px; }
+}
+
+.verb-next-card > .icon { order: 1; flex-shrink: 0; }
+.verb-card-navigation .button--secondary { background: var(--surface-selected); border-color: transparent; }

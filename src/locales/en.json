@@ -277,5 +277,14 @@
   "Back to learning modes": "Back to learning modes",
   "Returning to learning modes or leaving this screen resets the current session.": "Returning to learning modes or leaving this screen resets the current session.",
   "Choose one target form, or mix verbs and forms for a varied challenge.": "Choose one target form, or mix verbs and forms for a varied challenge.",
-  "Choose the prompt language, then complete each supplied form.": "Choose the prompt language, then complete each supplied form."
+  "Choose the prompt language, then complete each supplied form.": "Choose the prompt language, then complete each supplied form.",
+  "Read German verbs, their forms and translations at your own pace.": "Read German verbs, their forms and translations at your own pace.",
+  "Memorize verbs": "Memorize verbs",
+  "German verb · irregular": "German verb · irregular",
+  "Principal forms": "Principal forms",
+  "Alternative present forms": "Alternative present forms",
+  "Verb cards": "Verb cards",
+  "Previous card": "Previous card",
+  "Next card": "Next card",
+  "Verb {current} of {total}": "Verb {current} of {total}"
 }

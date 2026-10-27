@@ -1,6 +1,6 @@
 # Verb translation challenges
 
-Implements issue #20 for verbs only. The learning dashboard opens with Translation Challenge (single-form or mixed), Complete the Verb (all five supplied forms), and Flashcards (all nine decks). Vocabulary and temporal-connector translation challenges are not part of this change.
+Implements issue #20 for verbs only. The learning dashboard opens with Translation Challenge (single-form or mixed), Complete the Verb (all five supplied forms), and Flashcards (a reading-only reference for 148 verbs). Vocabulary and temporal-connector translation challenges are not part of this change.
 
 ## Modes and content
 
@@ -12,7 +12,7 @@ The existing workbook-derived JSON supplies 148 verbs. Four source forms plus th
 
 `src/data/verb-overrides.json` contains explicit full-string alternatives for five source cells: backen/present, senden/preterite, senden/perfect, senden/participle, ziehen/perfect. Shorthand such as “hat gesandt / gesendet” is expanded explicitly, not split at runtime. The original source strings are retained for those entries; changed source answers fail the audit until reviewed. Accepted answers are canonical plus the named alternatives only; this is not a general-purpose synonym checker.
 
-Cue overrides distinguish overlapping translations with context or German starting letters/prefixes. These qualifiers are part of the question, not a scored hint. They help distinguish the requested workbook verb where translations such as “to begin” describe more than one entry. The original flashcard content remains unchanged. Further linguistic review remains tracked under #5.
+Cue overrides distinguish overlapping translations with context or German starting letters/prefixes. These qualifiers are part of the question, not a scored hint. They help distinguish the requested workbook verb where translations such as “to begin” describe more than one entry. Flashcards use the original workbook translations without challenge cue qualifiers. Further linguistic review remains tracked under #5.
 
 ## Checking, hints and scoring
 
@@ -42,4 +42,4 @@ UI language changes preserve settings, typed answers and scores. Returning to th
 
 `pnpm test` includes the full-data audit and tests for alternatives, source drift, case/Unicode/umlaut validation, character insertion, hint lengths, retries, duplicate/stale actions, all score levels, complete-mode field isolation, exact-form prioritization, randomized selection, empty/missing-form/single-item data and session reset. `pnpm i18n:check`, TypeScript and the production build also pass.
 
-Chrome production-preview checks cover the three modes, English/Spanish/French prompts, per-field completion, retry/reveal/score behavior, pointer/keyboard German-character insertion with caret preservation, all five UI languages and desktop/mobile widths. The nine existing flashcard decks still reveal, rate and navigate. Physical-device and independent linguistic validation are not claimed.
+Chrome production-preview checks cover the three modes, English/Spanish/French prompts, per-field completion, retry/reveal/score behavior, pointer/keyboard German-character insertion with caret preservation, all five UI languages and desktop/mobile widths. Flashcards now show complete verbs immediately, with Previous/Next navigation and no ratings or reveal actions. Physical-device and independent linguistic validation are not claimed.
