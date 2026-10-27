@@ -277,5 +277,14 @@
   "Back to learning modes": "Volver a los modos de aprendizaje",
   "Returning to learning modes or leaving this screen resets the current session.": "Volver a los modos de aprendizaje o salir de esta pantalla reinicia la sesión actual.",
   "Choose one target form, or mix verbs and forms for a varied challenge.": "Elige una forma o mezcla verbos y formas para variar el desafío.",
-  "Choose the prompt language, then complete each supplied form.": "Elige el idioma de las preguntas y completa cada forma suministrada."
+  "Choose the prompt language, then complete each supplied form.": "Elige el idioma de las preguntas y completa cada forma suministrada.",
+  "Read German verbs, their forms and translations at your own pace.": "Lee verbos alemanes, sus formas y traducciones a tu ritmo.",
+  "Memorize verbs": "Memorizar verbos",
+  "German verb · irregular": "Verbo alemán · irregular",
+  "Principal forms": "Formas principales",
+  "Alternative present forms": "Formas alternativas del presente",
+  "Verb cards": "Tarjetas de verbos",
+  "Previous card": "Tarjeta anterior",
+  "Next card": "Tarjeta siguiente",
+  "Verb {current} of {total}": "Verbo {current} de {total}"
 }

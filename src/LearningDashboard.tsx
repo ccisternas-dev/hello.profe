@@ -15,7 +15,7 @@ const paths: {
 }[] = [
   { id: "challenge", icon: "translate", description: "See the meaning, recall the German form. Type the answer.", badge: "Recommended" },
   { id: "complete", icon: "forms", description: "Fill in the supplied German verb forms, one field at a time.", badge: "Build forms" },
-  { id: "flashcards", icon: "cards", description: "Reveal and rate your recall, then revisit your Again cards.", badge: "Quick review" },
+  { id: "flashcards", icon: "cards", description: "Read German verbs, their forms and translations at your own pace.", badge: "Memorize verbs" },
 ]
 
 export default function LearningDashboard({ onSelect }: { onSelect: (path: LearningPath) => void }) {

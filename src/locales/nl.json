@@ -277,5 +277,14 @@
   "Back to learning modes": "Terug naar leermodi",
   "Returning to learning modes or leaving this screen resets the current session.": "Teruggaan naar de leermodi of dit scherm verlaten wist de huidige sessie.",
   "Choose one target form, or mix verbs and forms for a varied challenge.": "Kies één vorm of wissel werkwoorden en vormen af voor meer variatie.",
-  "Choose the prompt language, then complete each supplied form.": "Kies de vraagtaal en vul daarna elke aangeleverde vorm in."
+  "Choose the prompt language, then complete each supplied form.": "Kies de vraagtaal en vul daarna elke aangeleverde vorm in.",
+  "Read German verbs, their forms and translations at your own pace.": "Lees Duitse werkwoorden, hun vormen en vertalingen in je eigen tempo.",
+  "Memorize verbs": "Werkwoorden onthouden",
+  "German verb · irregular": "Duits werkwoord · onregelmatig",
+  "Principal forms": "Stamvormen",
+  "Alternative present forms": "Alternatieve tegenwoordige vormen",
+  "Verb cards": "Werkwoordkaarten",
+  "Previous card": "Vorige kaart",
+  "Next card": "Volgende kaart",
+  "Verb {current} of {total}": "Werkwoord {current} van {total}"
 }
