@@ -289,5 +289,7 @@
   "Verb {current} of {total}": "Verb {current} von {total}",
   "Complete each supplied German verb form.": "Ergänze jede vorgegebene deutsche Verbform.",
   "Choose a variation. Only supplied German verb forms are included.": "Wähle eine Variante. Es werden nur die vorgegebenen deutschen Verbformen verwendet.",
-  "Read the definition and enter the requested German verb form.": "Lies die Definition und gib die geforderte deutsche Verbform ein."
+  "Read the definition and enter the requested German verb form.": "Lies die Definition und gib die geforderte deutsche Verbform ein.",
+  "Help & hints": "Hilfe & Hinweise",
+  "Scoring & review": "Punkte & Wiederholung"
 }

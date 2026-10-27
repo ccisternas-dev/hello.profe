@@ -5,7 +5,7 @@ Implements issue #20 for verbs only. The learning dashboard opens with Translati
 ## Modes and content
 
 - **Single-form:** choose infinitive, Präsens (er/sie/es), Präteritum (er/sie/es), Perfekt (er/sie/es) or Partizip II. Continue one question at a time until End session.
-- **Complete the verb:** translate a cue into every available form, with individual checking, retries, hints and reveal. Correct fields stay locked while other fields remain editable.
+- **Complete the verb:** translate a cue into every available form in a compact mint-and-white card, with a two-column form grid on larger screens and rows on phones. Each field keeps its check action visible; expandable Help & hints contains German character buttons, hints and reveal. Scoring details are also expandable. Correct fields stay locked while other fields remain editable.
 - **Mixed:** vary the verb and requested form, avoiding an immediate identical question where possible.
 
 The existing workbook-derived JSON supplies 148 verbs. Four source forms plus the infinitive yield 740 targets. `buildVerbs` maps the existing labelled cards to a typed verb/answer model with stable verb + form keys; it never invents missing forms. Empty forms are excluded, malformed/duplicate data fails validation, and tests audit the entire source dataset. Prompts follow the website language: English, Spanish and French use workbook translations and cue overrides; Dutch uses added translations; German uses definitions. There is no separate prompt-language selector. Switching interface language during a session updates the current cue without resetting the verb, typed answers or score. All five languages cover the same 148 verbs.
