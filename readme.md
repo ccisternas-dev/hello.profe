@@ -8,6 +8,24 @@ Reveal answers, navigate, shuffle, mark Again/Remembered, and repeat the Again q
 
 Use the language selector for English, French, Dutch, German or Spanish. The choice is remembered on this device, and switching languages preserves the active study session. Learning content retains its original language. See [internationalization](docs/internationalization.md) for translation maintenance and checks.
 
+## Design system showcase
+
+The design system stays in the codebase as a developer showcase. Public desktop and mobile navigation is reserved for the learning interface.
+
+[![Foundations: semantic colours, typography, spacing, shapes and focus styles](docs/images/design-system-foundations.png)](docs/images/design-system-foundations.png)
+
+[![Components: buttons, input validation, language controls, tabs, alerts, empty states and progress](docs/images/design-system-components.png)](docs/images/design-system-components.png)
+
+Click either screenshot to inspect it at full size. To explore the interactive showcase locally, run:
+
+```sh
+npx --yes pnpm@10.34.3 dev:design
+```
+
+This opens `http://localhost:8443/?design-system=foundations`. Switch to Components with the showcase navigation, or open `http://localhost:8443/?design-system=components` directly. The preview supports all five interface languages. It is enabled only by the development server; production builds always open the learning app.
+
+The views live in [src/DesignSystem.tsx](src/DesignSystem.tsx), reusable components in [src/components.tsx](src/components.tsx), and tokens/styles in [src/index.css](src/index.css). After design changes, regenerate both screenshots following [the showcase guide](docs/design-system-showcase.md).
+
 ## Run and verify
 
 Use Node 22.22.0 and pnpm 10.34.3 (CI pins both):
