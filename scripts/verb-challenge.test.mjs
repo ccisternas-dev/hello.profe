@@ -14,7 +14,15 @@ const answer = state => verbs.find(v => v.id === state.verbId).forms.infinitive.
 test('all supplied verbs map to explicit answers; cues disambiguate duplicate translations', () => {
   assert.equal(verbs.length, 148)
   assert.equal(verbs.reduce((count,v) => count + Object.keys(v.forms).length,0),740)
-  for (const lang of ['en','es','fr']) assert.equal(new Set(verbs.map(v => v.cues[lang])).size,148)
+  for (const lang of ['en','es','fr','nl','de']) {
+    assert.ok(verbs.every(v => typeof v.cues[lang] === 'string' && v.cues[lang].trim()))
+    assert.equal(new Set(verbs.map(v => v.cues[lang])).size,148)
+    for (const mode of ['single','complete','mixed']) {
+      const state = startChallenge(verbs, { ...settings, mode, language: lang }, 0)
+      assert.equal(new Set(state.pool.map(task => task.verbId)).size,148)
+      assert.equal(state.ended,false)
+    }
+  }
   assert.deepEqual(verbs.find(v=>v.id==='ziehen').forms.perfect.alternatives,['ist gezogen'])
   assert.ok(accepts(verbs.find(v=>v.id==='senden').forms.perfect,'hat gesendet'))
   assert.ok(!accepts(verbs.find(v=>v.id==='senden').forms.perfect,'gesendet'))

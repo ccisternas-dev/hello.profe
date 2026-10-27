@@ -286,5 +286,8 @@
   "Verb cards": "Fiches de verbes",
   "Previous card": "Fiche précédente",
   "Next card": "Fiche suivante",
-  "Verb {current} of {total}": "Verbe {current} sur {total}"
+  "Verb {current} of {total}": "Verbe {current} sur {total}",
+  "Complete each supplied German verb form.": "Complétez chaque forme fournie du verbe allemand.",
+  "Choose a variation. Only supplied German verb forms are included.": "Choisissez une variante. Seules les formes verbales allemandes fournies sont incluses.",
+  "Read the definition and enter the requested German verb form.": "Lisez la définition et saisissez la forme demandée du verbe allemand."
 }

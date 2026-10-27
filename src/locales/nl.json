@@ -286,5 +286,8 @@
   "Verb cards": "Werkwoordkaarten",
   "Previous card": "Vorige kaart",
   "Next card": "Volgende kaart",
-  "Verb {current} of {total}": "Werkwoord {current} van {total}"
+  "Verb {current} of {total}": "Werkwoord {current} van {total}",
+  "Complete each supplied German verb form.": "Vul elke opgegeven vorm van het Duitse werkwoord in.",
+  "Choose a variation. Only supplied German verb forms are included.": "Kies een variant. Alleen de opgegeven Duitse werkwoordsvormen worden gebruikt.",
+  "Read the definition and enter the requested German verb form.": "Lees de definitie en voer de gevraagde Duitse werkwoordsvorm in."
 }

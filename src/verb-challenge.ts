@@ -1,6 +1,6 @@
 export const forms = ['infinitive', 'present', 'preterite', 'perfect', 'participle'] as const
 export type Form = typeof forms[number]
-export type PromptLanguage = 'en' | 'es' | 'fr'
+export type PromptLanguage = 'en' | 'es' | 'fr' | 'nl' | 'de'
 export type Settings = { mode: 'single' | 'complete' | 'mixed'; form: Form; language: PromptLanguage }
 export type Answer = { canonical: string; alternatives: string[] }
 export type Verb = { id: string; cues: Partial<Record<PromptLanguage, string>>; forms: Partial<Record<Form, Answer>> }
