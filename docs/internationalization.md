@@ -36,3 +36,4 @@ Issues #13 and #14 remain separate. Their future download, update and installati
 - Switched languages while an answer was visible and during a complete study/review round; cards, ratings and review state were preserved.
 - Checked preference restoration, corrupt/blocked storage and offline locale switching. No browser errors or failed application HTTP requests.
 - Translations were reviewed for consistent labels and interpolation. Native-speaker editorial feedback can refine wording without code changes. Browser checks use emulation, not a physical Android device.
+- Spanish follow-up: Chrome checks passed for `es-MX` detection, the Español selector option, preference restoration, page metadata, card/answer/rating preservation across language changes and layouts at 1280px and 390px. No browser errors.
