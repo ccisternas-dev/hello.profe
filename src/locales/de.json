@@ -286,5 +286,22 @@
   "Verb cards": "Verbkarten",
   "Previous card": "Vorherige Karte",
   "Next card": "Nächste Karte",
-  "Verb {current} of {total}": "Verb {current} von {total}"
+  "Verb {current} of {total}": "Verb {current} von {total}",
+  "Complete each supplied German verb form.": "Ergänze jede vorgegebene deutsche Verbform.",
+  "Choose a variation. Only supplied German verb forms are included.": "Wähle eine Variante. Es werden nur die vorgegebenen deutschen Verbformen verwendet.",
+  "Read the definition and enter the requested German verb form.": "Lies die Definition und gib die geforderte deutsche Verbform ein.",
+  "Help & hints": "Hilfe & Hinweise",
+  "Scoring & review": "Punkte & Wiederholung",
+  "Review answers": "Antworten prüfen",
+  "Show answers": "Antworten anzeigen",
+  "Next verb": "Nächstes Verb",
+  "Start practice": "Übung starten",
+  "Practice again": "Erneut üben",
+  "Practice paused": "Übung pausiert",
+  "Take your time. You can practice these verbs again whenever you like.": "Lass dir Zeit. Du kannst diese Verben jederzeit erneut üben.",
+  "Try this form, or choose Show answers.": "Versuche diese Form oder wähle Antworten anzeigen.",
+  "Try again, or choose Show answers to learn this form.": "Versuche es erneut oder wähle Antworten anzeigen, um diese Form zu lernen.",
+  "Answer:": "Antwort:",
+  "First letter hint": "Anfangsbuchstabe anzeigen",
+  "Length hint": "Länge anzeigen"
 }

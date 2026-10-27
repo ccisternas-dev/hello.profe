@@ -1,6 +1,6 @@
 export const forms = ['infinitive', 'present', 'preterite', 'perfect', 'participle'] as const
 export type Form = typeof forms[number]
-export type PromptLanguage = 'en' | 'es' | 'fr'
+export type PromptLanguage = 'en' | 'es' | 'fr' | 'nl' | 'de'
 export type Settings = { mode: 'single' | 'complete' | 'mixed'; form: Form; language: PromptLanguage }
 export type Answer = { canonical: string; alternatives: string[] }
 export type Verb = { id: string; cues: Partial<Record<PromptLanguage, string>>; forms: Partial<Record<Form, Answer>> }
@@ -85,11 +85,18 @@ export type ChallengeAction =
   | { type: 'edit'; form: Form; turn: number; value: string }
   | { type: 'submit' | 'hint' | 'reveal'; form: Form; turn: number }
   | { type: 'next'; turn: number; random: number }
+  | { type: 'review-all'; turn: number }
+  | { type: 'reveal-all'; turn: number }
   | { type: 'end' }
 export function reduceChallenge(state: Challenge, action: ChallengeAction, verbs: Verb[]): Challenge {
   if (action.type === 'end') return { ...state, ended: true }
   if (state.ended || action.turn !== state.turn) return state
-  if (action.type === 'next') return finishedQuestion(state) ? nextQuestion({ ...state, turn: state.turn + 1 }, verbs, action.random) : state
+  if (action.type === 'review-all' || action.type === 'reveal-all') {
+    if (state.settings.mode !== 'complete') return state
+    const type = action.type === 'review-all' ? 'submit' : 'reveal'
+    return forms.reduce((current, form) => reduceChallenge(current, { type, form, turn: action.turn }, verbs), state)
+  }
+  if (action.type === 'next') return (state.settings.mode === 'complete' || finishedQuestion(state)) ? nextQuestion({ ...state, turn: state.turn + 1 }, verbs, action.random) : state
   const field = state.fields[action.form]
   if (!field || finishedField(field)) return state
   const answer = verbs.find(v => v.id === state.verbId)!.forms[action.form]!

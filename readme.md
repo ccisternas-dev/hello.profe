@@ -1,6 +1,6 @@
 # German study release
 
-The learning dashboard offers three paths: **Translation Challenge**, **Complete the Verb**, and **Flashcards**, with icons and descriptions. Verb challenges support single-form, complete-the-verb and mixed variations for 148 verbs and 740 supplied form targets. Type German answers to English, Spanish or French prompts, retry mistakes, use hints and review missed forms. No translation API is used. See [challenge rules and validation](docs/verb-challenges.md).
+The learning dashboard offers three paths: **Translation Challenge**, **Complete the Verb**, and **Flashcards**, with icons and descriptions. Verb challenges support single-form, complete-the-verb and mixed variations for 148 verbs and 740 supplied form targets. Type German answers to prompts in the website language: English, Spanish, French or Dutch translations, or German definitions. Retry mistakes, use hints and review missed forms. No translation API is used. See [challenge rules and validation](docs/verb-challenges.md).
 
 **Flashcards** is a reading-only reference for **148 irregular verbs**. Each card shows the German infinitive, English/Spanish/French translations, present tense and a four-cell principal-form matrix. Previous/Next navigation lets learners memorize at their own pace, without hidden answers, ratings, scores or rounds. Explicit alternative forms are included. The workbook has no Dutch translations, verb-class metadata or example sentences; these are not invented.
 

@@ -524,3 +524,42 @@ td:not(:first-child) { font-weight: 650; }
 
 .verb-next-card > .icon { order: 1; flex-shrink: 0; }
 .verb-card-navigation .button--secondary { background: var(--surface-selected); border-color: transparent; }
+
+/* Complete-verb practice shares the reference cards' quiet visual treatment. */
+.complete-settings { max-width: 600px; margin: 0 auto; padding: 24px; border: 12px solid #effbf7; border-radius: 18px; box-shadow: 0 3px 6px #163b3320; }
+.complete-settings h2, .complete-settings p { margin: 0; }
+.complete-settings > .button { margin-top: 8px; }
+.complete-session { max-width: 760px; margin: 0 auto; padding: 20px; border-radius: 18px; background: #effbf7; }
+.complete-session > .study-toolbar { justify-content: space-between; margin: 0; gap: 8px; font-size: 14px; }
+.complete-session .challenge-score { margin: 8px 0 14px; color: var(--text-secondary); font-size: 13px; }
+.complete-verb-card { padding: 24px; border: 0; border-radius: 18px; box-shadow: 0 3px 6px #163b3320; }
+.complete-verb-card > p { margin: 10px 0; color: var(--text-secondary); font-size: 14px; }
+.complete-verb-card .challenge-cue { text-align: center; margin: 18px 0; font-size: clamp(24px, 4vw, 32px); font-weight: 700; }
+.complete-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 6px; margin: 16px 0; background: #eaf6f3; border-radius: 12px; align-items: start; }
+.complete-form-grid .challenge-field { padding: 12px; margin: 0; border: 0; border-radius: 6px; background: var(--surface-raised); }
+.complete-form-grid .challenge-field:first-child { grid-column: 1 / -1; }
+.complete-form-grid .challenge-field label { color: var(--primitive-teal-700); font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+.complete-form-grid .challenge-field input { min-height: 44px; padding: 8px 10px; font-size: 18px; }
+.complete-form-grid .study-toolbar { gap: 6px; margin: 8px 0 0; }
+.complete-form-grid .button { font-size: 13px; padding: 8px 10px; min-height: 44px; }
+.complete-form-grid .challenge-feedback p { margin: 8px 0 0; font-size: 13px; }
+.complete-field-help { margin-top: 4px; }
+.complete-field-help summary, .complete-scoring-help summary { min-height: 44px; padding: 12px 0; color: var(--primitive-teal-700); font-size: 13px; cursor: pointer; }
+.complete-field-help .german-keys { flex-wrap: wrap; gap: 6px; margin-top: 0; }
+.complete-verb-card > .button { width: 100%; }
+.complete-scoring-help { margin-top: 8px; }
+.complete-scoring-help .small-note { margin: 4px 0 8px; }
+@media (max-width: 600px) {
+  .complete-session { padding: 12px; }
+  .complete-verb-card { padding: 16px; }
+  .complete-settings { padding: 16px; }
+}
+@media (max-width: 480px) {
+  .complete-form-grid { grid-template-columns: minmax(0, 1fr); }
+}
+/* Review applies to the whole verb; each form stays a simple input cell. */
+.complete-review-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0 4px; }
+.complete-review-actions .button { min-height: 44px; padding: 10px; }
+@media (max-width: 360px) {
+  .complete-review-actions { grid-template-columns: 1fr; }
+}

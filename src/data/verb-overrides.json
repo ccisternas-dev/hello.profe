@@ -25,178 +25,676 @@
     "anbieten": {
       "es": "ofrecer (verbo separable con an-)",
       "en": "to offer (target verb begins with a…)",
-      "fr": "proposer (le verbe demandé commence par a…)"
+      "fr": "proposer (le verbe demandé commence par a…)",
+      "nl": "aanbieden (scheidbaar werkwoord met an-)",
+      "de": "Jemandem etwas zur Verfügung stellen oder zum Kauf vorschlagen (trennbar mit an-)."
     },
     "bieten": {
       "es": "ofrecer (sin prefijo)",
-      "en": "to offer, to provide (target verb begins with b…)"
+      "en": "to offer, to provide (target verb begins with b…)",
+      "nl": "bieden; aanbieden (zonder voorvoegsel)",
+      "de": "Etwas zur Verfügung stellen oder einen Preis nennen (ohne Vorsilbe)."
     },
     "anfangen": {
       "fr": "commencer (verbe séparable avec an-)",
-      "en": "to begin, to start (target verb begins with a…)"
+      "en": "to begin, to start (target verb begins with a…)",
+      "nl": "beginnen (scheidbaar werkwoord met an-)",
+      "de": "Mit einer Tätigkeit starten (trennbar mit an-)."
     },
     "beginnen": {
       "fr": "commencer (verbe avec be-)",
-      "en": "to begin (target verb begins with b…)"
+      "en": "to begin (target verb begins with b…)",
+      "nl": "beginnen (werkwoord met be-)",
+      "de": "Mit einer Tätigkeit starten (untrennbar mit be-)."
     },
     "bringen": {
       "fr": "apporter (sans mit-)",
-      "es": "traer; llevar (el verbo solicitado empieza por b…)"
+      "es": "traer; llevar (el verbo solicitado empieza por b…)",
+      "nl": "brengen (zonder voorvoegsel)",
+      "de": "Jemanden oder etwas an einen anderen Ort transportieren (ohne Vorsilbe)."
     },
     "mitbringen": {
-      "fr": "apporter avec soi (verbe avec mit-)"
+      "fr": "apporter avec soi (verbe avec mit-)",
+      "nl": "meebrengen",
+      "de": "Etwas bei der eigenen Ankunft dabeihaben und übergeben (mit mit-)."
     },
     "bekommen": {
       "en": "to get, to receive (target verb begins with b…)",
       "es": "recibir; conseguir (el verbo solicitado empieza por b…)",
-      "fr": "recevoir; obtenir (le verbe demandé commence par b…)"
+      "fr": "recevoir; obtenir (le verbe demandé commence par b…)",
+      "nl": "krijgen; ontvangen (werkwoord met be-)",
+      "de": "Etwas empfangen oder ausgehändigt kriegen (mit be-)."
     },
     "entscheiden": {
-      "en": "to decide (target verb begins with e…)"
+      "en": "to decide (target verb begins with e…)",
+      "nl": "beslissen (zonder wederkerend voornaamwoord)",
+      "de": "Zwischen Möglichkeiten wählen oder ein Urteil fällen (ohne Reflexivpronomen)."
     },
     "sich entschließen": {
-      "en": "to decide, to resolve (target verb begins with s…)"
+      "en": "to decide, to resolve (target verb begins with s…)",
+      "nl": "besluiten (wederkerend werkwoord)",
+      "de": "Nach Überlegung einen festen Entschluss fassen (reflexiv)."
     },
     "erhalten": {
       "en": "to receive; to preserve (target verb begins with e…)",
       "es": "recibir; conservar (el verbo solicitado empieza por e…)",
-      "fr": "recevoir; conserver (le verbe demandé commence par e…)"
+      "fr": "recevoir; conserver (le verbe demandé commence par e…)",
+      "nl": "ontvangen; behouden (werkwoord met er-)",
+      "de": "Etwas empfangen oder in seinem Zustand bewahren (mit er-)."
     },
     "fahren": {
-      "en": "to drive; to go (by vehicle) (target verb begins with f…)"
+      "en": "to drive; to go (by vehicle) (target verb begins with f…)",
+      "nl": "rijden; met een voertuig reizen",
+      "de": "Sich mit einem Fahrzeug fortbewegen."
     },
     "fallen": {
-      "en": "to fall (target verb begins with f…)"
+      "en": "to fall (target verb begins with f…)",
+      "nl": "vallen",
+      "de": "Sich durch die Schwerkraft nach unten bewegen."
     },
     "gefallen": {
       "en": "to please, to like (target verb begins with g…)",
-      "es": "gustar (el verbo solicitado empieza por g…)"
+      "es": "gustar (el verbo solicitado empieza por g…)",
+      "nl": "bevallen; in de smaak vallen",
+      "de": "Bei jemandem einen positiven Eindruck hervorrufen."
     },
     "gehen": {
-      "en": "to go, to walk (target verb begins with g…)"
+      "en": "to go, to walk (target verb begins with g…)",
+      "nl": "gaan; lopen (werkwoord met g-)",
+      "de": "Sich zu Fuß fortbewegen (mit g-)."
     },
     "lassen": {
       "en": "to let; to leave (target verb begins with l…)",
-      "es": "dejar (el verbo solicitado empieza por l…)"
+      "es": "dejar (el verbo solicitado empieza por l…)",
+      "nl": "laten",
+      "de": "Etwas erlauben oder unverändert an einem Ort belassen."
     },
     "laufen": {
       "en": "to run; to walk (target verb begins with l…)",
       "es": "correr; caminar (el verbo solicitado empieza por l…)",
-      "fr": "courir; marcher (le verbe demandé commence par l…)"
+      "fr": "courir; marcher (le verbe demandé commence par l…)",
+      "nl": "lopen; rennen (werkwoord met l-)",
+      "de": "Sich zu Fuß gehend oder schnell fortbewegen (mit l-)."
     },
     "mögen": {
       "en": "to like (target verb begins with m…)",
-      "es": "gustar; querer (el verbo solicitado empieza por m…)"
+      "es": "gustar; querer (el verbo solicitado empieza por m…)",
+      "nl": "graag hebben; leuk vinden",
+      "de": "Eine Person oder Sache sympathisch oder angenehm finden."
     },
     "nennen": {
       "en": "to name, to call (target verb begins with n…)",
-      "es": "nombrar; llamar (el verbo solicitado empieza por n…)"
+      "es": "nombrar; llamar (el verbo solicitado empieza por n…)",
+      "nl": "noemen",
+      "de": "Jemandem oder etwas einen Namen geben oder einen Namen aussprechen."
     },
     "rennen": {
       "en": "to run, to race (target verb begins with r…)",
       "es": "correr (el verbo solicitado empieza por r…)",
-      "fr": "courir (le verbe demandé commence par r…)"
+      "fr": "courir (le verbe demandé commence par r…)",
+      "nl": "rennen (werkwoord met r-)",
+      "de": "Sich sehr schnell auf den Beinen fortbewegen (mit r-)."
     },
     "rufen": {
       "en": "to call, to shout (target verb begins with r…)",
       "es": "llamar; gritar (el verbo solicitado empieza por r…)",
-      "fr": "appeler; crier (le verbe demandé commence par r…)"
+      "fr": "appeler; crier (le verbe demandé commence par r…)",
+      "nl": "roepen (werkwoord met r-)",
+      "de": "Mit lauter Stimme jemanden ansprechen oder herbeiholen (mit r-)."
     },
     "schieben": {
       "en": "to push, to shove (target verb begins with sc…)",
       "es": "empujar (el verbo solicitado empieza por sc…)",
-      "fr": "pousser (le verbe demandé commence par sc…)"
+      "fr": "pousser (le verbe demandé commence par sc…)",
+      "nl": "duwen; schuiven",
+      "de": "Etwas durch gleichmäßigen Druck über eine Fläche bewegen."
     },
     "schlagen": {
-      "en": "to hit, to beat (target verb begins with s…)"
+      "en": "to hit, to beat (target verb begins with s…)",
+      "nl": "slaan",
+      "de": "Mit der Hand oder einem Gegenstand einen kräftigen Hieb ausführen."
     },
     "schreien": {
       "en": "to scream, to shout (target verb begins with s…)",
       "es": "gritar (el verbo solicitado empieza por s…)",
-      "fr": "crier (le verbe demandé commence par s…)"
+      "fr": "crier (le verbe demandé commence par s…)",
+      "nl": "schreeuwen",
+      "de": "Sehr laute, oft durch Angst oder Schmerz ausgelöste Laute ausstoßen."
     },
     "sinken": {
       "en": "to sink; to fall (target verb begins with s…)",
-      "fr": "couler; baisser (le verbe demandé commence par s…)"
+      "fr": "couler; baisser (le verbe demandé commence par s…)",
+      "nl": "zinken; dalen",
+      "de": "In einer Flüssigkeit nach unten gehen oder an Höhe beziehungsweise Wert verlieren."
     },
     "stoßen": {
       "en": "to push; to bump (target verb begins with st…)",
       "es": "empujar; chocar (el verbo solicitado empieza por st…)",
-      "fr": "pousser; heurter (le verbe demandé commence par st…)"
+      "fr": "pousser; heurter (le verbe demandé commence par st…)",
+      "nl": "stoten; duwen met een korte beweging",
+      "de": "Mit einem kurzen kräftigen Druck bewegen oder gegen etwas prallen."
     },
     "treffen": {
       "en": "to meet; to hit (target verb begins with t…)",
-      "es": "encontrar; acertar (el verbo solicitado empieza por t…)"
+      "es": "encontrar; acertar (el verbo solicitado empieza por t…)",
+      "nl": "ontmoeten; raken",
+      "de": "Mit jemandem zusammenkommen oder ein Ziel erreichen und berühren."
     },
     "treiben": {
       "en": "to do (sports); to drive (target verb begins with t…)",
-      "fr": "pratiquer (un sport); pousser (le verbe demandé commence par t…)"
+      "fr": "pratiquer (un sport); pousser (le verbe demandé commence par t…)",
+      "nl": "beoefenen (sport); voortdrijven",
+      "de": "Sport ausüben oder etwas durch eine Kraft vorwärtsbewegen."
     },
     "verlassen": {
       "en": "to leave; to abandon (target verb begins with v…)",
-      "es": "abandonar; dejar (el verbo solicitado empieza por v…)"
+      "es": "abandonar; dejar (el verbo solicitado empieza por v…)",
+      "nl": "verlaten",
+      "de": "Von einem Ort weggehen oder jemanden zurücklassen."
     },
     "finden": {
-      "es": "encontrar (el verbo solicitado empieza por f…)"
+      "es": "encontrar (el verbo solicitado empieza por f…)",
+      "nl": "vinden",
+      "de": "Etwas Gesuchtes entdecken."
     },
     "können": {
       "es": "poder; saber (el verbo solicitado empieza por k…)",
-      "fr": "pouvoir; savoir (le verbe demandé commence par k…)"
+      "fr": "pouvoir; savoir (le verbe demandé commence par k…)",
+      "nl": "kunnen",
+      "de": "Die Fähigkeit oder Möglichkeit haben, etwas zu tun."
     },
     "müssen": {
       "es": "deber; tener que (el verbo solicitado empieza por m…)",
-      "fr": "devoir; falloir (le verbe demandé commence par m…)"
+      "fr": "devoir; falloir (le verbe demandé commence par m…)",
+      "nl": "moeten (noodzaak)",
+      "de": "Durch eine Notwendigkeit oder Pflicht zu etwas gezwungen sein."
     },
     "sein": {
-      "es": "ser; estar (el verbo solicitado empieza por se…)"
+      "es": "ser; estar (el verbo solicitado empieza por se…)",
+      "nl": "zijn",
+      "de": "Existieren oder sich in einem bestimmten Zustand befinden."
     },
     "sollen": {
       "es": "deber (el verbo solicitado empieza por s…)",
-      "fr": "devoir (le verbe demandé commence par s…)"
+      "fr": "devoir (le verbe demandé commence par s…)",
+      "nl": "moeten (opdracht of verwachting)",
+      "de": "Einen Auftrag oder eine Erwartung einer anderen Person erfüllen."
     },
     "stehen": {
-      "es": "estar de pie; estar (el verbo solicitado empieza por st…)"
+      "es": "estar de pie; estar (el verbo solicitado empieza por st…)",
+      "nl": "staan",
+      "de": "Aufrecht auf den Füßen ruhen."
     },
     "tragen": {
-      "es": "llevar (el verbo solicitado empieza por t…)"
+      "es": "llevar (el verbo solicitado empieza por t…)",
+      "nl": "dragen",
+      "de": "Etwas am Körper haben oder mit eigener Kraft transportieren."
     },
     "werfen": {
-      "es": "lanzar; tirar (el verbo solicitado empieza por w…)"
+      "es": "lanzar; tirar (el verbo solicitado empieza por w…)",
+      "nl": "werpen; gooien",
+      "de": "Etwas mit einer Armbewegung durch die Luft schleudern."
     },
     "wissen": {
       "es": "saber (el verbo solicitado empieza por w…)",
-      "fr": "savoir (le verbe demandé commence par w…)"
+      "fr": "savoir (le verbe demandé commence par w…)",
+      "nl": "weten (een feit)",
+      "de": "Eine Information oder Tatsache im Gedächtnis haben."
     },
     "wollen": {
-      "es": "querer (el verbo solicitado empieza por w…)"
+      "es": "querer (el verbo solicitado empieza por w…)",
+      "nl": "willen",
+      "de": "Den Wunsch oder die Absicht haben, etwas zu tun."
     },
     "ziehen": {
       "es": "tirar; mudarse (el verbo solicitado empieza por z…)",
-      "fr": "tirer; déménager (le verbe demandé commence par z…)"
+      "fr": "tirer; déménager (le verbe demandé commence par z…)",
+      "nl": "trekken; verhuizen",
+      "de": "Etwas zu sich heranbewegen oder den Wohnort wechseln."
     },
     "bestehen": {
-      "fr": "réussir; exister (le verbe demandé commence par b…)"
+      "fr": "réussir; exister (le verbe demandé commence par b…)",
+      "nl": "slagen (voor een examen); bestaan",
+      "de": "Eine Prüfung erfolgreich absolvieren oder existieren."
     },
     "entstehen": {
-      "fr": "naître; apparaître (le verbe demandé commence par en…)"
+      "fr": "naître; apparaître (le verbe demandé commence par en…)",
+      "nl": "ontstaan",
+      "de": "Sich neu bilden oder seinen Ursprung haben."
     },
     "erscheinen": {
-      "fr": "apparaître; paraître (le verbe demandé commence par er…)"
+      "fr": "apparaître; paraître (le verbe demandé commence par er…)",
+      "nl": "verschijnen",
+      "de": "Sichtbar werden oder veröffentlicht werden."
     },
     "fließen": {
-      "fr": "couler (le verbe demandé commence par f…)"
+      "fr": "couler (le verbe demandé commence par f…)",
+      "nl": "stromen",
+      "de": "Sich als Flüssigkeit in eine Richtung bewegen."
     },
     "gelingen": {
-      "fr": "réussir (le verbe demandé commence par g…)"
+      "fr": "réussir (le verbe demandé commence par g…)",
+      "nl": "lukken",
+      "de": "Erfolgreich verlaufen oder das gewünschte Ergebnis erreichen."
     },
     "schießen": {
-      "fr": "tirer (le verbe demandé commence par s…)"
+      "fr": "tirer (le verbe demandé commence par s…)",
+      "nl": "schieten",
+      "de": "Ein Geschoss aus einer Waffe abgeben oder einen Ball kräftig aufs Tor treten."
     },
     "vorschlagen": {
-      "fr": "proposer; suggérer (le verbe demandé commence par v…)"
+      "fr": "proposer; suggérer (le verbe demandé commence par v…)",
+      "nl": "voorstellen (een idee)",
+      "de": "Eine Idee oder einen Plan zur Diskussion stellen (mit vor-)."
     },
     "wachsen": {
-      "fr": "grandir; pousser (le verbe demandé commence par w…)"
+      "fr": "grandir; pousser (le verbe demandé commence par w…)",
+      "nl": "groeien",
+      "de": "An Größe oder Umfang zunehmen."
+    },
+    "abnehmen": {
+      "nl": "afvallen; afnemen",
+      "de": "Körpergewicht verlieren oder geringer werden."
+    },
+    "annehmen": {
+      "nl": "aannemen; veronderstellen",
+      "de": "Etwas akzeptieren oder etwas für wahrscheinlich halten."
+    },
+    "anrufen": {
+      "nl": "opbellen",
+      "de": "Mit jemandem telefonisch Kontakt aufnehmen."
+    },
+    "aufstehen": {
+      "nl": "opstaan",
+      "de": "Das Bett oder einen Sitzplatz verlassen und sich aufrichten."
+    },
+    "ausgeben": {
+      "nl": "uitgeven (geld)",
+      "de": "Geld für etwas bezahlen."
+    },
+    "aussehen": {
+      "nl": "eruitzien",
+      "de": "Einen bestimmten äußeren Eindruck machen."
+    },
+    "backen": {
+      "nl": "bakken",
+      "de": "Brot oder Kuchen im Ofen zubereiten."
+    },
+    "beißen": {
+      "nl": "bijten",
+      "de": "Die Zähne kräftig in etwas drücken."
+    },
+    "beschreiben": {
+      "nl": "beschrijven",
+      "de": "Mit Worten darstellen, wie jemand oder etwas ist."
+    },
+    "besitzen": {
+      "nl": "bezitten",
+      "de": "Eigentümer einer Sache sein."
+    },
+    "betragen": {
+      "nl": "bedragen",
+      "de": "Eine bestimmte Summe oder Menge ausmachen."
+    },
+    "beweisen": {
+      "nl": "bewijzen",
+      "de": "Zeigen, dass eine Behauptung wahr ist."
+    },
+    "sich bewerben": {
+      "nl": "solliciteren",
+      "de": "Sich mit Unterlagen um eine Arbeitsstelle bemühen."
+    },
+    "biegen": {
+      "nl": "buigen",
+      "de": "Etwas in eine gekrümmte Form bringen."
+    },
+    "binden": {
+      "nl": "binden; vastmaken",
+      "de": "Etwas mit einer Schnur oder einem Band befestigen."
+    },
+    "bitten": {
+      "nl": "vragen; verzoeken",
+      "de": "Einen Wunsch oder eine höfliche Aufforderung an jemanden richten."
+    },
+    "bleiben": {
+      "nl": "blijven",
+      "de": "Einen Ort oder Zustand nicht wechseln."
+    },
+    "brechen": {
+      "nl": "breken",
+      "de": "Etwas in Stücke teilen oder selbst in Stücke gehen."
+    },
+    "brennen": {
+      "nl": "branden",
+      "de": "In Flammen stehen oder durch Feuer zerstört werden."
+    },
+    "denken": {
+      "nl": "denken",
+      "de": "Gedanken im Kopf entwickeln oder überlegen."
+    },
+    "dürfen": {
+      "nl": "mogen (toestemming)",
+      "de": "Die Erlaubnis haben, etwas zu tun."
+    },
+    "einladen": {
+      "nl": "uitnodigen",
+      "de": "Jemanden bitten, zu Besuch oder zu einer Veranstaltung zu kommen."
+    },
+    "einschlafen": {
+      "nl": "in slaap vallen",
+      "de": "Vom Wachsein in den Schlaf übergehen."
+    },
+    "empfehlen": {
+      "nl": "aanbevelen",
+      "de": "Etwas als gut oder geeignet vorschlagen (mit emp-)."
+    },
+    "erfahren": {
+      "nl": "vernemen; ervaren",
+      "de": "Eine neue Information erhalten oder etwas selbst erleben."
+    },
+    "erfinden": {
+      "nl": "uitvinden",
+      "de": "Etwas Neues entwickeln, das es vorher nicht gab."
+    },
+    "erkennen": {
+      "nl": "herkennen",
+      "de": "Jemanden oder etwas identifizieren oder einen Zusammenhang begreifen."
+    },
+    "erschrecken (intr.)": {
+      "nl": "schrikken",
+      "de": "Plötzlich Angst oder einen Schreck bekommen, ohne eine andere Person zu ängstigen."
+    },
+    "essen": {
+      "nl": "eten (mensen)",
+      "de": "Als Mensch Nahrung zu sich nehmen."
+    },
+    "fangen": {
+      "nl": "vangen",
+      "de": "Etwas Bewegtes ergreifen und festhalten."
+    },
+    "fliegen": {
+      "nl": "vliegen",
+      "de": "Sich durch die Luft fortbewegen."
+    },
+    "fliehen": {
+      "nl": "vluchten",
+      "de": "Vor einer Gefahr weglaufen und Schutz suchen."
+    },
+    "fressen": {
+      "nl": "eten (dieren)",
+      "de": "Als Tier Nahrung zu sich nehmen."
+    },
+    "frieren": {
+      "nl": "het koud hebben; bevriezen",
+      "de": "Kälte empfinden oder zu Eis werden."
+    },
+    "geben": {
+      "nl": "geven",
+      "de": "Jemandem etwas überreichen."
+    },
+    "gelten": {
+      "nl": "gelden",
+      "de": "Gültig oder verbindlich sein."
+    },
+    "genießen": {
+      "nl": "genieten",
+      "de": "Etwas Angenehmes bewusst und mit Freude erleben."
+    },
+    "geschehen": {
+      "nl": "gebeuren",
+      "de": "Sich ereignen, ohne dass damit eine geplante Veranstaltung gemeint sein muss."
+    },
+    "gewinnen": {
+      "nl": "winnen",
+      "de": "In einem Wettbewerb den Sieg erringen."
+    },
+    "gießen": {
+      "nl": "gieten; water geven",
+      "de": "Flüssigkeit aus einem Gefäß fließen lassen oder Pflanzen Wasser geben."
+    },
+    "graben": {
+      "nl": "graven",
+      "de": "Erde entfernen, um ein Loch zu machen."
+    },
+    "greifen": {
+      "nl": "grijpen",
+      "de": "Die Hand nach etwas ausstrecken und es fassen."
+    },
+    "haben": {
+      "nl": "hebben",
+      "de": "Über etwas verfügen; auch als Hilfsverb bei vielen Perfektformen verwendet."
+    },
+    "halten": {
+      "nl": "vasthouden; stoppen",
+      "de": "Etwas fest in der Hand behalten oder zum Stillstand kommen."
+    },
+    "heben": {
+      "nl": "optillen",
+      "de": "Etwas nach oben bewegen."
+    },
+    "heißen": {
+      "nl": "heten",
+      "de": "Einen bestimmten Namen haben."
+    },
+    "helfen": {
+      "nl": "helpen",
+      "de": "Jemanden bei einer Aufgabe oder in einer Notlage unterstützen."
+    },
+    "hängen (intr.)": {
+      "nl": "hangen (zich in hangende toestand bevinden)",
+      "de": "Oben befestigt sein und nach unten frei schweben, ohne etwas aktiv zu befestigen."
+    },
+    "kennen": {
+      "nl": "kennen (een persoon of plaats)",
+      "de": "Mit einer Person, einem Ort oder einer Sache vertraut sein."
+    },
+    "klingen": {
+      "nl": "klinken",
+      "de": "Einen bestimmten Klang haben."
+    },
+    "kommen": {
+      "nl": "komen",
+      "de": "Sich auf einen Ort oder eine Person zubewegen und dort eintreffen."
+    },
+    "kriechen": {
+      "nl": "kruipen",
+      "de": "Sich dicht am Boden auf Händen und Knien oder auf dem Bauch bewegen."
+    },
+    "laden": {
+      "nl": "laden; opladen",
+      "de": "Güter auf ein Fahrzeug legen oder einen Akku mit Energie versorgen."
+    },
+    "leiden": {
+      "nl": "lijden",
+      "de": "Schmerzen, Kummer oder eine Krankheit ertragen müssen."
+    },
+    "leihen": {
+      "nl": "lenen; uitlenen",
+      "de": "Etwas vorübergehend zur Nutzung geben oder bekommen."
+    },
+    "lesen": {
+      "nl": "lezen",
+      "de": "Geschriebene Wörter mit den Augen erfassen und verstehen."
+    },
+    "liegen": {
+      "nl": "liggen",
+      "de": "Sich waagerecht in Ruhe befinden oder an einem bestimmten Ort sein."
+    },
+    "lügen": {
+      "nl": "liegen (onwaarheid vertellen)",
+      "de": "Absichtlich etwas Unwahres sagen."
+    },
+    "messen": {
+      "nl": "meten",
+      "de": "Eine Größe wie Länge, Gewicht oder Temperatur bestimmen."
+    },
+    "nehmen": {
+      "nl": "nemen",
+      "de": "Etwas ergreifen und an sich bringen."
+    },
+    "raten": {
+      "nl": "adviseren; raden",
+      "de": "Einen Rat geben oder eine Antwort ohne sicheres Wissen vermuten."
+    },
+    "reiten": {
+      "nl": "paardrijden",
+      "de": "Sich auf dem Rücken eines Pferdes fortbewegen."
+    },
+    "riechen": {
+      "nl": "ruiken",
+      "de": "Einen Geruch mit der Nase wahrnehmen oder einen Geruch verbreiten."
+    },
+    "scheinen": {
+      "nl": "schijnen; lijken",
+      "de": "Licht ausstrahlen oder einen bestimmten Eindruck erwecken."
+    },
+    "schlafen": {
+      "nl": "slapen",
+      "de": "Sich in einem natürlichen nächtlichen Ruhezustand befinden."
+    },
+    "schließen": {
+      "nl": "sluiten",
+      "de": "Etwas zumachen oder eine Vereinbarung abschließen."
+    },
+    "schneiden": {
+      "nl": "snijden; knippen",
+      "de": "Etwas mit einem Messer oder einer Schere teilen."
+    },
+    "schreiben": {
+      "nl": "schrijven",
+      "de": "Buchstaben oder Wörter mit einem Stift oder einer Tastatur festhalten."
+    },
+    "schweigen": {
+      "nl": "zwijgen",
+      "de": "Nichts sagen und still bleiben."
+    },
+    "schwimmen": {
+      "nl": "zwemmen",
+      "de": "Sich mit Körperbewegungen im Wasser fortbewegen."
+    },
+    "sehen": {
+      "nl": "zien",
+      "de": "Etwas mit den Augen wahrnehmen."
+    },
+    "senden": {
+      "nl": "zenden; versturen",
+      "de": "Eine Nachricht, ein Paket oder ein Signal an einen Empfänger schicken."
+    },
+    "singen": {
+      "nl": "zingen",
+      "de": "Mit der Stimme eine Melodie erzeugen."
+    },
+    "sitzen": {
+      "nl": "zitten",
+      "de": "Mit dem Gesäß auf einer Fläche ruhen."
+    },
+    "sprechen": {
+      "nl": "spreken",
+      "de": "Mit der Stimme Wörter bilden und sich sprachlich äußern."
+    },
+    "springen": {
+      "nl": "springen",
+      "de": "Sich mit den Beinen vom Boden abstoßen und kurz in der Luft sein."
+    },
+    "stattfinden": {
+      "nl": "plaatsvinden",
+      "de": "Als geplante Veranstaltung durchgeführt werden."
+    },
+    "stechen": {
+      "nl": "steken; prikken",
+      "de": "Mit einer Spitze in etwas eindringen oder als Insekt die Haut verletzen."
+    },
+    "stehlen": {
+      "nl": "stelen",
+      "de": "Jemandem heimlich und unerlaubt etwas wegnehmen."
+    },
+    "steigen": {
+      "nl": "stijgen; klimmen",
+      "de": "Sich nach oben bewegen oder an Wert zunehmen."
+    },
+    "sterben": {
+      "nl": "sterven",
+      "de": "Das Leben verlieren."
+    },
+    "streiten": {
+      "nl": "ruziën; twisten",
+      "de": "Heftig über unterschiedliche Meinungen diskutieren."
+    },
+    "teilnehmen": {
+      "nl": "deelnemen",
+      "de": "Bei einer Veranstaltung oder Tätigkeit mitmachen."
+    },
+    "trinken": {
+      "nl": "drinken",
+      "de": "Flüssigkeit durch den Mund aufnehmen."
+    },
+    "tun": {
+      "nl": "doen",
+      "de": "Eine Handlung ausführen."
+    },
+    "verbieten": {
+      "nl": "verbieden",
+      "de": "Etwas ausdrücklich nicht erlauben."
+    },
+    "verbinden": {
+      "nl": "verbinden",
+      "de": "Zwei Dinge zusammenfügen oder eine Wunde mit Stoff bedecken."
+    },
+    "vergessen": {
+      "nl": "vergeten",
+      "de": "Sich an etwas nicht mehr erinnern oder nicht daran denken."
+    },
+    "vergleichen": {
+      "nl": "vergelijken",
+      "de": "Gemeinsamkeiten und Unterschiede zwischen Dingen untersuchen."
+    },
+    "verlieren": {
+      "nl": "verliezen",
+      "de": "Etwas nicht mehr haben oder in einem Wettbewerb unterliegen."
+    },
+    "vermeiden": {
+      "nl": "vermijden",
+      "de": "Dafür sorgen, dass etwas Unerwünschtes nicht passiert."
+    },
+    "verschwinden": {
+      "nl": "verdwijnen",
+      "de": "Nicht mehr sichtbar oder auffindbar sein."
+    },
+    "versprechen": {
+      "nl": "beloven",
+      "de": "Verbindlich zusagen, etwas zu tun."
+    },
+    "verstehen": {
+      "nl": "begrijpen; verstaan",
+      "de": "Den Sinn einer Aussage oder eines Zusammenhangs erfassen."
+    },
+    "verzeihen": {
+      "nl": "vergeven",
+      "de": "Jemandem einen Fehler nicht länger übelnehmen."
+    },
+    "waschen": {
+      "nl": "wassen",
+      "de": "Mit Wasser und gegebenenfalls Seife reinigen."
+    },
+    "weisen": {
+      "nl": "wijzen; aanwijzen",
+      "de": "Mit einer Bewegung eine Richtung oder einen Weg zeigen."
+    },
+    "werben": {
+      "nl": "reclame maken; werven",
+      "de": "Menschen für ein Produkt, eine Idee oder eine Tätigkeit gewinnen wollen."
+    },
+    "werden": {
+      "nl": "worden",
+      "de": "In einen neuen Zustand übergehen."
+    },
+    "wiegen": {
+      "nl": "wegen",
+      "de": "Ein bestimmtes Gewicht haben oder das Gewicht bestimmen."
+    },
+    "zwingen": {
+      "nl": "dwingen",
+      "de": "Jemanden gegen seinen Willen zu einer Handlung bringen."
     }
   },
   "sourceAnswers": {

@@ -14,7 +14,15 @@ const answer = state => verbs.find(v => v.id === state.verbId).forms.infinitive.
 test('all supplied verbs map to explicit answers; cues disambiguate duplicate translations', () => {
   assert.equal(verbs.length, 148)
   assert.equal(verbs.reduce((count,v) => count + Object.keys(v.forms).length,0),740)
-  for (const lang of ['en','es','fr']) assert.equal(new Set(verbs.map(v => v.cues[lang])).size,148)
+  for (const lang of ['en','es','fr','nl','de']) {
+    assert.ok(verbs.every(v => typeof v.cues[lang] === 'string' && v.cues[lang].trim()))
+    assert.equal(new Set(verbs.map(v => v.cues[lang])).size,148)
+    for (const mode of ['single','complete','mixed']) {
+      const state = startChallenge(verbs, { ...settings, mode, language: lang }, 0)
+      assert.equal(new Set(state.pool.map(task => task.verbId)).size,148)
+      assert.equal(state.ended,false)
+    }
+  }
   assert.deepEqual(verbs.find(v=>v.id==='ziehen').forms.perfect.alternatives,['ist gezogen'])
   assert.ok(accepts(verbs.find(v=>v.id==='senden').forms.perfect,'hat gesendet'))
   assert.ok(!accepts(verbs.find(v=>v.id==='senden').forms.perfect,'gesendet'))
@@ -98,4 +106,32 @@ test('missing forms, empty data, single-item pools, stop and restart are safe', 
   const stopped=reduceChallenge(s,{type:'end'},subset)
   assert.deepEqual(reduceChallenge(stopped,{type:'submit',turn:1,form:'infinitive'},subset),stopped)
   assert.equal(startChallenge(subset,settings,0).score,0)
+})
+
+test('complete practice reviews all fields, reveals unfinished forms, and allows skipping', () => {
+  let state = startChallenge(verbs, { ...settings, mode: 'complete' }, 0)
+  const verb = verbs.find(v => v.id === state.verbId)
+  state = reduce(state, { type: 'edit', form: 'infinitive', turn: 0, value: verb.forms.infinitive.canonical })
+  state = reduce(state, { type: 'edit', form: 'present', turn: 0, value: 'wrong' })
+  state = reduce(state, { type: 'review-all', turn: 0 })
+  assert.equal(state.fields.infinitive.status, 'correct')
+  assert.equal(state.fields.present.status, 'wrong')
+  assert.equal(state.fields.perfect.status, 'empty')
+  const correct = state.fields.infinitive
+  state = reduce(state, { type: 'reveal-all', turn: 0 })
+  assert.equal(state.fields.infinitive, correct)
+  assert.ok(finishedQuestion(state))
+  assert.equal(state.fields.present.status, 'revealed')
+  const reviewed = state
+  state = reduce(state, { type: 'reveal-all', turn: 0 })
+  assert.deepEqual(state, reviewed)
+  state = reduce(state, { type: 'next', turn: 0, random: 0 })
+  const next = state
+  assert.deepEqual(reduce(state, { type: 'review-all', turn: 0 }), next)
+  state = reduce(state, { type: 'next', turn: 1, random: 0 })
+  assert.equal(state.turn, 2)
+  assert.ok(Object.values(state.fields).every(f => f.status === 'editing'))
+  const single = startChallenge(verbs, settings, 0)
+  assert.equal(reduce(single, { type: 'next', turn: 0, random: 0 }), single)
+  assert.equal(reduce(single, { type: 'reveal-all', turn: 0 }), single)
 })
