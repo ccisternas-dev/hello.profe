@@ -30,7 +30,7 @@ Issues #13 and #14 remain separate. Their future download, update and installati
 
 ## Validation
 
-- 293 message keys in each of five catalogues, with complete keys and matching interpolation parameters.
+- 305 message keys in each of five catalogues, with complete keys and matching interpolation parameters.
 - Unit checks: browser-language detection, saved-preference priority, fallback, locale-aware numbers/plurals and source-audit rejection cases; existing study-session tests still pass.
 - The original PR's Chrome checks at 1280px and 390px covered the four languages it introduced, all nine decks and all six screens. The Spanish addition is covered by the locale-detection, catalogue-completeness, interpolation/plural and production-build checks. The original browser checks covered empty/error states, dialogs, notifications, tabs, metadata and lack of horizontal overflow.
 - Switched languages while an answer was visible and during a complete study/review round; cards, ratings and review state were preserved.

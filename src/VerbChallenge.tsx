@@ -34,23 +34,23 @@ function AnswerField({ form, field, state, dispatch, compact = false }: { compac
     pendingCaret.current = edit.caret
     dispatch({ type: 'edit', form, turn: state.turn, value: edit.value })
   }
-  return <form className="challenge-field" onSubmit={e => { e.preventDefault(); send('submit') }} aria-label={t(formLabels[form])}>
+  return <form className="challenge-field" onSubmit={e => { e.preventDefault(); compact ? dispatch({ type: 'review-all', turn: state.turn }) : send('submit') }} aria-label={t(formLabels[form])}>
     <label htmlFor={`answer-${form}`}>{t(formLabels[form])}</label>
-    <input id={`answer-${form}`} ref={input} lang="de" value={field.value} disabled={done} autoComplete="off" autoCapitalize="none" autoCorrect="off" spellCheck={false}
+    <input id={`answer-${form}`} ref={input} lang="de" value={compact && field.status === "revealed" ? answer.canonical : field.value} disabled={done} autoComplete="off" autoCapitalize="none" autoCorrect="off" spellCheck={false}
       aria-invalid={field.status === 'wrong' || field.status === 'empty'} aria-describedby={`feedback-${form}`}
       onChange={e => dispatch({ type: 'edit', form, turn: state.turn, value: e.target.value })} />
     {!done && !compact && <div className="german-keys" role="group" aria-label={t('German characters')}>
       {['ä','ö','ü','ß'].map(character => <button key={character} type="button" lang="de" aria-label={t('Insert {character}', { character })} onPointerDown={e => e.preventDefault()} onClick={() => insert(character)}>{character}</button>)}
     </div>}
     <div id={`feedback-${form}`} role="status" className="challenge-feedback">
-      {field.status === 'empty' && <p>{t('Enter an answer before checking.')}</p>}
-      {field.status === 'wrong' && <p>{t('Not yet. Try again, use a hint, or reveal the answer.')}</p>}
+      {field.status === 'empty' && <p>{compact ? t('Try this form, or choose Show answers.') : t('Enter an answer before checking.')}</p>}
+      {field.status === 'wrong' && <p>{compact ? t('Try again, or choose Show answers to learn this form.') : t('Not yet. Try again, use a hint, or reveal the answer.')}</p>}
       {field.status === 'correct' && <p>{t('Correct.')}</p>}
-      {field.status === 'revealed' && <p>{t('Answer revealed: no points.')} <span lang="de">{answer.canonical}</span></p>}
+      {field.status === 'revealed' && <p>{compact ? t('Answer:') : t('Answer revealed: no points.')} <span lang="de">{answer.canonical}</span></p>}
       {field.hints >= 1 && <p>{t('First letter: {letter}', { letter: hint.first })}</p>}
       {field.hints >= 2 && <p>{t('Length: {count} letters or digits; spaces and punctuation excluded.', { count: hint.length })}</p>}
     </div>
-    {!done && <div className="study-toolbar">
+    {!done && !compact && <div className="study-toolbar">
       <Button type="submit">{t('Check answer')}</Button>
       {!compact && field.hints < 2 && <Button variant="secondary" onClick={() => send('hint')}>{field.hints === 0 ? t('First letter hint · maximum 1 point') : t('Length hint · 0 points')}</Button>}
       {!compact && <Button variant="text" onClick={() => send('reveal')}>{t('Reveal answer · 0 points')}</Button>}
@@ -61,8 +61,7 @@ function AnswerField({ form, field, state, dispatch, compact = false }: { compac
         {['ä','ö','ü','ß'].map(character => <button key={character} type="button" lang="de" aria-label={t('Insert {character}', { character })} onPointerDown={e => e.preventDefault()} onClick={() => insert(character)}>{character}</button>)}
       </div>
       <div className="study-toolbar">
-        {field.hints < 2 && <Button variant="secondary" onClick={() => send('hint')}>{field.hints === 0 ? t('First letter hint · maximum 1 point') : t('Length hint · 0 points')}</Button>}
-        <Button variant="text" onClick={() => send('reveal')}>{t('Reveal answer · 0 points')}</Button>
+        {field.hints < 2 && <Button variant="secondary" onClick={() => send('hint')}>{field.hints === 0 ? t('First letter hint') : t('Length hint')}</Button>}
       </div>
     </details>}
   </form>
@@ -79,15 +78,15 @@ function ChallengeSession({ settings, onRestart }: { settings: Settings; onResta
     <div className="study-toolbar"><span>{t(modeLabels[settings.mode])} · {t(promptLabels[settings.language])}</span>
       {!state.ended && <Button variant="secondary" onClick={() => dispatch({ type: 'end' })}>{t('End session')}</Button>}
     </div>
-    <p className="challenge-score">{t('Score: {score} · Answers completed: {count}', { score: state.score, count: state.answered })}</p>
+    {!complete && <p className="challenge-score">{t('Score: {score} · Answers completed: {count}', { score: state.score, count: state.answered })}</p>}
     {state.ended ? <div className="practice-card study-summary" role="status">
-      <h2>{t('Challenge summary')}</h2>
+      {complete ? <><h2>{t('Practice paused')}</h2><p>{t('Take your time. You can practice these verbs again whenever you like.')}</p></> : <><h2>{t('Challenge summary')}</h2>
       <p>{t('Unaided correct: {count}', { count: state.unaided })}</p>
       <p>{t('Hinted correct: {count}', { count: state.hinted })}</p>
       <p>{t('Correct after retry: {count} (may include hints)', { count: state.retried })}</p>
       <p>{t('Revealed answers: {count}', { count: state.revealed })}</p>
-      <p>{t('Unfinished answers are not scored. Practice points do not measure mastery.')}</p>
-      <Button onClick={onRestart}>{t('Change settings and restart')}</Button>
+      <p>{t('Unfinished answers are not scored. Practice points do not measure mastery.')}</p></>}
+      <Button onClick={onRestart}>{complete ? t('Practice again') : t('Change settings and restart')}</Button>
     </div> : <div className={`practice-card ${complete ? "complete-verb-card" : ""}`}>
       {complete && <div className="verb-reference-heading"><Icon name="book" /><span>{t("Complete the Verb")}</span></div>}
       <p>{settings.language === 'de' ? t('Read the definition and enter the requested German verb form.') : t('Translate into German. Use the exact form requested.')}</p>
@@ -96,15 +95,16 @@ function ChallengeSession({ settings, onRestart }: { settings: Settings; onResta
       <div className={complete ? "complete-form-grid" : undefined}>
         {forms.filter(form => state.fields[form]).map(form => <AnswerField key={`${state.turn}:${form}`} compact={complete} form={form} field={state.fields[form]!} state={state} dispatch={dispatch} />)}
       </div>
-      <Button disabled={!finishedQuestion(state)} onClick={() => {
+      {complete && <div className="complete-review-actions">
+        <Button disabled={finishedQuestion(state)} onClick={() => dispatch({ type: 'review-all', turn: state.turn })}>{t('Review answers')}</Button>
+        <Button variant="secondary" disabled={finishedQuestion(state)} onClick={() => dispatch({ type: 'reveal-all', turn: state.turn })}>{t('Show answers')}</Button>
+      </div>}
+      <Button variant={complete ? "text" : "primary"} disabled={!complete && !finishedQuestion(state)} onClick={() => {
         dispatch({ type: 'next', turn: state.turn, random: Math.random() })
         promptHeading.current?.focus()
-      }}>{t('Next question')}</Button>
+      }}>{complete ? t('Next verb') : t('Next question')}</Button>
     </div>}
-    {complete ? <details className="complete-scoring-help"><summary>{t('Scoring & review')}</summary>
-    <p className="small-note">{t('Scoring per answer: 3 unaided, 2 after retry, 1 with a first-letter hint, 0 with length hint or reveal.')}</p>
-    <p className="small-note">{t('Missed forms return more often. Two coverage turns alternate with one review turn. Progress lasts for this session only.')}</p>
-    </details> : <>
+    {!complete && <>
     <p className="small-note">{t('Scoring per answer: 3 unaided, 2 after retry, 1 with a first-letter hint, 0 with length hint or reveal.')}</p>
     <p className="small-note">{t('Missed forms return more often. Two coverage turns alternate with one review turn. Progress lasts for this session only.')}</p>
     </>}
@@ -128,6 +128,6 @@ export default function VerbChallenge({ path = "translation" }: { path?: "transl
     {settings.mode === 'single' && <><label htmlFor="challenge-form">{t('Target form')}</label>
       <select id="challenge-form" value={settings.form} onChange={e => setSettings({ ...settings, form: e.target.value as Form })}>{forms.map(form => <option key={form} value={form}>{t(formLabels[form])}</option>)}</select></>}
     {!completeOnly && <p>{t('Choose one target form, or mix verbs and forms for a varied challenge.')}</p>}
-    <Button onClick={() => setRunning(true)}>{t('Start challenge')}</Button>
+    <Button onClick={() => setRunning(true)}>{completeOnly ? t('Start practice') : t('Start challenge')}</Button>
   </section>
 }

@@ -557,7 +557,9 @@ td:not(:first-child) { font-weight: 650; }
 @media (max-width: 480px) {
   .complete-form-grid { grid-template-columns: minmax(0, 1fr); }
 }
-.complete-form-grid .challenge-field { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 8px; align-items: start; }
-.complete-form-grid .challenge-field label, .complete-form-grid .challenge-feedback, .complete-form-grid .complete-field-help { grid-column: 1 / -1; }
-.complete-form-grid .challenge-field input { grid-column: 1; grid-row: 2; }
-.complete-form-grid .challenge-field > .study-toolbar { grid-column: 2; grid-row: 2; margin: 0; }
+/* Review applies to the whole verb; each form stays a simple input cell. */
+.complete-review-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0 4px; }
+.complete-review-actions .button { min-height: 44px; padding: 10px; }
+@media (max-width: 360px) {
+  .complete-review-actions { grid-template-columns: 1fr; }
+}
