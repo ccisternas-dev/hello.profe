@@ -1,14 +1,7 @@
 {
   "src/App.tsx": {
     "children": "React content",
-    "eyebrow": "Translated component prop",
-    "title": "Translated component prop",
-    "description": "Translated component prop",
-    "actions": "React action elements",
-    "cell": "Spanish conjugation study data",
-    "name": "CSS design token identifier",
-    "value": "CSS colour value",
-    "item": "CSS spacing token identifier"
+    "cell": "Spanish conjugation study data"
   },
   "src/StudyPractice.tsx": {
     "card.prompt": "German study content",
@@ -21,17 +14,24 @@
     "children": "React element or translated caller prop",
     "label": "React element or translated caller prop",
     "control": "React element or translated caller prop",
-    "title": "React element or translated caller prop",
-    "description": "React element or translated caller prop",
+    "title": "Translated component prop",
+    "description": "Translated component prop",
     "action": "React element or translated caller prop",
     "confirmLabel": "React element or translated caller prop",
     "hint": "React element or translated caller prop",
     "error": "React element or translated caller prop",
     "success": "React element or translated caller prop",
-    "placeholder": "Translated caller prop"
+    "placeholder": "Translated caller prop",
+    "eyebrow": "Translated component prop",
+    "actions": "React action elements"
   },
   "src/i18n.tsx": {
     "children": "React content",
     "name": "Native language name; option has its own lang attribute"
+  },
+  "src/DesignSystem.tsx": {
+    "name": "CSS design token identifier",
+    "value": "CSS colour value",
+    "item": "CSS spacing token identifier"
   }
 }

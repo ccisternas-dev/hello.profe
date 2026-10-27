@@ -439,3 +439,8 @@ td:not(:first-child) { font-weight: 650; }
   .locale-selector { font-size: 13px; }
   .page-header h1 { overflow-wrap: anywhere; }
 }
+
+/* Retained developer showcase, loaded only by the development entry point. */
+.design-showcase-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding: 24px; border-bottom: 1px solid var(--border-default); }
+.design-showcase-header nav { display: flex; flex-wrap: wrap; gap: 12px; }
+.design-showcase .page { margin: 0 auto; }
