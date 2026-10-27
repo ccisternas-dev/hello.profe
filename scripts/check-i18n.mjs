@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url"
 const root = new URL("../", import.meta.url)
 const read = (path) => JSON.parse(readFileSync(new URL(path, root), "utf8"))
 const catalogs = Object.fromEntries(
-  ["en", "fr", "nl", "de"].map((locale) => [
+  ["en", "fr", "nl", "de", "es"].map((locale) => [
     locale,
     read(`src/locales/${locale}.json`),
   ]),
@@ -149,6 +149,6 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     process.exitCode = 1
   } else
     console.log(
-      `i18n: ${Object.keys(catalogs.en).length} complete messages × 4 locales; UI string audit passed.`,
+      `i18n: ${Object.keys(catalogs.en).length} complete messages × ${Object.keys(catalogs).length} locales; UI string audit passed.`,
     )
 }

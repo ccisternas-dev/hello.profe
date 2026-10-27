@@ -6,8 +6,8 @@ import { auditSource, checkCatalogs } from "./check-i18n.mjs"
 
 test("locale choice prioritizes a valid saved preference, then supported browser language, then English", () => {
   assert.equal(detectLocale("nl", ["fr-BE"]), "nl")
-  assert.equal(detectLocale(null, ["es-ES", "de-DE", "fr"]), "de")
-  assert.equal(detectLocale("bad-json", ["fr-BE"]), "fr")
+  assert.equal(detectLocale(null, ["es-ES", "de-DE", "fr"]), "es")
+  assert.equal(detectLocale("bad-json", ["es-MX"]), "es")
   assert.equal(detectLocale(null, ["nl-BE"]), "nl")
   assert.equal(detectLocale(undefined, ["pt-BR"]), "en")
   assert.equal(detectLocale(null, []), "en")
@@ -17,7 +17,7 @@ test(
   checkCatalogs,
 )
 test("numeric interpolation and plural rules follow each locale, including French zero", () => {
-  for (const locale of ["en", "fr", "nl", "de"]) {
+  for (const locale of ["en", "fr", "nl", "de", "es"]) {
     assert.equal(
       formatMessage(locale, "{count} / {total}", { count: 1000, total: 2000 }),
       `${new Intl.NumberFormat(locale).format(1000)} / ${new Intl.NumberFormat(locale).format(2000)}`,

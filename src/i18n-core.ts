@@ -1,4 +1,4 @@
-export const locales = ["en", "fr", "nl", "de"] as const
+export const locales = ["en", "fr", "nl", "de", "es"] as const
 export type Locale = typeof locales[number]
 export type Values = Record<string, string | number>
 export const localeStorageKey = "hello-profe-ui-locale"

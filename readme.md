@@ -6,7 +6,7 @@ Reveal answers, navigate, shuffle, mark Again/Remembered, and repeat the Again q
 
 ## Interface languages
 
-Use the language selector for English, French, Dutch or German. The choice is remembered on this device, and switching languages preserves the active study session. Learning content retains its original language. See [internationalization](docs/internationalization.md) for translation maintenance and checks.
+Use the language selector for English, French, Dutch, German or Spanish. The choice is remembered on this device, and switching languages preserves the active study session. Learning content retains its original language. See [internationalization](docs/internationalization.md) for translation maintenance and checks.
 
 ## Run and verify
 
@@ -127,7 +127,7 @@ The translation provider and data pipeline remain open decisions until feasibili
 
 ## Scope boundaries
 
-The initial release excludes document uploads, OCR, speech recognition, native Android/macOS packages, accounts, automatic cloud sync, complete tense coverage and advanced spaced repetition. The interface will initially use English; translation-language support is separate from interface localisation.
+The initial release excludes document uploads, OCR, speech recognition, native Android/macOS packages, accounts, automatic cloud sync, complete tense coverage and advanced spaced repetition. The interface supports English, French, Dutch, German and Spanish; translation-language support is separate from interface localisation.
 
 ## Roadmap
 
