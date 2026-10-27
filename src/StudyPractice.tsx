@@ -1,3 +1,4 @@
+import VerbChallenge from "./VerbChallenge"
 import { useI18n, type MessageKey } from "./i18n"
 import { useReducer, useState } from "react"
 import { Button, Badge, Progress } from "./components"
@@ -282,6 +283,7 @@ function DeckSession({ deck }: { deck: Deck }) {
 export default function StudyPractice() {
   const { t, plural } = useI18n()
 
+  const [mode, setMode] = useState("challenge")
   const [deckId, setDeckId] = useState(decks[0]?.id)
   const deck = decks.find((d) => d.id === deckId)
   return (
@@ -292,11 +294,18 @@ export default function StudyPractice() {
           <h1>{t("A little practice, every day.")}</h1>
           <p>
             {t(
-              "Choose a deck, recall the answer, and revisit what needs practice.",
+              "Choose a learning mode: verb translation challenges or flashcards.",
             )}
           </p>
         </div>
       </div>
+      <label className="study-deck-label" htmlFor="learning-mode">{t("Learning mode")}</label>
+      <select id="learning-mode" className="study-deck-select" value={mode} onChange={e => setMode(e.target.value)}>
+        <option value="challenge">{t("1. Translation challenge (verbs)")}</option>
+        <option value="flashcards">{t("2. Flashcards")}</option>
+      </select>
+      <p className="small-note">{t("Changing learning mode or leaving this screen resets the current session.")}</p>
+      {mode === "challenge" ? <VerbChallenge /> : <>
       <label className="study-deck-label" htmlFor="study-deck">
         {t("Study deck")}
       </label>
@@ -322,6 +331,7 @@ export default function StudyPractice() {
       ) : (
         <p>{t("No study decks available.")}</p>
       )}
+      </>}
     </main>
   )
 }

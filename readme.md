@@ -1,8 +1,10 @@
 # German study release
 
-The working practice screen uses **917 cards in nine decks** from the supplied B2 Excel workbooks: 592 verb-form cards, 140 health cards, 101 friendship cards, 28 temporal connector cards and 56 exercises across five exercise decks. It opens without saving a notebook word.
+The default learning mode is a **verb translation challenge**: single-form, complete-the-verb and mixed variations for 148 verbs and 740 supplied form targets. Type German answers to English, Spanish or French prompts, retry mistakes, use hints and review missed forms. No translation API is used. See [challenge rules and validation](docs/verb-challenges.md).
 
-Reveal answers, navigate, shuffle, mark Again/Remembered, and repeat the Again queue. Results are self-assessments. Progress is session-only; leaving Practice or reloading resets it. Translation, exploration and notebook screens remain labelled interface prototypes. Offline support, accounts, saved progress and automatic spaced repetition are not implemented.
+The second learning mode, **Flashcards**, uses **917 cards in nine decks** from the supplied B2 Excel workbooks: 592 verb-form cards, 140 health cards, 101 friendship cards, 28 temporal connector cards and 56 exercises across five exercise decks. It opens without saving a notebook word.
+
+Reveal answers, navigate, shuffle, mark Again/Remembered, and repeat the Again queue. Flashcard results are self-assessments; challenge answers use explicit accepted forms. Progress is session-only; leaving Practice or reloading resets it. Translation, exploration and notebook screens remain labelled interface prototypes. Offline support, accounts, saved progress and automatic spaced repetition are not implemented.
 
 ## Interface languages
 
