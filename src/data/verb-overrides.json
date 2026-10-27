@@ -1,0 +1,209 @@
+{
+  "answers": {
+    "backen:present": [
+      "bäckt",
+      "backt"
+    ],
+    "senden:preterite": [
+      "sandte",
+      "sendete"
+    ],
+    "senden:perfect": [
+      "hat gesandt",
+      "hat gesendet"
+    ],
+    "senden:participle": [
+      "gesandt",
+      "gesendet"
+    ],
+    "ziehen:perfect": [
+      "hat gezogen",
+      "ist gezogen"
+    ]
+  },
+  "cues": {
+    "anbieten": {
+      "es": "ofrecer (verbo separable con an-)",
+      "en": "to offer (target verb begins with a…)",
+      "fr": "proposer (le verbe demandé commence par a…)"
+    },
+    "bieten": {
+      "es": "ofrecer (sin prefijo)",
+      "en": "to offer, to provide (target verb begins with b…)"
+    },
+    "anfangen": {
+      "fr": "commencer (verbe séparable avec an-)",
+      "en": "to begin, to start (target verb begins with a…)"
+    },
+    "beginnen": {
+      "fr": "commencer (verbe avec be-)",
+      "en": "to begin (target verb begins with b…)"
+    },
+    "bringen": {
+      "fr": "apporter (sans mit-)",
+      "es": "traer; llevar (el verbo solicitado empieza por b…)"
+    },
+    "mitbringen": {
+      "fr": "apporter avec soi (verbe avec mit-)"
+    },
+    "bekommen": {
+      "en": "to get, to receive (target verb begins with b…)",
+      "es": "recibir; conseguir (el verbo solicitado empieza por b…)",
+      "fr": "recevoir; obtenir (le verbe demandé commence par b…)"
+    },
+    "entscheiden": {
+      "en": "to decide (target verb begins with e…)"
+    },
+    "sich entschließen": {
+      "en": "to decide, to resolve (target verb begins with s…)"
+    },
+    "erhalten": {
+      "en": "to receive; to preserve (target verb begins with e…)",
+      "es": "recibir; conservar (el verbo solicitado empieza por e…)",
+      "fr": "recevoir; conserver (le verbe demandé commence par e…)"
+    },
+    "fahren": {
+      "en": "to drive; to go (by vehicle) (target verb begins with f…)"
+    },
+    "fallen": {
+      "en": "to fall (target verb begins with f…)"
+    },
+    "gefallen": {
+      "en": "to please, to like (target verb begins with g…)",
+      "es": "gustar (el verbo solicitado empieza por g…)"
+    },
+    "gehen": {
+      "en": "to go, to walk (target verb begins with g…)"
+    },
+    "lassen": {
+      "en": "to let; to leave (target verb begins with l…)",
+      "es": "dejar (el verbo solicitado empieza por l…)"
+    },
+    "laufen": {
+      "en": "to run; to walk (target verb begins with l…)",
+      "es": "correr; caminar (el verbo solicitado empieza por l…)",
+      "fr": "courir; marcher (le verbe demandé commence par l…)"
+    },
+    "mögen": {
+      "en": "to like (target verb begins with m…)",
+      "es": "gustar; querer (el verbo solicitado empieza por m…)"
+    },
+    "nennen": {
+      "en": "to name, to call (target verb begins with n…)",
+      "es": "nombrar; llamar (el verbo solicitado empieza por n…)"
+    },
+    "rennen": {
+      "en": "to run, to race (target verb begins with r…)",
+      "es": "correr (el verbo solicitado empieza por r…)",
+      "fr": "courir (le verbe demandé commence par r…)"
+    },
+    "rufen": {
+      "en": "to call, to shout (target verb begins with r…)",
+      "es": "llamar; gritar (el verbo solicitado empieza por r…)",
+      "fr": "appeler; crier (le verbe demandé commence par r…)"
+    },
+    "schieben": {
+      "en": "to push, to shove (target verb begins with sc…)",
+      "es": "empujar (el verbo solicitado empieza por sc…)",
+      "fr": "pousser (le verbe demandé commence par sc…)"
+    },
+    "schlagen": {
+      "en": "to hit, to beat (target verb begins with s…)"
+    },
+    "schreien": {
+      "en": "to scream, to shout (target verb begins with s…)",
+      "es": "gritar (el verbo solicitado empieza por s…)",
+      "fr": "crier (le verbe demandé commence par s…)"
+    },
+    "sinken": {
+      "en": "to sink; to fall (target verb begins with s…)",
+      "fr": "couler; baisser (le verbe demandé commence par s…)"
+    },
+    "stoßen": {
+      "en": "to push; to bump (target verb begins with st…)",
+      "es": "empujar; chocar (el verbo solicitado empieza por st…)",
+      "fr": "pousser; heurter (le verbe demandé commence par st…)"
+    },
+    "treffen": {
+      "en": "to meet; to hit (target verb begins with t…)",
+      "es": "encontrar; acertar (el verbo solicitado empieza por t…)"
+    },
+    "treiben": {
+      "en": "to do (sports); to drive (target verb begins with t…)",
+      "fr": "pratiquer (un sport); pousser (le verbe demandé commence par t…)"
+    },
+    "verlassen": {
+      "en": "to leave; to abandon (target verb begins with v…)",
+      "es": "abandonar; dejar (el verbo solicitado empieza por v…)"
+    },
+    "finden": {
+      "es": "encontrar (el verbo solicitado empieza por f…)"
+    },
+    "können": {
+      "es": "poder; saber (el verbo solicitado empieza por k…)",
+      "fr": "pouvoir; savoir (le verbe demandé commence par k…)"
+    },
+    "müssen": {
+      "es": "deber; tener que (el verbo solicitado empieza por m…)",
+      "fr": "devoir; falloir (le verbe demandé commence par m…)"
+    },
+    "sein": {
+      "es": "ser; estar (el verbo solicitado empieza por se…)"
+    },
+    "sollen": {
+      "es": "deber (el verbo solicitado empieza por s…)",
+      "fr": "devoir (le verbe demandé commence par s…)"
+    },
+    "stehen": {
+      "es": "estar de pie; estar (el verbo solicitado empieza por st…)"
+    },
+    "tragen": {
+      "es": "llevar (el verbo solicitado empieza por t…)"
+    },
+    "werfen": {
+      "es": "lanzar; tirar (el verbo solicitado empieza por w…)"
+    },
+    "wissen": {
+      "es": "saber (el verbo solicitado empieza por w…)",
+      "fr": "savoir (le verbe demandé commence par w…)"
+    },
+    "wollen": {
+      "es": "querer (el verbo solicitado empieza por w…)"
+    },
+    "ziehen": {
+      "es": "tirar; mudarse (el verbo solicitado empieza por z…)",
+      "fr": "tirer; déménager (le verbe demandé commence par z…)"
+    },
+    "bestehen": {
+      "fr": "réussir; exister (le verbe demandé commence par b…)"
+    },
+    "entstehen": {
+      "fr": "naître; apparaître (le verbe demandé commence par en…)"
+    },
+    "erscheinen": {
+      "fr": "apparaître; paraître (le verbe demandé commence par er…)"
+    },
+    "fließen": {
+      "fr": "couler (le verbe demandé commence par f…)"
+    },
+    "gelingen": {
+      "fr": "réussir (le verbe demandé commence par g…)"
+    },
+    "schießen": {
+      "fr": "tirer (le verbe demandé commence par s…)"
+    },
+    "vorschlagen": {
+      "fr": "proposer; suggérer (le verbe demandé commence par v…)"
+    },
+    "wachsen": {
+      "fr": "grandir; pousser (le verbe demandé commence par w…)"
+    }
+  },
+  "sourceAnswers": {
+    "backen:present": "bäckt / backt",
+    "senden:preterite": "sandte / sendete",
+    "senden:perfect": "hat gesandt / gesendet",
+    "senden:participle": "gesandt / gesendet",
+    "ziehen:perfect": "hat / ist gezogen"
+  }
+}

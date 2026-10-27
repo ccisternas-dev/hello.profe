@@ -33,5 +33,10 @@
     "name": "CSS design token identifier",
     "value": "CSS colour value",
     "item": "CSS spacing token identifier"
+  },
+  "src/VerbChallenge.tsx": {
+    "character": "German character input data",
+    "answer.canonical": "German learning answer",
+    "verb.cues[settings.language]": "Learning prompt in the selected source language"
   }
 }
