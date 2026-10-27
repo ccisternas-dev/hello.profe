@@ -11,10 +11,12 @@ import {
   type ReactNode,
 } from "react"
 
-export type IconName = "arrow" | "audio" | "back" | "book" | "bookmark" | "check" | "chevronDown" | "chevronRight" | "chevronUp" | "close" | "copy" | "edit" | "export" | "grid" | "history" | "import" | "info" | "more" | "palette" | "practice" | "retry" | "search" | "settings" | "spark" | "swap" | "translate" | "trash" | "warning"
+export type IconName = "forms" | "cards" | "arrow" | "audio" | "back" | "book" | "bookmark" | "check" | "chevronDown" | "chevronRight" | "chevronUp" | "close" | "copy" | "edit" | "export" | "grid" | "history" | "import" | "info" | "more" | "palette" | "practice" | "retry" | "search" | "settings" | "spark" | "swap" | "translate" | "trash" | "warning"
 
 export function Icon({ name }: { name: IconName }) {
   const paths: Record<IconName, ReactNode> = {
+    forms: <><path d="M3 5h7m4 0h7M3 12h3m4 0h11M3 19h11m4 0h3M10 2v6M6 9v6M14 16v6" /></>,
+    cards: <><rect x="8" y="3" width="11" height="16" rx="2" transform="rotate(-15 13.5 11)" /><path d="M5 8 3 9a2 2 0 0 0-1 2l3 10M11 7v4" /></>,
     arrow: (
       <>
         <path d="M5 12h14M14 6l6 6-6 6" />

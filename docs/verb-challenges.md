@@ -1,6 +1,6 @@
 # Verb translation challenges
 
-Implements issue #20 for verbs only. The default learning mode is Translation challenge; Flashcards remains mode two with all nine decks. Vocabulary and temporal-connector translation challenges are not part of this change.
+Implements issue #20 for verbs only. The learning dashboard opens with Translation Challenge (single-form or mixed), Complete the Verb (all five supplied forms), and Flashcards (all nine decks). Vocabulary and temporal-connector translation challenges are not part of this change.
 
 ## Modes and content
 
@@ -36,7 +36,7 @@ Statistics are keyed by verb ID and exact target form. Wrong attempts add one re
 
 Two turns select among least-seen eligible forms; every third turn prioritizes the highest outstanding review priority, falling back to coverage if no review is needed. Ties are randomized. The immediately previous exact task is avoided when another exists. Complete mode avoids the immediately previous verb when possible and updates all five form statistics individually. Single-item pools still work. This balances coverage with revisiting difficulties; it is session-based practice prioritization, not a validated spaced-repetition algorithm.
 
-UI language changes preserve settings, typed answers and scores. Changing learning mode or leaving the screen discards the current session, as stated beside the mode selector. End session shows a summary; Change settings and restart returns to setup and clears the old session. Saved progress, downloaded deck updates and offline reopening remain #11, #13 and #14 respectively. Those features should version the source dataset and its explicit answer/cue overrides together.
+UI language changes preserve settings, typed answers and scores. Returning to the dashboard or leaving the screen discards the current session, as stated beside the back button. End session shows a summary; Change settings and restart returns to setup and clears the old session. Saved progress, downloaded deck updates and offline reopening remain #11, #13 and #14 respectively. Those features should version the source dataset and its explicit answer/cue overrides together.
 
 ## Validation
 

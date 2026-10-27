@@ -260,5 +260,22 @@
   "Learning mode": "Lernmodus",
   "1. Translation challenge (verbs)": "1. Übersetzungsaufgaben (Verben)",
   "2. Flashcards": "2. Lernkarten",
-  "Changing learning mode or leaving this screen resets the current session.": "Ein Wechsel des Lernmodus oder Verlassen dieses Bildschirms setzt die Sitzung zurück."
+  "Changing learning mode or leaving this screen resets the current session.": "Ein Wechsel des Lernmodus oder Verlassen dieses Bildschirms setzt die Sitzung zurück.",
+  "Translation Challenge": "Übersetzungsaufgaben",
+  "Complete the Verb": "Verb vervollständigen",
+  "Flashcards": "Lernkarten",
+  "See the meaning, recall the German form. Type the answer.": "Lies die Bedeutung, erinnere dich an die deutsche Form und gib die Antwort ein.",
+  "Recommended": "Empfohlen",
+  "Fill in the supplied German verb forms, one field at a time.": "Ergänze die bereitgestellten deutschen Verbformen, ein Feld nach dem anderen.",
+  "Build forms": "Formen bilden",
+  "Reveal and rate your recall, then revisit your Again cards.": "Zeige die Antwort, bewerte deine Erinnerung und wiederhole die Karten mit „Noch einmal“.",
+  "Quick review": "Schnelle Wiederholung",
+  "Learning Modes": "Lernmodi",
+  "{count} distinct paths": "{count} verschiedene Lernwege",
+  "Your learning dashboard": "Deine Lernübersicht",
+  "Choose a path and practice at your own pace.": "Wähle einen Lernweg und übe in deinem Tempo.",
+  "Back to learning modes": "Zurück zu den Lernmodi",
+  "Returning to learning modes or leaving this screen resets the current session.": "Die Rückkehr zu den Lernmodi oder das Verlassen dieses Bildschirms setzt die Sitzung zurück.",
+  "Choose one target form, or mix verbs and forms for a varied challenge.": "Wähle eine Zielform oder mische Verben und Formen für abwechslungsreiche Aufgaben.",
+  "Choose the prompt language, then complete each supplied form.": "Wähle die Aufgabensprache und ergänze dann jede bereitgestellte Form."
 }

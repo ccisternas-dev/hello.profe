@@ -458,3 +458,34 @@ td:not(:first-child) { font-weight: 650; }
 .challenge-feedback { overflow-wrap: anywhere; }
 .challenge-cue { font-size: clamp(24px, 4vw, 32px); line-height: 1.3; font-weight: 600; margin: 16px 0; }
 .challenge-settings h2 { font-size: 24px; font-weight: 600; }
+
+/* Learning dashboard: three distinct entry points. */
+.learning-modes { background: #effbf7; padding: 18px; border-radius: var(--radius-lg); }
+.learning-modes-header { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin: 0 4px 14px; }
+.learning-modes-header h2 { margin: 0; font-size: 24px; line-height: 1.3; font-weight: 650; }
+.learning-modes-header > span { font-size: 14px; color: var(--text-secondary); }
+.learning-mode-list { display: grid; gap: 10px; }
+.learning-mode-card { display: grid; grid-template-columns: 50px minmax(0, 1fr) auto; align-items: center; gap: 12px; width: 100%; min-height: 88px; padding: 14px; text-align: left; background: var(--surface-raised); border: 1px solid transparent; border-radius: 16px; box-shadow: 0 2px 2px rgba(18, 92, 85, .04); cursor: pointer; transition: border-color var(--motion-fast), box-shadow var(--motion-fast); }
+.learning-mode-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-1); }
+.learning-mode-icon { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 10px; background: var(--surface-selected); color: var(--action-primary); }
+.learning-mode-icon .icon { width: 26px; height: 26px; }
+.learning-mode-copy { min-width: 0; }
+.learning-mode-title-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 4px; }
+.learning-mode-title { font-size: 20px; font-weight: 650; line-height: 1.3; }
+.learning-mode-description { display: block; color: var(--text-secondary); line-height: 1.5; overflow-wrap: anywhere; }
+.learning-mode-tag { padding: 4px 8px; border-radius: 4px; background: var(--surface-selected); color: var(--text-secondary); font-size: 13px; }
+.learning-mode-card--complete .learning-mode-tag { color: var(--action-primary); }
+.learning-mode-recommended { align-self: start; margin-top: 4px; border-radius: 999px; padding: 3px 11px; background: #ffdcaf; color: #684900; font-size: 13px; font-weight: 650; }
+.learning-mode-chevron { color: var(--text-secondary); }
+.learning-path-toolbar { margin-bottom: 20px; }
+.learning-path-toolbar .small-note { margin: 8px 0; }
+@media (max-width: 600px) {
+  .learning-modes { padding: 12px; }
+  .learning-modes-header { align-items: flex-start; flex-wrap: wrap; gap: 4px; }
+  .learning-modes-header h2 { font-size: 22px; }
+  .learning-mode-card { grid-template-columns: 40px minmax(0, 1fr) 18px; gap: 10px; padding: 12px; }
+  .learning-mode-icon { width: 40px; height: 44px; }
+  .learning-mode-title { font-size: 18px; overflow-wrap: anywhere; }
+  .learning-mode-description { font-size: 15px; }
+  .learning-mode-recommended { grid-column: 2 / -1; grid-row: 2; justify-self: start; margin: 0; }
+}

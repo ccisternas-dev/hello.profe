@@ -92,25 +92,26 @@ function ChallengeSession({ settings, onRestart }: { settings: Settings; onResta
   </section>
 }
 
-export default function VerbChallenge() {
+export default function VerbChallenge({ path = "translation" }: { path?: "translation" | "complete" }) {
   const { t } = useI18n()
-  const [settings, setSettings] = useState<Settings>(initialSettings)
+  const completeOnly = path === "complete"
+  const [settings, setSettings] = useState<Settings>({ ...initialSettings, mode: completeOnly ? "complete" : "single" })
   const [running, setRunning] = useState(false)
   if (running) return <ChallengeSession settings={settings} onRestart={() => setRunning(false)} />
   return <section className="practice-card challenge-settings">
-    <h2>{t('Verb translation challenge')}</h2>
-    <p>{t('Choose a variation and prompt language. Only supplied German verb forms are included.')}</p>
-    <label htmlFor="challenge-variation">{t('Challenge variation')}</label>
+    <h2>{completeOnly ? t('Complete the Verb') : t('Translation Challenge')}</h2>
+    <p>{completeOnly ? t('Choose the prompt language, then complete each supplied form.') : t('Choose a variation and prompt language. Only supplied German verb forms are included.')}</p>
+    {!completeOnly && <><label htmlFor="challenge-variation">{t('Challenge variation')}</label>
     <select id="challenge-variation" value={settings.mode} onChange={e => setSettings({ ...settings, mode: e.target.value as Settings['mode'] })}>
-      {(['single','complete','mixed'] as const).map(mode => <option key={mode} value={mode}>{t(modeLabels[mode])}</option>)}
-    </select>
+      {(['single','mixed'] as const).map(mode => <option key={mode} value={mode}>{t(modeLabels[mode])}</option>)}
+    </select></>}
     {settings.mode === 'single' && <><label htmlFor="challenge-form">{t('Target form')}</label>
       <select id="challenge-form" value={settings.form} onChange={e => setSettings({ ...settings, form: e.target.value as Form })}>{forms.map(form => <option key={form} value={form}>{t(formLabels[form])}</option>)}</select></>}
     <label htmlFor="challenge-language">{t('Prompt language')}</label>
     <select id="challenge-language" value={settings.language} onChange={e => setSettings({ ...settings, language: e.target.value as Settings['language'] })}>
       {(['en','es','fr'] as const).map(language => <option key={language} value={language}>{t(promptLabels[language])}</option>)}
     </select>
-    <p>{t('Single-form repeats one target form. Complete the verb checks each supplied form separately. Mixed challenge varies verbs and forms.')}</p>
+    <p>{completeOnly ? t('Fill in the supplied German verb forms, one field at a time.') : t('Choose one target form, or mix verbs and forms for a varied challenge.')}</p>
     <Button onClick={() => setRunning(true)}>{t('Start challenge')}</Button>
   </section>
 }
