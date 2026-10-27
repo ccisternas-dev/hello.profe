@@ -260,5 +260,22 @@
   "Learning mode": "Modo de aprendizaje",
   "1. Translation challenge (verbs)": "1. Desafío de traducción (verbos)",
   "2. Flashcards": "2. Tarjetas de estudio",
-  "Changing learning mode or leaving this screen resets the current session.": "Cambiar de modo o salir de esta pantalla reinicia la sesión actual."
+  "Changing learning mode or leaving this screen resets the current session.": "Cambiar de modo o salir de esta pantalla reinicia la sesión actual.",
+  "Translation Challenge": "Desafío de traducción",
+  "Complete the Verb": "Completar el verbo",
+  "Flashcards": "Tarjetas de estudio",
+  "See the meaning, recall the German form. Type the answer.": "Lee el significado, recuerda la forma alemana y escribe la respuesta.",
+  "Recommended": "Recomendado",
+  "Fill in the supplied German verb forms, one field at a time.": "Completa las formas verbales alemanas suministradas, un campo a la vez.",
+  "Build forms": "Construir formas",
+  "Reveal and rate your recall, then revisit your Again cards.": "Muestra la respuesta, evalúa tu recuerdo y repasa las tarjetas marcadas « Otra vez ».",
+  "Quick review": "Repaso rápido",
+  "Learning Modes": "Modos de aprendizaje",
+  "{count} distinct paths": "{count} caminos distintos",
+  "Your learning dashboard": "Tu panel de aprendizaje",
+  "Choose a path and practice at your own pace.": "Elige un camino y practica a tu ritmo.",
+  "Back to learning modes": "Volver a los modos de aprendizaje",
+  "Returning to learning modes or leaving this screen resets the current session.": "Volver a los modos de aprendizaje o salir de esta pantalla reinicia la sesión actual.",
+  "Choose one target form, or mix verbs and forms for a varied challenge.": "Elige una forma o mezcla verbos y formas para variar el desafío.",
+  "Choose the prompt language, then complete each supplied form.": "Elige el idioma de las preguntas y completa cada forma suministrada."
 }

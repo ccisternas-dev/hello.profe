@@ -260,5 +260,22 @@
   "Learning mode": "Learning mode",
   "1. Translation challenge (verbs)": "1. Translation challenge (verbs)",
   "2. Flashcards": "2. Flashcards",
-  "Changing learning mode or leaving this screen resets the current session.": "Changing learning mode or leaving this screen resets the current session."
+  "Changing learning mode or leaving this screen resets the current session.": "Changing learning mode or leaving this screen resets the current session.",
+  "Translation Challenge": "Translation Challenge",
+  "Complete the Verb": "Complete the Verb",
+  "Flashcards": "Flashcards",
+  "See the meaning, recall the German form. Type the answer.": "See the meaning, recall the German form. Type the answer.",
+  "Recommended": "Recommended",
+  "Fill in the supplied German verb forms, one field at a time.": "Fill in the supplied German verb forms, one field at a time.",
+  "Build forms": "Build forms",
+  "Reveal and rate your recall, then revisit your Again cards.": "Reveal and rate your recall, then revisit your Again cards.",
+  "Quick review": "Quick review",
+  "Learning Modes": "Learning Modes",
+  "{count} distinct paths": "{count} distinct paths",
+  "Your learning dashboard": "Your learning dashboard",
+  "Choose a path and practice at your own pace.": "Choose a path and practice at your own pace.",
+  "Back to learning modes": "Back to learning modes",
+  "Returning to learning modes or leaving this screen resets the current session.": "Returning to learning modes or leaving this screen resets the current session.",
+  "Choose one target form, or mix verbs and forms for a varied challenge.": "Choose one target form, or mix verbs and forms for a varied challenge.",
+  "Choose the prompt language, then complete each supplied form.": "Choose the prompt language, then complete each supplied form."
 }

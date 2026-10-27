@@ -1,6 +1,7 @@
 import VerbChallenge from "./VerbChallenge"
+import LearningDashboard, { learningPathTitles, type LearningPath } from "./LearningDashboard"
 import { useI18n, type MessageKey } from "./i18n"
-import { useReducer, useState } from "react"
+import { useEffect, useRef, useReducer, useState } from "react"
 import { Button, Badge, Progress } from "./components"
 import data from "./data/study-decks.json"
 import { sessionReducer, shuffle, startSession } from "./study-session"
@@ -283,7 +284,12 @@ function DeckSession({ deck }: { deck: Deck }) {
 export default function StudyPractice() {
   const { t, plural } = useI18n()
 
-  const [mode, setMode] = useState("challenge")
+  const [mode, setMode] = useState<LearningPath | null>(null)
+  const firstRender = useRef(true)
+  useEffect(() => {
+    if (firstRender.current) { firstRender.current = false; return }
+    document.getElementById(mode ? "learning-content" : "learning-modes-title")?.focus()
+  }, [mode])
   const [deckId, setDeckId] = useState(decks[0]?.id)
   const deck = decks.find((d) => d.id === deckId)
   return (
@@ -291,21 +297,21 @@ export default function StudyPractice() {
       <div className="page-header">
         <div>
           <span className="eyebrow">{t("German · B2")}</span>
-          <h1>{t("A little practice, every day.")}</h1>
+          <h1>{t("Your learning dashboard")}</h1>
           <p>
             {t(
-              "Choose a learning mode: verb translation challenges or flashcards.",
+              "Choose a path and practice at your own pace.",
             )}
           </p>
         </div>
       </div>
-      <label className="study-deck-label" htmlFor="learning-mode">{t("Learning mode")}</label>
-      <select id="learning-mode" className="study-deck-select" value={mode} onChange={e => setMode(e.target.value)}>
-        <option value="challenge">{t("1. Translation challenge (verbs)")}</option>
-        <option value="flashcards">{t("2. Flashcards")}</option>
-      </select>
-      <p className="small-note">{t("Changing learning mode or leaving this screen resets the current session.")}</p>
-      {mode === "challenge" ? <VerbChallenge /> : <>
+      {mode === null ? <LearningDashboard onSelect={setMode} /> : <>
+        <div className="learning-path-toolbar">
+          <Button variant="text" icon="back" onClick={() => setMode(null)}>{t("Back to learning modes")}</Button>
+          <p className="small-note">{t("Returning to learning modes or leaving this screen resets the current session.")}</p>
+        </div>
+        <section id="learning-content" tabIndex={-1} aria-label={t(learningPathTitles[mode])}>
+          {mode !== "flashcards" ? <VerbChallenge key={mode} path={mode === "complete" ? "complete" : "translation"} /> : <>
       <label className="study-deck-label" htmlFor="study-deck">
         {t("Study deck")}
       </label>
@@ -331,6 +337,8 @@ export default function StudyPractice() {
       ) : (
         <p>{t("No study decks available.")}</p>
       )}
+          </>}
+        </section>
       </>}
     </main>
   )
