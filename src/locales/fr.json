@@ -286,5 +286,9 @@
   "Verb cards": "Fiches de verbes",
   "Previous card": "Fiche précédente",
   "Next card": "Fiche suivante",
-  "Verb {current} of {total}": "Verbe {current} sur {total}"
+  "Verb {current} of {total}": "Verbe {current} sur {total}",
+  "Settings": "Paramètres",
+  "Leaving this screen resets the current card position.": "Quitter cet écran réinitialise la position de la fiche actuelle.",
+  "Choose the language used throughout the website.": "Choisissez la langue utilisée sur tout le site.",
+  "Your language preference is saved in this browser when storage is available.": "Votre préférence de langue est enregistrée dans ce navigateur si le stockage est disponible."
 }

@@ -5,7 +5,7 @@ import VerbChallenge from "./VerbChallenge"
 import VerbFlashcards from "./VerbFlashcards"
 import LearningDashboard, { learningPathTitles, type LearningPath } from "./LearningDashboard"
 
-export default function StudyPractice() {
+export default function StudyPractice({ onFlashcards }: { onFlashcards: () => void }) {
   const { t } = useI18n()
 
   const [mode, setMode] = useState<LearningPath | null>(null)
@@ -27,7 +27,7 @@ export default function StudyPractice() {
           </p>
         </div>
       </div>
-      {mode === null ? <LearningDashboard onSelect={setMode} /> : <>
+      {mode === null ? <LearningDashboard onSelect={path => path === "flashcards" ? onFlashcards() : setMode(path)} /> : <>
         <div className="learning-path-toolbar">
           <Button variant="text" icon="back" onClick={() => setMode(null)}>{t("Back to learning modes")}</Button>
           {mode !== "flashcards" && <p className="small-note">{t("Returning to learning modes or leaving this screen resets the current session.")}</p>}
