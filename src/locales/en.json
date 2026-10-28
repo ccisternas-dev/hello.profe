@@ -286,5 +286,9 @@
   "Verb cards": "Verb cards",
   "Previous card": "Previous card",
   "Next card": "Next card",
-  "Verb {current} of {total}": "Verb {current} of {total}"
+  "Verb {current} of {total}": "Verb {current} of {total}",
+  "Settings": "Settings",
+  "Leaving this screen resets the current card position.": "Leaving this screen resets the current card position.",
+  "Choose the language used throughout the website.": "Choose the language used throughout the website.",
+  "Your language preference is saved in this browser when storage is available.": "Your language preference is saved in this browser when storage is available."
 }

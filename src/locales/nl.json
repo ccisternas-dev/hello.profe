@@ -286,5 +286,9 @@
   "Verb cards": "Werkwoordkaarten",
   "Previous card": "Vorige kaart",
   "Next card": "Volgende kaart",
-  "Verb {current} of {total}": "Werkwoord {current} van {total}"
+  "Verb {current} of {total}": "Werkwoord {current} van {total}",
+  "Settings": "Instellingen",
+  "Leaving this screen resets the current card position.": "Als je dit scherm verlaat, wordt de huidige kaartpositie gereset.",
+  "Choose the language used throughout the website.": "Kies de taal die op de hele website wordt gebruikt.",
+  "Your language preference is saved in this browser when storage is available.": "Je taalvoorkeur wordt in deze browser opgeslagen als opslag beschikbaar is."
 }

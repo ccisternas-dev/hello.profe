@@ -1,5 +1,6 @@
 import { useI18n, LocaleSelector, type MessageKey } from "./i18n"
 import StudyPractice from "./StudyPractice"
+import VerbFlashcards from "./VerbFlashcards"
 import { useEffect, useRef, useState } from "react"
 import {
   Alert,
@@ -19,7 +20,7 @@ import {
   Toast,
 } from "./components"
 
-type View = "translate" | "explore" | "notebook" | "practice"
+type View = "translate" | "explore" | "notebook" | "practice" | "flashcards" | "settings"
 
 const languages: MessageKey[] = [
   "English",
@@ -57,12 +58,33 @@ function AppShell({
   const primaryNav: {
     id: View
     label: MessageKey
-    icon: "translate" | "book" | "practice"
+    icon: "translate" | "book" | "practice" | "cards" | "settings"
   }[] = [
     { id: "translate", label: "Translate", icon: "translate" },
     { id: "notebook", label: "Notebook", icon: "book" },
     { id: "practice", label: "Practice", icon: "practice" },
+    { id: "flashcards", label: "Flashcards", icon: "cards" },
+    { id: "settings", label: "Settings", icon: "settings" },
   ]
+
+  const mobileNav = primaryNav.filter(item => item.id !== "notebook")
+  const [keyboardOpen, setKeyboardOpen] = useState(false)
+  useEffect(() => {
+    const viewport = window.visualViewport
+    const update = () => {
+      const active = document.activeElement
+      const editing = active instanceof HTMLElement && (active.matches('input, textarea') || active.isContentEditable)
+      setKeyboardOpen(!!viewport && editing && window.innerHeight - viewport.height > 150)
+    }
+    viewport?.addEventListener("resize", update)
+    document.addEventListener("focusin", update)
+    document.addEventListener("focusout", update)
+    return () => {
+      viewport?.removeEventListener("resize", update)
+      document.removeEventListener("focusin", update)
+      document.removeEventListener("focusout", update)
+    }
+  }, [])
 
   return (
     <div className="app-shell">
@@ -109,10 +131,8 @@ function AppShell({
       </header>
 
       <div className="content-shell" id="main-content" tabIndex={-1}>
-        <div className="locale-toolbar">
-          <LocaleSelector />
-        </div>
-        {view !== "practice" && (
+        {view !== "settings" && <div className="locale-toolbar"><LocaleSelector /></div>}
+        {["translate", "explore", "notebook"].includes(view) && (
           <div className="prototype-notice" role="note">
             {t(
               "Interface prototype — translation and notebook features are simulated. Use Practice for the working German trainer.",
@@ -122,8 +142,8 @@ function AppShell({
         {children}
       </div>
 
-      <nav className="bottom-nav" aria-label={t("Mobile navigation")}>
-        {primaryNav.map((item) => (
+      <nav className="bottom-nav" hidden={keyboardOpen} aria-label={t("Mobile navigation")}>
+        {mobileNav.map((item) => (
           <button
             type="button"
             key={item.id}
@@ -755,7 +775,19 @@ export default function App() {
           onDelete={() => setSaved(false)}
         />
       )}
-      {view === "practice" && <StudyPractice />}
+      {view === "practice" && <StudyPractice onFlashcards={() => setView("flashcards")} />}
+      {view === "flashcards" && <main className="page">
+        <PageHeader eyebrow={t("German · B2")} title={t("Flashcards")} description={t("Read German verbs, their forms and translations at your own pace.")} />
+        <p className="small-note">{t("Leaving this screen resets the current card position.")}</p>
+        <VerbFlashcards />
+      </main>}
+      {view === "settings" && <main className="page settings-page">
+        <PageHeader eyebrow="" title={t("Settings")} description={t("Choose the language used throughout the website.")} />
+        <section className="settings-card" aria-label={t("Interface language")}>
+          <LocaleSelector />
+          <p className="small-note">{t("Your language preference is saved in this browser when storage is available.")}</p>
+        </section>
+      </main>}
       <Toast
         open={toast}
         onClose={() => setToast(false)}
