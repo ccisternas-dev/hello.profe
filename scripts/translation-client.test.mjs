@@ -22,3 +22,13 @@ test('client rejects HTML, wrong-language output and empty translations', async 
   t.mock.method(globalThis, 'fetch', async () => outputs.shift())
   for (let i = 0; i < 4; i++) await assert.rejects(translateSpanish('Hola', new AbortController().signal))
 })
+
+test('production client calls configured HTTPS Worker without authentication secrets', async t => {
+  const endpoint = 'https://hello-profe-translation.cristian-cisternas-v.workers.dev/api/translate'
+  t.mock.method(globalThis,'fetch',async (url,init)=>{
+    assert.equal(url,endpoint)
+    assert.equal(init.headers.Authorization,undefined)
+    return Response.json({source:'es',target:'de',translatedText:'Hallo'})
+  })
+  assert.equal(await translateSpanish('Hola',new AbortController().signal,endpoint),'Hallo')
+})

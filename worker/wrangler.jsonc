@@ -5,13 +5,58 @@
   "compatibility_date": "2026-10-28",
   "workers_dev": false,
   "preview_urls": false,
-  "ai": { "binding": "AI", "remote": true },
+  "ai": {
+    "binding": "AI",
+    "remote": true
+  },
   "vars": {
     "TRANSLATION_ENABLED": "false",
     "ALLOWED_ORIGINS": "http://localhost:8443,http://127.0.0.1:8443"
   },
   "ratelimits": [
-    { "name": "REQUEST_LIMITER", "namespace_id": "2728", "simple": { "limit": 3, "period": 60 } }
+    {
+      "name": "REQUEST_LIMITER",
+      "namespace_id": "2728",
+      "simple": {
+        "limit": 3,
+        "period": 60
+      }
+    }
   ],
-  "observability": { "enabled": false }
+  "observability": {
+    "enabled": false
+  },
+  "env": {
+    "production": {
+      "name": "hello-profe-translation",
+      "workers_dev": true,
+      "preview_urls": false,
+      "ai": {
+        "binding": "AI"
+      },
+      "vars": {
+        "TRANSLATION_ENABLED": "true",
+        "ACCESS_MODE": "public",
+        "ALLOWED_ORIGINS": "https://ccisternas-dev.github.io"
+      },
+      "ratelimits": [
+        {
+          "name": "REQUEST_LIMITER",
+          "namespace_id": "2730",
+          "simple": {
+            "limit": 3,
+            "period": 60
+          }
+        },
+        {
+          "name": "SHARED_LIMITER",
+          "namespace_id": "2731",
+          "simple": {
+            "limit": 20,
+            "period": 60
+          }
+        }
+      ]
+    }
+  }
 }

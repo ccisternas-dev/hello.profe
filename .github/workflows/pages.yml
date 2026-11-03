@@ -22,9 +22,11 @@ jobs:
       - run: pnpm test
       - run: pnpm typecheck
       - run: pnpm worker:check
+      - run: pnpm exec wrangler deploy --dry-run --config worker/wrangler.jsonc --env production
       - run: pnpm build
         env:
           GITHUB_PAGES: 'true'
+          VITE_TRANSLATION_API_URL: 'https://hello-profe-translation.cristian-cisternas-v.workers.dev/api/translate'
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         with:

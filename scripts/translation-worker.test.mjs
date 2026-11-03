@@ -83,3 +83,26 @@ test('provider timeout, quota and failure errors do not expose submitted text', 
   }
   await assert.rejects(() => translateM2M100({ run: async () => { throw { code: 3036 } } }, input), { code: 'quota_exhausted' })
 })
+
+test('public requests require exact origin, edge IP, and both limiters but no private token', async () => {
+  const keys = []
+  let calls = 0
+  const publicEnv = env({ ACCESS_MODE: 'public', POC_TOKEN: undefined, ALLOWED_ORIGINS: 'https://ccisternas-dev.github.io',
+    REQUEST_LIMITER: {limit: async ({key}) => {keys.push(key); return {success:true}}},
+    SHARED_LIMITER: {limit: async ({key}) => {keys.push(key); return {success:true}}} })
+  const headers = {'Content-Type':'application/json', Origin:'https://ccisternas-dev.github.io', 'CF-Connecting-IP':'192.0.2.1'}
+  const handle = createHandler(async () => {calls++; return 'Hallo'})
+  const response = await handle(request(input, {headers}), publicEnv)
+  assert.equal(response.status,200)
+  assert.equal(response.headers.get('access-control-allow-origin'),headers.Origin)
+  assert.deepEqual(keys,['192.0.2.1','public-translation'])
+  assert.equal((await handle(request(input,{headers:{...headers,Origin:'https://evil.test'}}),publicEnv)).status,403)
+  const noOrigin = {...headers}; delete noOrigin.Origin
+  assert.equal((await handle(request(input,{headers:noOrigin}),publicEnv)).status,403)
+  const noIp = {...headers}; delete noIp['CF-Connecting-IP']
+  assert.equal((await handle(request(input,{headers:noIp}),publicEnv)).status,503)
+  assert.equal((await handle(request(input,{headers}),{...publicEnv,SHARED_LIMITER:undefined})).status,503)
+  const limited = {...publicEnv,SHARED_LIMITER:{limit:async()=>({success:false})}}
+  assert.equal((await handle(request(input,{headers}),limited)).status,429)
+  assert.equal(calls,1)
+})

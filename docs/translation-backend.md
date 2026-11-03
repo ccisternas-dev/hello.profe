@@ -4,11 +4,11 @@ Tracking: [real translation #27](https://github.com/ccisternas-dev/hello.profe/i
 
 ## Repository inspection and decision
 
-The existing app is React 19 + TypeScript + Vite 8, with pnpm 10.34.3 pinned in package.json. No AGENTS.md instructions were found in the repository or ancestor directories. The Vite config retains Figma Make plugins and uses `/hello.profe/` for GitHub Pages. `.github/workflows/pages.yml` already checks and deploys the static app on main.
+The existing app is React 19 + TypeScript + Vite 8, with pnpm 10.34.3 pinned in package.json. The initial inspection preceded the repository’s current AGENTS.md efficiency instructions. The Vite config retains Figma Make plugins and uses `/hello.profe/` for GitHub Pages. `.github/workflows/pages.yml` already checks and deploys the static app on main.
 
 Practice is working: workbook-derived data contains 917 source cards across nine decks, including 148 verbs. The public Flashcards view is now a reading-only verb reference. Translation Challenge and Complete the Verb use local data. Preserve these features and their data.
 
-`TranslateView` in `src/App.tsx` currently waits 850ms and renders fixed samples (`aprender`, `lernen`, and a simulated French error). The source language is fixed to English, selections do not drive results, and exploration/notebook actions are prototypes. That original simulated view has now been replaced by `src/TranslationView.tsx`. It shows only actual endpoint results in the enabled local preview and an unavailable notice in production. It no longer presents fixed sample translations or links them to simulated dictionary entries.
+The original `TranslateView` in `src/App.tsx` waited 850ms and renders fixed samples (`aprender`, `lernen`, and a simulated French error). The source language is fixed to English, selections do not drive results, and exploration/notebook actions are prototypes. That original simulated view has now been replaced by `src/TranslationView.tsx`. It shows actual endpoint results when the private local proxy or public API URL is configured. It no longer presents fixed sample translations or links them to simulated dictionary entries.
 
 **Decision:** retain GitHub Pages, add a separate Worker API, no SSR, no replacement project. Keep model details in `worker/src/provider.ts`. First prove Spanish → German using the existing repository's tooling. Next evaluate real outputs, then connect the current UI, then add independent target requests from the original source and stale-response/per-target-retry handling. Dictionary lookup is separate.
 
@@ -28,9 +28,9 @@ Practice is working: workbook-derived data contains 917 source cards across nine
 
 Limits: 500 Unicode code points after trimming, 4,096 body bytes checked while streaming, 3-second body deadline, 10-second provider-response deadline. Error response: `{ "error": { "code": "…" } }`. HTTP statuses distinguish invalid input (400), authorization (401), origin (403), body size (413), media type (415), rate/quota limits (429), provider failure (502), disabled/unavailable (503), and timeout (504). No automatic model retry. A timeout stops waiting; it does not prove cancellation of already-running inference, which can still consume allowance.
 
-The Worker is disabled by default, with workers.dev and preview URLs disabled and no custom route. It requires an enabled flag, AI and rate-limit bindings, and a private 32+-character bearer token. The token is for local CLI evaluation only; never put it in a VITE_* variable or ship it in frontend code. `.dev.vars*` and `.wrangler/` are ignored. Handler/adapter code does not log requests, provider error messages, credentials, or submitted text. Observability is disabled in configuration.
+The default local configuration is disabled, with workers.dev and preview URLs disabled and no custom route. It requires an enabled flag, AI and rate-limit bindings, and a private 32+-character bearer token. The token is for local CLI evaluation only; never put it in a VITE_* variable or ship it in frontend code. `.dev.vars*` and `.wrangler/` are ignored. Handler/adapter code does not log requests, provider error messages, credentials, or submitted text. Observability is disabled in configuration.
 
-CORS currently allows only the two explicit Vite localhost origins. CORS is browser policy, not authentication. For a later approved public release, allow the exact GitHub Pages **origin** `https://ccisternas-dev.github.io` (no `/hello.profe/` path), design public abuse protection, verify Free billing, and only then enable a route. Do not remove the private token gate merely to make a browser demo work. A paid account is outside the free-only guarantee: keep it disabled until a strict shared budget/appropriate billing boundary is designed. Other projects may share the account's daily AI allowance.
+Production uses a separate `--env production` configuration: public access, the exact Pages origin `https://ccisternas-dev.github.io`, 3 requests/minute per Cloudflare-provided client IP and 20/minute shared per location. Missing bindings or client IP fail closed. CORS is browser policy, not authentication: non-browser clients can spoof Origin. Limits are approximate, not a worldwide budget. The user-confirmed Workers Free plan provides the daily inference hard stop; do not upgrade to Paid without a separate budget design. Other projects share the AI allowance. Local evaluation retains the private token gate and localhost origins.
 
 ## Exact local commands
 
@@ -90,9 +90,16 @@ pnpm translation:evaluate ambiguous
 
 The harness reads the ignored local token, calls only the loopback endpoint, and prints fixture ID, returned translation/error, and latency. It does not retry automatically. References and assessment criteria are in `worker/evaluation/es-de.json`. They are illustrative, not exact-match assertions.
 
-### Deployment (not executed or ready for public use)
+### Deployment
 
-GitHub Pages continues through its existing workflow. This milestone adds no Worker deployment workflow. After a separately requested public-hardening milestone and deployment approval, configure the production origin, request/budget safeguards and route; remove/replace the private CLI gate with the agreed public access mechanism; then the deployment command will be `pnpm exec wrangler deploy --config worker/wrangler.jsonc`. With the current configuration there is no public route and translation stays disabled. Never auto-upgrade the billing plan to bypass quota errors.
+GitHub Pages retains its existing workflow and builds with the public `VITE_TRANSLATION_API_URL`. No secrets are embedded in the frontend. Deploy the Worker separately:
+
+```sh
+pnpm exec wrangler deploy --dry-run --config worker/wrangler.jsonc --env production
+pnpm exec wrangler deploy --config worker/wrangler.jsonc --env production
+```
+
+Endpoint: `https://hello-profe-translation.cristian-cisternas-v.workers.dev/api/translate`. Production requests go browser → Worker → AI binding. The production environment has no private bearer-token requirement; it uses the controls above. Raw text is not logged. To disable inference, set production `TRANSLATION_ENABLED` to `"false"` in `worker/wrangler.jsonc` and redeploy with `--env production`. Never upgrade billing to bypass quota errors.
 
 ## Evaluation findings and remaining work
 
@@ -102,9 +109,9 @@ Mocked adapter/HTTP tests verify request parameters, invalid inputs, byte limits
 
 Actual outputs and assessments are recorded in [the evaluation results](../worker/evaluation/results-2026-10-29.json). Simple meaning, negation, temporal contrast and numbers were preserved. The polite question retained formal Sie but weakened the tentative wording. The model changed **Ana → Anna**, failing exact proper-name preservation. It translated the action “Me senté” as the state “Ich saß,” losing aspect nuance. The bench context was retained.
 
-**Decision:** M2M100 is viable for the next clearly labelled UI prototype, but six short examples do not establish broad translation quality. Keep visible machine-translation limitations; include name preservation and action/state nuance in future evaluation. Do not automatically correct names after inference. Token/neuron usage was not measured, so no exact per-request cost or guaranteed daily translation count is claimed. No app deployment occurred; the public Worker route remains disabled and production translation remains disabled until public API configuration is approved.
+**Decision:** M2M100 is viable for the next clearly labelled UI prototype, but six short examples do not establish broad translation quality. Keep visible machine-translation limitations; include name preservation and action/state nuance in future evaluation. Do not automatically correct names after inference. Token/neuron usage was not measured, so no exact per-request cost or guaranteed daily translation count is claimed. This initial evaluation did not deploy the app; the subsequent public configuration is documented above.
 
-Later milestones: public API configuration and abuse/budget controls, followed by independent multi-target results and retries, always translated from the original input. Practice and its data are unchanged. The user authorized committing and merging the local UI integration; no public Worker deployment is performed.
+Later milestones: independent multi-target results and retries, always translated from the original input. Practice and its data are unchanged. The public configuration follows the user’s request to enable translation on GitHub Pages.
 
 ## Local UI integration (2026-11-03)
 
@@ -117,7 +124,7 @@ pnpm worker:dev --var TRANSLATION_ENABLED:true
 pnpm dev:translation
 ```
 
-Open `http://127.0.0.1:8443` and choose Translate. Enter Spanish text (1–500 characters); the target is German for this milestone. The Vite server attaches the private bearer token to requests forwarded to localhost:8787. The browser never gets it. Vite binds to loopback, rejects cross-origin proxy requests, and denies HTTP access to `.dev.vars` files. The ordinary `pnpm dev` command and all production builds leave real translation disabled. No VITE_* secret or production proxy is used.
+Open `http://127.0.0.1:8443` and choose Translate. Enter Spanish text (1–500 characters); the target is German for this milestone. The Vite server attaches the private bearer token to requests forwarded to localhost:8787. The browser never gets it. Vite binds to loopback, rejects cross-origin proxy requests, and denies HTTP access to `.dev.vars` files. Ordinary `pnpm dev` leaves translation disabled unless `VITE_TRANSLATION_API_URL` is supplied. The Pages build supplies the public endpoint. No VITE_* secret or production proxy is used.
 
 The UI clears results and cancels/invalidates older requests on text edits, new attempts or unmount, times out after 15 seconds, and exposes a retry action for failures. It displays a machine-translation accuracy note. All messages support five interface languages; this does not expand the Spanish → German translation pair.
 

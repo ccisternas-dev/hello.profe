@@ -7,6 +7,8 @@ export type Env = {
   TRANSLATION_ENABLED: string
   ALLOWED_ORIGINS: string
   POC_TOKEN?: string
+  ACCESS_MODE?: "private" | "public"
+  SHARED_LIMITER?: Limiter
 }
 const MAX_BODY_BYTES = 4096
 const MAX_TEXT_CHARACTERS = 500
@@ -69,12 +71,25 @@ export function createHandler(provider: Provider = translateM2M100, timeoutMs = 
         return new Response(null, { status: 204, headers })
       }
       if (request.method !== 'POST') { headers.set('Allow', 'POST, OPTIONS'); throw new ApiError(405, 'method_not_allowed') }
-      // Private PoC only: no deployment route and no frontend secret. Missing controls fail closed.
-      if (env.TRANSLATION_ENABLED !== 'true' || !env.POC_TOKEN || env.POC_TOKEN.length < 32
-          || !env.REQUEST_LIMITER || !env.AI) throw new ApiError(503, 'translation_disabled')
-      if (request.headers.get('authorization') !== `Bearer ${env.POC_TOKEN}`) throw new ApiError(401, 'unauthorized')
-      const { success } = await env.REQUEST_LIMITER.limit({ key: 'private-poc' })
+      if (env.TRANSLATION_ENABLED !== 'true' || !env.REQUEST_LIMITER || !env.AI) throw new ApiError(503, 'translation_disabled')
+      let key = 'private-poc'
+      if (env.ACCESS_MODE === 'public') {
+        if (!allowed) throw new ApiError(403, 'origin_not_allowed')
+        // Cloudflare supplies this header at the edge; no client-provided identifier is trusted.
+        const ip = request.headers.get('CF-Connecting-IP')
+        if (!ip || !env.SHARED_LIMITER) throw new ApiError(503, 'translation_disabled')
+        key = ip
+      } else {
+        if (env.ACCESS_MODE && env.ACCESS_MODE !== 'private') throw new ApiError(503, 'translation_disabled')
+        if (!env.POC_TOKEN || env.POC_TOKEN.length < 32) throw new ApiError(503, 'translation_disabled')
+        if (request.headers.get('authorization') !== `Bearer ${env.POC_TOKEN}`) throw new ApiError(401, 'unauthorized')
+      }
+      const { success } = await env.REQUEST_LIMITER.limit({ key })
       if (!success) { headers.set('Retry-After', '60'); throw new ApiError(429, 'rate_limited') }
+      if (env.ACCESS_MODE === 'public' && !(await env.SHARED_LIMITER!.limit({ key: 'public-translation' })).success) {
+        headers.set('Retry-After', '60')
+        throw new ApiError(429, 'rate_limited')
+      }
       const input = await readInput(request)
       const translatedText = await deadline(provider(env.AI, input), timeoutMs, 'provider_timeout')
       return respond({ source: input.source, target: input.target, translatedText }, 200)
