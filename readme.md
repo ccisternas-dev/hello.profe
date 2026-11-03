@@ -43,9 +43,17 @@ npx --yes pnpm@10.34.3 dev
 
 Regenerate JSON with `python3 scripts/convert_practice.py` after placing the three original `.xlsx` files in `practice/`. Python 3 standard-library tools read workbook relationships, shared/inline strings and sparse cells. Raw workbooks remain local and are not bundled or published. See [data notes](docs/study-release.md) and [row/card counts](docs/practice-data-audit.json).
 
-## Wrangler: the Cloudflare development tool
+## Cloudflare Worker translation backend
 
-**Wrangler is Cloudflare's command-line tool for Workers.** A Worker is a small backend program that runs on Cloudflare. For hello.profe, GitHub Pages hosts the website, while the planned Worker will receive translation requests and call Workers AI. Wrangler helps us run that backend locally and, when explicitly requested, deploy it.
+The translation backend is implemented in [worker/src/index.ts](worker/src/index.ts). It accepts Spanish text at `POST /api/translate`, validates the request, applies request limits, and calls M2M100 through a server-side Workers AI binding. The [provider adapter](worker/src/provider.ts) isolates model-specific code and converts provider failures into safe error responses.
+
+**Current availability:** Spanish → German works in the local preview. Translation is not enabled on the public GitHub Pages website: the Worker has no public route yet. Merging app changes to `main` deploys the static frontend only; it does not deploy the Worker.
+
+The local request path is: browser → Vite server proxy → local Worker → Cloudflare Workers AI. The proxy adds the private token server-side. Both the Worker and Vite server must be running for local translation.
+
+### Wrangler: the Cloudflare development tool
+
+**Wrangler is Cloudflare's command-line tool for Workers.** A Worker is a small backend program that runs on Cloudflare. For hello.profe, GitHub Pages hosts the website, while the Worker receives translation requests and calls Workers AI in the local preview. Wrangler helps us run that backend locally and, when explicitly requested, deploy it.
 
 Wrangler is installed as a development dependency inside this project, not globally. After installing the dependencies above, run these commands from the repository folder:
 
