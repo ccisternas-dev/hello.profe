@@ -290,5 +290,14 @@
   "Settings": "Instellingen",
   "Leaving this screen resets the current card position.": "Als je dit scherm verlaat, wordt de huidige kaartpositie gereset.",
   "Choose the language used throughout the website.": "Kies de taal die op de hele website wordt gebruikt.",
-  "Your language preference is saved in this browser when storage is available.": "Je taalvoorkeur wordt in deze browser opgeslagen als opslag beschikbaar is."
+  "Your language preference is saved in this browser when storage is available.": "Je taalvoorkeur wordt in deze browser opgeslagen als opslag beschikbaar is.",
+  "The free translation allowance is exhausted. Try again tomorrow.": "Het gratis vertaalquotum is opgebruikt. Probeer morgen opnieuw.",
+  "Too many requests. Wait a minute before trying again.": "Te veel verzoeken. Wacht een minuut en probeer opnieuw.",
+  "Translation timed out. Please try again.": "De vertaling duurde te lang. Probeer opnieuw.",
+  "Enter between 1 and 500 characters.": "Voer tussen 1 en 500 tekens in.",
+  "Translation is unavailable. Please try again later.": "Vertalen is niet beschikbaar. Probeer het later opnieuw.",
+  "Spanish to German · translation preview": "Spaans naar Duits · vertaalpreview",
+  "Real translation is not enabled on this website yet.": "Echte vertaling is nog niet ingeschakeld op deze website.",
+  "Retry translation": "Vertaling opnieuw proberen",
+  "Machine translation may contain mistakes, including changed names. Verify important details.": "Machinevertaling kan fouten bevatten, waaronder gewijzigde namen. Controleer belangrijke details."
 }

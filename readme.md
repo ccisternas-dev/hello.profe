@@ -4,7 +4,7 @@ The learning dashboard offers three paths: **Translation Challenge**, **Complete
 
 **Flashcards** is a reading-only reference for **148 irregular verbs**. Each card shows the German infinitive, English/Spanish/French translations, present tense and a four-cell principal-form matrix. Previous/Next navigation lets learners memorize at their own pace, without hidden answers, ratings, scores or rounds. Explicit alternative forms are included. The workbook has no Dutch translations, verb-class metadata or example sentences; these are not invented.
 
-The full source dataset remains in the repository: **917 cards in nine decks**. Non-verb decks are not exposed in the verb-only flashcard interface. Challenges retain their answer checking and scores. Leaving Practice or reloading resets the current position/session. Translation, exploration and notebook screens remain labelled interface prototypes. Offline support, accounts, saved progress and automatic spaced repetition are not implemented.
+The full source dataset remains in the repository: **917 cards in nine decks**. Non-verb decks are not exposed in the verb-only flashcard interface. Challenges retain their answer checking and scores. Leaving Practice or reloading resets the current position/session. The Spanish → German translation preview works locally with the Worker setup below; public translation is not enabled yet. Exploration and notebook screens remain labelled interface prototypes. Offline support, accounts, saved progress and automatic spaced repetition are not implemented.
 
 ## Interface languages
 
@@ -42,6 +42,41 @@ npx --yes pnpm@10.34.3 dev
 ```
 
 Regenerate JSON with `python3 scripts/convert_practice.py` after placing the three original `.xlsx` files in `practice/`. Python 3 standard-library tools read workbook relationships, shared/inline strings and sparse cells. Raw workbooks remain local and are not bundled or published. See [data notes](docs/study-release.md) and [row/card counts](docs/practice-data-audit.json).
+
+## Wrangler: the Cloudflare development tool
+
+**Wrangler is Cloudflare's command-line tool for Workers.** A Worker is a small backend program that runs on Cloudflare. For hello.profe, GitHub Pages hosts the website, while the planned Worker will receive translation requests and call Workers AI. Wrangler helps us run that backend locally and, when explicitly requested, deploy it.
+
+Wrangler is installed as a development dependency inside this project, not globally. After installing the dependencies above, run these commands from the repository folder:
+
+```sh
+./node_modules/.bin/wrangler login
+./node_modules/.bin/wrangler whoami
+```
+
+- `login` opens your browser to authorize Wrangler to access your Cloudflare account.
+- `whoami` shows the account you are signed into; check that it is the intended account.
+
+Neither command deploys code or runs translations. Confirm **Workers Free** in the Cloudflare dashboard before testing real translations. Also complete Workers & Pages onboarding by registering a free `workers.dev` subdomain; Wrangler needs it to connect the local Worker to remote AI, even without deploying the app. Running the Worker locally does not make AI inference local: the AI binding calls Cloudflare and uses the account's allowance. Routine tests use mocked responses instead.
+
+`pnpm worker:check` validates and bundles the Worker without deploying it. Real translation testing requires the additional setup in [the translation backend guide](docs/translation-backend.md), which explains the private test token, commands, limits and current evaluation status. Keep credentials out of frontend code and Git.
+
+### Technical note: personal-project subdomain
+
+hello.profe uses Cloudflare's `workers.dev` subdomain for its personal-project Worker setup. Cloudflare treats this subdomain as a **Free website intended for personal or hobby projects**, rather than business-critical production hosting. See the [official workers.dev documentation](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/).
+
+The account subdomain is `cristian-cisternas-v.workers.dev`. If deployment is approved later, this Worker could use `hello-profe-translation.cristian-cisternas-v.workers.dev`; that API URL is not currently deployed. The frontend remains hosted on GitHub Pages. Registering the subdomain does not deploy the translation API: its public route remains disabled during the proof of concept. Worker requests and AI inference remain subject to their respective free-plan allowances; the free subdomain does not provide unlimited usage.
+
+### Run the real translation preview locally
+
+After Cloudflare login and the private-token setup in [the backend guide](docs/translation-backend.md), run these in separate terminals:
+
+```sh
+pnpm worker:dev --var TRANSLATION_ENABLED:true
+pnpm dev:translation
+```
+
+Open `http://127.0.0.1:8443` and select Translate. This milestone supports Spanish → German. The Vite server forwards requests and adds the private token; the browser never receives it. Real AI calls use the account’s allowance. Ordinary development and the GitHub Pages build keep translation disabled until a public API is configured.
 
 ## GitHub Pages
 
@@ -135,7 +170,7 @@ Language coverage will be published explicitly. A missing dictionary field will 
 | Frontend | React, TypeScript, Vite | Application interface and typed state |
 | Styling | CSS / CSS Modules | Responsive, accessible presentation |
 | Backend | Cloudflare Worker in TypeScript | Validate inputs, enforce quotas and call providers |
-| Hosting | Cloudflare Workers Static Assets | Serve frontend and API from one origin |
+| Hosting | GitHub Pages + separate Cloudflare Worker API | Retain existing static hosting; add translation backend incrementally |
 | Translation | Provider adapter; evaluate Workers AI M2M100 first | Keep provider choice replaceable and evidence-based |
 | Lexical data | Curated Wiktionary/Kaikki subset, subject to audit | Sourced vocabulary and conjugation information |
 | Storage | IndexedDB | Vocabulary and practice history on each device |

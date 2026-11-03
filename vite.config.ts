@@ -7,11 +7,18 @@ import path from "node:path"
 import siteConfiguration from "./.figma/make/site.json"
 
 // Vite config — https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode, command }) => {
   // .figma/make/deploy-preview passes `--mode development` for cached-preview builds.
   const emitSourcemaps = mode === "development"
 
+  const translationDev = command === "serve" && process.env.HELLO_PROFE_TRANSLATION_DEV === "1"
+  const token = translationDev
+    ? /^POC_TOKEN=([a-f0-9]{64})$/m.exec(fs.readFileSync("worker/.dev.vars", "utf8"))?.[1]
+    : undefined
+  if (translationDev && !token) throw new Error("Generate worker/.dev.vars as documented before enabling translation.")
+
   return {
+    define: { "import.meta.env.VITE_TRANSLATION_ENABLED": JSON.stringify(translationDev) },
     base: process.env.GITHUB_PAGES === "true"
       ? "/hello.profe/"
       : process.env.FIGMA_PUBLIC_URL
@@ -36,7 +43,21 @@ export default defineConfig(({ mode }) => {
       },
     },
     server: {
-      host: process.env.FIGMA_DEV_SERVER_HOST || "0.0.0.0",
+      fs: { deny: [".env", ".env.*", "*.{crt,pem}", "**/.git/**", "**/.dev.vars*"] },
+      host: translationDev ? "127.0.0.1" : process.env.FIGMA_DEV_SERVER_HOST || "0.0.0.0",
+      proxy: translationDev ? {
+        "/api/translate": {
+          target: "http://127.0.0.1:8787",
+          headers: { Authorization: `Bearer ${token}` },
+          bypass(req, res) {
+            const origin = req.headers.origin
+            if (origin && origin !== `http://${req.headers.host}`) {
+              if (res) { res.statusCode = 403; res.end() }
+              return false
+            }
+          },
+        },
+      } : undefined,
       port: parseInt(process.env.PORT || "8443"),
       strictPort: true,
       watch: {

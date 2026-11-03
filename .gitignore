@@ -19,3 +19,7 @@ logs/
 # beside it.
 /.plugins/
 /.opencode-skills/
+
+# Worker local state and secrets
+.wrangler/
+.dev.vars*

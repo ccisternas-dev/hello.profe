@@ -1,0 +1,17 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "hello-profe-translation",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-10-28",
+  "workers_dev": false,
+  "preview_urls": false,
+  "ai": { "binding": "AI", "remote": true },
+  "vars": {
+    "TRANSLATION_ENABLED": "false",
+    "ALLOWED_ORIGINS": "http://localhost:8443,http://127.0.0.1:8443"
+  },
+  "ratelimits": [
+    { "name": "REQUEST_LIMITER", "namespace_id": "2728", "simple": { "limit": 3, "period": 60 } }
+  ],
+  "observability": { "enabled": false }
+}

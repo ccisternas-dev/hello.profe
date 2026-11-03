@@ -8,27 +8,32 @@
     "build": "vite build",
     "preview": "vite preview",
     "format": "oxfmt",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && tsc -p worker/tsconfig.json",
     "data:convert": "python3 scripts/convert_practice.py",
     "data:validate": "node scripts/validate-data.mjs",
     "test": "node --experimental-strip-types --test scripts/*.test.mjs",
     "i18n:check": "node scripts/check-i18n.mjs",
-    "dev:design": "vite --open /?design-system=foundations"
+    "dev:design": "vite --open /?design-system=foundations",
+    "worker:dev": "wrangler dev --config worker/wrangler.jsonc --ip 127.0.0.1 --port 8787",
+    "worker:check": "wrangler deploy --dry-run --config worker/wrangler.jsonc --outdir ../.cache/worker",
+    "translation:evaluate": "node scripts/evaluate-translation.mjs",
+    "dev:translation": "HELLO_PROFE_TRANSLATION_DEV=1 vite --host 127.0.0.1"
   },
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
     "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^6.0.0",
-    "tailwindcss": "^4.0.0",
-    "@tailwindcss/vite": "^4.0.0",
     "oxfmt": "^0.2.0",
+    "tailwindcss": "^4.0.0",
     "typescript": "^5.7.0",
-    "vite": "^8.0.5"
+    "vite": "^8.0.5",
+    "wrangler": "4.154.0"
   },
   "packageManager": "pnpm@10.34.3"
 }

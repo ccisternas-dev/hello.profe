@@ -290,5 +290,14 @@
   "Settings": "Paramètres",
   "Leaving this screen resets the current card position.": "Quitter cet écran réinitialise la position de la fiche actuelle.",
   "Choose the language used throughout the website.": "Choisissez la langue utilisée sur tout le site.",
-  "Your language preference is saved in this browser when storage is available.": "Votre préférence de langue est enregistrée dans ce navigateur si le stockage est disponible."
+  "Your language preference is saved in this browser when storage is available.": "Votre préférence de langue est enregistrée dans ce navigateur si le stockage est disponible.",
+  "The free translation allowance is exhausted. Try again tomorrow.": "Le quota gratuit de traduction est épuisé. Réessayez demain.",
+  "Too many requests. Wait a minute before trying again.": "Trop de demandes. Attendez une minute avant de réessayer.",
+  "Translation timed out. Please try again.": "La traduction a pris trop de temps. Réessayez.",
+  "Enter between 1 and 500 characters.": "Saisissez entre 1 et 500 caractères.",
+  "Translation is unavailable. Please try again later.": "La traduction est indisponible. Réessayez plus tard.",
+  "Spanish to German · translation preview": "Espagnol vers allemand · aperçu de traduction",
+  "Real translation is not enabled on this website yet.": "La traduction réelle n’est pas encore activée sur ce site.",
+  "Retry translation": "Réessayer la traduction",
+  "Machine translation may contain mistakes, including changed names. Verify important details.": "La traduction automatique peut contenir des erreurs, y compris des noms modifiés. Vérifiez les détails importants."
 }
