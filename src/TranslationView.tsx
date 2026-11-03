@@ -30,7 +30,7 @@ export default function TranslationView() {
     let timedOut = false
     const timer = setTimeout(() => { timedOut = true; request.abort() }, 15000)
     try {
-      const translated = await translateSpanish(text, request.signal)
+      const translated = await translateSpanish(text, request.signal, import.meta.env.VITE_TRANSLATION_API_URL || "/api/translate")
       if (id === current.current) setResult(translated)
     } catch (failure) {
       if (id === current.current) setError(timedOut ? errors.provider_timeout : errors[failure instanceof Error ? failure.message : ''] || 'Translation is unavailable. Please try again later.')

@@ -4,7 +4,7 @@ The learning dashboard offers three paths: **Translation Challenge**, **Complete
 
 **Flashcards** is a reading-only reference for **148 irregular verbs**. Each card shows the German infinitive, English/Spanish/French translations, present tense and a four-cell principal-form matrix. Previous/Next navigation lets learners memorize at their own pace, without hidden answers, ratings, scores or rounds. Explicit alternative forms are included. The workbook has no Dutch translations, verb-class metadata or example sentences; these are not invented.
 
-The full source dataset remains in the repository: **917 cards in nine decks**. Non-verb decks are not exposed in the verb-only flashcard interface. Challenges retain their answer checking and scores. Leaving Practice or reloading resets the current position/session. The Spanish → German translation preview works locally with the Worker setup below; public translation is not enabled yet. Exploration and notebook screens remain labelled interface prototypes. Offline support, accounts, saved progress and automatic spaced repetition are not implemented.
+The full source dataset remains in the repository: **917 cards in nine decks**. Non-verb decks are not exposed in the verb-only flashcard interface. Challenges retain their answer checking and scores. Leaving Practice or reloading resets the current position/session. Spanish → German translation uses the Cloudflare Worker API from GitHub Pages and the local preview. Exploration and notebook screens remain labelled interface prototypes. Offline support, accounts, saved progress and automatic spaced repetition are not implemented.
 
 ## Interface languages
 
@@ -47,13 +47,13 @@ Regenerate JSON with `python3 scripts/convert_practice.py` after placing the thr
 
 The translation backend is implemented in [worker/src/index.ts](worker/src/index.ts). It accepts Spanish text at `POST /api/translate`, validates the request, applies request limits, and calls M2M100 through a server-side Workers AI binding. The [provider adapter](worker/src/provider.ts) isolates model-specific code and converts provider failures into safe error responses.
 
-**Current availability:** Spanish → German works in the local preview. Translation is not enabled on the public GitHub Pages website: the Worker has no public route yet. Merging app changes to `main` deploys the static frontend only; it does not deploy the Worker.
+**Current availability:** GitHub Pages connects directly to the public Spanish → German Worker API. The Pages workflow sets `VITE_TRANSLATION_API_URL`; this is a public URL, not a credential. Merging to `main` deploys the frontend only. Deploy backend changes separately using the command below.
 
 The local request path is: browser → Vite server proxy → local Worker → Cloudflare Workers AI. The proxy adds the private token server-side. Both the Worker and Vite server must be running for local translation.
 
 ### Wrangler: the Cloudflare development tool
 
-**Wrangler is Cloudflare's command-line tool for Workers.** A Worker is a small backend program that runs on Cloudflare. For hello.profe, GitHub Pages hosts the website, while the Worker receives translation requests and calls Workers AI in the local preview. Wrangler helps us run that backend locally and, when explicitly requested, deploy it.
+**Wrangler is Cloudflare's command-line tool for Workers.** A Worker is a small backend program that runs on Cloudflare. For hello.profe, GitHub Pages hosts the website, while the Worker receives translation requests and calls Workers AI. Wrangler helps us run that backend locally and, when explicitly requested, deploy it.
 
 Wrangler is installed as a development dependency inside this project, not globally. After installing the dependencies above, run these commands from the repository folder:
 
@@ -73,7 +73,16 @@ Neither command deploys code or runs translations. Confirm **Workers Free** in t
 
 hello.profe uses Cloudflare's `workers.dev` subdomain for its personal-project Worker setup. Cloudflare treats this subdomain as a **Free website intended for personal or hobby projects**, rather than business-critical production hosting. See the [official workers.dev documentation](https://developers.cloudflare.com/workers/configuration/routing/workers-dev/).
 
-The account subdomain is `cristian-cisternas-v.workers.dev`. If deployment is approved later, this Worker could use `hello-profe-translation.cristian-cisternas-v.workers.dev`; that API URL is not currently deployed. The frontend remains hosted on GitHub Pages. Registering the subdomain does not deploy the translation API: its public route remains disabled during the proof of concept. Worker requests and AI inference remain subject to their respective free-plan allowances; the free subdomain does not provide unlimited usage.
+The account subdomain is `cristian-cisternas-v.workers.dev`. The API is `https://hello-profe-translation.cristian-cisternas-v.workers.dev/api/translate`; the frontend stays on GitHub Pages. The production configuration allows the Pages origin and limits requests to 3/minute per IP and 20/minute shared per Cloudflare location. These approximate limits reduce abuse; the confirmed Workers Free plan stops inference when its daily allowance is exhausted. Other projects share that allowance.
+
+Deploy the production API from the repository root after `pnpm exec wrangler login`:
+
+```sh
+pnpm exec wrangler deploy --dry-run --config worker/wrangler.jsonc --env production
+pnpm exec wrangler deploy --config worker/wrangler.jsonc --env production
+```
+
+The production AI binding keeps model access server-side; no browser token is needed. The default configuration remains private for local evaluation. See [deployment and rollback](docs/translation-backend.md#deployment) for details.
 
 ### Run the real translation preview locally
 
@@ -84,7 +93,7 @@ pnpm worker:dev --var TRANSLATION_ENABLED:true
 pnpm dev:translation
 ```
 
-Open `http://127.0.0.1:8443` and select Translate. This milestone supports Spanish → German. The Vite server forwards requests and adds the private token; the browser never receives it. Real AI calls use the account’s allowance. Ordinary development and the GitHub Pages build keep translation disabled until a public API is configured.
+Open `http://127.0.0.1:8443` and select Translate. This milestone supports Spanish → German. The Vite server forwards requests and adds the private token; the browser never receives it. Real AI calls use the account’s allowance. Ordinary development keeps translation disabled unless a public API URL is configured; the GitHub Pages workflow supplies that URL.
 
 ## GitHub Pages
 

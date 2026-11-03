@@ -1,5 +1,5 @@
-export async function translateSpanish(text: string, signal: AbortSignal): Promise<string> {
-  const response = await fetch('/api/translate', {
+export async function translateSpanish(text: string, signal: AbortSignal, endpoint = '/api/translate'): Promise<string> {
+  const response = await fetch(endpoint, {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ text, source: 'es', target: 'de' }), signal,
   })

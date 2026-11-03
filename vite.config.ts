@@ -12,13 +12,18 @@ export default defineConfig(({ mode, command }) => {
   const emitSourcemaps = mode === "development"
 
   const translationDev = command === "serve" && process.env.HELLO_PROFE_TRANSLATION_DEV === "1"
+  const publicTranslationUrl = process.env.VITE_TRANSLATION_API_URL || ""
+  if (publicTranslationUrl && !publicTranslationUrl.startsWith("https://")) throw new Error("Public translation API must use HTTPS")
   const token = translationDev
     ? /^POC_TOKEN=([a-f0-9]{64})$/m.exec(fs.readFileSync("worker/.dev.vars", "utf8"))?.[1]
     : undefined
   if (translationDev && !token) throw new Error("Generate worker/.dev.vars as documented before enabling translation.")
 
   return {
-    define: { "import.meta.env.VITE_TRANSLATION_ENABLED": JSON.stringify(translationDev) },
+    define: {
+      "import.meta.env.VITE_TRANSLATION_ENABLED": JSON.stringify(translationDev || !!publicTranslationUrl),
+      "import.meta.env.VITE_TRANSLATION_API_URL": JSON.stringify(translationDev ? "" : publicTranslationUrl),
+    },
     base: process.env.GITHUB_PAGES === "true"
       ? "/hello.profe/"
       : process.env.FIGMA_PUBLIC_URL
