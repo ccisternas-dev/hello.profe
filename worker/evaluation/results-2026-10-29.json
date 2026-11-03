@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-29",
+  "model": "@cf/meta/m2m100-1.2b",
+  "source": "es",
+  "target": "de",
+  "environment": "Local Worker with remote AI binding; user-confirmed Workers Free account",
+  "results": [
+    {
+      "fixture": "simple",
+      "status": 200,
+      "milliseconds": 909,
+      "translatedText": "Ich möchte Deutsch lernen.",
+      "assessment": "Meaning preserved; natural German."
+    },
+    {
+      "fixture": "formal",
+      "status": 200,
+      "milliseconds": 688,
+      "translatedText": "Können Sie mir sagen, wo sich der Bahnhof befindet?",
+      "assessment": "Meaning and formal Sie preserved; slightly less tentative than Spanish podría / German könnten."
+    },
+    {
+      "fixture": "negation",
+      "status": 200,
+      "milliseconds": 863,
+      "translatedText": "Ich trinke keinen Kaffee, weil ich danach nicht schlafen kann.",
+      "assessment": "Both negations and causal/time relationship preserved."
+    },
+    {
+      "fixture": "past",
+      "status": 200,
+      "milliseconds": 829,
+      "translatedText": "Gestern habe ich um neun Uhr angefangen zu arbeiten, aber heute bin ich früher angekommen.",
+      "assessment": "Yesterday/today contrast, time and both clauses preserved; natural German."
+    },
+    {
+      "fixture": "numbers",
+      "status": 200,
+      "milliseconds": 803,
+      "translatedText": "Anna hat zwei Bücher und das Ticket kostet 12 Euro.",
+      "assessment": "Numbers and currency preserved, but proper name Ana changed to Anna. Name-fidelity failure."
+    },
+    {
+      "fixture": "ambiguous",
+      "status": 200,
+      "milliseconds": 826,
+      "translatedText": "Ich saß auf einer Bank in der Nähe des Flusses.",
+      "assessment": "Bench context preserved; sitting-down action rendered as a seated state, losing aspect nuance."
+    }
+  ],
+  "decision": "Continue to a clearly labelled UI prototype; do not claim general quality from six examples. Add proper-name and action/state cases to future evaluation. No automatic spelling/name correction is applied.",
+  "usage": "Six successful model calls; neuron/token consumption not measured. No claim of exact per-request cost."
+}

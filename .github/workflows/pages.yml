@@ -21,6 +21,7 @@ jobs:
       - run: pnpm data:validate
       - run: pnpm test
       - run: pnpm typecheck
+      - run: pnpm worker:check
       - run: pnpm build
         env:
           GITHUB_PAGES: 'true'

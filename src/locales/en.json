@@ -290,5 +290,14 @@
   "Settings": "Settings",
   "Leaving this screen resets the current card position.": "Leaving this screen resets the current card position.",
   "Choose the language used throughout the website.": "Choose the language used throughout the website.",
-  "Your language preference is saved in this browser when storage is available.": "Your language preference is saved in this browser when storage is available."
+  "Your language preference is saved in this browser when storage is available.": "Your language preference is saved in this browser when storage is available.",
+  "The free translation allowance is exhausted. Try again tomorrow.": "The free translation allowance is exhausted. Try again tomorrow.",
+  "Too many requests. Wait a minute before trying again.": "Too many requests. Wait a minute before trying again.",
+  "Translation timed out. Please try again.": "Translation timed out. Please try again.",
+  "Enter between 1 and 500 characters.": "Enter between 1 and 500 characters.",
+  "Translation is unavailable. Please try again later.": "Translation is unavailable. Please try again later.",
+  "Spanish to German · translation preview": "Spanish to German · translation preview",
+  "Real translation is not enabled on this website yet.": "Real translation is not enabled on this website yet.",
+  "Retry translation": "Retry translation",
+  "Machine translation may contain mistakes, including changed names. Verify important details.": "Machine translation may contain mistakes, including changed names. Verify important details."
 }

@@ -1,0 +1,8 @@
+[
+  { "id": "simple", "text": "Quiero aprender alemán.", "reference": "Ich möchte Deutsch lernen.", "check": "Preserves desire and the language; uses lernen." },
+  { "id": "formal", "text": "¿Podría decirme dónde está la estación de tren?", "reference": "Könnten Sie mir sagen, wo der Bahnhof ist?", "check": "Polite question, correct location, natural German word order." },
+  { "id": "negation", "text": "No tomo café porque no puedo dormir después.", "reference": "Ich trinke keinen Kaffee, weil ich danach nicht schlafen kann.", "check": "Both negations and the causal link survive." },
+  { "id": "past", "text": "Ayer empecé a trabajar a las nueve, pero hoy he llegado más temprano.", "reference": "Gestern habe ich um neun angefangen zu arbeiten, aber heute bin ich früher angekommen.", "check": "Keeps yesterday/today contrast and comparative time; no omitted clause." },
+  { "id": "numbers", "text": "Ana tiene dos libros y el billete cuesta 12 euros.", "reference": "Ana hat zwei Bücher und die Fahrkarte kostet 12 Euro.", "check": "Preserves the name, quantities, amount and currency." },
+  { "id": "ambiguous", "text": "Me senté en un banco cerca del río.", "reference": "Ich setzte mich auf eine Bank in der Nähe des Flusses.", "check": "Bench sense in context, not a financial transaction. Reference is illustrative, not an exact-match test." }
+]

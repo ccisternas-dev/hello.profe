@@ -37,5 +37,8 @@
     "verb.id": "German verb lemma from workbook",
     "verb.cues[language]": "Workbook translation with its language marked",
     "verb.forms.present.canonical": "German present form from workbook"
+  },
+  "src/TranslationView.tsx": {
+    "result": "Machine translation returned by the server, marked with target language"
   }
 }

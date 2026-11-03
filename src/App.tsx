@@ -1,5 +1,6 @@
 import { useI18n, LocaleSelector, type MessageKey } from "./i18n"
 import StudyPractice from "./StudyPractice"
+import TranslationView from "./TranslationView"
 import VerbFlashcards from "./VerbFlashcards"
 import { useEffect, useRef, useState } from "react"
 import {
@@ -132,7 +133,7 @@ function AppShell({
 
       <div className="content-shell" id="main-content" tabIndex={-1}>
         {view !== "settings" && <div className="locale-toolbar"><LocaleSelector /></div>}
-        {["translate", "explore", "notebook"].includes(view) && (
+        {["explore", "notebook"].includes(view) && (
           <div className="prototype-notice" role="note">
             {t(
               "Interface prototype — translation and notebook features are simulated. Use Practice for the working German trainer.",
@@ -167,227 +168,6 @@ function AppShell({
         ))}
       </nav>
     </div>
-  )
-}
-
-function TranslateView({
-  onExplore,
-  onSaved,
-}: {
-  onExplore: () => void
-  onSaved: () => void
-}) {
-  const { t } = useI18n()
-
-  const [text, setText] = useState("to learn")
-  const [loading, setLoading] = useState(false)
-  const [translated, setTranslated] = useState(true)
-  const [targets, setTargets] = useState(["Spanish", "German", "French"])
-
-  const toggleTarget = (language: string) => {
-    setTargets((current) =>
-      current.includes(language)
-        ? current.filter((item) => item !== language)
-        : current.length < 4
-          ? [...current, language]
-          : current,
-    )
-  }
-
-  const translate = () => {
-    if (!text.trim()) return
-    setLoading(true)
-    setTranslated(false)
-    window.setTimeout(() => {
-      setLoading(false)
-      setTranslated(true)
-    }, 850)
-  }
-
-  return (
-    <main className="page translate-page">
-      <PageHeader
-        eyebrow={t("Translate")}
-        title={t("What would you like to say?")}
-        description={t(
-          "Translate a word, sentence or short paragraph into up to four languages.",
-        )}
-        actions={
-          <Button variant="text" icon="history">
-            {t("Recent")}
-          </Button>
-        }
-      />
-
-      <section
-        className="translator"
-        aria-labelledby="translation-input-heading"
-      >
-        <div className="translator-controls">
-          <LanguageSelect
-            label={t("From")}
-            value="English"
-            options={languages}
-          />
-          <IconButton
-            label={t("Swap source and target languages")}
-            icon="swap"
-          />
-          <div
-            className="target-control"
-            role="group"
-            aria-labelledby="target-language-label"
-          >
-            <span className="field-label" id="target-language-label">
-              {t("To · choose up to four")}
-            </span>
-            <div className="target-chips">
-              {languages
-                .filter((language) => language !== "English")
-                .map((language) => (
-                  <Chip
-                    key={t(language)}
-                    selected={targets.includes(language)}
-                    onClick={() => toggleTarget(language)}
-                  >
-                    {t(language)}
-                  </Chip>
-                ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="translation-input">
-          <label id="translation-input-heading" htmlFor="translation-text">
-            {t("Text to translate")}
-          </label>
-          <textarea
-            lang="en"
-            id="translation-text"
-            value={text}
-            maxLength={1000}
-            onChange={(event) => setText(event.target.value)}
-            placeholder={t("Type or paste text here…")}
-          />
-          <div className="input-footer">
-            <span>
-              {t("{count} / {total}", { count: text.length, total: 1000 })}
-            </span>
-            <Button
-              variant="primary"
-              icon="spark"
-              loading={loading}
-              disabled={!text.trim()}
-              onClick={translate}
-            >
-              {t("Translate")}
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {loading && (
-        <section
-          className="results-grid"
-          aria-label={t("Loading translations")}
-          aria-busy="true"
-        >
-          {[1, 2, 3].map((item) => (
-            <Skeleton key={item} />
-          ))}
-        </section>
-      )}
-
-      {!loading && translated && text.trim() && (
-        <section className="results-section" aria-live="polite">
-          <div className="section-title-row">
-            <div>
-              <span className="eyebrow">{t("Results")}</span>
-              <h2>{t("Three translations")}</h2>
-            </div>
-            <span className="sample-note">
-              <Icon name="info" />{" "}
-              {t("Illustrative translations—verify before use")}
-            </span>
-          </div>
-          <div className="results-grid">
-            <article className="result-card">
-              <div className="result-top">
-                <Badge tone="language">{t("Spanish")}</Badge>
-                <IconButton label={t("More options")} icon="more" />
-              </div>
-              <div className="result-content">
-                <span className="part-of-speech">{t("verb")}</span>
-                <h3 lang="es">aprender</h3>
-                <p className="pronunciation">/a.pɾenˈdeɾ/</p>
-              </div>
-              <div className="result-actions">
-                <Button variant="text" icon="copy">
-                  {t("Copy")}
-                </Button>
-                <Button variant="text" icon="bookmark" onClick={onSaved}>
-                  {t("Save")}
-                </Button>
-                <Button variant="secondary" icon="arrow" onClick={onExplore}>
-                  {t("Explore word")}
-                </Button>
-              </div>
-            </article>
-
-            <article className="result-card">
-              <div className="result-top">
-                <Badge tone="language">{t("German")}</Badge>
-                <IconButton label={t("More options")} icon="more" />
-              </div>
-              <div className="result-content">
-                <span className="part-of-speech">{t("verb")}</span>
-                <h3 lang="de">lernen</h3>
-                <p className="pronunciation">/ˈlɛʁnən/</p>
-              </div>
-              <div className="result-actions">
-                <Button variant="text" icon="copy">
-                  {t("Copy")}
-                </Button>
-                <Button variant="text" icon="bookmark" onClick={onSaved}>
-                  {t("Save")}
-                </Button>
-                <Button variant="secondary" icon="arrow">
-                  {t("Explore word")}
-                </Button>
-              </div>
-            </article>
-
-            <article className="result-card result-card--error">
-              <div className="result-top">
-                <Badge tone="language">{t("French")}</Badge>
-                <Icon name="warning" />
-              </div>
-              <div className="error-copy">
-                <h3>{t("Translation unavailable")}</h3>
-                <p>
-                  {t(
-                    "We could not reach this language service. Your other translations are still available.",
-                  )}
-                </p>
-              </div>
-              <Button variant="secondary" icon="retry">
-                {t("Try French again")}
-              </Button>
-            </article>
-          </div>
-        </section>
-      )}
-
-      {!loading && !text.trim() && (
-        <EmptyState
-          icon="translate"
-          title={t("Start with a word or phrase")}
-          description={t(
-            "Your translations will appear here, grouped by language.",
-          )}
-        />
-      )}
-    </main>
   )
 }
 
@@ -756,10 +536,7 @@ export default function App() {
   return (
     <AppShell view={view} setView={setView}>
       {view === "translate" && (
-        <TranslateView
-          onExplore={() => setView("explore")}
-          onSaved={saveWord}
-        />
+        <TranslationView />
       )}
       {view === "explore" && (
         <ExploreView

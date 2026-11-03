@@ -536,3 +536,5 @@ td:not(:first-child) { font-weight: 650; }
   .toast { bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
   .challenge-field input, textarea { scroll-margin-block: 90px; }
 }
+
+.translation-result { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 22px; margin: 16px 0; }
