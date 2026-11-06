@@ -299,5 +299,17 @@
   "Spanish to German · translation preview": "Spaans naar Duits · vertaalpreview",
   "Real translation is not enabled on this website yet.": "Echte vertaling is nog niet ingeschakeld op deze website.",
   "Retry translation": "Vertaling opnieuw proberen",
-  "Machine translation may contain mistakes, including changed names. Verify important details.": "Machinevertaling kan fouten bevatten, waaronder gewijzigde namen. Controleer belangrijke details."
+  "Machine translation may contain mistakes, including changed names. Verify important details.": "Machinevertaling kan fouten bevatten, waaronder gewijzigde namen. Controleer belangrijke details.",
+  "About hello.profe": "Over hello.profe",
+  "A personal companion for learning languages.": "Een persoonlijke metgezel bij het leren van talen.",
+  "hello.profe brings together short-text translation and German verb practice, with a long-term goal of connecting Spanish, German, English, French and Dutch.": "hello.profe combineert het vertalen van korte teksten met het oefenen van Duitse werkwoorden, met als langetermijndoel Spaans, Duits, Engels, Frans en Nederlands te verbinden.",
+  "Inspired by everyday life in a multilingual family in Brussels, this project connects two ongoing learning journeys: languages and web development.": "Geïnspireerd door het dagelijks leven in een meertalig gezin in Brussel verbindt dit project twee voortdurende leerprocessen: talen en webontwikkeling.",
+  "Built as a personal portfolio project, hello.profe grows from WordPress development experience into React, TypeScript, API integration, data modelling and testing.": "Als persoonlijk portfolioproject bouwt hello.profe voort op ervaring met WordPress en verkent het React, TypeScript, API-integratie, datamodellering en testen.",
+  "Today you can translate Spanish into German, practise German verb forms and browse reading-only flashcards. Vocabulary exploration, saved progress and offline access are still planned.": "Je kunt nu Spaans naar Duits vertalen, Duitse werkwoordsvormen oefenen en leerkaarten lezen. Woordenschat verkennen, voortgang opslaan en offline toegang staan nog op de planning.",
+  "View the source code and follow development on GitHub.": "Bekijk de broncode en volg de ontwikkeling op GitHub.",
+  "GitHub repository": "GitHub-repository",
+  "“Profe” is an informal Spanish word for a teacher. Together with “hello,” it reflects the welcoming, personal spirit of this project.": "‘Profe’ is een informeel Spaans woord voor een leraar. Samen met ‘hello’ weerspiegelt het de gastvrije, persoonlijke sfeer van dit project.",
+  "GitHub profile": "GitHub-profiel",
+  "LinkedIn": "LinkedIn",
+  "About": "Over"
 }

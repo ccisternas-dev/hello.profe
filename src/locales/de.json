@@ -299,5 +299,17 @@
   "Spanish to German · translation preview": "Spanisch nach Deutsch · Übersetzungsvorschau",
   "Real translation is not enabled on this website yet.": "Die echte Übersetzungsfunktion ist auf dieser Website noch nicht aktiviert.",
   "Retry translation": "Übersetzung erneut versuchen",
-  "Machine translation may contain mistakes, including changed names. Verify important details.": "Maschinelle Übersetzungen können Fehler enthalten, auch veränderte Namen. Prüfe wichtige Angaben."
+  "Machine translation may contain mistakes, including changed names. Verify important details.": "Maschinelle Übersetzungen können Fehler enthalten, auch veränderte Namen. Prüfe wichtige Angaben.",
+  "About hello.profe": "Über hello.profe",
+  "A personal companion for learning languages.": "Ein persönlicher Begleiter beim Sprachenlernen.",
+  "hello.profe brings together short-text translation and German verb practice, with a long-term goal of connecting Spanish, German, English, French and Dutch.": "hello.profe verbindet die Übersetzung kurzer Texte mit dem Üben deutscher Verben. Langfristig sollen Spanisch, Deutsch, Englisch, Französisch und Niederländisch miteinander verbunden werden.",
+  "Inspired by everyday life in a multilingual family in Brussels, this project connects two ongoing learning journeys: languages and web development.": "Inspiriert vom Alltag einer mehrsprachigen Familie in Brüssel verbindet dieses Projekt zwei fortlaufende Lernwege: Sprachen und Webentwicklung.",
+  "Built as a personal portfolio project, hello.profe grows from WordPress development experience into React, TypeScript, API integration, data modelling and testing.": "Als persönliches Portfolioprojekt baut hello.profe auf Erfahrungen mit WordPress auf und erschließt React, TypeScript, API-Integration, Datenmodellierung und Tests.",
+  "Today you can translate Spanish into German, practise German verb forms and browse reading-only flashcards. Vocabulary exploration, saved progress and offline access are still planned.": "Du kannst bereits Spanisch ins Deutsche übersetzen, deutsche Verbformen üben und Lernkarten zum Nachlesen nutzen. Wortschatzerkundung, gespeicherte Fortschritte und Offline-Zugriff sind noch geplant.",
+  "View the source code and follow development on GitHub.": "Sieh dir den Quellcode an und verfolge die Entwicklung auf GitHub.",
+  "GitHub repository": "GitHub-Repository",
+  "“Profe” is an informal Spanish word for a teacher. Together with “hello,” it reflects the welcoming, personal spirit of this project.": "„Profe“ ist eine informelle spanische Bezeichnung für eine Lehrkraft. Zusammen mit „hello“ spiegelt sie den einladenden, persönlichen Charakter dieses Projekts wider.",
+  "GitHub profile": "GitHub-Profil",
+  "LinkedIn": "LinkedIn",
+  "About": "Über"
 }

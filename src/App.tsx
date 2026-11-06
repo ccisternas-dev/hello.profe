@@ -21,7 +21,7 @@ import {
   Toast,
 } from "./components"
 
-type View = "translate" | "explore" | "notebook" | "practice" | "flashcards" | "settings"
+type View = "translate" | "explore" | "notebook" | "practice" | "flashcards" | "settings" | "about"
 
 const languages: MessageKey[] = [
   "English",
@@ -59,13 +59,14 @@ function AppShell({
   const primaryNav: {
     id: View
     label: MessageKey
-    icon: "translate" | "book" | "practice" | "cards" | "settings"
+    icon: "translate" | "book" | "practice" | "cards" | "settings" | "info"
   }[] = [
     { id: "translate", label: "Translate", icon: "translate" },
     { id: "notebook", label: "Notebook", icon: "book" },
     { id: "practice", label: "Practice", icon: "practice" },
     { id: "flashcards", label: "Flashcards", icon: "cards" },
     { id: "settings", label: "Settings", icon: "settings" },
+    { id: "about", label: "About", icon: "info" },
   ]
 
   const mobileNav = primaryNav.filter(item => item.id !== "notebook")
@@ -563,6 +564,24 @@ export default function App() {
         <section className="settings-card" aria-label={t("Interface language")}>
           <LocaleSelector />
           <p className="small-note">{t("Your language preference is saved in this browser when storage is available.")}</p>
+        </section>
+        <Button variant="text" onClick={() => setView("about")}>{t("About hello.profe")}</Button>
+      </main>}
+      {view === "about" && <main className="page about-page">
+        <Button variant="text" onClick={() => setView("settings")}>{t("Settings")}</Button>
+        <PageHeader eyebrow="" title={t("About hello.profe")} description={t("A personal companion for learning languages.")} />
+        <section className="settings-card about-copy" aria-label={t("About hello.profe")}>
+          <p>{t("hello.profe brings together short-text translation and German verb practice, with a long-term goal of connecting Spanish, German, English, French and Dutch.")}</p>
+          <p>{t("Inspired by everyday life in a multilingual family in Brussels, this project connects two ongoing learning journeys: languages and web development.")}</p>
+          <p>{t("Built as a personal portfolio project, hello.profe grows from WordPress development experience into React, TypeScript, API integration, data modelling and testing.")}</p>
+          <p>{t("Today you can translate Spanish into German, practise German verb forms and browse reading-only flashcards. Vocabulary exploration, saved progress and offline access are still planned.")}</p>
+          <p>{t("“Profe” is an informal Spanish word for a teacher. Together with “hello,” it reflects the welcoming, personal spirit of this project.")}</p>
+          <p>{t("View the source code and follow development on GitHub.")}</p>
+          <ul>
+            <li><a href="https://github.com/ccisternas-dev/hello.profe">{t("GitHub repository")}</a></li>
+            <li><a href="https://github.com/ccisternas-dev">{t("GitHub profile")}</a></li>
+            <li><a href="https://www.linkedin.com/in/ccisternasv/">{t("LinkedIn")}</a></li>
+          </ul>
         </section>
       </main>}
       <Toast
