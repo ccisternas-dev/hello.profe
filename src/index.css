@@ -538,3 +538,7 @@ td:not(:first-child) { font-weight: 650; }
 }
 
 .translation-result { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 22px; margin: 16px 0; }
+
+.about-copy { max-width: 720px; line-height: 1.7; }
+.about-copy p { margin: 0 0 20px; }
+.about-copy a { color: var(--text-primary); text-decoration: underline; text-underline-offset: 3px; }
