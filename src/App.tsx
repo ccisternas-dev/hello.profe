@@ -59,13 +59,14 @@ function AppShell({
   const primaryNav: {
     id: View
     label: MessageKey
-    icon: "translate" | "book" | "practice" | "cards" | "settings"
+    icon: "translate" | "book" | "practice" | "cards" | "settings" | "info"
   }[] = [
     { id: "translate", label: "Translate", icon: "translate" },
     { id: "notebook", label: "Notebook", icon: "book" },
     { id: "practice", label: "Practice", icon: "practice" },
     { id: "flashcards", label: "Flashcards", icon: "cards" },
     { id: "settings", label: "Settings", icon: "settings" },
+    { id: "about", label: "About", icon: "info" },
   ]
 
   const mobileNav = primaryNav.filter(item => item.id !== "notebook")
