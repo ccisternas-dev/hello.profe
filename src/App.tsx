@@ -574,8 +574,13 @@ export default function App() {
           <p>{t("Inspired by everyday life in a multilingual family in Brussels, this project connects two ongoing learning journeys: languages and web development.")}</p>
           <p>{t("Built as a personal portfolio project, hello.profe grows from WordPress development experience into React, TypeScript, API integration, data modelling and testing.")}</p>
           <p>{t("Today you can translate Spanish into German, practise German verb forms and browse reading-only flashcards. Vocabulary exploration, saved progress and offline access are still planned.")}</p>
+          <p>{t("“Profe” is an informal Spanish word for a teacher. Together with “hello,” it reflects the welcoming, personal spirit of this project.")}</p>
           <p>{t("View the source code and follow development on GitHub.")}</p>
-          <a href="https://github.com/ccisternas-dev/hello.profe">{t("GitHub repository")}</a>
+          <ul>
+            <li><a href="https://github.com/ccisternas-dev/hello.profe">{t("GitHub repository")}</a></li>
+            <li><a href="https://github.com/ccisternas-dev">{t("GitHub profile")}</a></li>
+            <li><a href="https://www.linkedin.com/in/ccisternasv/">{t("LinkedIn")}</a></li>
+          </ul>
         </section>
       </main>}
       <Toast
