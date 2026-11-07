@@ -1,0 +1,74 @@
+[
+  {
+    "file": "desktop-01-practice-dashboard.png",
+    "name": "01-practice-dashboard",
+    "note": "",
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-02-challenge-settings.png",
+    "name": "02-challenge-settings",
+    "note": "",
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-03-challenge-question.png",
+    "name": "03-challenge-question",
+    "note": "",
+    "width": 1440,
+    "height": 1116,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-04-complete-question.png",
+    "name": "04-complete-question",
+    "note": "",
+    "width": 1440,
+    "height": 2244,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-01-practice-dashboard.png",
+    "name": "01-practice-dashboard",
+    "note": "",
+    "width": 390,
+    "height": 846,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-02-challenge-settings.png",
+    "name": "02-challenge-settings",
+    "note": "",
+    "width": 390,
+    "height": 1084,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-03-challenge-question.png",
+    "name": "03-challenge-question",
+    "note": "",
+    "width": 390,
+    "height": 1333,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-04-complete-question.png",
+    "name": "04-complete-question",
+    "note": "",
+    "width": 390,
+    "height": 2901,
+    "overflow": false,
+    "fontLoaded": true
+  }
+]

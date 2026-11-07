@@ -33,7 +33,7 @@ const languages: MessageKey[] = [
 
 function Logo() {
   return (
-    <div className="logo" aria-label="hello.profe">
+    <a className="logo" href={import.meta.env.BASE_URL} aria-label="hello.profe">
       <svg viewBox="0 0 34 34" aria-hidden="true">
         <path d="M5 7h15a7 7 0 0 1 7 7v1a7 7 0 0 1-7 7h-6l-7 5 2-6a7 7 0 0 1-6-7V9a2 2 0 0 1 2-2Z" />
         <path d="M19 14h7a5 5 0 0 1 5 5v1a5 5 0 0 1-5 5h-2l1 4-5-4h-1a5 5 0 0 1 0-11Z" />
@@ -41,7 +41,7 @@ function Logo() {
       <span>
         hello<span>.</span>profe
       </span>
-    </div>
+    </a>
   )
 }
 
@@ -571,11 +571,12 @@ export default function App() {
         <Button variant="text" onClick={() => setView("settings")}>{t("Settings")}</Button>
         <PageHeader eyebrow="" title={t("About hello.profe")} description={t("A personal companion for learning languages.")} />
         <section className="settings-card about-copy" aria-label={t("About hello.profe")}>
-          <p>{t("hello.profe brings together short-text translation and German verb practice, with a long-term goal of connecting Spanish, German, English, French and Dutch.")}</p>
-          <p>{t("Inspired by everyday life in a multilingual family in Brussels, this project connects two ongoing learning journeys: languages and web development.")}</p>
-          <p>{t("Built as a personal portfolio project, hello.profe grows from WordPress development experience into React, TypeScript, API integration, data modelling and testing.")}</p>
-          <p>{t("Today you can translate Spanish into German, practise German verb forms and browse reading-only flashcards. Vocabulary exploration, saved progress and offline access are still planned.")}</p>
+          <p>{t("hello.profe is a language-learning web app that combines short-text translation with focused German practice. The long-term goal is to connect Spanish, German, English, French and Dutch in one workflow.")}</p>
+          <p>{t("Available today: translate Spanish into German, practise 148 irregular German verbs and study reference flashcards. Vocabulary exploration, saved progress and offline access are still planned.")}</p>
+          <p>{t("Living in a multilingual family in Brussels means switching between languages every day. I am currently in level 4 of the German course at CVO Semper (CEFR B1), and the practice content supports that course.")}</p>
+          <p>{t("Built as a portfolio project, hello.profe extends my WordPress background into React, TypeScript, API integration, data modelling and testing.")}</p>
           <p>{t("“Profe” is an informal Spanish word for a teacher. Together with “hello,” it reflects the welcoming, personal spirit of this project.")}</p>
+          <p>{t("I use AI tools openly: Google Stitch for wireframes and inspiration, Figma Make for the logotype and design system, OpenAI Codex for implementation, and GitHub Copilot and Claude to double-check features. I review and test what they produce.")}</p>
           <p>{t("View the source code and follow development on GitHub.")}</p>
           <ul>
             <li><a href="https://github.com/ccisternas-dev/hello.profe">{t("GitHub repository")}</a></li>

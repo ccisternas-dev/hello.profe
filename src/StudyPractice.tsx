@@ -19,12 +19,12 @@ export default function StudyPractice({ onFlashcards }: { onFlashcards: () => vo
       <div className="page-header">
         <div>
           <span className="eyebrow">{t("German · B2")}</span>
-          <h1>{t("Your learning dashboard")}</h1>
-          <p>
+          <h1>{t(mode ? learningPathTitles[mode] : "Your learning dashboard")}</h1>
+          {mode === null && <p>
             {t(
               "Choose a path and practice at your own pace.",
             )}
-          </p>
+          </p>}
         </div>
       </div>
       {mode === null ? <LearningDashboard onSelect={path => path === "flashcards" ? onFlashcards() : setMode(path)} /> : <>

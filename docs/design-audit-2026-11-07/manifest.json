@@ -1,0 +1,416 @@
+[
+  {
+    "file": "desktop-01-practice-dashboard.png",
+    "name": "01-practice-dashboard",
+    "note": "",
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-02-challenge-settings.png",
+    "name": "02-challenge-settings",
+    "note": "",
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-03-challenge-question.png",
+    "name": "03-challenge-question",
+    "note": "",
+    "width": 1440,
+    "height": 1059,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-04-challenge-validation.png",
+    "name": "04-challenge-validation",
+    "note": "",
+    "width": 1440,
+    "height": 1083,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-05-challenge-hint.png",
+    "name": "05-challenge-hint",
+    "note": "",
+    "width": 1440,
+    "height": 1107,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-06-challenge-revealed.png",
+    "name": "06-challenge-revealed",
+    "note": "",
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-07-challenge-summary.png",
+    "name": "07-challenge-summary",
+    "note": "",
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-08-complete-settings.png",
+    "name": "08-complete-settings",
+    "note": "",
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-09-complete-question.png",
+    "name": "09-complete-question",
+    "note": "",
+    "width": 1440,
+    "height": 2187,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-10-mixed-settings.png",
+    "name": "10-mixed-settings",
+    "note": "",
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-11-mixed-question.png",
+    "name": "11-mixed-question",
+    "note": "",
+    "width": 1440,
+    "height": 1059,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-12-flashcards.png",
+    "name": "12-flashcards",
+    "note": "",
+    "width": 1440,
+    "height": 1149,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-13-settings.png",
+    "name": "13-settings",
+    "note": "",
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-14-about.png",
+    "name": "14-about",
+    "note": "",
+    "width": 1440,
+    "height": 1058,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-15-translate-disabled.png",
+    "name": "15-translate-disabled",
+    "note": "Local preview has translation backend disabled.",
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-16-notebook-empty.png",
+    "name": "16-notebook-empty",
+    "note": "",
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-17-notebook-saved.png",
+    "name": "17-notebook-saved",
+    "note": "Seeded existing prototype saved-word flag in isolated browser.",
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-18-explore-meanings.png",
+    "name": "18-explore-meanings",
+    "note": "Reached through seeded prototype notebook.",
+    "width": 1440,
+    "height": 1137,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-19-explore-conjugation.png",
+    "name": "19-explore-conjugation",
+    "note": "",
+    "width": 1440,
+    "height": 1133,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-20-explore-examples.png",
+    "name": "20-explore-examples",
+    "note": "",
+    "width": 1440,
+    "height": 1133,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-21-delete-dialog.png",
+    "name": "21-delete-dialog",
+    "note": "",
+    "width": 1440,
+    "height": 1000,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-22-design-foundations.png",
+    "name": "22-design-foundations",
+    "note": "Developer-only showcase.",
+    "width": 1440,
+    "height": 1642,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "desktop-22-design-components.png",
+    "name": "22-design-components",
+    "note": "Developer-only showcase.",
+    "width": 1440,
+    "height": 1965,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-01-practice-dashboard.png",
+    "name": "01-practice-dashboard",
+    "note": "",
+    "width": 390,
+    "height": 846,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-02-challenge-settings.png",
+    "name": "02-challenge-settings",
+    "note": "",
+    "width": 390,
+    "height": 1068,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-03-challenge-question.png",
+    "name": "03-challenge-question",
+    "note": "",
+    "width": 390,
+    "height": 1299,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-04-challenge-validation.png",
+    "name": "04-challenge-validation",
+    "note": "",
+    "width": 390,
+    "height": 1323,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-05-challenge-hint.png",
+    "name": "05-challenge-hint",
+    "note": "",
+    "width": 390,
+    "height": 1291,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-06-challenge-revealed.png",
+    "name": "06-challenge-revealed",
+    "note": "",
+    "width": 390,
+    "height": 1097,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-07-challenge-summary.png",
+    "name": "07-challenge-summary",
+    "note": "",
+    "width": 390,
+    "height": 1020,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-08-complete-settings.png",
+    "name": "08-complete-settings",
+    "note": "",
+    "width": 390,
+    "height": 876,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-09-complete-question.png",
+    "name": "09-complete-question",
+    "note": "",
+    "width": 390,
+    "height": 2867,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-10-mixed-settings.png",
+    "name": "10-mixed-settings",
+    "note": "",
+    "width": 390,
+    "height": 972,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-11-mixed-question.png",
+    "name": "11-mixed-question",
+    "note": "",
+    "width": 390,
+    "height": 1299,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-12-flashcards.png",
+    "name": "12-flashcards",
+    "note": "",
+    "width": 390,
+    "height": 1242,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-13-settings.png",
+    "name": "13-settings",
+    "note": "",
+    "width": 390,
+    "height": 844,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-14-about.png",
+    "name": "14-about",
+    "note": "",
+    "width": 390,
+    "height": 1525,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-15-translate-disabled.png",
+    "name": "15-translate-disabled",
+    "note": "Local preview has translation backend disabled.",
+    "width": 390,
+    "height": 884,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-16-notebook-empty.png",
+    "name": "16-notebook-empty",
+    "note": "Opened using hidden desktop nav: no mobile Notebook entry.",
+    "width": 390,
+    "height": 897,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-17-notebook-saved.png",
+    "name": "17-notebook-saved",
+    "note": "Seeded existing prototype saved-word flag in isolated browser.",
+    "width": 390,
+    "height": 1034,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-18-explore-meanings.png",
+    "name": "18-explore-meanings",
+    "note": "Reached through seeded prototype notebook.",
+    "width": 390,
+    "height": 1913,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-19-explore-conjugation.png",
+    "name": "19-explore-conjugation",
+    "note": "",
+    "width": 390,
+    "height": 1701,
+    "overflow": true,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-20-explore-examples.png",
+    "name": "20-explore-examples",
+    "note": "",
+    "width": 390,
+    "height": 1592,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-21-delete-dialog.png",
+    "name": "21-delete-dialog",
+    "note": "",
+    "width": 390,
+    "height": 1034,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-22-design-foundations.png",
+    "name": "22-design-foundations",
+    "note": "Developer-only showcase.",
+    "width": 390,
+    "height": 3107,
+    "overflow": false,
+    "fontLoaded": true
+  },
+  {
+    "file": "mobile-22-design-components.png",
+    "name": "22-design-components",
+    "note": "Developer-only showcase.",
+    "width": 390,
+    "height": 2971,
+    "overflow": false,
+    "fontLoaded": true
+  }
+]
