@@ -1,4 +1,4 @@
-import { ApiError, translateM2M100, type AiBinding, type Provider, type TranslationInput } from './provider.ts'
+import { isTranslationLanguage, ApiError, translateM2M100, type AiBinding, type Provider, type TranslationInput } from './provider.ts'
 
 type Limiter = { limit: (input: { key: string }) => Promise<{ success: boolean }> }
 export type Env = {
@@ -45,8 +45,8 @@ async function readInput(request: Request): Promise<TranslationInput> {
     const v = value as Record<string, unknown>
     if (Object.keys(v).some(key => !['text', 'source', 'target'].includes(key))
         || typeof v.text !== 'string' || !v.text.trim() || [...v.text.trim()].length > MAX_TEXT_CHARACTERS
-        || v.source !== 'es' || v.target !== 'de') throw new Error()
-    return { text: v.text.trim(), source: 'es', target: 'de' }
+        || !isTranslationLanguage(v.source) || !isTranslationLanguage(v.target) || v.source === v.target) throw new Error()
+    return { text: v.text.trim(), source: v.source, target: v.target }
   } catch (error) {
     void reader.cancel().catch(() => {})
     if (error instanceof ApiError) throw error

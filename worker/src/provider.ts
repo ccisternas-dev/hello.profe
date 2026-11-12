@@ -1,4 +1,7 @@
-export type TranslationInput = { text: string; source: 'es'; target: 'de' }
+export const languages = ['es', 'en', 'nl', 'de', 'fr'] as const
+export type TranslationLanguage = typeof languages[number]
+export const isTranslationLanguage = (value: unknown): value is TranslationLanguage => languages.some(language => language === value)
+export type TranslationInput = { text: string; source: TranslationLanguage; target: TranslationLanguage }
 export type AiBinding = { run: (model: string, input: Record<string, string>) => Promise<unknown> }
 export type Provider = (ai: AiBinding, input: TranslationInput) => Promise<string>
 export class ApiError extends Error {

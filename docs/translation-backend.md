@@ -30,7 +30,7 @@ Limits: 500 Unicode code points after trimming, 4,096 body bytes checked while s
 
 The default local configuration is disabled, with workers.dev and preview URLs disabled and no custom route. It requires an enabled flag, AI and rate-limit bindings, and a private 32+-character bearer token. The token is for local CLI evaluation only; never put it in a VITE_* variable or ship it in frontend code. `.dev.vars*` and `.wrangler/` are ignored. Handler/adapter code does not log requests, provider error messages, credentials, or submitted text. Observability is disabled in configuration.
 
-Production uses a separate `--env production` configuration: public access, the exact Pages origin `https://ccisternas-dev.github.io`, 3 requests/minute per Cloudflare-provided client IP and 20/minute shared per location. Missing bindings or client IP fail closed. CORS is browser policy, not authentication: non-browser clients can spoof Origin. Limits are approximate, not a worldwide budget. The user-confirmed Workers Free plan provides the daily inference hard stop; do not upgrade to Paid without a separate budget design. Other projects share the AI allowance. Local evaluation retains the private token gate and localhost origins.
+Production uses a separate `--env production` configuration: public access, the exact Pages origin `https://ccisternas-dev.github.io`, 4 requests/minute per Cloudflare-provided client IP and 20/minute shared per location. Missing bindings or client IP fail closed. CORS is browser policy, not authentication: non-browser clients can spoof Origin. Limits are approximate, not a worldwide budget. The user-confirmed Workers Free plan provides the daily inference hard stop; do not upgrade to Paid without a separate budget design. Other projects share the AI allowance. Local evaluation retains the private token gate and localhost origins.
 
 ## Exact local commands
 
@@ -129,3 +129,7 @@ Open `http://127.0.0.1:8443` and choose Translate. Enter Spanish text (1–500 c
 The UI clears results and cancels/invalidates older requests on text edits, new attempts or unmount, times out after 15 seconds, and exposes a retry action for failures. It displays a machine-translation accuracy note. All messages support five interface languages; this does not expand the Spanish → German translation pair.
 
 Validation: 25 automated tests, localization/data audits, frontend/Worker type checks and production build passed. Chrome verified a real UI request (`Quiero aprender alemán.` → `Ich möchte Deutsch lernen.`), no Authorization header from the browser, blocked access to `.dev.vars`, mocked rate-limit/retry and stale responses, length limits, five locales, and working flashcards. The six-fixture evaluation remains in `worker/evaluation/`; this UI check used one additional authored model request.
+
+### Multi-language translation
+
+The translation screen supports Spanish, English, Dutch, German, and French as sources, with one to four distinct target languages. Each target makes a separate request and displays its own result or error. Production allows four requests per minute per client IP to accommodate one four-target submission; the shared limit remains 20 per minute.

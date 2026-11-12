@@ -39,6 +39,6 @@
     "verb.forms.present.canonical": "German present form from workbook"
   },
   "src/TranslationView.tsx": {
-    "result": "Machine translation returned by the server, marked with target language"
+    "result.text": "Machine translation returned by the server, marked with target language"
   }
 }

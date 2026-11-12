@@ -44,7 +44,7 @@
           "name": "REQUEST_LIMITER",
           "namespace_id": "2730",
           "simple": {
-            "limit": 3,
+            "limit": 4,
             "period": 60
           }
         },

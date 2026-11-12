@@ -32,3 +32,17 @@ test('production client calls configured HTTPS Worker without authentication sec
   })
   assert.equal(await translateSpanish('Hola',new AbortController().signal,endpoint),'Hallo')
 })
+
+test('one source can translate to four targets independently, retaining partial success', async t => {
+  const { translateText } = await import('../src/translation-client.ts')
+  t.mock.method(globalThis, 'fetch', async (_url, init) => {
+    const { text, source, target } = JSON.parse(init.body)
+    assert.equal(text, 'Hola')
+    assert.equal(source, 'es')
+    if (target === 'nl') return Response.json({ error: { code: 'rate_limited' } }, { status: 429 })
+    return Response.json({ source, target, translatedText: { en: 'Hello', de: 'Hallo', fr: 'Bonjour' }[target] })
+  })
+  const results = await Promise.allSettled(['en', 'de', 'fr', 'nl'].map(target => translateText('Hola', 'es', target, new AbortController().signal)))
+  assert.deepEqual(results.slice(0, 3).map(result => result.value), ['Hello', 'Hallo', 'Bonjour'])
+  assert.equal(results[3].reason.message, 'rate_limited')
+})

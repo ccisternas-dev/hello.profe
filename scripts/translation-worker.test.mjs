@@ -36,7 +36,7 @@ test('invalid inputs never reach the provider, including streamed oversized bodi
   let calls = 0
   const handle = createHandler(async () => { calls++; return 'unused' })
   for (const body of [null, [], {}, { ...input, text: ' ' }, { ...input, text: 'a'.repeat(501) },
-    { ...input, source: 'auto' }, { ...input, target: 'fr' }, { ...input, prompt: 'extra' }]) {
+    { ...input, source: 'auto' }, { ...input, target: 'it' }, { ...input, target: 'es' }, { ...input, prompt: 'extra' }]) {
     assert.equal((await handle(request(body), env())).status, 400)
   }
   assert.equal((await handle(request(input, { body: '{' }), env())).status, 400)
@@ -105,4 +105,18 @@ test('public requests require exact origin, edge IP, and both limiters but no pr
   const limited = {...publicEnv,SHARED_LIMITER:{limit:async()=>({success:false})}}
   assert.equal((await handle(request(input,{headers}),limited)).status,429)
   assert.equal(calls,1)
+})
+
+ test('all twenty distinct language pairs reach the provider with explicit codes', async () => {
+  for (const source of ['es', 'en', 'nl', 'de', 'fr']) {
+    for (const target of ['es', 'en', 'nl', 'de', 'fr']) {
+      if (source === target) continue
+      const response = await createHandler()(request({ text: 'hello', source, target }), env({ AI: { run: async (_model, values) => {
+        assert.deepEqual(values, { text: 'hello', source_lang: source, target_lang: target })
+        return { translated_text: 'translated' }
+      } } }))
+      assert.equal(response.status, 200)
+      assert.deepEqual(await response.json(), { source, target, translatedText: 'translated' })
+    }
+  }
 })
