@@ -10069,7 +10069,10 @@
             "row": 149
           }
         }
-      ]
+      ],
+      "language": "de",
+      "level": "B2",
+      "topic": "verbs"
     },
     {
       "id": "gesundheit",
@@ -12455,7 +12458,10 @@
             "row": 141
           }
         }
-      ]
+      ],
+      "language": "de",
+      "level": "B2",
+      "topic": "health"
     },
     {
       "id": "freundschaft",
@@ -14178,7 +14184,10 @@
             "row": 102
           }
         }
-      ]
+      ],
+      "language": "de",
+      "level": "B2",
+      "topic": "relationships"
     },
     {
       "id": "temporal-connectors",
@@ -14660,7 +14669,10 @@
             "row": 32
           }
         }
-      ]
+      ],
+      "language": "de",
+      "level": "B2",
+      "topic": "grammar"
     },
     {
       "id": "temporal-exercise-1",
@@ -14978,7 +14990,10 @@
             "row": 29
           }
         }
-      ]
+      ],
+      "language": "de",
+      "level": "B2",
+      "topic": "grammar"
     },
     {
       "id": "temporal-exercise-2",
@@ -15088,7 +15103,10 @@
             "row": 13
           }
         }
-      ]
+      ],
+      "language": "de",
+      "level": "B2",
+      "topic": "grammar"
     },
     {
       "id": "temporal-exercise-3",
@@ -15198,7 +15216,10 @@
             "row": 13
           }
         }
-      ]
+      ],
+      "language": "de",
+      "level": "B2",
+      "topic": "grammar"
     },
     {
       "id": "temporal-exercise-4",
@@ -15308,7 +15329,10 @@
             "row": 13
           }
         }
-      ]
+      ],
+      "language": "de",
+      "level": "B2",
+      "topic": "grammar"
     },
     {
       "id": "temporal-exercise-5",
@@ -15418,7 +15442,10 @@
             "row": 13
           }
         }
-      ]
+      ],
+      "language": "de",
+      "level": "B2",
+      "topic": "grammar"
     }
   ]
 }

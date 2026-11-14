@@ -42,7 +42,8 @@ def convert():
     decks, audit, ids = [], [], set()
 
     def deck(id, title):
-        item = {'id': id, 'title': title, 'cards': []}
+        item = {'id': id, 'title': title, 'cards': [], 'language': 'de', 'level': 'B2',
+                'topic': {'irregular-verbs': 'verbs', 'gesundheit': 'health', 'freundschaft': 'relationships'}.get(id, 'grammar')}
         decks.append(item)
         return item
 

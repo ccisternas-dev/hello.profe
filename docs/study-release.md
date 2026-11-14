@@ -29,3 +29,9 @@ Notes/instruction sheets, titles and header rows are deliberately excluded. No l
 Workflow follows the [Vite GitHub Pages deployment guide](https://vite.dev/guide/static-deploy.html#github-pages).
 - Headless Chrome production preview passed at 1280px and 390px: all nine decks, reveal/reset on navigation, full mixed round and Again review, refresh and keyboard activation. No page errors, failed HTTP responses or horizontal overflow. This is browser emulation, not a physical Android test.
 - Repeating conversion produced byte-identical JSON and stable IDs.
+
+## Topic-grid metadata
+
+Decks support `language` (en/es/fr/de/nl), `level` (CEFR), `topic`, and optional `reviewed`. The existing workbook decks retain B2 metadata from their source files, not a claim about the learner's course level. They are legacy content: an omitted `reviewed` flag preserves their existing availability while independent review in #5 remains outstanding. Do not mark them reviewed without evidence.
+
+New content must explicitly use `reviewed: false` until owner approval. Production builds remove those decks from the JSON module before bundling; the catalog also filters them at runtime. Development preview includes them with a draft notice. The language, level, and topic filters combine.

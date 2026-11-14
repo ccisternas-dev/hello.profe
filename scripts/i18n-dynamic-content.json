@@ -40,5 +40,13 @@
   },
   "src/TranslationView.tsx": {
     "result.text": "Machine translation returned by the server, marked with target language"
+  },
+  "src/Flashcards.tsx": {
+    "level": "CEFR level from deck metadata",
+    "deck.level": "CEFR level from deck metadata",
+    "card.prompt": "Learning content marked with deck language",
+    "card.answer": "Supplied learning answer",
+    "card.detail": "Source learning notes",
+    "value": "Learning translation marked with its language"
   }
 }

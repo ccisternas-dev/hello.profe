@@ -324,5 +324,22 @@
   "{count} / {total} bytes": "{count} / {total} bytes",
   "MyMemory email (optional)": "Correo para MyMemory (opcional)",
   "Saved in this browser and sent only to MyMemory to increase the free daily allowance. Leave blank to use MyMemory anonymously.": "Se guarda en este navegador y se envía solo a MyMemory para aumentar el límite diario gratuito. Déjalo vacío para usar MyMemory de forma anónima.",
-  "Enter a valid email address or leave this field blank.": "Introduce un correo válido o deja este campo vacío."
+  "Enter a valid email address or leave this field blank.": "Introduce un correo válido o deja este campo vacío.",
+  "Choose a topic and study at your own pace.": "Elige un tema y estudia a tu ritmo.",
+  "Relationships": "Relaciones",
+  "Back to topics": "Volver a los temas",
+  "Draft content — awaiting owner review.": "Contenido en borrador: pendiente de revisión del propietario.",
+  "Level": "Nivel",
+  "All levels": "Todos los niveles",
+  "Topic": "Tema",
+  "All topics": "Todos los temas",
+  "No decks match these filters.": "Ningún mazo coincide con estos filtros.",
+  "{count} cards": "{count} tarjetas",
+  "Körper & Gesundheit": "Cuerpo y salud",
+  "Freundschaft & Konflikt": "Amistad y conflictos",
+  "Übung 1 – Konjunktion wählen": "Ejercicio 1: elegir la conjunción",
+  "Übung 2 – Nachdem + richtige Zeitform": "Ejercicio 2: nachdem y el tiempo verbal correcto",
+  "Übung 3 – Adverbien im Hauptsatz": "Ejercicio 3: adverbios en la oración principal",
+  "Übung 4 – Sätze verbinden": "Ejercicio 4: unir oraciones",
+  "Übung 5 – Fehler finden und korrigieren": "Ejercicio 5: encontrar y corregir errores"
 }
