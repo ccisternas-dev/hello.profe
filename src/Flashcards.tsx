@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { Button, PageHeader } from './components'
 import { useI18n, type MessageKey } from './i18n'
 import data from './data/study-decks.json'
 import { availableDecks, filterDecks, type StudyDeck } from './deck-catalog'
 import VerbFlashcards from './VerbFlashcards'
+import FlashcardSession from './FlashcardSession'
 
 const decks: StudyDeck[] = availableDecks(data.decks, import.meta.env.PROD)
 const languageNames: Record<string, MessageKey> = { de: 'German', en: 'English', es: 'Spanish', fr: 'French', nl: 'Dutch' }
@@ -13,8 +14,6 @@ export default function Flashcards() {
   const { t } = useI18n()
   const [filters, setFilters] = useState({language: '', level: '', topic: ''})
   const [selected, setSelected] = useState<StudyDeck | null>(null)
-  const study = useRef<HTMLElement | null>(null)
-  useEffect(() => { if (selected) study.current?.focus() }, [selected])
   const shown = filterDecks(decks, filters)
   const close = () => {
     const id = selected?.id
@@ -23,12 +22,10 @@ export default function Flashcards() {
   }
   return <main className="page flashcards-page">
     <PageHeader eyebrow="" title={t('Flashcards')} description={t('Choose a topic and study at your own pace.')} />
-    {selected ? <section ref={study} tabIndex={-1} aria-label={t('Flashcards')}>
-      <Button variant="text" icon="back" onClick={close}>{t('Back to topics')}</Button>
-      <h2>{t(selected.title as MessageKey)}</h2>
+    {selected ? <FlashcardSession title={t(selected.title as MessageKey)} onClose={close}>
       {selected.reviewed !== true && <p className="small-note">{t('Draft content — awaiting owner review.')}</p>}
       {selected.id === 'irregular-verbs' ? <VerbFlashcards /> : <DeckStudy key={selected.id} deck={selected} />}
-    </section> : <>
+    </FlashcardSession> : <>
       <div className="deck-filters">
         <label className="locale-selector"><span>{t('Language')}</span><select value={filters.language} onChange={e=>setFilters({...filters,language:e.target.value})}>
           <option value="">{t('All languages')}</option>
