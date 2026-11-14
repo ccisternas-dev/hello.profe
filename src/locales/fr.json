@@ -315,5 +315,14 @@
   "About": "À propos",
   "Translate into up to four languages at once.": "Traduisez dans quatre langues au maximum à la fois.",
   "Translate to": "Traduire en",
-  "Choose at least one target language.": "Choisissez au moins une langue cible."
+  "Choose at least one target language.": "Choisissez au moins une langue cible.",
+  "Translation provider": "Service de traduction",
+  "MyMemory": "MyMemory",
+  "Cloudflare Workers AI": "Cloudflare Workers AI",
+  "Your text is sent to the selected translation provider.": "Votre texte est envoyé au service de traduction sélectionné.",
+  "MyMemory accepts up to 500 UTF-8 bytes. Shorten your text.": "MyMemory accepte jusqu’à 500 octets UTF-8. Raccourcissez votre texte.",
+  "{count} / {total} bytes": "{count} / {total} octets",
+  "MyMemory email (optional)": "Adresse e-mail MyMemory (facultative)",
+  "Saved in this browser and sent only to MyMemory to increase the free daily allowance. Leave blank to use MyMemory anonymously.": "Enregistrée dans ce navigateur et envoyée uniquement à MyMemory pour augmenter le quota quotidien gratuit. Laissez ce champ vide pour utiliser MyMemory anonymement.",
+  "Enter a valid email address or leave this field blank.": "Saisissez une adresse e-mail valide ou laissez ce champ vide."
 }
