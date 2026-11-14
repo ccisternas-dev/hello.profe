@@ -587,3 +587,28 @@ td:not(:first-child) { font-weight: 650; }
 .topic-card strong { font-size: 22px; color: var(--action-primary); }
 .deck-study h2, .deck-answer { overflow-wrap: anywhere; }
 .deck-study .verb-reference-card { text-align: center; }
+
+.flashcard-session[open] { position: static; width: 100%; max-width: none; max-height: none; padding: 0; border: 0; color: var(--text-primary); background: transparent; }
+.flashcard-session:not([open]) { display: none; }
+.session-toolbar { display: flex; justify-content: space-between; gap: var(--space-2); }
+.session-toolbar .button { min-height: 44px; white-space: normal; }
+#study-deck-title { margin: var(--space-3) 0; font-size: 22px; }
+.flashcard-session.fullscreen[open] { position: fixed; inset: 0; display: flex; flex-direction: column; margin: 0; width: 100%; height: 100dvh; max-height: 100dvh; padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); background: var(--surface-learning); overflow: hidden; }
+.fullscreen .session-toolbar, .fullscreen #study-deck-title { flex-shrink: 0; }
+.fullscreen .study-stage { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+.fullscreen .study-stage > .small-note { margin: 0 0 4px; font-size: 12px; }
+.fullscreen .verb-flashcards { width: 100%; flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 0; }
+.fullscreen .verb-reference-card { min-height: 0; overflow: auto; padding: 12px; }
+.fullscreen .verb-reference-card h2 { margin: 10px 0; font-size: clamp(20px, 5vw, 28px); }
+.fullscreen .verb-translations > div { padding: 6px 8px; }
+.fullscreen .verb-translations dd { font-size: 14px; line-height: 1.3; }
+.fullscreen .verb-present { margin: 8px auto; padding: 4px 8px; }
+.fullscreen .verb-matrix-title { margin-bottom: 6px; padding: 4px 10px; font-size: 12px; }
+.fullscreen .verb-form-matrix > div { padding: 6px; }
+.fullscreen .verb-form-matrix dt { font-size: 10px; }
+.fullscreen .verb-form-matrix dd { margin-top: 4px; font-size: 17px; }
+.fullscreen .verb-card-navigation { flex-shrink: 0; margin-top: auto; padding-top: 8px; }
+.fullscreen .verb-card-navigation .button { min-height: 44px; padding: 8px; }
+.fullscreen .verb-card-position { flex-shrink: 0; margin: 6px 0 0; }
+.fullscreen .deck-answer { margin: 8px 0; font-size: 20px; font-weight: 600; }
+.fullscreen .verb-present-alternatives { margin-top: 6px; font-size: 12px; }

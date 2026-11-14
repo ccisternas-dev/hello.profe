@@ -48,5 +48,9 @@
     "card.answer": "Supplied learning answer",
     "card.detail": "Source learning notes",
     "value": "Learning translation marked with its language"
+  },
+  "src/FlashcardSession.tsx": {
+    "title": "Translated deck title",
+    "children": "Learning card React elements"
   }
 }
