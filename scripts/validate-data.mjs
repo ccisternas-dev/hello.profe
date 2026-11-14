@@ -20,7 +20,16 @@ export function validate(data) {
       for (const field of ['prompt', 'answer']) {
         assert.ok(typeof card[field] === 'string' && card[field].trim() && !['undefined', 'NaN', '—'].includes(card[field]), `Invalid ${field}: ${card.id}`)
       }
-      assert.ok(card.source.file.endsWith('.xlsx') && card.source.sheet && card.source.row > 0)
+      if (card.source.kind === 'ai-generated') {
+        assert.equal(deck.language, 'de')
+        assert.equal(deck.level, 'B1')
+        assert.equal(typeof deck.reviewed, 'boolean')
+        assert.ok(card.source.date)
+        for (const language of ['en','es','fr','nl']) assert.ok(card.translations[language]?.trim(), `Missing ${language}: ${card.id}`)
+        if (deck.reviewed) assert.ok(deck.review?.by && deck.review?.date, 'Owner review evidence required')
+      } else {
+        assert.ok(card.source.file.endsWith('.xlsx') && card.source.sheet && card.source.row > 0)
+      }
       assert.equal(typeof card.detail, 'string')
       assert.ok(Object.values(card.translations).every(value => typeof value === 'string'))
     }

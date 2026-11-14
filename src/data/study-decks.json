@@ -10072,7 +10072,8 @@
       ],
       "language": "de",
       "level": "B2",
-      "topic": "verbs"
+      "topic": "verbs",
+      "reviewed": false
     },
     {
       "id": "gesundheit",
@@ -12461,7 +12462,8 @@
       ],
       "language": "de",
       "level": "B2",
-      "topic": "health"
+      "topic": "health",
+      "reviewed": false
     },
     {
       "id": "freundschaft",
@@ -14187,7 +14189,8 @@
       ],
       "language": "de",
       "level": "B2",
-      "topic": "relationships"
+      "topic": "relationships",
+      "reviewed": false
     },
     {
       "id": "temporal-connectors",
@@ -14672,7 +14675,8 @@
       ],
       "language": "de",
       "level": "B2",
-      "topic": "grammar"
+      "topic": "grammar",
+      "reviewed": false
     },
     {
       "id": "temporal-exercise-1",
@@ -14993,7 +14997,8 @@
       ],
       "language": "de",
       "level": "B2",
-      "topic": "grammar"
+      "topic": "grammar",
+      "reviewed": false
     },
     {
       "id": "temporal-exercise-2",
@@ -15106,7 +15111,8 @@
       ],
       "language": "de",
       "level": "B2",
-      "topic": "grammar"
+      "topic": "grammar",
+      "reviewed": false
     },
     {
       "id": "temporal-exercise-3",
@@ -15219,7 +15225,8 @@
       ],
       "language": "de",
       "level": "B2",
-      "topic": "grammar"
+      "topic": "grammar",
+      "reviewed": false
     },
     {
       "id": "temporal-exercise-4",
@@ -15332,7 +15339,8 @@
       ],
       "language": "de",
       "level": "B2",
-      "topic": "grammar"
+      "topic": "grammar",
+      "reviewed": false
     },
     {
       "id": "temporal-exercise-5",
@@ -15445,7 +15453,1052 @@
       ],
       "language": "de",
       "level": "B2",
-      "topic": "grammar"
+      "topic": "grammar",
+      "reviewed": false
+    },
+    {
+      "id": "b1-at-the-doctor",
+      "title": "At the doctor",
+      "language": "de",
+      "level": "B1",
+      "topic": "health",
+      "reviewed": true,
+      "cards": [
+        {
+          "id": "b1-at-the-doctor-01",
+          "deckId": "b1-at-the-doctor",
+          "prompt": "Wo untersucht eine Ärztin ihre Patienten?",
+          "answer": "in der Arztpraxis",
+          "detail": "",
+          "translations": {
+            "en": "at the doctor’s surgery",
+            "es": "en la consulta médica",
+            "fr": "au cabinet médical",
+            "nl": "in de dokterspraktijk"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-at-the-doctor-02",
+          "deckId": "b1-at-the-doctor",
+          "prompt": "Was vereinbare ich, bevor ich zum Arzt gehe?",
+          "answer": "einen Termin",
+          "detail": "",
+          "translations": {
+            "en": "an appointment",
+            "es": "una cita",
+            "fr": "un rendez-vous",
+            "nl": "een afspraak"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-at-the-doctor-03",
+          "deckId": "b1-at-the-doctor",
+          "prompt": "Was sage ich, wenn mein Rücken wehtut?",
+          "answer": "Ich habe Rückenschmerzen.",
+          "detail": "",
+          "translations": {
+            "en": "I have back pain.",
+            "es": "Me duele la espalda.",
+            "fr": "J’ai mal au dos.",
+            "nl": "Ik heb rugpijn."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-at-the-doctor-04",
+          "deckId": "b1-at-the-doctor",
+          "prompt": "Wie nennt man das schriftliche Dokument für ein Medikament?",
+          "answer": "das Rezept",
+          "detail": "",
+          "translations": {
+            "en": "the prescription",
+            "es": "la receta",
+            "fr": "l’ordonnance",
+            "nl": "het voorschrift"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-at-the-doctor-05",
+          "deckId": "b1-at-the-doctor",
+          "prompt": "Welches Dokument bestätigt, dass ich wegen Krankheit nicht arbeiten kann?",
+          "answer": "eine Krankschreibung",
+          "detail": "",
+          "translations": {
+            "en": "a sick note",
+            "es": "un justificante de baja médica",
+            "fr": "un certificat médical",
+            "nl": "een ziekteattest"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-at-the-doctor-06",
+          "deckId": "b1-at-the-doctor",
+          "prompt": "Wie frage ich nach der Einnahme eines Medikaments?",
+          "answer": "Wie oft soll ich das Medikament nehmen?",
+          "detail": "",
+          "translations": {
+            "en": "How often should I take the medicine?",
+            "es": "¿Con qué frecuencia debo tomar el medicamento?",
+            "fr": "À quelle fréquence dois-je prendre le médicament ?",
+            "nl": "Hoe vaak moet ik het medicijn innemen?"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        }
+      ],
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-14"
+      }
+    },
+    {
+      "id": "b1-illness",
+      "title": "Illness",
+      "language": "de",
+      "level": "B1",
+      "topic": "health",
+      "reviewed": true,
+      "cards": [
+        {
+          "id": "b1-illness-01",
+          "deckId": "b1-illness",
+          "prompt": "Wie heißt eine häufige Krankheit mit Schnupfen und Husten?",
+          "answer": "die Erkältung",
+          "detail": "",
+          "translations": {
+            "en": "the cold",
+            "es": "el resfriado",
+            "fr": "le rhume",
+            "nl": "de verkoudheid"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-illness-02",
+          "deckId": "b1-illness",
+          "prompt": "Was habe ich, wenn meine Körpertemperatur zu hoch ist?",
+          "answer": "Fieber",
+          "detail": "",
+          "translations": {
+            "en": "a fever",
+            "es": "fiebre",
+            "fr": "de la fièvre",
+            "nl": "koorts"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-illness-03",
+          "deckId": "b1-illness",
+          "prompt": "Wie sage ich, dass mein Hals wehtut?",
+          "answer": "Ich habe Halsschmerzen.",
+          "detail": "",
+          "translations": {
+            "en": "I have a sore throat.",
+            "es": "Me duele la garganta.",
+            "fr": "J’ai mal à la gorge.",
+            "nl": "Ik heb keelpijn."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-illness-04",
+          "deckId": "b1-illness",
+          "prompt": "Wie beschreibt man eine Krankheit, die andere bekommen können?",
+          "answer": "ansteckend",
+          "detail": "",
+          "translations": {
+            "en": "contagious",
+            "es": "contagioso",
+            "fr": "contagieux",
+            "nl": "besmettelijk"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-illness-05",
+          "deckId": "b1-illness",
+          "prompt": "Wie sage ich, dass ich mich krank fühle?",
+          "answer": "Mir ist übel.",
+          "detail": "",
+          "translations": {
+            "en": "I feel nauseous.",
+            "es": "Tengo náuseas.",
+            "fr": "J’ai la nausée.",
+            "nl": "Ik ben misselijk."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-illness-06",
+          "deckId": "b1-illness",
+          "prompt": "Welches Verb bedeutet, nach einer Krankheit wieder gesund zu werden?",
+          "answer": "sich erholen",
+          "detail": "",
+          "translations": {
+            "en": "to recover",
+            "es": "recuperarse",
+            "fr": "se rétablir",
+            "nl": "herstellen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        }
+      ],
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-14"
+      }
+    },
+    {
+      "id": "b1-body-parts",
+      "title": "Body parts",
+      "language": "de",
+      "level": "B1",
+      "topic": "health",
+      "reviewed": true,
+      "cards": [
+        {
+          "id": "b1-body-parts-01",
+          "deckId": "b1-body-parts",
+          "prompt": "Welcher Körperteil verbindet den Kopf mit dem Oberkörper?",
+          "answer": "der Hals",
+          "detail": "",
+          "translations": {
+            "en": "the neck",
+            "es": "el cuello",
+            "fr": "le cou",
+            "nl": "de hals"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-body-parts-02",
+          "deckId": "b1-body-parts",
+          "prompt": "Mit welchem Körperteil kann ich meinen Arm beugen?",
+          "answer": "mit dem Ellenbogen",
+          "detail": "",
+          "translations": {
+            "en": "with the elbow",
+            "es": "con el codo",
+            "fr": "avec le coude",
+            "nl": "met de elleboog"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-body-parts-03",
+          "deckId": "b1-body-parts",
+          "prompt": "Welcher Körperteil liegt zwischen Oberarm und Oberkörper?",
+          "answer": "die Schulter",
+          "detail": "",
+          "translations": {
+            "en": "the shoulder",
+            "es": "el hombro",
+            "fr": "l’épaule",
+            "nl": "de schouder"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-body-parts-04",
+          "deckId": "b1-body-parts",
+          "prompt": "Welches Gelenk verbindet Oberschenkel und Unterschenkel?",
+          "answer": "das Knie",
+          "detail": "",
+          "translations": {
+            "en": "the knee",
+            "es": "la rodilla",
+            "fr": "le genou",
+            "nl": "de knie"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-body-parts-05",
+          "deckId": "b1-body-parts",
+          "prompt": "Welches Organ pumpt Blut durch den Körper?",
+          "answer": "das Herz",
+          "detail": "",
+          "translations": {
+            "en": "the heart",
+            "es": "el corazón",
+            "fr": "le cœur",
+            "nl": "het hart"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-body-parts-06",
+          "deckId": "b1-body-parts",
+          "prompt": "Mit welchem Organ atmen wir?",
+          "answer": "mit der Lunge",
+          "detail": "",
+          "translations": {
+            "en": "with the lungs",
+            "es": "con los pulmones",
+            "fr": "avec les poumons",
+            "nl": "met de longen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        }
+      ],
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-14"
+      }
+    },
+    {
+      "id": "b1-get-well",
+      "title": "Get-well wishes",
+      "language": "de",
+      "level": "B1",
+      "topic": "health",
+      "reviewed": true,
+      "cards": [
+        {
+          "id": "b1-get-well-01",
+          "deckId": "b1-get-well",
+          "prompt": "Was wünsche ich einer kranken Person?",
+          "answer": "Gute Besserung!",
+          "detail": "",
+          "translations": {
+            "en": "Get well soon!",
+            "es": "¡Que te mejores!",
+            "fr": "Bon rétablissement !",
+            "nl": "Beterschap!"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-get-well-02",
+          "deckId": "b1-get-well",
+          "prompt": "Wie wünsche ich jemandem, bald wieder gesund zu sein?",
+          "answer": "Werde bald wieder gesund!",
+          "detail": "",
+          "translations": {
+            "en": "Get well soon!",
+            "es": "¡Recupérate pronto!",
+            "fr": "Remets-toi vite !",
+            "nl": "Word snel weer beter!"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-get-well-03",
+          "deckId": "b1-get-well",
+          "prompt": "Wie rate ich einem kranken Freund, sich auszuruhen?",
+          "answer": "Ruh dich gut aus!",
+          "detail": "",
+          "translations": {
+            "en": "Get plenty of rest!",
+            "es": "¡Descansa bien!",
+            "fr": "Repose-toi bien !",
+            "nl": "Rust goed uit!"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-get-well-04",
+          "deckId": "b1-get-well",
+          "prompt": "Wie frage ich freundlich nach dem Befinden?",
+          "answer": "Geht es dir schon besser?",
+          "detail": "",
+          "translations": {
+            "en": "Are you feeling better yet?",
+            "es": "¿Ya te encuentras mejor?",
+            "fr": "Est-ce que tu vas déjà mieux ?",
+            "nl": "Gaat het al beter met je?"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-get-well-05",
+          "deckId": "b1-get-well",
+          "prompt": "Wie drücke ich meine Hoffnung auf Besserung aus?",
+          "answer": "Ich hoffe, dass es dir bald besser geht.",
+          "detail": "",
+          "translations": {
+            "en": "I hope you feel better soon.",
+            "es": "Espero que te mejores pronto.",
+            "fr": "J’espère que tu iras bientôt mieux.",
+            "nl": "Ik hoop dat je je snel beter voelt."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-get-well-06",
+          "deckId": "b1-get-well",
+          "prompt": "Wie zeige ich, dass ich an eine kranke Person denke?",
+          "answer": "Ich denke an dich.",
+          "detail": "",
+          "translations": {
+            "en": "I am thinking of you.",
+            "es": "Pienso en ti.",
+            "fr": "Je pense à toi.",
+            "nl": "Ik denk aan je."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        }
+      ],
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-14"
+      }
+    },
+    {
+      "id": "b1-asking-help",
+      "title": "Asking for help",
+      "language": "de",
+      "level": "B1",
+      "topic": "health",
+      "reviewed": true,
+      "cards": [
+        {
+          "id": "b1-asking-help-01",
+          "deckId": "b1-asking-help",
+          "prompt": "Wie bitte ich eine fremde Person höflich um Hilfe?",
+          "answer": "Könnten Sie mir bitte helfen?",
+          "detail": "",
+          "translations": {
+            "en": "Could you please help me?",
+            "es": "¿Podría ayudarme, por favor?",
+            "fr": "Pourriez-vous m’aider, s’il vous plaît ?",
+            "nl": "Kunt u mij alstublieft helpen?"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-asking-help-02",
+          "deckId": "b1-asking-help",
+          "prompt": "Wie bitte ich einen Freund, mich zum Arzt zu begleiten?",
+          "answer": "Kannst du mich zum Arzt begleiten?",
+          "detail": "",
+          "translations": {
+            "en": "Can you accompany me to the doctor?",
+            "es": "¿Puedes acompañarme al médico?",
+            "fr": "Peux-tu m’accompagner chez le médecin ?",
+            "nl": "Kun je met mij meegaan naar de dokter?"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-asking-help-03",
+          "deckId": "b1-asking-help",
+          "prompt": "Wie bitte ich jemanden, einen Krankenwagen zu rufen?",
+          "answer": "Rufen Sie bitte einen Krankenwagen!",
+          "detail": "",
+          "translations": {
+            "en": "Please call an ambulance!",
+            "es": "¡Llame a una ambulancia, por favor!",
+            "fr": "Appelez une ambulance, s’il vous plaît !",
+            "nl": "Bel alstublieft een ambulance!"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-asking-help-04",
+          "deckId": "b1-asking-help",
+          "prompt": "Wie sage ich, dass ich Unterstützung brauche?",
+          "answer": "Ich brauche Hilfe.",
+          "detail": "",
+          "translations": {
+            "en": "I need help.",
+            "es": "Necesito ayuda.",
+            "fr": "J’ai besoin d’aide.",
+            "nl": "Ik heb hulp nodig."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-asking-help-05",
+          "deckId": "b1-asking-help",
+          "prompt": "Wie bitte ich um ein Glas Wasser?",
+          "answer": "Könnten Sie mir ein Glas Wasser bringen?",
+          "detail": "",
+          "translations": {
+            "en": "Could you bring me a glass of water?",
+            "es": "¿Podría traerme un vaso de agua?",
+            "fr": "Pourriez-vous m’apporter un verre d’eau ?",
+            "nl": "Kunt u mij een glas water brengen?"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-asking-help-06",
+          "deckId": "b1-asking-help",
+          "prompt": "Wie bitte ich jemanden, etwas zu wiederholen?",
+          "answer": "Könnten Sie das bitte wiederholen?",
+          "detail": "",
+          "translations": {
+            "en": "Could you please repeat that?",
+            "es": "¿Podría repetirlo, por favor?",
+            "fr": "Pourriez-vous répéter, s’il vous plaît ?",
+            "nl": "Kunt u dat alstublieft herhalen?"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        }
+      ],
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-14"
+      }
+    },
+    {
+      "id": "b1-offering-help",
+      "title": "Offering help",
+      "language": "de",
+      "level": "B1",
+      "topic": "health",
+      "reviewed": true,
+      "cards": [
+        {
+          "id": "b1-offering-help-01",
+          "deckId": "b1-offering-help",
+          "prompt": "Wie biete ich allgemein meine Hilfe an?",
+          "answer": "Kann ich dir helfen?",
+          "detail": "",
+          "translations": {
+            "en": "Can I help you?",
+            "es": "¿Puedo ayudarte?",
+            "fr": "Est-ce que je peux t’aider ?",
+            "nl": "Kan ik je helpen?"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-offering-help-02",
+          "deckId": "b1-offering-help",
+          "prompt": "Wie biete ich einer kranken Person an, für sie einzukaufen?",
+          "answer": "Soll ich für dich einkaufen gehen?",
+          "detail": "",
+          "translations": {
+            "en": "Shall I do your shopping?",
+            "es": "¿Quieres que haga la compra por ti?",
+            "fr": "Veux-tu que je fasse tes courses ?",
+            "nl": "Zal ik boodschappen voor je doen?"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-offering-help-03",
+          "deckId": "b1-offering-help",
+          "prompt": "Wie biete ich an, Medikamente abzuholen?",
+          "answer": "Ich kann deine Medikamente abholen.",
+          "detail": "",
+          "translations": {
+            "en": "I can collect your medicine.",
+            "es": "Puedo recoger tus medicamentos.",
+            "fr": "Je peux aller chercher tes médicaments.",
+            "nl": "Ik kan je medicijnen ophalen."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-offering-help-04",
+          "deckId": "b1-offering-help",
+          "prompt": "Wie biete ich jemandem einen Sitzplatz an?",
+          "answer": "Möchten Sie sich setzen?",
+          "detail": "",
+          "translations": {
+            "en": "Would you like to sit down?",
+            "es": "¿Le gustaría sentarse?",
+            "fr": "Voulez-vous vous asseoir ?",
+            "nl": "Wilt u gaan zitten?"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-offering-help-05",
+          "deckId": "b1-offering-help",
+          "prompt": "Wie biete ich an, jemanden nach Hause zu bringen?",
+          "answer": "Soll ich dich nach Hause bringen?",
+          "detail": "",
+          "translations": {
+            "en": "Shall I take you home?",
+            "es": "¿Quieres que te lleve a casa?",
+            "fr": "Veux-tu que je te raccompagne chez toi ?",
+            "nl": "Zal ik je naar huis brengen?"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-offering-help-06",
+          "deckId": "b1-offering-help",
+          "prompt": "Wie sage ich, dass jemand sich bei Bedarf melden kann?",
+          "answer": "Melde dich, wenn du Hilfe brauchst.",
+          "detail": "",
+          "translations": {
+            "en": "Let me know if you need help.",
+            "es": "Avísame si necesitas ayuda.",
+            "fr": "Dis-moi si tu as besoin d’aide.",
+            "nl": "Laat het weten als je hulp nodig hebt."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        }
+      ],
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-14"
+      }
+    },
+    {
+      "id": "b1-arguments",
+      "title": "Arguments",
+      "language": "de",
+      "level": "B1",
+      "topic": "relationships",
+      "reviewed": true,
+      "cards": [
+        {
+          "id": "b1-arguments-01",
+          "deckId": "b1-arguments",
+          "prompt": "Wie heißt ein Konflikt zwischen zwei Personen?",
+          "answer": "der Streit",
+          "detail": "",
+          "translations": {
+            "en": "the argument",
+            "es": "la discusión",
+            "fr": "la dispute",
+            "nl": "de ruzie"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-arguments-02",
+          "deckId": "b1-arguments",
+          "prompt": "Wie sage ich ruhig, dass ich anderer Meinung bin?",
+          "answer": "Ich bin anderer Meinung.",
+          "detail": "",
+          "translations": {
+            "en": "I have a different opinion.",
+            "es": "Tengo otra opinión.",
+            "fr": "Je suis d’un autre avis.",
+            "nl": "Ik ben het niet met je eens."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-arguments-03",
+          "deckId": "b1-arguments",
+          "prompt": "Wie entschuldige ich mich für mein Verhalten?",
+          "answer": "Es tut mir leid.",
+          "detail": "",
+          "translations": {
+            "en": "I am sorry.",
+            "es": "Lo siento.",
+            "fr": "Je suis désolé.",
+            "nl": "Het spijt me."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-arguments-04",
+          "deckId": "b1-arguments",
+          "prompt": "Was suchen beide Seiten, wenn sie sich einigen wollen?",
+          "answer": "einen Kompromiss",
+          "detail": "",
+          "translations": {
+            "en": "a compromise",
+            "es": "un acuerdo",
+            "fr": "un compromis",
+            "nl": "een compromis"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-arguments-05",
+          "deckId": "b1-arguments",
+          "prompt": "Wie nennt man es, wenn man etwas falsch versteht?",
+          "answer": "das Missverständnis",
+          "detail": "",
+          "translations": {
+            "en": "the misunderstanding",
+            "es": "el malentendido",
+            "fr": "le malentendu",
+            "nl": "het misverstand"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-arguments-06",
+          "deckId": "b1-arguments",
+          "prompt": "Welches Verb bedeutet, nach einem Streit wieder Frieden zu schließen?",
+          "answer": "sich versöhnen",
+          "detail": "",
+          "translations": {
+            "en": "to make up",
+            "es": "reconciliarse",
+            "fr": "se réconcilier",
+            "nl": "het goedmaken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        }
+      ],
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-14"
+      }
+    },
+    {
+      "id": "b1-friendship-history",
+      "title": "Friendship history",
+      "language": "de",
+      "level": "B1",
+      "topic": "relationships",
+      "reviewed": true,
+      "cards": [
+        {
+          "id": "b1-friendship-history-01",
+          "deckId": "b1-friendship-history",
+          "prompt": "Wie frage ich nach der Dauer einer Freundschaft?",
+          "answer": "Seit wann kennt ihr euch?",
+          "detail": "",
+          "translations": {
+            "en": "How long have you known each other?",
+            "es": "¿Desde cuándo os conocéis?",
+            "fr": "Depuis quand vous connaissez-vous ?",
+            "nl": "Hoelang kennen jullie elkaar al?"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-friendship-history-02",
+          "deckId": "b1-friendship-history",
+          "prompt": "Wie beschreibe ich, wo eine Freundschaft begonnen hat?",
+          "answer": "Wir haben uns in der Schule kennengelernt.",
+          "detail": "",
+          "translations": {
+            "en": "We met at school.",
+            "es": "Nos conocimos en el colegio.",
+            "fr": "Nous nous sommes rencontrés à l’école.",
+            "nl": "We hebben elkaar op school leren kennen."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-friendship-history-03",
+          "deckId": "b1-friendship-history",
+          "prompt": "Wie sage ich, dass eine Freundschaft schon lange besteht?",
+          "answer": "Wir sind seit zehn Jahren befreundet.",
+          "detail": "",
+          "translations": {
+            "en": "We have been friends for ten years.",
+            "es": "Somos amigos desde hace diez años.",
+            "fr": "Nous sommes amis depuis dix ans.",
+            "nl": "We zijn al tien jaar bevriend."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-friendship-history-04",
+          "deckId": "b1-friendship-history",
+          "prompt": "Wie sage ich, dass wir uns regelmäßig schreiben oder sprechen?",
+          "answer": "Wir bleiben in Kontakt.",
+          "detail": "",
+          "translations": {
+            "en": "We keep in touch.",
+            "es": "Seguimos en contacto.",
+            "fr": "Nous restons en contact.",
+            "nl": "We houden contact."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-friendship-history-05",
+          "deckId": "b1-friendship-history",
+          "prompt": "Wie sage ich, dass ich einem Freund vertrauen kann?",
+          "answer": "Ich kann mich auf ihn verlassen.",
+          "detail": "",
+          "translations": {
+            "en": "I can rely on him.",
+            "es": "Puedo confiar en él.",
+            "fr": "Je peux compter sur lui.",
+            "nl": "Ik kan op hem rekenen."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-friendship-history-06",
+          "deckId": "b1-friendship-history",
+          "prompt": "Wie sage ich, dass ich gerne an gemeinsame Erlebnisse denke?",
+          "answer": "Ich erinnere mich gern an unsere Reisen.",
+          "detail": "",
+          "translations": {
+            "en": "I like remembering our trips.",
+            "es": "Me gusta recordar nuestros viajes.",
+            "fr": "J’aime me souvenir de nos voyages.",
+            "nl": "Ik denk graag terug aan onze reizen."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        }
+      ],
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-14"
+      }
+    },
+    {
+      "id": "b1-emotions",
+      "title": "Emotions",
+      "language": "de",
+      "level": "B1",
+      "topic": "relationships",
+      "reviewed": true,
+      "cards": [
+        {
+          "id": "b1-emotions-01",
+          "deckId": "b1-emotions",
+          "prompt": "Wie fühle ich mich, wenn ich ein gutes Ergebnis bekomme?",
+          "answer": "stolz",
+          "detail": "",
+          "translations": {
+            "en": "proud",
+            "es": "orgulloso",
+            "fr": "fier",
+            "nl": "trots"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-emotions-02",
+          "deckId": "b1-emotions",
+          "prompt": "Wie fühle ich mich, wenn ich mir Sorgen mache?",
+          "answer": "besorgt",
+          "detail": "",
+          "translations": {
+            "en": "worried",
+            "es": "preocupado",
+            "fr": "inquiet",
+            "nl": "bezorgd"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-emotions-03",
+          "deckId": "b1-emotions",
+          "prompt": "Wie fühle ich mich, wenn etwas schlechter läuft als erwartet?",
+          "answer": "enttäuscht",
+          "detail": "",
+          "translations": {
+            "en": "disappointed",
+            "es": "decepcionado",
+            "fr": "déçu",
+            "nl": "teleurgesteld"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-emotions-04",
+          "deckId": "b1-emotions",
+          "prompt": "Wie fühle ich mich, wenn ein Problem endlich gelöst ist?",
+          "answer": "erleichtert",
+          "detail": "",
+          "translations": {
+            "en": "relieved",
+            "es": "aliviado",
+            "fr": "soulagé",
+            "nl": "opgelucht"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-emotions-05",
+          "deckId": "b1-emotions",
+          "prompt": "Wie fühle ich mich, wenn mir Gesellschaft fehlt?",
+          "answer": "einsam",
+          "detail": "",
+          "translations": {
+            "en": "lonely",
+            "es": "solo",
+            "fr": "seul",
+            "nl": "eenzaam"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        },
+        {
+          "id": "b1-emotions-06",
+          "deckId": "b1-emotions",
+          "prompt": "Wie zeige ich, dass ich die Hilfe eines Freundes schätze?",
+          "answer": "Ich bin dir dankbar.",
+          "detail": "",
+          "translations": {
+            "en": "I am grateful to you.",
+            "es": "Te estoy agradecido.",
+            "fr": "Je te suis reconnaissant.",
+            "nl": "Ik ben je dankbaar."
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-14"
+          }
+        }
+      ],
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-14"
+      }
     }
   ]
 }

@@ -26,7 +26,7 @@ export default function Flashcards() {
     {selected ? <section ref={study} tabIndex={-1} aria-label={t('Flashcards')}>
       <Button variant="text" icon="back" onClick={close}>{t('Back to topics')}</Button>
       <h2>{t(selected.title as MessageKey)}</h2>
-      {selected.reviewed === false && <p className="small-note">{t('Draft content — awaiting owner review.')}</p>}
+      {selected.reviewed !== true && <p className="small-note">{t('Draft content — awaiting owner review.')}</p>}
       {selected.id === 'irregular-verbs' ? <VerbFlashcards /> : <DeckStudy key={selected.id} deck={selected} />}
     </section> : <>
       <div className="deck-filters">
@@ -48,7 +48,7 @@ export default function Flashcards() {
           <span className="eyebrow">{t(languageNames[deck.language!])} · {deck.level}</span>
           <strong>{t(deck.title as MessageKey)}</strong>
           <span>{t('{count} cards', {count:deck.id === 'irregular-verbs' ? new Set(deck.cards.map(card => card.prompt.split(' — ')[0])).size : deck.cards.length})}</span>
-          {deck.reviewed === false && <span>{t('Draft content — awaiting owner review.')}</span>}
+          {deck.reviewed !== true && <span>{t('Draft content — awaiting owner review.')}</span>}
         </button>)}
         {!shown.length && <p role="status">{t('No decks match these filters.')}</p>}
       </div>
