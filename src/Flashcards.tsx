@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Button, PageHeader } from './components'
 import { useI18n, type MessageKey } from './i18n'
 import data from './data/study-decks.json'
@@ -13,12 +13,17 @@ export default function Flashcards() {
   const { t } = useI18n()
   const [filters, setFilters] = useState({language: '', level: '', topic: ''})
   const [selected, setSelected] = useState<StudyDeck | null>(null)
-  const opener = useRef<HTMLButtonElement | null>(null)
+  const study = useRef<HTMLElement | null>(null)
+  useEffect(() => { if (selected) study.current?.focus() }, [selected])
   const shown = filterDecks(decks, filters)
-  const close = () => { setSelected(null); requestAnimationFrame(() => opener.current?.focus()) }
+  const close = () => {
+    const id = selected?.id
+    setSelected(null)
+    requestAnimationFrame(() => document.getElementById(`deck-${id}`)?.focus())
+  }
   return <main className="page flashcards-page">
     <PageHeader eyebrow="" title={t('Flashcards')} description={t('Choose a topic and study at your own pace.')} />
-    {selected ? <section aria-label={t('Flashcards')}>
+    {selected ? <section ref={study} tabIndex={-1} aria-label={t('Flashcards')}>
       <Button variant="text" icon="back" onClick={close}>{t('Back to topics')}</Button>
       <h2>{t(selected.title as MessageKey)}</h2>
       {selected.reviewed === false && <p className="small-note">{t('Draft content — awaiting owner review.')}</p>}
@@ -39,10 +44,10 @@ export default function Flashcards() {
         </select></label>
       </div>
       <div className="topic-grid" aria-live="polite">
-        {shown.map(deck=><button className="topic-card" key={deck.id} onClick={event=>{opener.current=event.currentTarget;setSelected(deck)}}>
+        {shown.map(deck=><button className="topic-card" key={deck.id} id={`deck-${deck.id}`} onClick={()=>setSelected(deck)}>
           <span className="eyebrow">{t(languageNames[deck.language!])} · {deck.level}</span>
           <strong>{t(deck.title as MessageKey)}</strong>
-          <span>{t('{count} cards', {count:deck.cards.length})}</span>
+          <span>{t('{count} cards', {count:deck.id === 'irregular-verbs' ? new Set(deck.cards.map(card => card.prompt.split(' — ')[0])).size : deck.cards.length})}</span>
           {deck.reviewed === false && <span>{t('Draft content — awaiting owner review.')}</span>}
         </button>)}
         {!shown.length && <p role="status">{t('No decks match these filters.')}</p>}
