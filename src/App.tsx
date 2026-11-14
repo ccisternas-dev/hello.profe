@@ -2,7 +2,7 @@ import { useI18n, LocaleSelector, type MessageKey } from "./i18n"
 import StudyPractice from "./StudyPractice"
 import TranslationView from "./TranslationView"
 import TranslationSettings from "./TranslationSettings"
-import VerbFlashcards from "./VerbFlashcards"
+import Flashcards from "./Flashcards"
 import { useEffect, useRef, useState } from "react"
 import {
   Alert,
@@ -579,11 +579,7 @@ export default function App() {
         />
       )}
       {view === "practice" && <StudyPractice onFlashcards={() => setView("flashcards")} />}
-      {view === "flashcards" && <main className="page">
-        <PageHeader eyebrow={t("German · B2")} title={t("Flashcards")} description={t("Read German verbs, their forms and translations at your own pace.")} />
-        <p className="small-note">{t("Leaving this screen resets the current card position.")}</p>
-        <VerbFlashcards />
-      </main>}
+      {view === "flashcards" && <Flashcards />}
       {view === "settings" && <main className="page settings-page">
         <PageHeader eyebrow="" title={t("Settings")} description={t("Choose the language used throughout the website.")} />
         <section className="settings-card" aria-label={t("Interface language")}>

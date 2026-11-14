@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite"
 import fs from "node:fs"
 import path from "node:path"
 
+import { availableDecks } from "./src/deck-catalog"
+
 import siteConfiguration from "./.figma/make/site.json"
 
 // Vite config — https://vitejs.dev/config/
@@ -36,6 +38,15 @@ export default defineConfig(({ mode, command }) => {
       minify: !emitSourcemaps,
     },
     plugins: [
+      {
+        name: "reviewed-study-content",
+        enforce: "pre",
+        load(id) {
+          if (command !== "build" || !id.endsWith("/src/data/study-decks.json")) return
+          const data = JSON.parse(fs.readFileSync(id, "utf8"))
+          return JSON.stringify({ ...data, decks: availableDecks(data.decks, true) })
+        },
+      },
       react(),
       tailwindcss(),
       figmaSiteConfiguration(siteConfiguration),

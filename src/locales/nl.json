@@ -324,5 +324,22 @@
   "{count} / {total} bytes": "{count} / {total} bytes",
   "MyMemory email (optional)": "MyMemory-e-mailadres (optioneel)",
   "Saved in this browser and sent only to MyMemory to increase the free daily allowance. Leave blank to use MyMemory anonymously.": "Wordt in deze browser opgeslagen en alleen naar MyMemory gestuurd om de gratis daglimiet te verhogen. Laat leeg om MyMemory anoniem te gebruiken.",
-  "Enter a valid email address or leave this field blank.": "Voer een geldig e-mailadres in of laat dit veld leeg."
+  "Enter a valid email address or leave this field blank.": "Voer een geldig e-mailadres in of laat dit veld leeg.",
+  "Choose a topic and study at your own pace.": "Kies een onderwerp en leer op je eigen tempo.",
+  "Relationships": "Relaties",
+  "Back to topics": "Terug naar onderwerpen",
+  "Draft content — awaiting owner review.": "Conceptinhoud — wacht op beoordeling door de eigenaar.",
+  "Level": "Niveau",
+  "All levels": "Alle niveaus",
+  "Topic": "Onderwerp",
+  "All topics": "Alle onderwerpen",
+  "No decks match these filters.": "Geen kaartensets komen overeen met deze filters.",
+  "{count} cards": "{count} kaarten",
+  "Körper & Gesundheit": "Lichaam en gezondheid",
+  "Freundschaft & Konflikt": "Vriendschap en conflicten",
+  "Übung 1 – Konjunktion wählen": "Oefening 1: kies het voegwoord",
+  "Übung 2 – Nachdem + richtige Zeitform": "Oefening 2: nachdem en de juiste werkwoordstijd",
+  "Übung 3 – Adverbien im Hauptsatz": "Oefening 3: bijwoorden in de hoofdzin",
+  "Übung 4 – Sätze verbinden": "Oefening 4: verbind zinnen",
+  "Übung 5 – Fehler finden und korrigieren": "Oefening 5: zoek en verbeter fouten"
 }

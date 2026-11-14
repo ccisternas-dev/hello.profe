@@ -8,6 +8,10 @@ export function validate(data) {
   for (const deck of data.decks) {
     assert.ok(deck.id && deck.title && !decks.has(deck.id), 'Missing or duplicate deck')
     decks.add(deck.id)
+    if (deck.language !== undefined) assert.ok(['de','en','es','fr','nl'].includes(deck.language))
+    if (deck.level !== undefined) assert.ok(['A1','A2','B1','B2','C1','C2'].includes(deck.level))
+    if (deck.topic !== undefined) assert.ok(typeof deck.topic === 'string' && deck.topic)
+    if (deck.reviewed !== undefined) assert.equal(typeof deck.reviewed, 'boolean')
     assert.ok(deck.cards.length > 0, `Empty deck: ${deck.id}`)
     for (const card of deck.cards) {
       assert.ok(card.id && !cards.has(card.id), `Duplicate/missing ID: ${card.id}`)

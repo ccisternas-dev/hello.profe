@@ -324,5 +324,22 @@
   "{count} / {total} bytes": "{count} / {total} bytes",
   "MyMemory email (optional)": "MyMemory email (optional)",
   "Saved in this browser and sent only to MyMemory to increase the free daily allowance. Leave blank to use MyMemory anonymously.": "Saved in this browser and sent only to MyMemory to increase the free daily allowance. Leave blank to use MyMemory anonymously.",
-  "Enter a valid email address or leave this field blank.": "Enter a valid email address or leave this field blank."
+  "Enter a valid email address or leave this field blank.": "Enter a valid email address or leave this field blank.",
+  "Choose a topic and study at your own pace.": "Choose a topic and study at your own pace.",
+  "Relationships": "Relationships",
+  "Back to topics": "Back to topics",
+  "Draft content — awaiting owner review.": "Draft content — awaiting owner review.",
+  "Level": "Level",
+  "All levels": "All levels",
+  "Topic": "Topic",
+  "All topics": "All topics",
+  "No decks match these filters.": "No decks match these filters.",
+  "{count} cards": "{count} cards",
+  "Körper & Gesundheit": "Body & health",
+  "Freundschaft & Konflikt": "Friendship & conflict",
+  "Übung 1 – Konjunktion wählen": "Exercise 1 — choose the conjunction",
+  "Übung 2 – Nachdem + richtige Zeitform": "Exercise 2 — nachdem and the correct tense",
+  "Übung 3 – Adverbien im Hauptsatz": "Exercise 3 — adverbs in the main clause",
+  "Übung 4 – Sätze verbinden": "Exercise 4 — connect sentences",
+  "Übung 5 – Fehler finden und korrigieren": "Exercise 5 — find and correct mistakes"
 }
