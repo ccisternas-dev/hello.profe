@@ -24,7 +24,7 @@ test('client rejects HTML, wrong-language output and empty translations', async 
 })
 
 test('production client calls configured HTTPS Worker without authentication secrets', async t => {
-  const endpoint = 'https://hello-profe-translation.cristian-cisternas-v.workers.dev/api/translate'
+  const endpoint = 'https://hello-profe-translation.ccisternasvdev-164.workers.dev/api/translate'
   t.mock.method(globalThis,'fetch',async (url,init)=>{
     assert.equal(url,endpoint)
     assert.equal(init.headers.Authorization,undefined)

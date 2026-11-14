@@ -60,7 +60,7 @@ pnpm exec wrangler whoami
 
 If multiple accounts are listed, choose the intended account through the `CLOUDFLARE_ACCOUNT_ID` environment variable. An account ID is not an API token. Never add credentials to Git.
 
-Before starting local AI development, complete **Workers & Pages onboarding** in the Cloudflare dashboard and register a free `workers.dev` subdomain. Wrangler’s remote-binding proxy requires it even though this app’s Worker runs locally and its public route remains disabled. The registered account subdomain is now `cristian-cisternas-v.workers.dev`; local remote-binding startup succeeded on 2026-10-29. Registering the subdomain does not require deploying an application or upgrading the plan.
+Before starting local AI development, complete **Workers & Pages onboarding** in the Cloudflare dashboard and register a free `workers.dev` subdomain. Wrangler’s remote-binding proxy requires it even though this app’s Worker runs locally and its public route remains disabled. The registered account subdomain is now `ccisternasvdev-164.workers.dev` (moved to the dedicated dev Cloudflare account on 2026-11-14; the original setup used `cristian-cisternas-v.workers.dev`); local remote-binding startup succeeded on 2026-10-29. Registering the subdomain does not require deploying an application or upgrading the plan.
 
 3. Generate a local-only test token without printing it (this refuses to overwrite an existing file):
 
@@ -99,7 +99,7 @@ pnpm exec wrangler deploy --dry-run --config worker/wrangler.jsonc --env product
 pnpm exec wrangler deploy --config worker/wrangler.jsonc --env production
 ```
 
-Endpoint: `https://hello-profe-translation.cristian-cisternas-v.workers.dev/api/translate`. Production requests go browser → Worker → AI binding. The production environment has no private bearer-token requirement; it uses the controls above. Raw text is not logged. To disable inference, set production `TRANSLATION_ENABLED` to `"false"` in `worker/wrangler.jsonc` and redeploy with `--env production`. Never upgrade billing to bypass quota errors.
+Endpoint: `https://hello-profe-translation.ccisternasvdev-164.workers.dev/api/translate`. Production requests go browser → Worker → AI binding. The production environment has no private bearer-token requirement; it uses the controls above. Raw text is not logged. To disable inference, set production `TRANSLATION_ENABLED` to `"false"` in `worker/wrangler.jsonc` and redeploy with `--env production`. Never upgrade billing to bypass quota errors.
 
 ## Evaluation findings and remaining work
 
