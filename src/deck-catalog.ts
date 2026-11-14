@@ -5,12 +5,12 @@ export type StudyCard = {
 export type StudyDeck = {
   id: string; title: string; cards: StudyCard[]
   language?: string; level?: string; topic?: string
-  // Omitted only for legacy workbook content awaiting independent review (#5).
+  // Missing approval is treated as unreviewed.
   reviewed?: boolean
 }
 export type DeckFilters = { language: string; level: string; topic: string }
 export function availableDecks<T extends StudyDeck>(decks: T[], production: boolean): T[] {
-  return decks.filter(deck => !production || deck.reviewed !== false)
+  return decks.filter(deck => !production || deck.reviewed === true)
 }
 export function filterDecks<T extends StudyDeck>(decks: T[], filters: DeckFilters): T[] {
   return decks.filter(deck => (!filters.language || deck.language === filters.language)

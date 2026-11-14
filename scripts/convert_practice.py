@@ -110,6 +110,19 @@ def convert():
         audit.append({'file': file, 'sheet': sheet, 'rows': len(d['cards']), 'cards': len(d['cards'])})
     if used != set(solutions):
         raise ValueError(f'Unmatched solutions: {set(solutions) - used}')
+    # Preserve independently authored decks and review metadata on regeneration.
+    destination = ROOT / 'src/data/study-decks.json'
+    if destination.exists():
+        previous = json.loads(destination.read_text())['decks']
+        by_id = {item['id']: item for item in previous}
+        for item in decks:
+            prior = by_id.get(item['id'], {})
+            for field in ('language', 'level', 'topic', 'reviewed', 'review'):
+                if field in prior:
+                    item[field] = prior[field]
+        converted_ids = {item['id'] for item in decks}
+        decks.extend(item for item in previous if item['id'] not in converted_ids
+                     and all(card.get('source', {}).get('kind') == 'ai-generated' for card in item['cards']))
     return {'schemaVersion': 1, 'decks': decks}, audit
 
 

@@ -32,6 +32,6 @@ Workflow follows the [Vite GitHub Pages deployment guide](https://vite.dev/guide
 
 ## Topic-grid metadata
 
-Decks support `language` (en/es/fr/de/nl), `level` (CEFR), `topic`, and optional `reviewed`. The existing workbook decks retain B2 metadata from their source files, not a claim about the learner's course level. They are legacy content: an omitted `reviewed` flag preserves their existing availability while independent review in #5 remains outstanding. Do not mark them reviewed without evidence.
+Decks support `language` (en/es/fr/de/nl), `level` (CEFR), `topic`, and `reviewed`. Existing workbook decks retain B2 metadata from their source files, not a claim about the learner's course level. Per the owner's decision on 14 November 2026, all unreviewed content is hidden in production, including the legacy workbook decks awaiting independent review in #5. Missing `reviewed` is treated as false.
 
-New content must explicitly use `reviewed: false` until owner approval. Production builds remove those decks from the JSON module before bundling; the catalog also filters them at runtime. Development preview includes them with a draft notice. The language, level, and topic filters combine.
+New content must use `reviewed: false` until owner approval. Production builds remove unapproved decks from the JSON module before bundling; the catalog also filters them at runtime. Development preview includes drafts with a notice. The language, level, and topic filters combine. The nine original B1 topic decks were approved by ccisternas-dev on 14 November 2026; their review metadata records that approval.

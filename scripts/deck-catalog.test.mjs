@@ -7,8 +7,8 @@ const decks=[
  {id:'approved',language:'de',level:'B1',topic:'health',reviewed:true},
  {id:'french',language:'fr',level:'B1',topic:'health',reviewed:true},
 ]
-test('production hides explicit drafts while preserving legacy and reviewed content',()=>{
- assert.deepEqual(availableDecks(decks,true).map(d=>d.id),['legacy','approved','french'])
+test('production hides all unreviewed content, including legacy decks',()=>{
+ assert.deepEqual(availableDecks(decks,true).map(d=>d.id),['approved','french'])
  assert.equal(availableDecks(decks,false).length,4)
 })
 test('language, level and topic filters combine and allow empty results',()=>{
