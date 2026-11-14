@@ -121,11 +121,11 @@ const nativeNames: Record<Locale, string> = {
   de: "Deutsch",
   es: "Español",
 }
-export function LocaleSelector() {
+export function LocaleSelector({ compact = false }: { compact?: boolean }) {
   const { locale, setLocale, t } = useI18n()
   return (
     <label className="locale-selector">
-      <span>{t("Interface language")}</span>
+      <span className={compact ? "sr-only" : undefined}>{t("Interface language")}</span>
       <select
         value={locale}
         onChange={(event) => {

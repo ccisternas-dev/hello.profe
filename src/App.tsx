@@ -69,7 +69,7 @@ function AppShell({
     { id: "about", label: "About", icon: "info" },
   ]
 
-  const mobileNav = primaryNav.filter(item => item.id !== "notebook")
+  const mobileNav = primaryNav.filter(item => item.id !== "notebook" && item.id !== "about")
   const [keyboardOpen, setKeyboardOpen] = useState(false)
   useEffect(() => {
     const viewport = window.visualViewport
@@ -130,6 +130,7 @@ function AppShell({
 
       <header className="mobile-header">
         <Logo />
+        <LocaleSelector compact />
       </header>
 
       <div className="content-shell" id="main-content" tabIndex={-1}>
@@ -142,6 +143,9 @@ function AppShell({
           </div>
         )}
         {children}
+        <footer className="mobile-footer">
+          <a href="#about" aria-current={view === "about" ? "page" : undefined} onClick={() => setView("about")}>{t("About")}</a>
+        </footer>
       </div>
 
       <nav className="bottom-nav" hidden={keyboardOpen} aria-label={t("Mobile navigation")}>
@@ -499,10 +503,30 @@ function NotebookView({
   )
 }
 
+function viewFromLocation(): View {
+  const hash = window.location.hash.slice(1)
+  return ["translate", "explore", "notebook", "practice", "flashcards", "settings", "about"].includes(hash)
+    ? hash as View
+    : "translate"
+}
+
 export default function App() {
   const { t } = useI18n()
 
-  const [view, setView] = useState<View>("practice")
+  const [view, setCurrentView] = useState<View>(viewFromLocation)
+  const setView = (next: View) => {
+    window.location.hash = next
+    setCurrentView(next)
+  }
+  useEffect(() => {
+    const updateView = () => {
+      if (!window.location.hash || window.location.hash === `#${viewFromLocation()}`) {
+        setCurrentView(viewFromLocation())
+      }
+    }
+    window.addEventListener("hashchange", updateView)
+    return () => window.removeEventListener("hashchange", updateView)
+  }, [])
   const initialView = useRef(true)
   const [saved, setSaved] = useState(() => {
     try {
