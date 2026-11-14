@@ -1,4 +1,4 @@
-import { defineConfig, type HtmlTagDescriptor, type Plugin } from "vite"
+import { defineConfig, loadEnv, type HtmlTagDescriptor, type Plugin } from "vite"
 import react from "@vitejs/plugin-react"
 import tailwindcss from "@tailwindcss/vite"
 import fs from "node:fs"
@@ -20,7 +20,9 @@ export default defineConfig(({ mode, command }) => {
   if (translationDev && !token) throw new Error("Generate worker/.dev.vars as documented before enabling translation.")
 
   return {
+    envPrefix: "VITE_PUBLIC_",
     define: {
+      "import.meta.env.VITE_MYMEMORY_DEV_EMAIL": JSON.stringify(command === "serve" ? loadEnv(mode, process.cwd(), "VITE_MYMEMORY_").VITE_MYMEMORY_DEV_EMAIL || "" : ""),
       "import.meta.env.VITE_TRANSLATION_ENABLED": JSON.stringify(translationDev || !!publicTranslationUrl),
       "import.meta.env.VITE_TRANSLATION_API_URL": JSON.stringify(translationDev ? "" : publicTranslationUrl),
     },

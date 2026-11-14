@@ -315,5 +315,14 @@
   "About": "Over",
   "Translate into up to four languages at once.": "Vertaal naar maximaal vier talen tegelijk.",
   "Translate to": "Vertalen naar",
-  "Choose at least one target language.": "Kies ten minste één doeltaal."
+  "Choose at least one target language.": "Kies ten minste één doeltaal.",
+  "Translation provider": "Vertaaldienst",
+  "MyMemory": "MyMemory",
+  "Cloudflare Workers AI": "Cloudflare Workers AI",
+  "Your text is sent to the selected translation provider.": "Je tekst wordt naar de geselecteerde vertaaldienst gestuurd.",
+  "MyMemory accepts up to 500 UTF-8 bytes. Shorten your text.": "MyMemory accepteert maximaal 500 UTF-8-bytes. Maak je tekst korter.",
+  "{count} / {total} bytes": "{count} / {total} bytes",
+  "MyMemory email (optional)": "MyMemory-e-mailadres (optioneel)",
+  "Saved in this browser and sent only to MyMemory to increase the free daily allowance. Leave blank to use MyMemory anonymously.": "Wordt in deze browser opgeslagen en alleen naar MyMemory gestuurd om de gratis daglimiet te verhogen. Laat leeg om MyMemory anoniem te gebruiken.",
+  "Enter a valid email address or leave this field blank.": "Voer een geldig e-mailadres in of laat dit veld leeg."
 }

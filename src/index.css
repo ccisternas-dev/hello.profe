@@ -574,3 +574,8 @@ td:not(:first-child) { font-weight: 650; }
   .mobile-footer { display: flex; justify-content: center; padding: var(--space-4); }
   .mobile-footer a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 var(--space-4); color: var(--action-primary); text-decoration: underline; border-radius: var(--radius-sm); }
 }
+
+.provider-settings { margin-bottom: var(--space-4); }
+.provider-settings .small-note { margin-top: var(--space-2); }
+.settings-card + .settings-card { margin-top: var(--space-4); }
+.settings-card input[type="email"] { width: 100%; min-height: 44px; margin-top: var(--space-3); padding: var(--space-3); border: 1px solid var(--border-default); border-radius: var(--radius-sm); background: var(--surface-raised); }

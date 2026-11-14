@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Badge, Button, PageHeader } from './components'
 import { useI18n, type MessageKey } from './i18n'
-import { translateText, type TranslationLanguage } from './translation-client'
+import { translateWithProvider, savedProvider, savePreference, readPreference, providerStorageKey, emailStorageKey, isTranslationProvider, inputBytes, type TranslationLanguage } from './translation-client'
 
 const languages: { code: TranslationLanguage; label: MessageKey }[] = [
   { code: 'es', label: 'Spanish' }, { code: 'en', label: 'English' },
@@ -13,11 +13,13 @@ const errors: Record<string, MessageKey> = {
   quota_exhausted: 'The free translation allowance is exhausted. Try again tomorrow.',
   rate_limited: 'Too many requests. Wait a minute before trying again.',
   provider_timeout: 'Translation timed out. Please try again.',
+  input_too_long_bytes: 'MyMemory accepts up to 500 UTF-8 bytes. Shorten your text.',
   invalid_input: 'Enter between 1 and 500 characters.',
 }
 export default function TranslationView() {
   const { t } = useI18n()
-  const enabled = import.meta.env.VITE_TRANSLATION_ENABLED === true
+  const [provider, setProvider] = useState(savedProvider)
+  const enabled = provider === 'mymemory' || import.meta.env.VITE_TRANSLATION_ENABLED === true
   const [text, setText] = useState('')
   const [source, setSource] = useState<TranslationLanguage>('es')
   const [targets, setTargets] = useState<TranslationLanguage[]>(['de'])
@@ -26,7 +28,7 @@ export default function TranslationView() {
   const current = useRef(0)
   const controller = useRef<AbortController | null>(null)
   useEffect(() => () => { current.current++; controller.current?.abort() }, [])
-  const count = [...text.trim()].length
+  const count = provider === 'mymemory' ? inputBytes(text) : [...text.trim()].length
   const reset = () => {
     current.current++; controller.current?.abort(); setResults([]); setLoading(false)
   }
@@ -42,7 +44,10 @@ export default function TranslationView() {
     await Promise.allSettled(targets.map(async target => {
       let result: TranslationResult
       try {
-        const translated = await translateText(text, source, target, request.signal, import.meta.env.VITE_TRANSLATION_API_URL || '/api/translate')
+        const translated = await translateWithProvider(text, source, target, request.signal, {
+          provider, endpoint: import.meta.env.VITE_TRANSLATION_API_URL || '/api/translate',
+          email: readPreference(emailStorageKey) || import.meta.env.VITE_MYMEMORY_DEV_EMAIL || '',
+        })
         result = { target, text: translated }
       } catch (failure) {
         result = { target, error: timedOut ? errors.provider_timeout : errors[failure instanceof Error ? failure.message : ''] || 'Translation is unavailable. Please try again later.' }
@@ -55,6 +60,19 @@ export default function TranslationView() {
 
   return <main className="page translate-page">
     <PageHeader eyebrow={t('Translate')} title={t('What would you like to say?')} description={t('Translate into up to four languages at once.')} />
+    <section className="provider-settings">
+      <label className="locale-selector"><span>{t('Translation provider')}</span>
+        <select value={provider} onChange={event => {
+          if (isTranslationProvider(event.target.value)) {
+            reset(); setProvider(event.target.value); savePreference(providerStorageKey, event.target.value)
+          }
+        }}>
+          <option value="mymemory">{t('MyMemory')}</option>
+          <option value="cloudflare">{t('Cloudflare Workers AI')}</option>
+        </select>
+      </label>
+      <p className="small-note">{t('Your text is sent to the selected translation provider.')}</p>
+    </section>
     {!enabled && <p role="note" className="prototype-notice">{t('Real translation is not enabled on this website yet.')}</p>}
     <section className="translator" aria-label={t('Text to translate')}>
       <div className="translator-controls">
@@ -78,10 +96,10 @@ export default function TranslationView() {
         <label htmlFor="translation-text">{t('Text to translate')}</label>
         <textarea id="translation-text" lang={source} value={text} maxLength={1000} placeholder={t('Type or paste text here…')}
           onChange={event => { reset(); setText(event.target.value) }} />
-        <div className="input-footer"><span>{t('{count} / {total}', { count, total: 500 })}</span>
+        <div className="input-footer"><span>{t(provider === 'mymemory' ? '{count} / {total} bytes' : '{count} / {total}', { count, total: 500 })}</span>
           <Button onClick={translate} loading={loading} disabled={!enabled || loading || count < 1 || count > 500 || !targets.length}>{t('Translate')}</Button>
         </div>
-        {count > 500 && <p role="alert">{t('Enter between 1 and 500 characters.')}</p>}
+        {count > 500 && <p role="alert">{t(provider === 'mymemory' ? 'MyMemory accepts up to 500 UTF-8 bytes. Shorten your text.' : 'Enter between 1 and 500 characters.')}</p>}
       </div>
     </section>
     <section aria-live="polite" aria-busy={loading}>
