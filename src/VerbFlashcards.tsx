@@ -7,7 +7,7 @@ import { buildVerbs, type Form } from "./verb-challenge"
 
 const cards = data.decks.find(deck => deck.id === "irregular-verbs")?.cards || []
 // Keep workbook translations free of the disambiguation hints used in challenges.
-const verbs = buildVerbs(cards, { ...overrides, cues: {} })
+const verbs = cards.length ? buildVerbs(cards, { ...overrides, cues: {} }) : []
 const principalForms: { form: Form; label: MessageKey }[] = [
   { form: "infinitive", label: "Infinitive" },
   { form: "preterite", label: "Präteritum (er/sie/es)" },
