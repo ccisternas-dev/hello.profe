@@ -365,5 +365,9 @@
   "© {year} hello.profe. Third-party materials retain their own licenses.": "© {year} hello.profe. Materiaal van derden behoudt zijn eigen licenties.",
   "Microsoft Translator": "Microsoft Translator",
   "Google Cloud Translation": "Google Cloud Translation",
-  "This provider’s allowance is exhausted. Choose another provider or try again after it resets.": "De limiet van deze dienst is bereikt. Kies een andere dienst of probeer het opnieuw wanneer de limiet is vernieuwd."
+  "This provider’s allowance is exhausted. Choose another provider or try again after it resets.": "De limiet van deze dienst is bereikt. Kies een andere dienst of probeer het opnieuw wanneer de limiet is vernieuwd.",
+  "Flashcard filters": "Flashcardfilters",
+  "Choose filters, then select Search to update the results.": "Kies filters en selecteer Zoeken om de resultaten bij te werken.",
+  "Reset": "Herstellen",
+  "Showing {displayed} of {total} cards.": "{displayed} van {total} kaarten worden weergegeven."
 }

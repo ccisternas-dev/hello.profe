@@ -2,19 +2,23 @@ import { useState } from 'react'
 import { Button, PageHeader } from './components'
 import { useI18n, type MessageKey } from './i18n'
 import data from './data/study-decks.json'
-import { availableDecks, filterDecks, type StudyDeck } from './deck-catalog'
+import { availableDecks, filterDecks, countStudyCards, type StudyDeck } from './deck-catalog'
 import VerbFlashcards from './VerbFlashcards'
 import FlashcardSession from './FlashcardSession'
 
 const decks: StudyDeck[] = availableDecks(data.decks, import.meta.env.PROD)
+const emptyFilters = {language: '', level: '', topic: ''}
+const totalCards = decks.reduce((total, deck) => total + countStudyCards(deck), 0)
 const languageNames: Record<string, MessageKey> = { de: 'German', en: 'English', es: 'Spanish', fr: 'French', nl: 'Dutch' }
 const topicNames: Record<string, MessageKey> = { verbs: 'Irregular verbs', health: 'Health & body', relationships: 'Relationships', grammar: 'Temporal connectors' }
 
 export default function Flashcards() {
   const { t } = useI18n()
-  const [filters, setFilters] = useState({language: '', level: '', topic: ''})
+  const [filters, setFilters] = useState(emptyFilters)
+  const [appliedFilters, setAppliedFilters] = useState(emptyFilters)
   const [selected, setSelected] = useState<StudyDeck | null>(null)
-  const shown = filterDecks(decks, filters)
+  const shown = filterDecks(decks, appliedFilters)
+  const displayedCards = shown.reduce((total, deck) => total + countStudyCards(deck), 0)
   const close = () => {
     const id = selected?.id
     setSelected(null)
@@ -26,28 +30,40 @@ export default function Flashcards() {
       {selected.reviewed !== true && <p className="small-note">{t('Draft content — awaiting owner review.')}</p>}
       {selected.id === 'irregular-verbs' ? <VerbFlashcards /> : <DeckStudy key={selected.id} deck={selected} />}
     </FlashcardSession> : <>
-      <div className="deck-filters">
-        <label className="locale-selector"><span>{t('Language')}</span><select value={filters.language} onChange={e=>setFilters({...filters,language:e.target.value})}>
+      <form className="deck-filters" aria-label={t('Flashcard filters')}
+        onSubmit={event => { event.preventDefault(); setAppliedFilters({...filters}) }}
+        onReset={event => { event.preventDefault(); setFilters(emptyFilters); setAppliedFilters(emptyFilters) }}>
+        <p id="flashcard-filter-help" className="filter-help">{t('Choose filters, then select Search to update the results.')}</p>
+        <label className="locale-selector"><span id="filter-language-label">{t('Language')}</span><select aria-labelledby="filter-language-label" aria-describedby="flashcard-filter-help" value={filters.language} onChange={e=>setFilters({...filters,language:e.target.value})}>
           <option value="">{t('All languages')}</option>
           {[...new Set(decks.map(d=>d.language))].filter(Boolean).map(language=><option key={language} value={language}>{t(languageNames[language!])}</option>)}
         </select></label>
-        <label className="locale-selector"><span>{t('Level')}</span><select value={filters.level} onChange={e=>setFilters({...filters,level:e.target.value})}>
+        <label className="locale-selector"><span id="filter-level-label">{t('Level')}</span><select aria-labelledby="filter-level-label" aria-describedby="flashcard-filter-help" value={filters.level} onChange={e=>setFilters({...filters,level:e.target.value})}>
           <option value="">{t('All levels')}</option>
           {[...new Set(decks.map(d=>d.level))].filter(Boolean).sort().map(level=><option key={level} value={level}>{level}</option>)}
         </select></label>
-        <label className="locale-selector"><span>{t('Topic')}</span><select value={filters.topic} onChange={e=>setFilters({...filters,topic:e.target.value})}>
+        <label className="locale-selector"><span id="filter-topic-label">{t('Topic')}</span><select aria-labelledby="filter-topic-label" aria-describedby="flashcard-filter-help" value={filters.topic} onChange={e=>setFilters({...filters,topic:e.target.value})}>
           <option value="">{t('All topics')}</option>
           {[...new Set(decks.map(d=>d.topic))].filter(Boolean).map(topic=><option key={topic} value={topic}>{t(topicNames[topic!])}</option>)}
         </select></label>
-      </div>
-      <div className="topic-grid" aria-live="polite">
-        {shown.map(deck=><button className="topic-card" key={deck.id} id={`deck-${deck.id}`} onClick={()=>setSelected(deck)}>
-          <span className="eyebrow">{t(languageNames[deck.language!])} · {deck.level}</span>
-          <strong>{t(deck.title as MessageKey)}</strong>
-          <span>{t('{count} cards', {count:deck.id === 'irregular-verbs' ? new Set(deck.cards.map(card => card.prompt.split(' — ')[0])).size : deck.cards.length})}</span>
-          {deck.reviewed !== true && <span>{t('Draft content — awaiting owner review.')}</span>}
-        </button>)}
-        {!shown.length && <p role="status">{t('No decks match these filters.')}</p>}
+        <div className="filter-actions">
+          <Button type="submit" aria-controls="flashcard-results">{t('Search')}</Button>
+          <Button type="reset" variant="secondary" aria-controls="flashcard-results">{t('Reset')}</Button>
+        </div>
+      </form>
+      <div id="flashcard-results">
+        <p className="filter-results-count" role="status" aria-live="polite" aria-atomic="true">
+          {t('Showing {displayed} of {total} cards.', {displayed: displayedCards, total: totalCards})}
+          {!shown.length && <> {t('No decks match these filters.')}</>}
+        </p>
+        <div className="topic-grid">
+          {shown.map(deck=><button className="topic-card" key={deck.id} id={`deck-${deck.id}`} onClick={()=>setSelected(deck)}>
+            <span className="eyebrow">{t(languageNames[deck.language!])} · {deck.level}</span>
+            <strong>{t(deck.title as MessageKey)}</strong>
+            <span>{t('{count} cards', {count:countStudyCards(deck)})}</span>
+            {deck.reviewed !== true && <span>{t('Draft content — awaiting owner review.')}</span>}
+          </button>)}
+        </div>
       </div>
     </>}
   </main>

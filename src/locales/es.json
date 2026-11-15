@@ -365,5 +365,9 @@
   "© {year} hello.profe. Third-party materials retain their own licenses.": "© {year} hello.profe. Los materiales de terceros conservan sus propias licencias.",
   "Microsoft Translator": "Microsoft Translator",
   "Google Cloud Translation": "Google Cloud Translation",
-  "This provider’s allowance is exhausted. Choose another provider or try again after it resets.": "Se ha agotado la cuota de este proveedor. Elige otro proveedor o vuelve a intentarlo cuando se renueve."
+  "This provider’s allowance is exhausted. Choose another provider or try again after it resets.": "Se ha agotado la cuota de este proveedor. Elige otro proveedor o vuelve a intentarlo cuando se renueve.",
+  "Flashcard filters": "Filtros de tarjetas",
+  "Choose filters, then select Search to update the results.": "Elige los filtros y pulsa Buscar para actualizar los resultados.",
+  "Reset": "Restablecer",
+  "Showing {displayed} of {total} cards.": "Se muestran {displayed} de {total} tarjetas."
 }

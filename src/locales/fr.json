@@ -365,5 +365,9 @@
   "© {year} hello.profe. Third-party materials retain their own licenses.": "© {year} hello.profe. Les contenus tiers conservent leurs propres licences.",
   "Microsoft Translator": "Microsoft Translator",
   "Google Cloud Translation": "Google Cloud Translation",
-  "This provider’s allowance is exhausted. Choose another provider or try again after it resets.": "Le quota de ce service est épuisé. Choisissez un autre service ou réessayez après son renouvellement."
+  "This provider’s allowance is exhausted. Choose another provider or try again after it resets.": "Le quota de ce service est épuisé. Choisissez un autre service ou réessayez après son renouvellement.",
+  "Flashcard filters": "Filtres des cartes",
+  "Choose filters, then select Search to update the results.": "Choisissez les filtres, puis sélectionnez Rechercher pour actualiser les résultats.",
+  "Reset": "Réinitialiser",
+  "Showing {displayed} of {total} cards.": "{displayed} cartes affichées sur {total}."
 }

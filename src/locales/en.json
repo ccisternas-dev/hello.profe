@@ -365,5 +365,9 @@
   "© {year} hello.profe. Third-party materials retain their own licenses.": "© {year} hello.profe. Third-party materials retain their own licenses.",
   "Microsoft Translator": "Microsoft Translator",
   "Google Cloud Translation": "Google Cloud Translation",
-  "This provider’s allowance is exhausted. Choose another provider or try again after it resets.": "This provider’s allowance is exhausted. Choose another provider or try again after it resets."
+  "This provider’s allowance is exhausted. Choose another provider or try again after it resets.": "This provider’s allowance is exhausted. Choose another provider or try again after it resets.",
+  "Flashcard filters": "Flashcard filters",
+  "Choose filters, then select Search to update the results.": "Choose filters, then select Search to update the results.",
+  "Reset": "Reset",
+  "Showing {displayed} of {total} cards.": "Showing {displayed} of {total} cards."
 }
