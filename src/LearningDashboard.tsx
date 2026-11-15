@@ -13,9 +13,9 @@ const paths: {
   description: MessageKey
   badge: MessageKey
 }[] = [
-  { id: "challenge", icon: "translate", description: "See the meaning, recall the German form. Type the answer.", badge: "Recommended" },
-  { id: "complete", icon: "forms", description: "Fill in the supplied German verb forms, one field at a time.", badge: "Build forms" },
-  { id: "flashcards", icon: "cards", description: "Read German verbs, their forms and translations at your own pace.", badge: "Memorize verbs" },
+  { id: "challenge", icon: "translate", description: "See the meaning, recall the verb form. Type the answer.", badge: "Recommended" },
+  { id: "complete", icon: "forms", description: "Fill in the supplied verb forms, one field at a time.", badge: "Build forms" },
+  { id: "flashcards", icon: "cards", description: "Browse topic decks and study at your own pace.", badge: "Memorize verbs" },
 ]
 
 export default function LearningDashboard({ onSelect }: { onSelect: (path: LearningPath) => void }) {

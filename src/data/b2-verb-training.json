@@ -1,0 +1,1194 @@
+{
+  "nl": {
+    "level": "B2",
+    "reviewed": false,
+    "verbs": [
+      {
+        "id": "aanbieden",
+        "cues": {
+          "en": "offer",
+          "es": "ofrecer",
+          "fr": "offrir"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "aanbieden",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "biedt aan",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "bood aan",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft aangeboden",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "aangeboden",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "aannemen",
+        "cues": {
+          "en": "assume",
+          "es": "suponer",
+          "fr": "supposer"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "aannemen",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "neemt aan",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "nam aan",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft aangenomen",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "aangenomen",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "bijdragen",
+        "cues": {
+          "en": "contribute",
+          "es": "contribuir",
+          "fr": "contribuer"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "bijdragen",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "draagt bij",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "droeg bij",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft bijgedragen",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "bijgedragen",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "besluiten",
+        "cues": {
+          "en": "decide",
+          "es": "decidir",
+          "fr": "décider"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "besluiten",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "besluit",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "besloot",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft besloten",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "besloten",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "beschrijven",
+        "cues": {
+          "en": "describe",
+          "es": "describir",
+          "fr": "décrire"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "beschrijven",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "beschrijft",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "beschreef",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft beschreven",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "beschreven",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "bewijzen",
+        "cues": {
+          "en": "prove",
+          "es": "demostrar",
+          "fr": "prouver"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "bewijzen",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "bewijst",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "bewees",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft bewezen",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "bewezen",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "begrijpen",
+        "cues": {
+          "en": "understand",
+          "es": "comprender",
+          "fr": "comprendre"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "begrijpen",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "begrijpt",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "begreep",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft begrepen",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "begrepen",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "ondernemen",
+        "cues": {
+          "en": "undertake",
+          "es": "emprender",
+          "fr": "entreprendre"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "ondernemen",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "onderneemt",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "ondernam",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft ondernomen",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "ondernomen",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "ondersteunen",
+        "cues": {
+          "en": "support",
+          "es": "apoyar",
+          "fr": "soutenir"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "ondersteunen",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "ondersteunt",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "ondersteunde",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft ondersteund",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "ondersteund",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "onderzoeken",
+        "cues": {
+          "en": "investigate",
+          "es": "investigar",
+          "fr": "enquêter"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "onderzoeken",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "onderzoekt",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "onderzocht",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft onderzocht",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "onderzocht",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "overtuigen",
+        "cues": {
+          "en": "convince",
+          "es": "convencer",
+          "fr": "convaincre"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "overtuigen",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "overtuigt",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "overtuigde",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft overtuigd",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "overtuigd",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "vermijden",
+        "cues": {
+          "en": "avoid",
+          "es": "evitar",
+          "fr": "éviter"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "vermijden",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "vermijdt",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "vermeed",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft vermeden",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "vermeden",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "vergelijken",
+        "cues": {
+          "en": "compare",
+          "es": "comparar",
+          "fr": "comparer"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "vergelijken",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "vergelijkt",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "vergeleek",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft vergeleken",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "vergeleken",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "voorstellen",
+        "cues": {
+          "en": "propose",
+          "es": "proponer",
+          "fr": "proposer"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "voorstellen",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "stelt voor",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "stelde voor",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft voorgesteld",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "voorgesteld",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "toelichten",
+        "cues": {
+          "en": "clarify",
+          "es": "aclarar",
+          "fr": "clarifier"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "toelichten",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "licht toe",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "lichtte toe",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft toegelicht",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "toegelicht",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "uitvoeren",
+        "cues": {
+          "en": "carry out",
+          "es": "llevar a cabo",
+          "fr": "effectuer"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "uitvoeren",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "voert uit",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "voerde uit",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft uitgevoerd",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "uitgevoerd",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "bereiken",
+        "cues": {
+          "en": "achieve",
+          "es": "alcanzar",
+          "fr": "atteindre"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "bereiken",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "bereikt",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "bereikte",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft bereikt",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "bereikt",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "ontwikkelen",
+        "cues": {
+          "en": "develop something",
+          "es": "desarrollar algo",
+          "fr": "développer quelque chose"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "ontwikkelen",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "ontwikkelt",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "ontwikkelde",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "heeft ontwikkeld",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "ontwikkeld",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "ontstaan",
+        "cues": {
+          "en": "arise",
+          "es": "surgir",
+          "fr": "survenir"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "ontstaan",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "ontstaat",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "ontstond",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "is ontstaan",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "ontstaan",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "verdwijnen",
+        "cues": {
+          "en": "disappear",
+          "es": "desaparecer",
+          "fr": "disparaître"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "verdwijnen",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "verdwijnt",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "verdween",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "is verdwenen",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "verdwenen",
+            "alternatives": []
+          }
+        }
+      }
+    ]
+  },
+  "en": {
+    "level": "B2",
+    "reviewed": false,
+    "verbs": [
+      {
+        "id": "arise",
+        "cues": {
+          "es": "surgir",
+          "fr": "survenir"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "arise",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "arises",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "arose",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has arisen",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "arisen",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "undertake",
+        "cues": {
+          "es": "emprender",
+          "fr": "entreprendre"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "undertake",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "undertakes",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "undertook",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has undertaken",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "undertaken",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "withdraw",
+        "cues": {
+          "es": "retirar",
+          "fr": "retirer"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "withdraw",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "withdraws",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "withdrew",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has withdrawn",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "withdrawn",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "overcome",
+        "cues": {
+          "es": "superar",
+          "fr": "surmonter"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "overcome",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "overcomes",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "overcame",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has overcome",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "overcome",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "seek",
+        "cues": {
+          "es": "buscar",
+          "fr": "chercher"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "seek",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "seeks",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "sought",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has sought",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "sought",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "maintain",
+        "cues": {
+          "es": "mantener",
+          "fr": "maintenir"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "maintain",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "maintains",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "maintained",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has maintained",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "maintained",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "achieve",
+        "cues": {
+          "es": "lograr",
+          "fr": "accomplir"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "achieve",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "achieves",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "achieved",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has achieved",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "achieved",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "acknowledge",
+        "cues": {
+          "es": "reconocer un hecho",
+          "fr": "reconnaître un fait"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "acknowledge",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "acknowledges",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "acknowledged",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has acknowledged",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "acknowledged",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "assess",
+        "cues": {
+          "es": "evaluar",
+          "fr": "évaluer"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "assess",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "assesses",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "assessed",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has assessed",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "assessed",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "contribute",
+        "cues": {
+          "es": "contribuir",
+          "fr": "contribuer"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "contribute",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "contributes",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "contributed",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has contributed",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "contributed",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "establish",
+        "cues": {
+          "es": "establecer",
+          "fr": "établir"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "establish",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "establishes",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "established",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has established",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "established",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "justify",
+        "cues": {
+          "es": "justificar",
+          "fr": "justifier"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "justify",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "justifies",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "justified",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has justified",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "justified",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "persuade",
+        "cues": {
+          "es": "persuadir",
+          "fr": "persuader"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "persuade",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "persuades",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "persuaded",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has persuaded",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "persuaded",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "recommend",
+        "cues": {
+          "es": "recomendar",
+          "fr": "recommander"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "recommend",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "recommends",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "recommended",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has recommended",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "recommended",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "require",
+        "cues": {
+          "es": "requerir",
+          "fr": "nécessiter"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "require",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "requires",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "required",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has required",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "required",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "resolve",
+        "cues": {
+          "es": "resolver un problema",
+          "fr": "résoudre un problème"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "resolve",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "resolves",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "resolved",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has resolved",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "resolved",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "retain",
+        "cues": {
+          "es": "retener",
+          "fr": "retenir"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "retain",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "retains",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "retained",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has retained",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "retained",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "reveal",
+        "cues": {
+          "es": "revelar",
+          "fr": "révéler"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "reveal",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "reveals",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "revealed",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has revealed",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "revealed",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "undergo",
+        "cues": {
+          "es": "someterse a un proceso",
+          "fr": "subir un processus"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "undergo",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "undergoes",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "underwent",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has undergone",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "undergone",
+            "alternatives": []
+          }
+        }
+      },
+      {
+        "id": "deal with",
+        "cues": {
+          "es": "ocuparse de",
+          "fr": "s’occuper de"
+        },
+        "forms": {
+          "infinitive": {
+            "canonical": "deal with",
+            "alternatives": []
+          },
+          "present": {
+            "canonical": "deals with",
+            "alternatives": []
+          },
+          "preterite": {
+            "canonical": "dealt with",
+            "alternatives": []
+          },
+          "perfect": {
+            "canonical": "has dealt with",
+            "alternatives": []
+          },
+          "participle": {
+            "canonical": "dealt with",
+            "alternatives": []
+          }
+        }
+      }
+    ]
+  }
+}

@@ -8,9 +8,8 @@ import FlashcardSession from './FlashcardSession'
 
 const decks: StudyDeck[] = availableDecks(data.decks, import.meta.env.PROD)
 const emptyFilters = {language: '', level: '', topic: ''}
-const totalCards = decks.reduce((total, deck) => total + countStudyCards(deck), 0)
 const languageNames: Record<string, MessageKey> = { de: 'German', en: 'English', es: 'Spanish', fr: 'French', nl: 'Dutch' }
-const topicNames: Record<string, MessageKey> = { verbs: 'Irregular verbs', health: 'Health & body', relationships: 'Relationships', grammar: 'Temporal connectors' }
+const topicNames: Record<string, MessageKey> = { verbs: 'Irregular verbs', health: 'Health & body', relationships: 'Relationships', grammar: 'Temporal connectors', 'regular-verbs': 'Regular verbs' }
 
 export default function Flashcards() {
   const { t } = useI18n()
@@ -18,7 +17,6 @@ export default function Flashcards() {
   const [appliedFilters, setAppliedFilters] = useState(emptyFilters)
   const [selected, setSelected] = useState<StudyDeck | null>(null)
   const shown = filterDecks(decks, appliedFilters)
-  const displayedCards = shown.reduce((total, deck) => total + countStudyCards(deck), 0)
   const close = () => {
     const id = selected?.id
     setSelected(null)
@@ -40,7 +38,7 @@ export default function Flashcards() {
         </select></label>
         <label className="locale-selector"><span id="filter-level-label">{t('Level')}</span><select aria-labelledby="filter-level-label" aria-describedby="flashcard-filter-help" value={filters.level} onChange={e=>setFilters({...filters,level:e.target.value})}>
           <option value="">{t('All levels')}</option>
-          {[...new Set(decks.map(d=>d.level))].filter(Boolean).sort().map(level=><option key={level} value={level}>{level}</option>)}
+          {[...new Set(decks.flatMap(d=>d.levels || [d.level]))].filter(Boolean).sort().map(level=><option key={level} value={level}>{level}</option>)}
         </select></label>
         <label className="locale-selector"><span id="filter-topic-label">{t('Topic')}</span><select aria-labelledby="filter-topic-label" aria-describedby="flashcard-filter-help" value={filters.topic} onChange={e=>setFilters({...filters,topic:e.target.value})}>
           <option value="">{t('All topics')}</option>
@@ -53,13 +51,14 @@ export default function Flashcards() {
       </form>
       <div id="flashcard-results">
         <p className="filter-results-count" role="status" aria-live="polite" aria-atomic="true">
-          {t('Showing {displayed} of {total} cards.', {displayed: displayedCards, total: totalCards})}
+          {t('Showing {displayed} of {total} decks.', {displayed: shown.length, total: decks.length})}
           {!shown.length && <> {t('No decks match these filters.')}</>}
         </p>
         <div className="topic-grid">
           {shown.map(deck=><button className="topic-card" key={deck.id} id={`deck-${deck.id}`} onClick={()=>setSelected(deck)}>
-            <span className="eyebrow">{t(languageNames[deck.language!])} · {deck.level}</span>
+            <span className="eyebrow">{t(languageNames[deck.language!])} · {deck.levels ? deck.levels.join(' · ') : deck.level}</span>
             <strong>{t(deck.title as MessageKey)}</strong>
+            {deck.topic && <span className="badge badge--language topic-pill"><span className="sr-only">{t('Topic')}: </span>{t(topicNames[deck.topic])}</span>}
             <span>{t('{count} cards', {count:countStudyCards(deck)})}</span>
             {deck.reviewed !== true && <span>{t('Draft content — awaiting owner review.')}</span>}
           </button>)}
@@ -81,7 +80,7 @@ export function DeckStudy({deck}: {deck: StudyDeck}) {
       <h2 lang={deck.language}>{card.prompt}</h2>
       {!revealed ? <Button onClick={()=>setRevealed(true)}>{t('Reveal answer')}</Button> : <>
         <p className="deck-answer" lang={['gesundheit', 'freundschaft'].includes(deck.id) ? 'en' : deck.language}>{card.answer}</p>
-        {card.detail && <p>{card.detail}</p>}
+        {card.detail && <p lang={deck.language}>{card.detail}</p>}
         <dl className="verb-translations">{Object.entries(card.translations).filter(([,value])=>value).map(([language,value])=><div key={language}><dt>{t(languageNames[language])}</dt><dd lang={language}>{value}</dd></div>)}</dl>
       </>}
     </article>

@@ -10,6 +10,7 @@ export function validate(data) {
     decks.add(deck.id)
     if (deck.language !== undefined) assert.ok(['de','en','es','fr','nl'].includes(deck.language))
     if (deck.level !== undefined) assert.ok(['A1','A2','B1','B2','C1','C2'].includes(deck.level))
+    if (deck.levels !== undefined) assert.ok(Array.isArray(deck.levels) && deck.levels.length > 0 && deck.levels.every(level => ['A1','A2','B1','B2','C1','C2'].includes(level)))
     if (deck.topic !== undefined) assert.ok(typeof deck.topic === 'string' && deck.topic)
     if (deck.reviewed !== undefined) assert.equal(typeof deck.reviewed, 'boolean')
     assert.ok(deck.cards.length > 0, `Empty deck: ${deck.id}`)
@@ -21,11 +22,11 @@ export function validate(data) {
         assert.ok(typeof card[field] === 'string' && card[field].trim() && !['undefined', 'NaN', '—'].includes(card[field]), `Invalid ${field}: ${card.id}`)
       }
       if (card.source.kind === 'ai-generated') {
-        assert.equal(deck.language, 'de')
-        assert.equal(deck.level, 'B1')
+        assert.ok(['de','en','es','fr','nl'].includes(deck.language))
+        assert.ok(['A1','A2','B1','B2','C1','C2'].includes(deck.level))
         assert.equal(typeof deck.reviewed, 'boolean')
         assert.ok(card.source.date)
-        for (const language of ['en','es','fr','nl']) assert.ok(card.translations[language]?.trim(), `Missing ${language}: ${card.id}`)
+        for (const language of ['de','en','es','fr','nl'].filter(language => language !== deck.language)) assert.ok(card.translations[language]?.trim(), `Missing ${language}: ${card.id}`)
         if (deck.reviewed) assert.ok(deck.review?.by && deck.review?.date, 'Owner review evidence required')
       } else {
         assert.ok(card.source.file.endsWith('.xlsx') && card.source.sheet && card.source.row > 0)
