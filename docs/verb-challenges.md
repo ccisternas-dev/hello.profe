@@ -43,3 +43,13 @@ UI language changes preserve settings, typed answers and scores. Returning to th
 `pnpm test` includes the full-data audit and tests for alternatives, source drift, case/Unicode/umlaut validation, character insertion, hint lengths, retries, duplicate/stale actions, all score levels, complete-mode field isolation, exact-form prioritization, randomized selection, empty/missing-form/single-item data and session reset. `pnpm i18n:check`, TypeScript and the production build also pass.
 
 Chrome production-preview checks cover the three modes, English/Spanish/French prompts, per-field completion, retry/reveal/score behavior, pointer/keyboard German-character insertion with caret preservation, all five UI languages and desktop/mobile widths. Flashcards now show complete verbs immediately, with Previous/Next navigation and no ratings or reveal actions. Physical-device and independent linguistic validation are not claimed.
+
+## Local Dutch and English B2 drafts
+
+In development, Practice now has a Training language selector for German, Dutch and English. This setting is independent of the interface locale and translation source/target. Choose the language before opening Translation Challenge or Complete the Verb. Leaving a session resets its state as before. Flashcards continues to open the separate topic catalog.
+
+`src/data/b2-verb-training.json` contains 20 original verbs per new language, each with five forms (100 answer targets per language): bare infinitive, third-person singular present, past, present perfect including auxiliary, and past participle. Omit the subject when answering. English cues are Spanish or French; Dutch cues are English, Spanish or French. Dutch separable forms use main-clause order, for example `biedt aan`. The drills target B2 vocabulary consolidation, not a complete B2 curriculum or certified CEFR assessment.
+
+The generated content is explicitly unreviewed. Both new trainers are development-only pending owner review; the previous approval for existing flashcard decks does not approve this new content. No deployment is required to use them locally. Review the JSON's cues and forms before enabling production access.
+
+Grammar references consulted: [British Council irregular verbs](https://learnenglish.britishcouncil.org/free-resources/grammar/english-grammar-reference/irregular-verbs) and [Dutch Grammar: present perfect](https://www.dutchgrammar.com/en/?n=Verbs.re13). These support form conventions, not a claim that every selected verb is individually classified as B2. New tests cover complete datasets, all prompt/form combinations, scoring, progression, Dutch separable forms and auxiliaries, and English compound forms.

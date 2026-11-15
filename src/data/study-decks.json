@@ -10073,7 +10073,11 @@
       "language": "de",
       "level": "B2",
       "topic": "verbs",
-      "reviewed": false
+      "reviewed": true,
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-15"
+      }
     },
     {
       "id": "gesundheit",
@@ -12463,7 +12467,11 @@
       "language": "de",
       "level": "B2",
       "topic": "health",
-      "reviewed": false
+      "reviewed": true,
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-15"
+      }
     },
     {
       "id": "freundschaft",
@@ -14190,7 +14198,11 @@
       "language": "de",
       "level": "B2",
       "topic": "relationships",
-      "reviewed": false
+      "reviewed": true,
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-15"
+      }
     },
     {
       "id": "temporal-connectors",
@@ -14676,7 +14688,11 @@
       "language": "de",
       "level": "B2",
       "topic": "grammar",
-      "reviewed": false
+      "reviewed": true,
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-15"
+      }
     },
     {
       "id": "temporal-exercise-1",
@@ -14998,7 +15014,11 @@
       "language": "de",
       "level": "B2",
       "topic": "grammar",
-      "reviewed": false
+      "reviewed": true,
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-15"
+      }
     },
     {
       "id": "temporal-exercise-2",
@@ -15112,7 +15132,11 @@
       "language": "de",
       "level": "B2",
       "topic": "grammar",
-      "reviewed": false
+      "reviewed": true,
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-15"
+      }
     },
     {
       "id": "temporal-exercise-3",
@@ -15226,7 +15250,11 @@
       "language": "de",
       "level": "B2",
       "topic": "grammar",
-      "reviewed": false
+      "reviewed": true,
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-15"
+      }
     },
     {
       "id": "temporal-exercise-4",
@@ -15340,7 +15368,11 @@
       "language": "de",
       "level": "B2",
       "topic": "grammar",
-      "reviewed": false
+      "reviewed": true,
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-15"
+      }
     },
     {
       "id": "temporal-exercise-5",
@@ -15454,7 +15486,11 @@
       "language": "de",
       "level": "B2",
       "topic": "grammar",
-      "reviewed": false
+      "reviewed": true,
+      "review": {
+        "by": "ccisternas-dev",
+        "date": "2026-11-15"
+      }
     },
     {
       "id": "b1-at-the-doctor",
@@ -16499,6 +16535,2246 @@
         "by": "ccisternas-dev",
         "date": "2026-11-14"
       }
+    },
+    {
+      "id": "de-regular-verbs-a1-b2",
+      "title": "German regular verbs",
+      "language": "de",
+      "level": "B2",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "topic": "regular-verbs",
+      "reviewed": false,
+      "cards": [
+        {
+          "id": "de-regular-verbs-a1-b2-01",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "arbeiten",
+          "answer": "er/sie/es arbeitet · arbeitete · hat gearbeitet",
+          "detail": "A1 · Präsens · Präteritum · Perfekt · Partizip II: gearbeitet",
+          "level": "A1",
+          "translations": {
+            "en": "work",
+            "fr": "travailler",
+            "es": "trabajar",
+            "nl": "werken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-02",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "wohnen",
+          "answer": "er/sie/es wohnt · wohnte · hat gewohnt",
+          "detail": "A1 · Präsens · Präteritum · Perfekt · Partizip II: gewohnt",
+          "level": "A1",
+          "translations": {
+            "en": "live",
+            "fr": "habiter",
+            "es": "habitar",
+            "nl": "wonen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-03",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "spielen",
+          "answer": "er/sie/es spielt · spielte · hat gespielt",
+          "detail": "A1 · Präsens · Präteritum · Perfekt · Partizip II: gespielt",
+          "level": "A1",
+          "translations": {
+            "en": "play",
+            "fr": "jouer",
+            "es": "jugar",
+            "nl": "spelen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-04",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "hören",
+          "answer": "er/sie/es hört · hörte · hat gehört",
+          "detail": "A1 · Präsens · Präteritum · Perfekt · Partizip II: gehört",
+          "level": "A1",
+          "translations": {
+            "en": "hear / listen",
+            "fr": "entendre / écouter",
+            "es": "oír / escuchar",
+            "nl": "horen / luisteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-05",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "kochen",
+          "answer": "er/sie/es kocht · kochte · hat gekocht",
+          "detail": "A1 · Präsens · Präteritum · Perfekt · Partizip II: gekocht",
+          "level": "A1",
+          "translations": {
+            "en": "cook",
+            "fr": "cuisiner",
+            "es": "cocinar",
+            "nl": "koken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-06",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "fragen",
+          "answer": "er/sie/es fragt · fragte · hat gefragt",
+          "detail": "A1 · Präsens · Präteritum · Perfekt · Partizip II: gefragt",
+          "level": "A1",
+          "translations": {
+            "en": "ask",
+            "fr": "demander",
+            "es": "preguntar",
+            "nl": "vragen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-07",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "antworten",
+          "answer": "er/sie/es antwortet · antwortete · hat geantwortet",
+          "detail": "A2 · Präsens · Präteritum · Perfekt · Partizip II: geantwortet",
+          "level": "A2",
+          "translations": {
+            "en": "answer",
+            "fr": "répondre",
+            "es": "responder",
+            "nl": "antwoorden"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-08",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "warten",
+          "answer": "er/sie/es wartet · wartete · hat gewartet",
+          "detail": "A2 · Präsens · Präteritum · Perfekt · Partizip II: gewartet",
+          "level": "A2",
+          "translations": {
+            "en": "wait",
+            "fr": "attendre",
+            "es": "esperar",
+            "nl": "wachten"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-09",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "benutzen",
+          "answer": "er/sie/es benutzt · benutzte · hat benutzt",
+          "detail": "A2 · Präsens · Präteritum · Perfekt · Partizip II: benutzt",
+          "level": "A2",
+          "translations": {
+            "en": "use",
+            "fr": "utiliser",
+            "es": "usar",
+            "nl": "gebruiken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-10",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "besuchen",
+          "answer": "er/sie/es besucht · besuchte · hat besucht",
+          "detail": "A2 · Präsens · Präteritum · Perfekt · Partizip II: besucht",
+          "level": "A2",
+          "translations": {
+            "en": "visit",
+            "fr": "visiter",
+            "es": "visitar",
+            "nl": "bezoeken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-11",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "erklären",
+          "answer": "er/sie/es erklärt · erklärte · hat erklärt",
+          "detail": "A2 · Präsens · Präteritum · Perfekt · Partizip II: erklärt",
+          "level": "A2",
+          "translations": {
+            "en": "explain",
+            "fr": "expliquer",
+            "es": "explicar",
+            "nl": "verklaren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-12",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "lernen",
+          "answer": "er/sie/es lernt · lernte · hat gelernt",
+          "detail": "A2 · Präsens · Präteritum · Perfekt · Partizip II: gelernt",
+          "level": "A2",
+          "translations": {
+            "en": "learn",
+            "fr": "apprendre",
+            "es": "aprender",
+            "nl": "leren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-13",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "organisieren",
+          "answer": "er/sie/es organisiert · organisierte · hat organisiert",
+          "detail": "B1 · Präsens · Präteritum · Perfekt · Partizip II: organisiert",
+          "level": "B1",
+          "translations": {
+            "en": "organize",
+            "fr": "organiser",
+            "es": "organizar",
+            "nl": "organiseren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-14",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "akzeptieren",
+          "answer": "er/sie/es akzeptiert · akzeptierte · hat akzeptiert",
+          "detail": "B1 · Präsens · Präteritum · Perfekt · Partizip II: akzeptiert",
+          "level": "B1",
+          "translations": {
+            "en": "accept",
+            "fr": "accepter",
+            "es": "aceptar",
+            "nl": "accepteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-15",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "kontrollieren",
+          "answer": "er/sie/es kontrolliert · kontrollierte · hat kontrolliert",
+          "detail": "B1 · Präsens · Präteritum · Perfekt · Partizip II: kontrolliert",
+          "level": "B1",
+          "translations": {
+            "en": "check",
+            "fr": "contrôler",
+            "es": "controlar",
+            "nl": "controleren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-16",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "ändern",
+          "answer": "er/sie/es ändert · änderte · hat geändert",
+          "detail": "B1 · Präsens · Präteritum · Perfekt · Partizip II: geändert",
+          "level": "B1",
+          "translations": {
+            "en": "change",
+            "fr": "changer",
+            "es": "cambiar",
+            "nl": "veranderen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-17",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "verbessern",
+          "answer": "er/sie/es verbessert · verbesserte · hat verbessert",
+          "detail": "B1 · Präsens · Präteritum · Perfekt · Partizip II: verbessert",
+          "level": "B1",
+          "translations": {
+            "en": "improve",
+            "fr": "améliorer",
+            "es": "mejorar",
+            "nl": "verbeteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-18",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "entwickeln",
+          "answer": "er/sie/es entwickelt · entwickelte · hat entwickelt",
+          "detail": "B1 · Präsens · Präteritum · Perfekt · Partizip II: entwickelt",
+          "level": "B1",
+          "translations": {
+            "en": "develop",
+            "fr": "développer",
+            "es": "desarrollar",
+            "nl": "ontwikkelen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-19",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "diskutieren",
+          "answer": "er/sie/es diskutiert · diskutierte · hat diskutiert",
+          "detail": "B2 · Präsens · Präteritum · Perfekt · Partizip II: diskutiert",
+          "level": "B2",
+          "translations": {
+            "en": "discuss",
+            "fr": "discuter",
+            "es": "discutir",
+            "nl": "discussiëren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-20",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "präsentieren",
+          "answer": "er/sie/es präsentiert · präsentierte · hat präsentiert",
+          "detail": "B2 · Präsens · Präteritum · Perfekt · Partizip II: präsentiert",
+          "level": "B2",
+          "translations": {
+            "en": "present",
+            "fr": "présenter",
+            "es": "presentar",
+            "nl": "presenteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-21",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "analysieren",
+          "answer": "er/sie/es analysiert · analysierte · hat analysiert",
+          "detail": "B2 · Präsens · Präteritum · Perfekt · Partizip II: analysiert",
+          "level": "B2",
+          "translations": {
+            "en": "analyse",
+            "fr": "analyser",
+            "es": "analizar",
+            "nl": "analyseren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-22",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "informieren",
+          "answer": "er/sie/es informiert · informierte · hat informiert",
+          "detail": "B2 · Präsens · Präteritum · Perfekt · Partizip II: informiert",
+          "level": "B2",
+          "translations": {
+            "en": "inform",
+            "fr": "informer",
+            "es": "informar",
+            "nl": "informeren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-23",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "reduzieren",
+          "answer": "er/sie/es reduziert · reduzierte · hat reduziert",
+          "detail": "B2 · Präsens · Präteritum · Perfekt · Partizip II: reduziert",
+          "level": "B2",
+          "translations": {
+            "en": "reduce",
+            "fr": "réduire",
+            "es": "reducir",
+            "nl": "reduceren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "de-regular-verbs-a1-b2-24",
+          "deckId": "de-regular-verbs-a1-b2",
+          "prompt": "realisieren",
+          "answer": "er/sie/es realisiert · realisierte · hat realisiert",
+          "detail": "B2 · Präsens · Präteritum · Perfekt · Partizip II: realisiert",
+          "level": "B2",
+          "translations": {
+            "en": "realize",
+            "fr": "réaliser",
+            "es": "realizar",
+            "nl": "realiseren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        }
+      ]
+    },
+    {
+      "id": "en-regular-verbs-a1-b2",
+      "title": "English regular verbs",
+      "language": "en",
+      "level": "B2",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "topic": "regular-verbs",
+      "reviewed": false,
+      "cards": [
+        {
+          "id": "en-regular-verbs-a1-b2-01",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "work",
+          "answer": "he/she/it works · worked · has worked",
+          "detail": "A1 · Present · Past simple · Present perfect · Past participle: worked",
+          "level": "A1",
+          "translations": {
+            "de": "arbeiten",
+            "fr": "travailler",
+            "es": "trabajar",
+            "nl": "werken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-02",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "live",
+          "answer": "he/she/it lives · lived · has lived",
+          "detail": "A1 · Present · Past simple · Present perfect · Past participle: lived",
+          "level": "A1",
+          "translations": {
+            "de": "wohnen",
+            "fr": "habiter",
+            "es": "habitar",
+            "nl": "wonen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-03",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "play",
+          "answer": "he/she/it plays · played · has played",
+          "detail": "A1 · Present · Past simple · Present perfect · Past participle: played",
+          "level": "A1",
+          "translations": {
+            "de": "spielen",
+            "fr": "jouer",
+            "es": "jugar",
+            "nl": "spelen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-04",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "listen",
+          "answer": "he/she/it listens · listened · has listened",
+          "detail": "A1 · Present · Past simple · Present perfect · Past participle: listened",
+          "level": "A1",
+          "translations": {
+            "de": "zuhören",
+            "fr": "écouter",
+            "es": "escuchar",
+            "nl": "luisteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-05",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "cook",
+          "answer": "he/she/it cooks · cooked · has cooked",
+          "detail": "A1 · Present · Past simple · Present perfect · Past participle: cooked",
+          "level": "A1",
+          "translations": {
+            "de": "kochen",
+            "fr": "cuisiner",
+            "es": "cocinar",
+            "nl": "koken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-06",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "ask",
+          "answer": "he/she/it asks · asked · has asked",
+          "detail": "A1 · Present · Past simple · Present perfect · Past participle: asked",
+          "level": "A1",
+          "translations": {
+            "de": "fragen",
+            "fr": "demander",
+            "es": "preguntar",
+            "nl": "vragen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-07",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "answer",
+          "answer": "he/she/it answers · answered · has answered",
+          "detail": "A2 · Present · Past simple · Present perfect · Past participle: answered",
+          "level": "A2",
+          "translations": {
+            "de": "antworten",
+            "fr": "répondre",
+            "es": "responder",
+            "nl": "antwoorden"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-08",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "wait",
+          "answer": "he/she/it waits · waited · has waited",
+          "detail": "A2 · Present · Past simple · Present perfect · Past participle: waited",
+          "level": "A2",
+          "translations": {
+            "de": "warten",
+            "fr": "attendre",
+            "es": "esperar",
+            "nl": "wachten"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-09",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "use",
+          "answer": "he/she/it uses · used · has used",
+          "detail": "A2 · Present · Past simple · Present perfect · Past participle: used",
+          "level": "A2",
+          "translations": {
+            "de": "benutzen",
+            "fr": "utiliser",
+            "es": "usar",
+            "nl": "gebruiken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-10",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "visit",
+          "answer": "he/she/it visits · visited · has visited",
+          "detail": "A2 · Present · Past simple · Present perfect · Past participle: visited",
+          "level": "A2",
+          "translations": {
+            "de": "besuchen",
+            "fr": "visiter",
+            "es": "visitar",
+            "nl": "bezoeken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-11",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "explain",
+          "answer": "he/she/it explains · explained · has explained",
+          "detail": "A2 · Present · Past simple · Present perfect · Past participle: explained",
+          "level": "A2",
+          "translations": {
+            "de": "erklären",
+            "fr": "expliquer",
+            "es": "explicar",
+            "nl": "verklaren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-12",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "learn",
+          "answer": "he/she/it learns · learned · has learned",
+          "detail": "A2 · Present · Past simple · Present perfect · Past participle: learned",
+          "level": "A2",
+          "translations": {
+            "de": "lernen",
+            "fr": "apprendre",
+            "es": "aprender",
+            "nl": "leren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-13",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "organize",
+          "answer": "he/she/it organizes · organized · has organized",
+          "detail": "B1 · Present · Past simple · Present perfect · Past participle: organized",
+          "level": "B1",
+          "translations": {
+            "de": "organisieren",
+            "fr": "organiser",
+            "es": "organizar",
+            "nl": "organiseren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-14",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "accept",
+          "answer": "he/she/it accepts · accepted · has accepted",
+          "detail": "B1 · Present · Past simple · Present perfect · Past participle: accepted",
+          "level": "B1",
+          "translations": {
+            "de": "akzeptieren",
+            "fr": "accepter",
+            "es": "aceptar",
+            "nl": "accepteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-15",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "check",
+          "answer": "he/she/it checks · checked · has checked",
+          "detail": "B1 · Present · Past simple · Present perfect · Past participle: checked",
+          "level": "B1",
+          "translations": {
+            "de": "kontrollieren",
+            "fr": "contrôler",
+            "es": "controlar",
+            "nl": "controleren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-16",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "change",
+          "answer": "he/she/it changes · changed · has changed",
+          "detail": "B1 · Present · Past simple · Present perfect · Past participle: changed",
+          "level": "B1",
+          "translations": {
+            "de": "ändern",
+            "fr": "changer",
+            "es": "cambiar",
+            "nl": "veranderen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-17",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "improve",
+          "answer": "he/she/it improves · improved · has improved",
+          "detail": "B1 · Present · Past simple · Present perfect · Past participle: improved",
+          "level": "B1",
+          "translations": {
+            "de": "verbessern",
+            "fr": "améliorer",
+            "es": "mejorar",
+            "nl": "verbeteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-18",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "develop",
+          "answer": "he/she/it develops · developed · has developed",
+          "detail": "B1 · Present · Past simple · Present perfect · Past participle: developed",
+          "level": "B1",
+          "translations": {
+            "de": "entwickeln",
+            "fr": "développer",
+            "es": "desarrollar",
+            "nl": "ontwikkelen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-19",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "discuss",
+          "answer": "he/she/it discusses · discussed · has discussed",
+          "detail": "B2 · Present · Past simple · Present perfect · Past participle: discussed",
+          "level": "B2",
+          "translations": {
+            "de": "diskutieren",
+            "fr": "discuter",
+            "es": "discutir",
+            "nl": "discussiëren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-20",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "present",
+          "answer": "he/she/it presents · presented · has presented",
+          "detail": "B2 · Present · Past simple · Present perfect · Past participle: presented",
+          "level": "B2",
+          "translations": {
+            "de": "präsentieren",
+            "fr": "présenter",
+            "es": "presentar",
+            "nl": "presenteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-21",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "analyse",
+          "answer": "he/she/it analyses · analysed · has analysed",
+          "detail": "B2 · Present · Past simple · Present perfect · Past participle: analysed",
+          "level": "B2",
+          "translations": {
+            "de": "analysieren",
+            "fr": "analyser",
+            "es": "analizar",
+            "nl": "analyseren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-22",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "inform",
+          "answer": "he/she/it informs · informed · has informed",
+          "detail": "B2 · Present · Past simple · Present perfect · Past participle: informed",
+          "level": "B2",
+          "translations": {
+            "de": "informieren",
+            "fr": "informer",
+            "es": "informar",
+            "nl": "informeren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-23",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "reduce",
+          "answer": "he/she/it reduces · reduced · has reduced",
+          "detail": "B2 · Present · Past simple · Present perfect · Past participle: reduced",
+          "level": "B2",
+          "translations": {
+            "de": "reduzieren",
+            "fr": "réduire",
+            "es": "reducir",
+            "nl": "reduceren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "en-regular-verbs-a1-b2-24",
+          "deckId": "en-regular-verbs-a1-b2",
+          "prompt": "realize",
+          "answer": "he/she/it realizes · realized · has realized",
+          "detail": "B2 · Present · Past simple · Present perfect · Past participle: realized",
+          "level": "B2",
+          "translations": {
+            "de": "realisieren",
+            "fr": "réaliser",
+            "es": "realizar",
+            "nl": "realiseren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        }
+      ]
+    },
+    {
+      "id": "fr-regular-verbs-a1-b2",
+      "title": "French regular verbs",
+      "language": "fr",
+      "level": "B2",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "topic": "regular-verbs",
+      "reviewed": false,
+      "cards": [
+        {
+          "id": "fr-regular-verbs-a1-b2-01",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "travailler",
+          "answer": "il/elle travaille · travaillait · a travaillé",
+          "detail": "A1 · Présent · Imparfait · Passé composé · Participe passé : travaillé",
+          "level": "A1",
+          "translations": {
+            "de": "arbeiten",
+            "en": "work",
+            "es": "trabajar",
+            "nl": "werken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-02",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "habiter",
+          "answer": "il/elle habite · habitait · a habité",
+          "detail": "A1 · Présent · Imparfait · Passé composé · Participe passé : habité",
+          "level": "A1",
+          "translations": {
+            "de": "wohnen",
+            "en": "live",
+            "es": "habitar",
+            "nl": "wonen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-03",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "jouer",
+          "answer": "il/elle joue · jouait · a joué",
+          "detail": "A1 · Présent · Imparfait · Passé composé · Participe passé : joué",
+          "level": "A1",
+          "translations": {
+            "de": "spielen",
+            "en": "play",
+            "es": "jugar",
+            "nl": "spelen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-04",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "écouter",
+          "answer": "il/elle écoute · écoutait · a écouté",
+          "detail": "A1 · Présent · Imparfait · Passé composé · Participe passé : écouté",
+          "level": "A1",
+          "translations": {
+            "de": "zuhören",
+            "en": "listen",
+            "es": "escuchar",
+            "nl": "luisteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-05",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "cuisiner",
+          "answer": "il/elle cuisine · cuisinait · a cuisiné",
+          "detail": "A1 · Présent · Imparfait · Passé composé · Participe passé : cuisiné",
+          "level": "A1",
+          "translations": {
+            "de": "kochen",
+            "en": "cook",
+            "es": "cocinar",
+            "nl": "koken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-06",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "demander",
+          "answer": "il/elle demande · demandait · a demandé",
+          "detail": "A1 · Présent · Imparfait · Passé composé · Participe passé : demandé",
+          "level": "A1",
+          "translations": {
+            "de": "fragen",
+            "en": "ask",
+            "es": "preguntar",
+            "nl": "vragen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-07",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "répondre",
+          "answer": "il/elle répond · répondait · a répondu",
+          "detail": "A2 · Présent · Imparfait · Passé composé · Participe passé : répondu",
+          "level": "A2",
+          "translations": {
+            "de": "antworten",
+            "en": "answer",
+            "es": "responder",
+            "nl": "antwoorden"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-08",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "attendre",
+          "answer": "il/elle attend · attendait · a attendu",
+          "detail": "A2 · Présent · Imparfait · Passé composé · Participe passé : attendu",
+          "level": "A2",
+          "translations": {
+            "de": "warten",
+            "en": "wait",
+            "es": "esperar",
+            "nl": "wachten"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-09",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "utiliser",
+          "answer": "il/elle utilise · utilisait · a utilisé",
+          "detail": "A2 · Présent · Imparfait · Passé composé · Participe passé : utilisé",
+          "level": "A2",
+          "translations": {
+            "de": "benutzen",
+            "en": "use",
+            "es": "usar",
+            "nl": "gebruiken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-10",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "visiter",
+          "answer": "il/elle visite · visitait · a visité",
+          "detail": "A2 · Présent · Imparfait · Passé composé · Participe passé : visité",
+          "level": "A2",
+          "translations": {
+            "de": "besuchen",
+            "en": "visit",
+            "es": "visitar",
+            "nl": "bezoeken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-11",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "expliquer",
+          "answer": "il/elle explique · expliquait · a expliqué",
+          "detail": "A2 · Présent · Imparfait · Passé composé · Participe passé : expliqué",
+          "level": "A2",
+          "translations": {
+            "de": "erklären",
+            "en": "explain",
+            "es": "explicar",
+            "nl": "verklaren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-12",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "étudier",
+          "answer": "il/elle étudie · étudiait · a étudié",
+          "detail": "A2 · Présent · Imparfait · Passé composé · Participe passé : étudié",
+          "level": "A2",
+          "translations": {
+            "de": "studieren / lernen",
+            "en": "study",
+            "es": "estudiar",
+            "nl": "studeren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-13",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "organiser",
+          "answer": "il/elle organise · organisait · a organisé",
+          "detail": "B1 · Présent · Imparfait · Passé composé · Participe passé : organisé",
+          "level": "B1",
+          "translations": {
+            "de": "organisieren",
+            "en": "organize",
+            "es": "organizar",
+            "nl": "organiseren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-14",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "accepter",
+          "answer": "il/elle accepte · acceptait · a accepté",
+          "detail": "B1 · Présent · Imparfait · Passé composé · Participe passé : accepté",
+          "level": "B1",
+          "translations": {
+            "de": "akzeptieren",
+            "en": "accept",
+            "es": "aceptar",
+            "nl": "accepteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-15",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "contrôler",
+          "answer": "il/elle contrôle · contrôlait · a contrôlé",
+          "detail": "B1 · Présent · Imparfait · Passé composé · Participe passé : contrôlé",
+          "level": "B1",
+          "translations": {
+            "de": "kontrollieren",
+            "en": "check",
+            "es": "controlar",
+            "nl": "controleren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-16",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "changer",
+          "answer": "il/elle change · changeait · a changé",
+          "detail": "B1 · Présent · Imparfait · Passé composé · Participe passé : changé",
+          "level": "B1",
+          "translations": {
+            "de": "ändern",
+            "en": "change",
+            "es": "cambiar",
+            "nl": "veranderen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-17",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "améliorer",
+          "answer": "il/elle améliore · améliorait · a amélioré",
+          "detail": "B1 · Présent · Imparfait · Passé composé · Participe passé : amélioré",
+          "level": "B1",
+          "translations": {
+            "de": "verbessern",
+            "en": "improve",
+            "es": "mejorar",
+            "nl": "verbeteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-18",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "développer",
+          "answer": "il/elle développe · développait · a développé",
+          "detail": "B1 · Présent · Imparfait · Passé composé · Participe passé : développé",
+          "level": "B1",
+          "translations": {
+            "de": "entwickeln",
+            "en": "develop",
+            "es": "desarrollar",
+            "nl": "ontwikkelen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-19",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "discuter",
+          "answer": "il/elle discute · discutait · a discuté",
+          "detail": "B2 · Présent · Imparfait · Passé composé · Participe passé : discuté",
+          "level": "B2",
+          "translations": {
+            "de": "diskutieren",
+            "en": "discuss",
+            "es": "discutir",
+            "nl": "discussiëren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-20",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "présenter",
+          "answer": "il/elle présente · présentait · a présenté",
+          "detail": "B2 · Présent · Imparfait · Passé composé · Participe passé : présenté",
+          "level": "B2",
+          "translations": {
+            "de": "präsentieren",
+            "en": "present",
+            "es": "presentar",
+            "nl": "presenteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-21",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "analyser",
+          "answer": "il/elle analyse · analysait · a analysé",
+          "detail": "B2 · Présent · Imparfait · Passé composé · Participe passé : analysé",
+          "level": "B2",
+          "translations": {
+            "de": "analysieren",
+            "en": "analyse",
+            "es": "analizar",
+            "nl": "analyseren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-22",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "informer",
+          "answer": "il/elle informe · informait · a informé",
+          "detail": "B2 · Présent · Imparfait · Passé composé · Participe passé : informé",
+          "level": "B2",
+          "translations": {
+            "de": "informieren",
+            "en": "inform",
+            "es": "informar",
+            "nl": "informeren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-23",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "limiter",
+          "answer": "il/elle limite · limitait · a limité",
+          "detail": "B2 · Présent · Imparfait · Passé composé · Participe passé : limité",
+          "level": "B2",
+          "translations": {
+            "de": "begrenzen",
+            "en": "limit",
+            "es": "limitar",
+            "nl": "beperken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "fr-regular-verbs-a1-b2-24",
+          "deckId": "fr-regular-verbs-a1-b2",
+          "prompt": "réaliser",
+          "answer": "il/elle réalise · réalisait · a réalisé",
+          "detail": "B2 · Présent · Imparfait · Passé composé · Participe passé : réalisé",
+          "level": "B2",
+          "translations": {
+            "de": "realisieren",
+            "en": "realize",
+            "es": "realizar",
+            "nl": "realiseren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        }
+      ]
+    },
+    {
+      "id": "es-regular-verbs-a1-b2",
+      "title": "Spanish regular verbs",
+      "language": "es",
+      "level": "B2",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "topic": "regular-verbs",
+      "reviewed": false,
+      "cards": [
+        {
+          "id": "es-regular-verbs-a1-b2-01",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "trabajar",
+          "answer": "él/ella trabaja · trabajó · ha trabajado",
+          "detail": "A1 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: trabajado",
+          "level": "A1",
+          "translations": {
+            "de": "arbeiten",
+            "en": "work",
+            "fr": "travailler",
+            "nl": "werken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-02",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "habitar",
+          "answer": "él/ella habita · habitó · ha habitado",
+          "detail": "A1 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: habitado",
+          "level": "A1",
+          "translations": {
+            "de": "wohnen",
+            "en": "live",
+            "fr": "habiter",
+            "nl": "wonen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-03",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "bailar",
+          "answer": "él/ella baila · bailó · ha bailado",
+          "detail": "A1 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: bailado",
+          "level": "A1",
+          "translations": {
+            "de": "tanzen",
+            "en": "dance",
+            "fr": "danser",
+            "nl": "dansen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-04",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "escuchar",
+          "answer": "él/ella escucha · escuchó · ha escuchado",
+          "detail": "A1 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: escuchado",
+          "level": "A1",
+          "translations": {
+            "de": "zuhören",
+            "en": "listen",
+            "fr": "écouter",
+            "nl": "luisteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-05",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "cocinar",
+          "answer": "él/ella cocina · cocinó · ha cocinado",
+          "detail": "A1 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: cocinado",
+          "level": "A1",
+          "translations": {
+            "de": "kochen",
+            "en": "cook",
+            "fr": "cuisiner",
+            "nl": "koken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-06",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "preguntar",
+          "answer": "él/ella pregunta · preguntó · ha preguntado",
+          "detail": "A1 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: preguntado",
+          "level": "A1",
+          "translations": {
+            "de": "fragen",
+            "en": "ask",
+            "fr": "demander",
+            "nl": "vragen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-07",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "responder",
+          "answer": "él/ella responde · respondió · ha respondido",
+          "detail": "A2 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: respondido",
+          "level": "A2",
+          "translations": {
+            "de": "antworten",
+            "en": "answer",
+            "fr": "répondre",
+            "nl": "antwoorden"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-08",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "esperar",
+          "answer": "él/ella espera · esperó · ha esperado",
+          "detail": "A2 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: esperado",
+          "level": "A2",
+          "translations": {
+            "de": "warten",
+            "en": "wait",
+            "fr": "attendre",
+            "nl": "wachten"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-09",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "usar",
+          "answer": "él/ella usa · usó · ha usado",
+          "detail": "A2 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: usado",
+          "level": "A2",
+          "translations": {
+            "de": "benutzen",
+            "en": "use",
+            "fr": "utiliser",
+            "nl": "gebruiken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-10",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "visitar",
+          "answer": "él/ella visita · visitó · ha visitado",
+          "detail": "A2 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: visitado",
+          "level": "A2",
+          "translations": {
+            "de": "besuchen",
+            "en": "visit",
+            "fr": "visiter",
+            "nl": "bezoeken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-11",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "explicar",
+          "answer": "él/ella explica · explicó · ha explicado",
+          "detail": "A2 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: explicado",
+          "level": "A2",
+          "translations": {
+            "de": "erklären",
+            "en": "explain",
+            "fr": "expliquer",
+            "nl": "verklaren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-12",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "estudiar",
+          "answer": "él/ella estudia · estudió · ha estudiado",
+          "detail": "A2 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: estudiado",
+          "level": "A2",
+          "translations": {
+            "de": "studieren / lernen",
+            "en": "study",
+            "fr": "étudier",
+            "nl": "studeren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-13",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "organizar",
+          "answer": "él/ella organiza · organizó · ha organizado",
+          "detail": "B1 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: organizado",
+          "level": "B1",
+          "translations": {
+            "de": "organisieren",
+            "en": "organize",
+            "fr": "organiser",
+            "nl": "organiseren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-14",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "aceptar",
+          "answer": "él/ella acepta · aceptó · ha aceptado",
+          "detail": "B1 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: aceptado",
+          "level": "B1",
+          "translations": {
+            "de": "akzeptieren",
+            "en": "accept",
+            "fr": "accepter",
+            "nl": "accepteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-15",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "controlar",
+          "answer": "él/ella controla · controló · ha controlado",
+          "detail": "B1 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: controlado",
+          "level": "B1",
+          "translations": {
+            "de": "kontrollieren",
+            "en": "check",
+            "fr": "contrôler",
+            "nl": "controleren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-16",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "cambiar",
+          "answer": "él/ella cambia · cambió · ha cambiado",
+          "detail": "B1 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: cambiado",
+          "level": "B1",
+          "translations": {
+            "de": "ändern",
+            "en": "change",
+            "fr": "changer",
+            "nl": "veranderen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-17",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "mejorar",
+          "answer": "él/ella mejora · mejoró · ha mejorado",
+          "detail": "B1 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: mejorado",
+          "level": "B1",
+          "translations": {
+            "de": "verbessern",
+            "en": "improve",
+            "fr": "améliorer",
+            "nl": "verbeteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-18",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "desarrollar",
+          "answer": "él/ella desarrolla · desarrolló · ha desarrollado",
+          "detail": "B1 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: desarrollado",
+          "level": "B1",
+          "translations": {
+            "de": "entwickeln",
+            "en": "develop",
+            "fr": "développer",
+            "nl": "ontwikkelen"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-19",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "discutir",
+          "answer": "él/ella discute · discutió · ha discutido",
+          "detail": "B2 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: discutido",
+          "level": "B2",
+          "translations": {
+            "de": "diskutieren",
+            "en": "discuss",
+            "fr": "discuter",
+            "nl": "discussiëren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-20",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "presentar",
+          "answer": "él/ella presenta · presentó · ha presentado",
+          "detail": "B2 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: presentado",
+          "level": "B2",
+          "translations": {
+            "de": "präsentieren",
+            "en": "present",
+            "fr": "présenter",
+            "nl": "presenteren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-21",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "analizar",
+          "answer": "él/ella analiza · analizó · ha analizado",
+          "detail": "B2 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: analizado",
+          "level": "B2",
+          "translations": {
+            "de": "analysieren",
+            "en": "analyse",
+            "fr": "analyser",
+            "nl": "analyseren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-22",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "informar",
+          "answer": "él/ella informa · informó · ha informado",
+          "detail": "B2 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: informado",
+          "level": "B2",
+          "translations": {
+            "de": "informieren",
+            "en": "inform",
+            "fr": "informer",
+            "nl": "informeren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-23",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "limitar",
+          "answer": "él/ella limita · limitó · ha limitado",
+          "detail": "B2 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: limitado",
+          "level": "B2",
+          "translations": {
+            "de": "begrenzen",
+            "en": "limit",
+            "fr": "limiter",
+            "nl": "beperken"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "es-regular-verbs-a1-b2-24",
+          "deckId": "es-regular-verbs-a1-b2",
+          "prompt": "realizar",
+          "answer": "él/ella realiza · realizó · ha realizado",
+          "detail": "B2 · Presente · Pretérito indefinido · Pretérito perfecto · Participio: realizado",
+          "level": "B2",
+          "translations": {
+            "de": "realisieren",
+            "en": "realize",
+            "fr": "réaliser",
+            "nl": "realiseren"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        }
+      ]
+    },
+    {
+      "id": "nl-regular-verbs-a1-b2",
+      "title": "Dutch regular verbs",
+      "language": "nl",
+      "level": "B2",
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "topic": "regular-verbs",
+      "reviewed": false,
+      "cards": [
+        {
+          "id": "nl-regular-verbs-a1-b2-01",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "werken",
+          "answer": "hij/zij/het werkt · werkte · heeft gewerkt",
+          "detail": "A1 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: gewerkt",
+          "level": "A1",
+          "translations": {
+            "de": "arbeiten",
+            "en": "work",
+            "fr": "travailler",
+            "es": "trabajar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-02",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "wonen",
+          "answer": "hij/zij/het woont · woonde · heeft gewoond",
+          "detail": "A1 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: gewoond",
+          "level": "A1",
+          "translations": {
+            "de": "wohnen",
+            "en": "live",
+            "fr": "habiter",
+            "es": "habitar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-03",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "spelen",
+          "answer": "hij/zij/het speelt · speelde · heeft gespeeld",
+          "detail": "A1 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: gespeeld",
+          "level": "A1",
+          "translations": {
+            "de": "spielen",
+            "en": "play",
+            "fr": "jouer",
+            "es": "jugar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-04",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "luisteren",
+          "answer": "hij/zij/het luistert · luisterde · heeft geluisterd",
+          "detail": "A1 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: geluisterd",
+          "level": "A1",
+          "translations": {
+            "de": "zuhören",
+            "en": "listen",
+            "fr": "écouter",
+            "es": "escuchar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-05",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "koken",
+          "answer": "hij/zij/het kookt · kookte · heeft gekookt",
+          "detail": "A1 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: gekookt",
+          "level": "A1",
+          "translations": {
+            "de": "kochen",
+            "en": "cook",
+            "fr": "cuisiner",
+            "es": "cocinar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-06",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "kosten",
+          "answer": "hij/zij/het kost · kostte · heeft gekost",
+          "detail": "A1 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: gekost",
+          "level": "A1",
+          "translations": {
+            "de": "kosten",
+            "en": "cost",
+            "fr": "coûter",
+            "es": "costar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-07",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "antwoorden",
+          "answer": "hij/zij/het antwoordt · antwoordde · heeft geantwoord",
+          "detail": "A2 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: geantwoord",
+          "level": "A2",
+          "translations": {
+            "de": "antworten",
+            "en": "answer",
+            "fr": "répondre",
+            "es": "responder"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-08",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "wachten",
+          "answer": "hij/zij/het wacht · wachtte · heeft gewacht",
+          "detail": "A2 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: gewacht",
+          "level": "A2",
+          "translations": {
+            "de": "warten",
+            "en": "wait",
+            "fr": "attendre",
+            "es": "esperar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-09",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "gebruiken",
+          "answer": "hij/zij/het gebruikt · gebruikte · heeft gebruikt",
+          "detail": "A2 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: gebruikt",
+          "level": "A2",
+          "translations": {
+            "de": "benutzen",
+            "en": "use",
+            "fr": "utiliser",
+            "es": "usar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-10",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "testen",
+          "answer": "hij/zij/het test · testte · heeft getest",
+          "detail": "A2 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: getest",
+          "level": "A2",
+          "translations": {
+            "de": "testen",
+            "en": "test",
+            "fr": "tester",
+            "es": "probar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-11",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "verklaren",
+          "answer": "hij/zij/het verklaart · verklaarde · heeft verklaard",
+          "detail": "A2 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: verklaard",
+          "level": "A2",
+          "translations": {
+            "de": "erklären",
+            "en": "explain",
+            "fr": "expliquer",
+            "es": "explicar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-12",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "leren",
+          "answer": "hij/zij/het leert · leerde · heeft geleerd",
+          "detail": "A2 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: geleerd",
+          "level": "A2",
+          "translations": {
+            "de": "lernen",
+            "en": "learn",
+            "fr": "apprendre",
+            "es": "aprender"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-13",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "organiseren",
+          "answer": "hij/zij/het organiseert · organiseerde · heeft georganiseerd",
+          "detail": "B1 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: georganiseerd",
+          "level": "B1",
+          "translations": {
+            "de": "organisieren",
+            "en": "organize",
+            "fr": "organiser",
+            "es": "organizar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-14",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "accepteren",
+          "answer": "hij/zij/het accepteert · accepteerde · heeft geaccepteerd",
+          "detail": "B1 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: geaccepteerd",
+          "level": "B1",
+          "translations": {
+            "de": "akzeptieren",
+            "en": "accept",
+            "fr": "accepter",
+            "es": "aceptar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-15",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "controleren",
+          "answer": "hij/zij/het controleert · controleerde · heeft gecontroleerd",
+          "detail": "B1 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: gecontroleerd",
+          "level": "B1",
+          "translations": {
+            "de": "kontrollieren",
+            "en": "check",
+            "fr": "contrôler",
+            "es": "controlar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-16",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "veranderen",
+          "answer": "hij/zij/het verandert · veranderde · heeft veranderd",
+          "detail": "B1 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: veranderd",
+          "level": "B1",
+          "translations": {
+            "de": "ändern",
+            "en": "change",
+            "fr": "changer",
+            "es": "cambiar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-17",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "verbeteren",
+          "answer": "hij/zij/het verbetert · verbeterde · heeft verbeterd",
+          "detail": "B1 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: verbeterd",
+          "level": "B1",
+          "translations": {
+            "de": "verbessern",
+            "en": "improve",
+            "fr": "améliorer",
+            "es": "mejorar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-18",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "ontwikkelen",
+          "answer": "hij/zij/het ontwikkelt · ontwikkelde · heeft ontwikkeld",
+          "detail": "B1 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: ontwikkeld",
+          "level": "B1",
+          "translations": {
+            "de": "entwickeln",
+            "en": "develop",
+            "fr": "développer",
+            "es": "desarrollar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-19",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "discussiëren",
+          "answer": "hij/zij/het discussieert · discussieerde · heeft gediscussieerd",
+          "detail": "B2 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: gediscussieerd",
+          "level": "B2",
+          "translations": {
+            "de": "diskutieren",
+            "en": "discuss",
+            "fr": "discuter",
+            "es": "discutir"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-20",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "presenteren",
+          "answer": "hij/zij/het presenteert · presenteerde · heeft gepresenteerd",
+          "detail": "B2 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: gepresenteerd",
+          "level": "B2",
+          "translations": {
+            "de": "präsentieren",
+            "en": "present",
+            "fr": "présenter",
+            "es": "presentar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-21",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "analyseren",
+          "answer": "hij/zij/het analyseert · analyseerde · heeft geanalyseerd",
+          "detail": "B2 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: geanalyseerd",
+          "level": "B2",
+          "translations": {
+            "de": "analysieren",
+            "en": "analyse",
+            "fr": "analyser",
+            "es": "analizar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-22",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "informeren",
+          "answer": "hij/zij/het informeert · informeerde · heeft geïnformeerd",
+          "detail": "B2 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: geïnformeerd",
+          "level": "B2",
+          "translations": {
+            "de": "informieren",
+            "en": "inform",
+            "fr": "informer",
+            "es": "informar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-23",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "reduceren",
+          "answer": "hij/zij/het reduceert · reduceerde · heeft gereduceerd",
+          "detail": "B2 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: gereduceerd",
+          "level": "B2",
+          "translations": {
+            "de": "reduzieren",
+            "en": "reduce",
+            "fr": "réduire",
+            "es": "reducir"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        },
+        {
+          "id": "nl-regular-verbs-a1-b2-24",
+          "deckId": "nl-regular-verbs-a1-b2",
+          "prompt": "realiseren",
+          "answer": "hij/zij/het realiseert · realiseerde · heeft gerealiseerd",
+          "detail": "B2 · Tegenwoordige tijd · Verleden tijd · Voltooide tijd · Voltooid deelwoord: gerealiseerd",
+          "level": "B2",
+          "translations": {
+            "de": "realisieren",
+            "en": "realize",
+            "fr": "réaliser",
+            "es": "realizar"
+          },
+          "source": {
+            "kind": "ai-generated",
+            "date": "2026-11-15"
+          }
+        }
+      ]
     }
   ]
 }

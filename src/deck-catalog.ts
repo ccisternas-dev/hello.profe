@@ -4,7 +4,7 @@ export type StudyCard = {
 }
 export type StudyDeck = {
   id: string; title: string; cards: StudyCard[]
-  language?: string; level?: string; topic?: string
+  language?: string; level?: string; levels?: string[]; topic?: string
   // Missing approval is treated as unreviewed.
   reviewed?: boolean
 }
@@ -14,7 +14,7 @@ export function availableDecks<T extends StudyDeck>(decks: T[], production: bool
 }
 export function filterDecks<T extends StudyDeck>(decks: T[], filters: DeckFilters): T[] {
   return decks.filter(deck => (!filters.language || deck.language === filters.language)
-    && (!filters.level || deck.level === filters.level) && (!filters.topic || deck.topic === filters.topic))
+    && (!filters.level || (deck.levels || [deck.level]).includes(filters.level)) && (!filters.topic || deck.topic === filters.topic))
 }
 
 // The verb reference screen groups several workbook form rows into one card.

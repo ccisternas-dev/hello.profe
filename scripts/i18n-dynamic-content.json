@@ -30,7 +30,7 @@
   },
   "src/VerbChallenge.tsx": {
     "character": "German character input data",
-    "answer.canonical": "German learning answer",
+    "answer.canonical": "Learning answer in the selected training language",
     "verb.cues[settings.language]": "Learning prompt in the selected source language"
   },
   "src/VerbFlashcards.tsx": {
@@ -47,7 +47,8 @@
     "card.prompt": "Learning content marked with deck language",
     "card.answer": "Supplied learning answer",
     "card.detail": "Source learning notes",
-    "value": "Learning translation marked with its language"
+    "value": "Learning translation marked with its language",
+    "deck.levels ? deck.levels.join(' · ') : deck.level": "CEFR levels from deck metadata"
   },
   "src/FlashcardSession.tsx": {
     "title": "Translated deck title",

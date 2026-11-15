@@ -583,6 +583,7 @@ td:not(:first-child) { font-weight: 650; }
 .topic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: var(--space-4); }
 .topic-card { display: flex; flex-direction: column; align-items: start; text-align: left; gap: var(--space-3); padding: var(--space-6); background: var(--surface-raised); border: 8px solid var(--surface-learning); border-radius: var(--radius-lg); box-shadow: var(--shadow-learning-card); cursor: pointer; }
 .topic-card strong { font-size: 22px; color: var(--action-primary); }
+.topic-pill { max-width: 100%; border-radius: 999px; padding: var(--space-1) var(--space-3); }
 .deck-study h2, .deck-answer { overflow-wrap: anywhere; }
 .deck-study .verb-reference-card { text-align: center; }
 
