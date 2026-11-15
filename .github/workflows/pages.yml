@@ -26,7 +26,8 @@ jobs:
       - run: pnpm build
         env:
           GITHUB_PAGES: 'true'
-          VITE_DEEPL_ENABLED: ${{ vars.DEEPL_ENABLED || 'false' }}
+          VITE_MICROSOFT_ENABLED: ${{ vars.MICROSOFT_ENABLED || 'false' }}
+          VITE_GOOGLE_ENABLED: ${{ vars.GOOGLE_ENABLED || 'false' }}
           VITE_TRANSLATION_API_URL: 'https://hello-profe-translation.ccisternasvdev-164.workers.dev/api/translate'
       - uses: actions/upload-pages-artifact@v3
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
