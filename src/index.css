@@ -615,3 +615,12 @@ td:not(:first-child) { font-weight: 650; }
 .page-footer a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 var(--space-4); color: var(--action-primary); text-decoration: underline; border-radius: var(--radius-sm); }
 .about-copy ul { padding-left: var(--space-6); margin-bottom: var(--space-6); }
 .about-copy li { margin-bottom: var(--space-2); }
+
+.deck-filters .filter-help { flex-basis: 100%; margin: 0; color: var(--text-secondary); }
+.filter-actions { display: flex; align-items: end; gap: var(--space-3); flex-wrap: wrap; }
+.filter-actions .button { min-height: 44px; min-width: 44px; }
+.filter-results-count { margin: 0 0 var(--space-4); color: var(--text-secondary); }
+@media (max-width: 600px) {
+  .filter-actions { flex-basis: 100%; }
+  .filter-actions .button { flex: 1; }
+}
