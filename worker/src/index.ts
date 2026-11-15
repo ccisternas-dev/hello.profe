@@ -1,7 +1,10 @@
+import { translateDeepL } from './deepl.ts'
 import { isTranslationLanguage, ApiError, translateM2M100, type AiBinding, type Provider, type TranslationInput } from './provider.ts'
 
 type Limiter = { limit: (input: { key: string }) => Promise<{ success: boolean }> }
 export type Env = {
+  DEEPL_KEY?: string
+  DEEPL_ENABLED?: string
   AI: AiBinding
   REQUEST_LIMITER: Limiter
   TRANSLATION_ENABLED: string
@@ -62,7 +65,9 @@ export function createHandler(provider: Provider = translateM2M100, timeoutMs = 
     if (allowed) headers.set('Access-Control-Allow-Origin', origin!)
     const respond = (body: unknown, status: number) => new Response(JSON.stringify(body), { status, headers })
     try {
-      if (new URL(request.url).pathname !== '/api/translate') throw new ApiError(404, 'not_found')
+      const route = new URL(request.url).pathname
+      const deepL = route === '/api/translate/deepl'
+      if (!deepL && route !== '/api/translate') throw new ApiError(404, 'not_found')
       if (origin && !allowed) throw new ApiError(403, 'origin_not_allowed')
       if (request.method === 'OPTIONS') {
         if (!allowed || request.headers.get('access-control-request-method') !== 'POST') throw new ApiError(403, 'origin_not_allowed')
@@ -71,7 +76,8 @@ export function createHandler(provider: Provider = translateM2M100, timeoutMs = 
         return new Response(null, { status: 204, headers })
       }
       if (request.method !== 'POST') { headers.set('Allow', 'POST, OPTIONS'); throw new ApiError(405, 'method_not_allowed') }
-      if (env.TRANSLATION_ENABLED !== 'true' || !env.REQUEST_LIMITER || !env.AI) throw new ApiError(503, 'translation_disabled')
+      if (env.TRANSLATION_ENABLED !== 'true' || !env.REQUEST_LIMITER || (!deepL && !env.AI)) throw new ApiError(503, 'translation_disabled')
+      if (deepL && (env.DEEPL_ENABLED !== 'true' || !env.DEEPL_KEY?.trim())) throw new ApiError(503, 'translation_disabled')
       let key = 'private-poc'
       if (env.ACCESS_MODE === 'public') {
         if (!allowed) throw new ApiError(403, 'origin_not_allowed')
@@ -91,7 +97,7 @@ export function createHandler(provider: Provider = translateM2M100, timeoutMs = 
         throw new ApiError(429, 'rate_limited')
       }
       const input = await readInput(request)
-      const translatedText = await deadline(provider(env.AI, input), timeoutMs, 'provider_timeout')
+      const translatedText = await deadline(deepL ? translateDeepL(env.DEEPL_KEY!, input) : provider(env.AI, input), timeoutMs, 'provider_timeout')
       return respond({ source: input.source, target: input.target, translatedText }, 200)
     } catch (error) {
       const safe = error instanceof ApiError ? error : new ApiError(503, 'service_unavailable')

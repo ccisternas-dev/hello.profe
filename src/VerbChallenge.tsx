@@ -5,7 +5,8 @@ import data from './data/study-decks.json'
 import overrides from './data/verb-overrides.json'
 import { buildVerbs, forms, finishedField, finishedQuestion, hintDetails, insertCharacter, reduceChallenge, startChallenge, type Challenge, type ChallengeAction, type FieldState, type Form, type Settings } from './verb-challenge'
 
-const verbs = buildVerbs(data.decks.find(d => d.id === 'irregular-verbs')?.cards || [], overrides)
+const cards = data.decks.find(d => d.id === 'irregular-verbs')?.cards || []
+const verbs = cards.length ? buildVerbs(cards, overrides) : []
 const formLabels: Record<Form, MessageKey> = {
   infinitive: 'Infinitive', present: 'Präsens (er/sie/es)', preterite: 'Präteritum (er/sie/es)', perfect: 'Perfekt (er/sie/es)', participle: 'Partizip II',
 }

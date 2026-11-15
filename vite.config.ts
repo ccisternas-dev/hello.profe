@@ -24,6 +24,7 @@ export default defineConfig(({ mode, command }) => {
   return {
     envPrefix: "VITE_PUBLIC_",
     define: {
+      "import.meta.env.VITE_DEEPL_ENABLED": JSON.stringify(process.env.VITE_DEEPL_ENABLED === "true"),
       "import.meta.env.VITE_MYMEMORY_DEV_EMAIL": JSON.stringify(command === "serve" ? loadEnv(mode, process.cwd(), "VITE_MYMEMORY_").VITE_MYMEMORY_DEV_EMAIL || "" : ""),
       "import.meta.env.VITE_TRANSLATION_ENABLED": JSON.stringify(translationDev || !!publicTranslationUrl),
       "import.meta.env.VITE_TRANSLATION_API_URL": JSON.stringify(translationDev ? "" : publicTranslationUrl),

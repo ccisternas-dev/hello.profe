@@ -18,11 +18,11 @@ export async function translateText(text: string, source: TranslationLanguage, t
 
 export const translateSpanish = (text: string, signal: AbortSignal, endpoint?: string) => translateText(text, 'es', 'de', signal, endpoint)
 
-export type TranslationProvider = 'mymemory' | 'cloudflare'
+export type TranslationProvider = 'mymemory' | 'cloudflare' | 'deepl'
 export const defaultProvider: TranslationProvider = 'mymemory'
 export const providerStorageKey = 'hello-profe-translation-provider'
 export const emailStorageKey = 'hello-profe-mymemory-email'
-export const isTranslationProvider = (value: unknown): value is TranslationProvider => value === 'mymemory' || value === 'cloudflare'
+export const isTranslationProvider = (value: unknown): value is TranslationProvider => value === 'mymemory' || value === 'cloudflare' || value === 'deepl'
 export const inputBytes = (text: string) => new TextEncoder().encode(text.trim()).length
 
 export function readPreference(key: string): string {
@@ -37,6 +37,7 @@ export function savedProvider(): TranslationProvider {
 }
 
 export async function translateWithProvider(text: string, source: TranslationLanguage, target: TranslationLanguage, signal: AbortSignal, options: { provider?: TranslationProvider; endpoint?: string; email?: string } = {}): Promise<string> {
+  if (options.provider === 'deepl') return translateText(text, source, target, signal, `${(options.endpoint || '/api/translate').replace(/\/$/, '')}/deepl`)
   if ((options.provider ?? defaultProvider) === 'cloudflare') return translateText(text, source, target, signal, options.endpoint)
   if (!text.trim() || inputBytes(text) > 500) throw new Error('input_too_long_bytes')
   const url = new URL('https://api.mymemory.translated.net/get')
