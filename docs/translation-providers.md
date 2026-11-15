@@ -31,6 +31,8 @@ Configure only the provider(s) you intend to enable. Do not paste keys in chat, 
 3. In GitHub Actions repository variables, set the matching `MICROSOFT_ENABLED` and/or `GOOGLE_ENABLED` to `true`, then rebuild/deploy Pages. These non-secret flags control the switcher and About credits.
 4. Verify a short translation from the deployed site, plus quota and error handling, before considering activation complete.
 
+Status (15 November 2026): Google is enabled in production; Microsoft remains disabled pending its key.
+
 Disable the Worker flag and redeploy to stop access. Disable the matching GitHub variable and rebuild Pages to hide the option. A saved unavailable provider falls back to MyMemory.
 
 ## Local preview

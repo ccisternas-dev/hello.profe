@@ -42,7 +42,7 @@
         "ACCESS_MODE": "public",
         "ALLOWED_ORIGINS": "https://ccisternas-dev.github.io",
         "MICROSOFT_ENABLED": "false",
-        "GOOGLE_ENABLED": "false",
+        "GOOGLE_ENABLED": "true",
         "MICROSOFT_TRANSLATOR_REGION": ""
       },
       "ratelimits": [
