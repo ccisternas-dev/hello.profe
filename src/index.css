@@ -98,7 +98,7 @@
 .offline-note strong { font-size: 13px; }
 .offline-note small { color: var(--text-secondary); font-size: 12px; }
 .content-shell { min-height: 100vh; margin-left: 232px; }
-.mobile-header, .bottom-nav, .mobile-footer { display: none; }
+.mobile-header, .bottom-nav { display: none; }
 
 .page { width: min(1180px, calc(100% - 64px)); margin: 0 auto; padding: var(--space-12) 0 var(--space-16); }
 .page-header { margin-bottom: var(--space-10); display: flex; justify-content: space-between; gap: var(--space-8); align-items: end; }
@@ -571,8 +571,6 @@ td:not(:first-child) { font-weight: 650; }
   .mobile-header { gap: var(--space-2); }
   .mobile-header .locale-selector { flex-shrink: 0; }
   .mobile-header .locale-selector select { width: 124px; }
-  .mobile-footer { display: flex; justify-content: center; padding: var(--space-4); }
-  .mobile-footer a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 var(--space-4); color: var(--action-primary); text-decoration: underline; border-radius: var(--radius-sm); }
 }
 
 .provider-settings { margin-bottom: var(--space-4); }
@@ -612,3 +610,8 @@ td:not(:first-child) { font-weight: 650; }
 .fullscreen .verb-card-position { flex-shrink: 0; margin: 6px 0 0; }
 .fullscreen .deck-answer { margin: 8px 0; font-size: 20px; font-weight: 600; }
 .fullscreen .verb-present-alternatives { margin-top: 6px; font-size: 12px; }
+
+.page-footer { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); padding: var(--space-4); color: var(--text-secondary); text-align: center; }
+.page-footer a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 var(--space-4); color: var(--action-primary); text-decoration: underline; border-radius: var(--radius-sm); }
+.about-copy ul { padding-left: var(--space-6); margin-bottom: var(--space-6); }
+.about-copy li { margin-bottom: var(--space-2); }

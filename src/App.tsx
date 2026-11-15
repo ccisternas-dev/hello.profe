@@ -144,7 +144,8 @@ function AppShell({
           </div>
         )}
         {children}
-        <footer className="mobile-footer">
+        <footer className="page-footer">
+          <small>{t("© {year} hello.profe. Third-party materials retain their own licenses.", {year: new Date().getFullYear()})}</small>
           <a href="#about" aria-current={view === "about" ? "page" : undefined} onClick={() => setView("about")}>{t("About")}</a>
         </footer>
       </div>
@@ -591,14 +592,21 @@ export default function App() {
       </main>}
       {view === "about" && <main className="page about-page">
         <Button variant="text" onClick={() => setView("settings")}>{t("Settings")}</Button>
-        <PageHeader eyebrow="" title={t("About hello.profe")} description={t("A personal companion for learning languages.")} />
+        <PageHeader eyebrow="" title={t("About hello.profe")} description={t("A little practice today, more confidence tomorrow.")} />
         <section className="settings-card about-copy" aria-label={t("About hello.profe")}>
-          <p>{t("hello.profe is a language-learning web app that combines short-text translation with focused German practice. The long-term goal is to connect Spanish, German, English, French and Dutch in one workflow.")}</p>
-          <p>{t("Available today: translate Spanish into German, practise 148 irregular German verbs and study reference flashcards. Vocabulary exploration, saved progress and offline access are still planned.")}</p>
-          <p>{t("Living in a multilingual family in Brussels means switching between languages every day. I am currently in level 4 of the German course at CVO Semper (CEFR B1), and the practice content supports that course.")}</p>
-          <p>{t("Built as a portfolio project, hello.profe extends my WordPress background into React, TypeScript, API integration, data modelling and testing.")}</p>
+          <p>{t("Languages open doors to people, places and everyday moments. hello.profe gives you a welcoming place to find the words you need and practise until they feel familiar.")}</p>
+          <p>{t("This project grew out of life in a multilingual family in Brussels and my own German studies. It is for curious learners who want to make steady progress, one useful phrase at a time.")}</p>
+          <p>{t("Translate between Spanish, English, German, French and Dutch, then explore German B1 topics at your own pace. No account is needed: choose a topic, try a card and keep going.")}</p>
           <p>{t("“Profe” is an informal Spanish word for a teacher. Together with “hello,” it reflects the welcoming, personal spirit of this project.")}</p>
           <p>{t("I use AI tools openly: Google Stitch for wireframes and inspiration, Figma Make for the logotype and design system, OpenAI Codex for implementation, and GitHub Copilot and Claude to double-check features. I review and test what they produce.")}</p>
+          <h2>{t("Services and credits")}</h2>
+          <ul>
+            <li><a href="https://mymemory.translated.net/terms-and-conditions">{t("MyMemory")} · {t("Terms of service")}</a></li>
+            <li><a href="https://www.cloudflare.com/service-specific-terms-application-services/">{t("Cloudflare Workers AI")} · {t("Terms of service")}</a></li>
+            <li><a href="https://github.com/adobe-fonts/source-sans/blob/release/LICENSE.md">{t("Source Sans 3 — Adobe, SIL Open Font License")}</a></li>
+          </ul>
+          <p>{t("Interface design and inline icons: hello.profe, developed from the Figma Make prototype.")}</p>
+          <p>{t("German B1 topic cards were drafted with AI and reviewed by the project owner. Unreviewed workbook decks are not published.")}</p>
           <p>{t("View the source code and follow development on GitHub.")}</p>
           <ul>
             <li><a href="https://github.com/ccisternas-dev/hello.profe">{t("GitHub repository")}</a></li>
