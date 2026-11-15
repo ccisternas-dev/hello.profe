@@ -18,8 +18,11 @@ const errors: Record<string, MessageKey> = {
 }
 export default function TranslationView() {
   const { t } = useI18n()
-  const [provider, setProvider] = useState(savedProvider)
-  const enabled = provider === 'mymemory' || import.meta.env.VITE_TRANSLATION_ENABLED === true
+  const [provider, setProvider] = useState(() => {
+    const saved = savedProvider()
+    return saved === 'deepl' && import.meta.env.VITE_DEEPL_ENABLED !== true ? 'mymemory' : saved
+  })
+  const enabled = provider === 'mymemory' || (import.meta.env.VITE_TRANSLATION_ENABLED === true && (provider !== 'deepl' || import.meta.env.VITE_DEEPL_ENABLED === true))
   const [text, setText] = useState('')
   const [source, setSource] = useState<TranslationLanguage>('es')
   const [targets, setTargets] = useState<TranslationLanguage[]>(['de'])
@@ -69,6 +72,7 @@ export default function TranslationView() {
         }}>
           <option value="mymemory">{t('MyMemory')}</option>
           <option value="cloudflare">{t('Cloudflare Workers AI')}</option>
+          {import.meta.env.VITE_DEEPL_ENABLED === true && <option value="deepl">{t('DeepL')}</option>}
         </select>
       </label>
       <p className="small-note">{t('Your text is sent to the selected translation provider.')}</p>

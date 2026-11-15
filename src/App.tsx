@@ -603,6 +603,7 @@ export default function App() {
           <ul>
             <li><a href="https://mymemory.translated.net/terms-and-conditions">{t("MyMemory")} · {t("Terms of service")}</a></li>
             <li><a href="https://www.cloudflare.com/service-specific-terms-application-services/">{t("Cloudflare Workers AI")} · {t("Terms of service")}</a></li>
+            {import.meta.env.VITE_DEEPL_ENABLED === true && <li><a href="https://www.deepl.com/en/pro-license">{t("DeepL")} · {t("Terms of service")}</a></li>}
             <li><a href="https://github.com/adobe-fonts/source-sans/blob/release/LICENSE.md">{t("Source Sans 3 — Adobe, SIL Open Font License")}</a></li>
           </ul>
           <p>{t("Interface design and inline icons: hello.profe, developed from the Figma Make prototype.")}</p>
