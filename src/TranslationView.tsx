@@ -10,7 +10,7 @@ const languages: { code: TranslationLanguage; label: MessageKey }[] = [
 type TranslationResult = { target: TranslationLanguage; text?: string; error?: MessageKey }
 
 const errors: Record<string, MessageKey> = {
-  quota_exhausted: 'The free translation allowance is exhausted. Try again tomorrow.',
+  quota_exhausted: 'This provider’s allowance is exhausted. Choose another provider or try again after it resets.',
   rate_limited: 'Too many requests. Wait a minute before trying again.',
   provider_timeout: 'Translation timed out. Please try again.',
   input_too_long_bytes: 'MyMemory accepts up to 500 UTF-8 bytes. Shorten your text.',
@@ -20,9 +20,10 @@ export default function TranslationView() {
   const { t } = useI18n()
   const [provider, setProvider] = useState(() => {
     const saved = savedProvider()
-    return saved === 'deepl' && import.meta.env.VITE_DEEPL_ENABLED !== true ? 'mymemory' : saved
+    return (saved === 'microsoft' && import.meta.env.VITE_MICROSOFT_ENABLED !== true)
+      || (saved === 'google' && import.meta.env.VITE_GOOGLE_ENABLED !== true) ? 'mymemory' : saved
   })
-  const enabled = provider === 'mymemory' || (import.meta.env.VITE_TRANSLATION_ENABLED === true && (provider !== 'deepl' || import.meta.env.VITE_DEEPL_ENABLED === true))
+  const enabled = provider === 'mymemory' || (import.meta.env.VITE_TRANSLATION_ENABLED === true && (provider !== 'microsoft' || import.meta.env.VITE_MICROSOFT_ENABLED === true) && (provider !== 'google' || import.meta.env.VITE_GOOGLE_ENABLED === true))
   const [text, setText] = useState('')
   const [source, setSource] = useState<TranslationLanguage>('es')
   const [targets, setTargets] = useState<TranslationLanguage[]>(['de'])
@@ -72,7 +73,8 @@ export default function TranslationView() {
         }}>
           <option value="mymemory">{t('MyMemory')}</option>
           <option value="cloudflare">{t('Cloudflare Workers AI')}</option>
-          {import.meta.env.VITE_DEEPL_ENABLED === true && <option value="deepl">{t('DeepL')}</option>}
+          {import.meta.env.VITE_MICROSOFT_ENABLED === true && <option value="microsoft">{t('Microsoft Translator')}</option>}
+          {import.meta.env.VITE_GOOGLE_ENABLED === true && <option value="google">{t('Google Cloud Translation')}</option>}
         </select>
       </label>
       <p className="small-note">{t('Your text is sent to the selected translation provider.')}</p>

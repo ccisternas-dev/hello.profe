@@ -363,5 +363,7 @@
   "Interface design and inline icons: hello.profe, developed from the Figma Make prototype.": "Interface design and inline icons: hello.profe, developed from the Figma Make prototype.",
   "German B1 topic cards were drafted with AI and reviewed by the project owner. Unreviewed workbook decks are not published.": "German B1 topic cards were drafted with AI and reviewed by the project owner. Unreviewed workbook decks are not published.",
   "© {year} hello.profe. Third-party materials retain their own licenses.": "© {year} hello.profe. Third-party materials retain their own licenses.",
-  "DeepL": "DeepL"
+  "Microsoft Translator": "Microsoft Translator",
+  "Google Cloud Translation": "Google Cloud Translation",
+  "This provider’s allowance is exhausted. Choose another provider or try again after it resets.": "This provider’s allowance is exhausted. Choose another provider or try again after it resets."
 }

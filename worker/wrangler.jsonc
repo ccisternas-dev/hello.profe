@@ -12,7 +12,9 @@
   "vars": {
     "TRANSLATION_ENABLED": "false",
     "ALLOWED_ORIGINS": "http://localhost:8443,http://127.0.0.1:8443",
-    "DEEPL_ENABLED": "false"
+    "MICROSOFT_ENABLED": "false",
+    "GOOGLE_ENABLED": "false",
+    "MICROSOFT_TRANSLATOR_REGION": ""
   },
   "ratelimits": [
     {
@@ -39,7 +41,9 @@
         "TRANSLATION_ENABLED": "true",
         "ACCESS_MODE": "public",
         "ALLOWED_ORIGINS": "https://ccisternas-dev.github.io",
-        "DEEPL_ENABLED": "false"
+        "MICROSOFT_ENABLED": "false",
+        "GOOGLE_ENABLED": "false",
+        "MICROSOFT_TRANSLATOR_REGION": ""
       },
       "ratelimits": [
         {

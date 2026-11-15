@@ -23,7 +23,7 @@ hello.profe is my personal portfolio project, extending my experience building W
 | **Translation Challenge** | Recall German verb forms from English, Spanish or French prompts, with single-form and mixed modes. |
 | **Complete the Verb** | Practise supplied forms one field at a time, with hints, answer checking and a session summary. |
 | **Flashcards** | Browse 148 irregular German verbs, their translations, present tense and principal forms. |
-| **Spanish → German translation** | Translate short text through a separate Worker API, with input limits and error handling. |
+| **Short-text translation** | Translate between Spanish, English, German, French and Dutch; choose MyMemory or configured Worker-backed providers. |
 | **Five interface languages** | English, French, Dutch, German and Spanish; changing the interface language preserves the active study session. |
 
 **Try this:** open Practice, choose Translation Challenge, then check an answer or use a hint. Open Flashcards to compare the same learning material in a reading-focused format.
@@ -45,13 +45,21 @@ The practice engine uses bundled data rather than AI-generated answers. Translat
 | Frontend | React 19, TypeScript, Vite | Typed components and state with a static production build. |
 | Styling | Shared CSS tokens and components; Tailwind CSS tooling | A consistent visual foundation with responsive layouts. |
 | Practice data | Bundled JSON, converted with Python | Study sessions do not depend on a translation service or model output. |
-| Translation backend | TypeScript Cloudflare Worker + Workers AI M2M100 | Provider access stays server-side; the adapter isolates model-specific code. |
+| Translation backend | MyMemory from the browser; Cloudflare Worker adapters for Workers AI, Microsoft and Google | Credentialed providers stay server-side; each adapter validates upstream output. |
 | Hosting | GitHub Pages frontend, separately deployed Worker | Keep the frontend static and deploy backend changes independently. |
 | Verification | Node test runner, TypeScript, data and locale checks | Check learning rules, API behavior and content structure with repository tooling. |
 
-The public translation path is browser → Worker → Workers AI. Local translation uses a Vite proxy to attach the private development token server-side. Routine automated tests use mocked provider responses.
+MyMemory is the default and is called directly from the browser. Cloudflare, Microsoft Translator and Google Cloud Translation use browser → Worker → provider. Microsoft and Google remain disabled until their credentials and feature flags are configured. Local Worker translation uses a Vite proxy to attach the private development token server-side. Routine automated tests use mocked provider responses. See [provider setup and cost controls](docs/translation-providers.md).
 
 Keeping practice local and translation separate makes the core learning flow usable without an API dependency. It does **not** provide offline installation or persistent study progress: those require additional work.
+
+### Development reflection: choosing sustainable translation services
+
+On 15 November 2026, I removed the prepared DeepL integration. Its older API Free plan is no longer available to new subscribers; the new free API Developer plan offers a one-time 1,000,000-character allowance that does not renew. That is useful for evaluation, but does not fit this project's need for ongoing translation on a limited budget. This is a sustainability decision, not a judgment about translation quality. [DeepL plan details](https://support.deepl.com/hc/en-us/articles/360021200939-DeepL-API-plans)
+
+MyMemory and Cloudflare remain available. Microsoft Translator was added for its recurring F0 allowance, and Google Cloud Translation as an optional provider with a recurring NMT allowance and paid overages. Neither is automatically enabled: credentials, the correct service tier and provider-side quota controls must be configured first. Free allowances can change and do not guarantee unlimited service. [Microsoft plans](https://www.microsoft.com/en-us/translator/business/faq/) · [Google pricing](https://cloud.google.com/products/translate/pricing)
+
+The lesson is to evaluate renewal rules and spending controls alongside translation quality. Separate provider adapters and safe error handling let the app change services without changing its learning features. No automatic failover is implemented; users choose where their text is sent.
 
 ## Scope and next steps
 
@@ -70,7 +78,7 @@ npx --yes pnpm@10.34.3 install --frozen-lockfile
 npx --yes pnpm@10.34.3 dev
 ```
 
-Open `http://localhost:8443`. Practice and Flashcards use bundled data. The ordinary local preview leaves real translation disabled unless an API is configured.
+Open `http://localhost:8443`. Practice and Flashcards use bundled data. MyMemory works in the ordinary local preview. Credentialed providers require the Worker setup and activation flags.
 
 For live local translation, follow the [backend setup guide](docs/translation-backend.md), then run these in separate terminals:
 
