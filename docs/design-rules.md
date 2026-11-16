@@ -62,10 +62,16 @@ Every top-level screen follows the same structure:
 
 ## 6. Checklist for a UI change
 
-- [ ] No new raw colors, font sizes, spacing, radii or z-index values outside `:root`.
+- [ ] `pnpm design:check` passes without adding baseline entries.
 - [ ] Shared components used, or a new variant added to `components.tsx` and the showcase.
 - [ ] Checked at 390px and 1280px, in English and at least one longer locale (German or Dutch).
 - [ ] Screenshots of touched screens refreshed when the change is visible.
+
+## Automated check
+
+`pnpm design:check` (also run in CI) enforces sections 1 to 3. It flags raw colors, font sizes, font weights, line heights, radii, spacing and z-index values outside `:root`, `--primitive-*` tokens outside `:root`, breakpoints other than 600px and 1199px, and raw `<button>` or inline `style={{…}}` in screen files (`components.tsx` and the `DesignSystem.tsx` showcase are exempt).
+
+Existing violations are recorded in `scripts/design-baseline.json`. The check fails only when a change adds a violation or repeats a known one more often. After fixing violations, run `pnpm design:check --update` and commit the smaller baseline. Never add entries to the baseline by hand to make a new violation pass. Use a token, or add one.
 
 ## Current state
 
