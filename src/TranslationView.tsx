@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Badge, Button, PageHeader } from './components'
+import { Badge, Button, Chip, PageHeader } from './components'
 import { useI18n, type MessageKey } from './i18n'
 import { translateWithProvider, savedProvider, savePreference, readPreference, providerStorageKey, emailStorageKey, isTranslationProvider, inputBytes, type TranslationLanguage } from './translation-client'
 
@@ -92,9 +92,9 @@ export default function TranslationView() {
         <div className="target-control" role="group" aria-label={t('Translate to')}>
           <span className="field-label">{t('Translate to')}</span>
           <div className="target-chips">{languages.filter(language => language.code !== source).map(language =>
-            <button key={language.code} type="button" className={`chip${targets.includes(language.code) ? ' selected' : ''}`} aria-pressed={targets.includes(language.code)} onClick={() => {
+            <Chip key={language.code} selected={targets.includes(language.code)} onClick={() => {
               reset(); setTargets(previous => previous.includes(language.code) ? previous.filter(target => target !== language.code) : [...previous, language.code])
-            }}>{t(language.label)}</button>
+            }}>{t(language.label)}</Chip>
           )}</div>
         </div>
       </div>

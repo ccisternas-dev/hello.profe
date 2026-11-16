@@ -1,6 +1,6 @@
 import test from "node:test"
 import assert from "node:assert/strict"
-import { cssViolations, tsxViolations, compare } from "./check-design.mjs"
+import { collect, cssViolations, tsxViolations } from "./check-design.mjs"
 
 const rules = (css) => cssViolations(css).map(({ rule }) => rule)
 
@@ -44,9 +44,6 @@ test("raw buttons and inline styles are reported in screen files", () => {
   assert.deepEqual(found.map(({ rule, line }) => [rule, line]), [["raw-button", 1], ["inline-style", 2]])
 })
 
-test("compare fails only on new or more frequent violations and reports fixed ones", () => {
-  const v = (key) => ({ key })
-  const result = compare([v("a"), v("a"), v("b")], { a: 1, b: 1, c: 2 })
-  assert.deepEqual(result.added.map(({ key }) => key), ["a"])
-  assert.deepEqual(result.fixed, ["c"])
+test("the repository has no design violations", () => {
+  assert.deepEqual(collect(new URL("../", import.meta.url)).map(({ file, line, rule }) => `${file}:${line} ${rule}`), [])
 })

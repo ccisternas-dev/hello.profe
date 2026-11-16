@@ -1,9 +1,6 @@
-// Design drift check. Enforces docs/design-rules.md.
-// Existing violations are listed in scripts/design-baseline.json. The check fails only when
-// a violation is new or more frequent than recorded, so the baseline can only shrink.
-// Run with --update after fixing violations to rewrite the baseline.
-import { readFileSync, writeFileSync, readdirSync } from "node:fs"
-import { fileURLToPath, pathToFileURL } from "node:url"
+// Design drift check. Enforces docs/design-rules.md and fails on any violation.
+import { readFileSync, readdirSync } from "node:fs"
+import { pathToFileURL } from "node:url"
 
 const ALLOWED_BREAKPOINTS = new Set(["600px", "1199px"])
 const ALLOWED_SPACING_PX = new Set(["0px", "1px", "2px"])
@@ -83,20 +80,6 @@ export function tsxViolations(source, file) {
   return violations
 }
 
-export const countKeys = (violations) =>
-  violations.reduce((counts, { key }) => ({ ...counts, [key]: (counts[key] || 0) + 1 }), {})
-
-export function compare(violations, baseline) {
-  const counts = countKeys(violations)
-  const seen = {}
-  const added = violations.filter(({ key }) => {
-    seen[key] = (seen[key] || 0) + 1
-    return seen[key] > (baseline[key] || 0)
-  })
-  const fixed = Object.keys(baseline).filter((key) => (counts[key] || 0) < baseline[key])
-  return { added, fixed, counts }
-}
-
 export function collect(root) {
   const src = new URL("src/", root)
   const violations = cssViolations(readFileSync(new URL("index.css", src), "utf8"))
@@ -107,23 +90,11 @@ export function collect(root) {
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const root = new URL("../", import.meta.url)
-  const baselinePath = new URL("scripts/design-baseline.json", root)
-  const violations = collect(root)
-  if (process.argv.includes("--update")) {
-    const counts = countKeys(violations)
-    const sorted = Object.fromEntries(Object.keys(counts).sort().map((key) => [key, counts[key]]))
-    writeFileSync(baselinePath, `${JSON.stringify(sorted, null, 2)}\n`)
-    console.log(`Design baseline updated: ${violations.length} known violations in ${fileURLToPath(baselinePath)}`)
-    process.exit(0)
-  }
-  const baseline = JSON.parse(readFileSync(baselinePath, "utf8"))
-  const { added, fixed } = compare(violations, baseline)
-  if (fixed.length) console.log(`${fixed.length} baseline entries are fixed. Run the check with --update to shrink scripts/design-baseline.json.`)
-  if (added.length) {
-    console.error(`Design check failed: ${added.length} new violation(s). See docs/design-rules.md.`)
-    for (const { file, line, rule, key } of added) console.error(`  ${file}:${line}  ${rule}  ${key.split(" | ").slice(2).join(" | ")}`)
+  const violations = collect(new URL("../", import.meta.url))
+  if (violations.length) {
+    console.error(`Design check failed: ${violations.length} violation(s). See docs/design-rules.md.`)
+    for (const { file, line, rule, key } of violations) console.error(`  ${file}:${line}  ${rule}  ${key.split(" | ").slice(2).join(" | ")}`)
     process.exit(1)
   }
-  console.log(`Design check passed (${violations.length} known violations in baseline).`)
+  console.log("Design check passed: no violations.")
 }

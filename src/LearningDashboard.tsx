@@ -1,4 +1,4 @@
-import { Icon, type IconName } from "./components"
+import { CardButton, Icon, type IconName } from "./components"
 import { useI18n, type MessageKey } from "./i18n"
 
 export type LearningPath = "challenge" | "complete" | "flashcards"
@@ -28,9 +28,8 @@ export default function LearningDashboard({ onSelect }: { onSelect: (path: Learn
       </header>
       <div className="learning-mode-list">
         {paths.map(path => (
-          <button
+          <CardButton
             key={path.id}
-            type="button"
             className={`learning-mode-card learning-mode-card--${path.id}`}
             onClick={() => onSelect(path.id)}
             aria-labelledby={`learning-title-${path.id}`}
@@ -47,7 +46,7 @@ export default function LearningDashboard({ onSelect }: { onSelect: (path: Learn
             {path.id === "challenge"
               ? <span className="learning-mode-recommended" id={`learning-badge-${path.id}`}>{t(path.badge)}</span>
               : <span className="learning-mode-chevron"><Icon name="chevronRight" /></span>}
-          </button>
+          </CardButton>
         ))}
       </div>
     </section>
