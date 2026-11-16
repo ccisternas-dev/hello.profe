@@ -504,8 +504,6 @@ td:not(:first-child) { font-weight: var(--font-weight-semibold); }
 .challenge-settings select, .challenge-field input { width: 100%; min-height: 48px; padding: var(--space-2) var(--space-3); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface-raised); color: var(--text-primary); }
 .challenge-session { max-width: 960px; }
 .challenge-cue { overflow-wrap: anywhere; }
-.challenge-field { border-bottom: 1px solid var(--border-default); padding: var(--space-5) 0; margin-bottom: var(--space-5); min-width: 0; }
-.challenge-field label { display: block; font-weight: var(--font-weight-medium); margin-bottom: var(--space-2); }
 .challenge-field input { font-size: var(--font-size-lg); }
 .challenge-field input[aria-invalid="true"] { border-color: var(--feedback-error); }
 .german-keys { display: flex; gap: var(--space-2); margin-top: var(--space-3); }
@@ -516,20 +514,64 @@ td:not(:first-child) { font-weight: var(--font-weight-semibold); }
 .challenge-settings h2 { font-size: var(--font-size-xl); font-weight: var(--font-weight-medium); }
 
 /* Learning pages share the flashcard surface and card treatment. */
+/* Compact practice session: one shared character row, one row per answer field */
+.challenge-status { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); margin-bottom: var(--space-4); padding: var(--space-1) var(--space-1) var(--space-1) var(--space-4); border: 1px solid var(--border-default); border-radius: 999px; background: var(--surface-raised); font-size: var(--font-size-sm); }
+.challenge-status .challenge-end { color: var(--feedback-error); }
+.challenge-card { display: grid; gap: var(--space-5); }
+.challenge-prompt { padding-bottom: var(--space-5); border-bottom: 1px solid var(--border-default); }
+.challenge-prompt-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2); }
+.challenge-points { padding: var(--space-1) var(--space-3); border-radius: 999px; background: var(--surface-learning-detail); color: var(--text-accent); font-size: var(--font-size-sm); font-weight: var(--font-weight-medium); }
+.challenge-instruction { margin: 0; color: var(--text-secondary); }
+.quick-insert { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-2) var(--space-2) var(--space-2) var(--space-4); border-radius: var(--radius-md); background: var(--surface-default); }
+.quick-insert-label { color: var(--text-secondary); font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); letter-spacing: var(--letter-spacing-label); text-transform: uppercase; }
+.quick-insert .german-keys { margin-top: 0; }
+.challenge-fields { display: grid; gap: var(--space-3); }
+.challenge-field { display: grid; grid-template-columns: 200px minmax(0, 1fr) 240px; align-items: start; gap: var(--space-2) var(--space-4); min-width: 0; padding: var(--space-3) var(--space-4); border: 1px solid var(--border-default); border-radius: var(--radius-md); background: var(--surface-subtle); }
+.challenge-field--correct { border-color: var(--feedback-success-border); background: var(--feedback-success-subtle); }
+.challenge-field--wrong, .challenge-field--empty { border-color: var(--feedback-error-border); }
+.challenge-field-label { display: grid; gap: var(--space-1); padding-top: var(--space-3); }
+.challenge-field label { font-weight: var(--font-weight-semibold); }
+.challenge-field-qualifier { color: var(--text-secondary); font-weight: var(--font-weight-regular); }
+.challenge-field-description { color: var(--text-secondary); font-size: var(--font-size-xs); }
+.challenge-field-input { display: flex; gap: var(--space-2); }
+.challenge-field-input input { flex: 1; min-width: 0; }
+.challenge-feedback p { margin: var(--space-1) 0 0; font-size: var(--font-size-sm); }
+.challenge-field-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; }
+.challenge-field-actions .button { padding: 0 var(--space-2); font-size: var(--font-size-sm); }
+.challenge-footer { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--border-default); }
+.challenge-footer .small-note { margin: 0; max-width: var(--measure-text); }
+@media (max-width: 1199px) {
+  .challenge-field { grid-template-columns: minmax(0, 1fr) auto; }
+  .challenge-field-label { grid-column: 1; padding-top: 0; align-self: center; }
+  .challenge-field-actions { grid-column: 2; grid-row: 1; }
+  .challenge-field-answer { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .challenge-status { font-size: var(--font-size-xs); }
+  .challenge-field { padding: var(--space-3); }
+  .challenge-field-description { display: none; }
+  .challenge-check { width: var(--control-height); padding: 0; }
+  .challenge-check span { display: none; }
+  .challenge-field { grid-template-columns: minmax(0, 1fr); }
+  .challenge-field-label, .challenge-field-actions, .challenge-field-answer { grid-column: 1; grid-row: auto; }
+  .challenge-field-actions { justify-content: flex-start; margin-left: calc(-1 * var(--space-2)); }
+  .quick-insert-label { display: none; }
+  .quick-insert { justify-content: center; }
+  .challenge-footer { flex-direction: column-reverse; align-items: stretch; }
+}
+
 .practice-page { max-width: 960px; }
 .practice-page #learning-content { padding: var(--space-6); background: var(--surface-learning); border-radius: var(--radius-lg); }
 .practice-page .practice-card { max-width: none; padding: var(--space-6); border: 0; border-radius: var(--radius-lg); box-shadow: var(--shadow-learning-card); }
 .practice-page .challenge-session { max-width: none; }
 .practice-page .challenge-settings h2 { margin: 0; color: var(--text-accent); }
 .practice-page .challenge-settings > p { margin: 0 0 var(--space-2); color: var(--text-secondary); }
-.practice-page .challenge-settings > label, .practice-page .challenge-field > label { color: var(--text-accent); font-weight: var(--font-weight-semibold); }
+.practice-page .challenge-settings > label, .practice-page .challenge-field label { color: var(--text-accent); font-weight: var(--font-weight-semibold); }
 .practice-page .challenge-settings select, .practice-page .challenge-field input { border-color: var(--border-default); }
 .practice-page .challenge-field input[aria-invalid="true"] { border-color: var(--feedback-error); }
-.practice-page .challenge-cue { margin: var(--space-6) 0; text-align: center; font-size: var(--font-size-display); font-weight: var(--font-weight-bold); }
+.practice-page .challenge-cue { margin: var(--space-3) 0 var(--space-2); font-size: var(--font-size-display); font-weight: var(--font-weight-bold); }
 .practice-page .button--secondary, .practice-page .german-keys button { background: var(--surface-learning-detail); border-color: transparent; }
 .practice-page .button--secondary:hover, .practice-page .german-keys button:hover { background: var(--surface-selected); }
-.practice-page .challenge-session > .study-toolbar { margin-top: 0; align-items: center; justify-content: space-between; }
-.practice-page .challenge-session > .small-note:last-child { margin-bottom: 0; }
 @media (max-width: 600px) {
   .practice-page #learning-content { padding: var(--space-3); }
   .practice-page .practice-card { padding: var(--space-5) var(--space-4); }
@@ -553,8 +595,9 @@ td:not(:first-child) { font-weight: var(--font-weight-semibold); }
 .learning-mode-card--complete .learning-mode-tag { color: var(--action-primary); }
 .learning-mode-recommended { align-self: start; margin-top: var(--space-1); border-radius: 999px; padding: var(--space-1) var(--space-3); background: var(--surface-highlight); color: var(--text-highlight); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); }
 .learning-mode-chevron { color: var(--text-secondary); }
-.learning-path-toolbar { margin-bottom: var(--space-5); }
-.learning-path-toolbar .small-note { margin: var(--space-2) 0; }
+.learning-path-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-3); margin-bottom: var(--space-4); }
+.learning-path-toolbar .small-note { margin: 0; padding-left: var(--space-3); border-left: 1px solid var(--border-default); }
+@media (max-width: 600px) { .learning-path-toolbar .small-note { padding-left: 0; border-left: 0; } }
 @media (max-width: 600px) {
   .learning-modes { padding: var(--space-3); }
   .learning-modes-header { align-items: flex-start; flex-wrap: wrap; gap: var(--space-1); }

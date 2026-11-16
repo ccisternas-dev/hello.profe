@@ -31,7 +31,9 @@
   "src/VerbChallenge.tsx": {
     "character": "German character input data",
     "answer.canonical": "Learning answer in the selected training language",
-    "verb.cues[settings.language]": "Learning prompt in the selected source language"
+    "verb.cues[settings.language]": "Learning prompt in the selected source language",
+    "text": "Parts of an already translated form label",
+    "index": "Field number"
   },
   "src/VerbFlashcards.tsx": {
     "verb.id": "German verb lemma from workbook",

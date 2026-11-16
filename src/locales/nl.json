@@ -388,5 +388,15 @@
   "English regular verbs": "Regelmatige Engelse werkwoorden",
   "French regular verbs": "Regelmatige Franse werkwoorden",
   "Spanish regular verbs": "Regelmatige Spaanse werkwoorden",
-  "Dutch regular verbs": "Regelmatige Nederlandse werkwoorden"
+  "Dutch regular verbs": "Regelmatige Nederlandse werkwoorden",
+  "Base dictionary form": "Basisvorm uit het woordenboek",
+  "Third-person singular present": "Tegenwoordige tijd, derde persoon enkelvoud",
+  "Third-person singular past": "Verleden tijd, derde persoon enkelvoud",
+  "Auxiliary + past participle": "Hulpwerkwoord + voltooid deelwoord",
+  "Past participle alone": "Alleen het voltooid deelwoord",
+  "Hint (1 pt)": "Hint (1 pt)",
+  "Length hint (0 pts)": "Lengtehint (0 ptn)",
+  "Reveal (0 pts)": "Tonen (0 ptn)",
+  "Up to {count} points": "Tot {count} punten",
+  "Quick insert": "Snel invoegen"
 }
