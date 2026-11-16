@@ -79,7 +79,6 @@
   "Design system / 01": "Ontwerpsysteem / 01",
   "A warm, accessible language notebook built on semantic decisions—not one-off values.": "Een warm, toegankelijk taalnotitieboek op basis van consistente semantische keuzes.",
   "Colour": "Kleur",
-  "Primitive values map to semantic roles. Components consume only semantic tokens, ready for a future dark theme.": "Basiswaarden zijn gekoppeld aan semantische rollen. Componenten gebruiken alleen semantische tokens, klaar voor een toekomstig donker thema.",
   "Typography": "Typografie",
   "Source Sans 3 is highly legible and supports every product language, including é, ñ, ü, ß and ë.": "Source Sans 3 is goed leesbaar en ondersteunt alle producttalen, inclusief é, ñ, ü, ß en ë.",
   "Display / 48": "Grote tekst / 48",
@@ -387,5 +386,11 @@
   "Not yet. Try again or reveal the answer.": "Nog niet. Probeer opnieuw of toon het antwoord.",
   "Correct after retry: {count}": "Goed na opnieuw proberen: {count}",
   "Start a new challenge": "Een nieuwe uitdaging starten",
-  "Scoring per answer: 3 unaided, 2 after retry, 0 when revealed.": "Punten per antwoord: 3 zonder hulp, 2 na opnieuw proberen, 0 als het antwoord getoond wordt."
+  "Scoring per answer: 3 unaided, 2 after retry, 0 when revealed.": "Punten per antwoord: 3 zonder hulp, 2 na opnieuw proberen, 0 als het antwoord getoond wordt.",
+  "Theme": "Thema",
+  "Match device": "Zoals apparaat",
+  "Light": "Licht",
+  "Dark": "Donker",
+  "Match device follows your phone or computer setting. Device high-contrast settings are also respected.": "‘Zoals apparaat’ volgt de instelling van je telefoon of computer. Instellingen voor hoog contrast op het apparaat worden ook gerespecteerd.",
+  "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values.": "Primitieve waarden horen bij semantische rollen. Componenten gebruiken alleen semantische tokens, met lichte en donkere waarden."
 }

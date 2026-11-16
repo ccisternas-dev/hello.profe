@@ -27,6 +27,13 @@ Screens use semantic tokens (`--surface-raised`, `--text-secondary`). `--primiti
 
 If no token fits, do not invent a one-off value. Add a token to `:root`, document it here, and show it in the showcase in the same change.
 
+## Themes
+
+Colours have light values in `:root` and dark values in `:root[data-theme="dark"]`. Only semantic tokens get dark values; components never check the theme. `index.html` sets `data-theme` before the page renders (no light flash), from the saved choice in Settings (Match device, Light or Dark).
+
+- When adding a semantic colour token, give it a dark value too. `scripts/theme-contrast.test.mjs` checks WCAG AA contrast for key pairs in both themes; add the new pair there.
+- `prefers-contrast: more` strengthens text, borders and focus in both themes. `forced-colors: active` (Windows High Contrast) relies on system colours, with outlines for focus and selection, because shadows and backgrounds are removed.
+
 ## 2. Breakpoints
 
 Only two breakpoints exist:

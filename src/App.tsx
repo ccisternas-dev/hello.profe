@@ -3,6 +3,7 @@ import StudyPractice from "./StudyPractice"
 import TranslationView from "./TranslationView"
 import TranslationSettings from "./TranslationSettings"
 import ChallengeSettings from "./ChallengeSettings"
+import ThemeSettings from "./ThemeSettings"
 import Flashcards from "./Flashcards"
 import { useEffect, useRef, useState } from "react"
 import {
@@ -565,6 +566,7 @@ export default function App() {
           <LocaleSelector />
           <p className="small-note">{t("Your language preference is saved in this browser when storage is available.")}</p>
         </section>
+        <ThemeSettings />
         <TranslationSettings />
         <ChallengeSettings />
         <Button variant="text" onClick={() => setView("about")}>{t("About hello.profe")}</Button>

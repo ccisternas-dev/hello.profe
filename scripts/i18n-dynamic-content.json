@@ -26,6 +26,7 @@
   "src/DesignSystem.tsx": {
     "name": "CSS design token identifier",
     "value": "CSS colour value",
+    "values[name]": "Resolved CSS colour value for the active theme",
     "item": "CSS spacing token identifier"
   },
   "src/VerbChallenge.tsx": {
