@@ -1,14 +1,15 @@
 import { useLayoutEffect, useReducer, useRef, useState } from 'react'
+import { readChallengePreferences } from './challenge-settings'
 import { Button } from './components'
 import { useI18n, type MessageKey } from './i18n'
 import data from './data/study-decks.json'
 import overrides from './data/verb-overrides.json'
 import training from './data/b2-verb-training.json'
-import { buildVerbs, forms, finishedField, finishedQuestion, hintDetails, insertCharacter, reduceChallenge, startChallenge, type Challenge, type ChallengeAction, type FieldState, type Form, type Settings, type Verb } from './verb-challenge'
+import { buildVerbs, forms, finishedField, finishedQuestion, insertCharacter, promptLanguageFor, reduceChallenge, startChallenge, type Challenge, type ChallengeAction, type FieldState, type Form, type PromptLanguage, type Settings, type Verb } from './verb-challenge'
 
 const cards = data.decks.find(d => d.id === 'irregular-verbs')?.cards || []
 const germanVerbs = cards.length ? buildVerbs(cards, overrides) : []
-const germanFormLabels: Record<Form, MessageKey> = {
+export const germanFormLabels: Record<Form, MessageKey> = {
   infinitive: 'Infinitive', present: 'Präsens (er/sie/es)', preterite: 'Präteritum (er/sie/es)', perfect: 'Perfekt (er/sie/es)', participle: 'Partizip II',
 }
 export type TrainingLanguage = 'de' | 'nl' | 'en'
@@ -17,9 +18,7 @@ const otherFormLabels: Record<Form, MessageKey> = {
   infinitive: 'Infinitive', present: 'Present (third-person singular)', preterite: 'Past (third-person singular)', perfect: 'Present perfect (third-person singular)', participle: 'Past participle',
 }
 type Training = {verbs: Verb[]; target: TrainingLanguage; formLabels: Record<Form, MessageKey>}
-const modeLabels: Record<Settings['mode'], MessageKey> = { single: 'Single-form mode', complete: 'Complete the verb', mixed: 'Mixed challenge' }
-const promptLabels = { en: 'English', es: 'Spanish', fr: 'French' } as const
-const initialSettings: Settings = { mode: 'single', form: 'infinitive', language: 'en' }
+export const modeLabels: Record<Settings['mode'], MessageKey> = { single: 'Single-form mode', complete: 'Complete the verb', mixed: 'Mixed challenge' }
 
 const formDescriptions: Record<Form, MessageKey> = {
   infinitive: 'Base dictionary form', present: 'Third-person singular present', preterite: 'Third-person singular past', perfect: 'Auxiliary + past participle', participle: 'Past participle alone',
@@ -37,9 +36,8 @@ function AnswerField({ index, form, field, state, dispatch, training, inputRef, 
   const { t } = useI18n()
   const {verbs, target, formLabels} = training
   const answer = verbs.find(v => v.id === state.verbId)!.forms[form]!
-  const hint = hintDetails(answer.canonical)
   const done = finishedField(field)
-  const send = (type: 'submit' | 'hint' | 'reveal') => dispatch({ type, form, turn: state.turn })
+  const send = (type: 'submit' | 'reveal') => dispatch({ type, form, turn: state.turn })
   return <form className={`challenge-field challenge-field--${field.status}`} onSubmit={e => { e.preventDefault(); send('submit') }} aria-label={t(formLabels[form])}>
     <div className="challenge-field-label">
       <label htmlFor={`answer-${form}`}>{index + 1}. <FormLabel text={t(formLabels[form])} /></label>
@@ -54,21 +52,18 @@ function AnswerField({ index, form, field, state, dispatch, training, inputRef, 
       </div>
       <div id={`feedback-${form}`} role="status" className="challenge-feedback">
         {field.status === 'empty' && <p>{t('Enter an answer before checking.')}</p>}
-        {field.status === 'wrong' && <p>{t('Not yet. Try again, use a hint, or reveal the answer.')}</p>}
+        {field.status === 'wrong' && <p>{t('Not yet. Try again or reveal the answer.')}</p>}
         {field.status === 'correct' && <p>{t('Correct.')}</p>}
         {field.status === 'revealed' && <p>{t('Answer revealed: no points.')} <span lang={target}>{answer.canonical}</span></p>}
-        {field.hints >= 1 && <p>{t('First letter: {letter}', { letter: hint.first })}</p>}
-        {field.hints >= 2 && <p>{t('Length: {count} letters or digits; spaces and punctuation excluded.', { count: hint.length })}</p>}
       </div>
     </div>
     {!done && <div className="challenge-field-actions">
-      {field.hints < 2 && <Button variant="text" icon="info" onClick={() => send('hint')}>{field.hints === 0 ? t('Hint (1 pt)') : t('Length hint (0 pts)')}</Button>}
       <Button variant="text" onClick={() => send('reveal')}>{t('Reveal (0 pts)')}</Button>
     </div>}
   </form>
 }
 
-function ChallengeSession({ settings, onRestart, training }: { training: Training; settings: Settings; onRestart: () => void }) {
+function ChallengeSession({ settings, promptLanguage, onRestart, training }: { training: Training; settings: Settings; promptLanguage: PromptLanguage; onRestart: () => void }) {
   const { t } = useI18n()
   const {verbs, target} = training
   const [state, dispatch] = useReducer((s: Challenge, a: ChallengeAction) => reduceChallenge(s, a, verbs), undefined, () => startChallenge(verbs, settings, Math.random()))
@@ -86,7 +81,7 @@ function ChallengeSession({ settings, onRestart, training }: { training: Trainin
       pendingCaret.current = null
     }
   })
-  if (!verb) return <div><p>{t('No eligible verb questions for these settings.')}</p><Button onClick={onRestart}>{t('Change settings')}</Button></div>
+  if (!verb) return <p>{t('No eligible verb questions for these settings.')}</p>
   const shown = forms.filter(form => state.fields[form])
   const open = shown.filter(form => !finishedField(state.fields[form]!))
   // Insert into the field the learner last focused, or the first unfinished one.
@@ -107,18 +102,17 @@ function ChallengeSession({ settings, onRestart, training }: { training: Trainin
     {state.ended ? <div className="practice-card study-summary" role="status">
       <h2>{t('Challenge summary')}</h2>
       <p>{t('Unaided correct: {count}', { count: state.unaided })}</p>
-      <p>{t('Hinted correct: {count}', { count: state.hinted })}</p>
-      <p>{t('Correct after retry: {count} (may include hints)', { count: state.retried })}</p>
+      <p>{t('Correct after retry: {count}', { count: state.retried })}</p>
       <p>{t('Revealed answers: {count}', { count: state.revealed })}</p>
       <p>{t('Unfinished answers are not scored. Practice points do not measure mastery.')}</p>
-      <Button onClick={onRestart}>{t('Change settings and restart')}</Button>
+      <Button onClick={onRestart}>{t('Start a new challenge')}</Button>
     </div> : <div className="practice-card challenge-card">
       <div className="challenge-prompt">
         <div className="challenge-prompt-meta">
-          <span className="eyebrow">{t(modeLabels[settings.mode])} · {t(promptLabels[settings.language])} · {t('Question {count}', { count: state.turn + 1 })}</span>
+          <span className="eyebrow">{t(modeLabels[settings.mode])} · {t('Question {count}', { count: state.turn + 1 })}</span>
           <span className="challenge-points">{t('Up to {count} points', { count: 3 })}</span>
         </div>
-        <h2 className="challenge-cue" ref={promptHeading} tabIndex={-1} lang={settings.language}>{verb.cues[settings.language]}</h2>
+        <h2 className="challenge-cue" ref={promptHeading} tabIndex={-1} lang={verb.cues[promptLanguage] ? promptLanguage : settings.language}>{verb.cues[promptLanguage] || verb.cues[settings.language]}</h2>
         <p className="challenge-instruction">{t('Translate into {language}. Use the exact form requested.', {language: t(languageNames[target])})}</p>
         {target !== 'de' && <p className="small-note">{t('Use the infinitive without “to”; omit the subject in all answers.')}</p>}
       </div>
@@ -133,7 +127,7 @@ function ChallengeSession({ settings, onRestart, training }: { training: Trainin
           inputRef={node => { inputs.current[form] = node }} onFocus={() => setActiveForm(form)} />)}
       </div>
       <div className="challenge-footer">
-        <p className="small-note">{t('Scoring per answer: 3 unaided, 2 after retry, 1 with a first-letter hint, 0 with length hint or reveal.')} {t('Missed forms return more often. Two coverage turns alternate with one review turn. Progress lasts for this session only.')}</p>
+        <p className="small-note">{t('Scoring per answer: 3 unaided, 2 after retry, 0 when revealed.')} {t('Missed forms return more often. Two coverage turns alternate with one review turn. Progress lasts for this session only.')}</p>
         <Button icon="arrow" disabled={!finishedQuestion(state)} onClick={() => {
           dispatch({ type: 'next', turn: state.turn, random: Math.random() })
           setActiveForm(null)
@@ -145,30 +139,19 @@ function ChallengeSession({ settings, onRestart, training }: { training: Trainin
 }
 
 export default function VerbChallenge({ path = "translation", target = "de" }: { path?: "translation" | "complete"; target?: TrainingLanguage }) {
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const verbs = target === 'de' ? germanVerbs : import.meta.env.DEV ? training[target].verbs : []
   const formLabels = target === 'de' ? germanFormLabels : otherFormLabels
   const activeTraining: Training = {verbs, target, formLabels}
-  const promptLanguages = target === 'en' ? ['es','fr'] as const : ['en','es','fr'] as const
-  const completeOnly = path === "complete"
-  const [settings, setSettings] = useState<Settings>({ ...initialSettings, language: target === 'en' ? 'es' : 'en', mode: completeOnly ? "complete" : "single" })
-  const [running, setRunning] = useState(false)
-  if (running) return <ChallengeSession training={activeTraining} settings={settings} onRestart={() => setRunning(false)} />
-  return <section className="practice-card challenge-settings">
+  const promptLanguages: readonly PromptLanguage[] = target === 'en' ? ['es', 'fr'] : ['en', 'es', 'fr']
+  const promptLanguage = promptLanguageFor(locale, promptLanguages)
+  // Settings are read once per session; the prompt language can follow the interface language mid-session.
+  const [settings] = useState<Settings>(() => path === 'complete'
+    ? { mode: 'complete', form: 'infinitive', language: promptLanguage }
+    : { ...readChallengePreferences(), language: promptLanguage })
+  const [run, setRun] = useState(0)
+  return <>
     {target !== 'de' && <p className="small-note">{t('Draft content — awaiting owner review.')}</p>}
-    <h2>{completeOnly ? t('Complete the Verb') : t('Translation Challenge')}</h2>
-    <p>{completeOnly ? t('Choose the prompt language, then complete each supplied form.') : t('Choose a variation and prompt language. Only supplied verb forms are included.')}</p>
-    {!completeOnly && <><label htmlFor="challenge-variation">{t('Challenge variation')}</label>
-    <select id="challenge-variation" value={settings.mode} onChange={e => setSettings({ ...settings, mode: e.target.value as Settings['mode'] })}>
-      {(['single','mixed'] as const).map(mode => <option key={mode} value={mode}>{t(modeLabels[mode])}</option>)}
-    </select></>}
-    {settings.mode === 'single' && <><label htmlFor="challenge-form">{t('Target form')}</label>
-      <select id="challenge-form" value={settings.form} onChange={e => setSettings({ ...settings, form: e.target.value as Form })}>{forms.map(form => <option key={form} value={form}>{t(formLabels[form])}</option>)}</select></>}
-    <label htmlFor="challenge-language">{t('Prompt language')}</label>
-    <select id="challenge-language" value={settings.language} onChange={e => setSettings({ ...settings, language: e.target.value as Settings['language'] })}>
-      {promptLanguages.map(language => <option key={language} value={language}>{t(promptLabels[language])}</option>)}
-    </select>
-    <p>{completeOnly ? t('Fill in the supplied verb forms, one field at a time.') : t('Choose one target form, or mix verbs and forms for a varied challenge.')}</p>
-    <Button onClick={() => setRunning(true)}>{t('Start challenge')}</Button>
-  </section>
+    <ChallengeSession key={run} training={activeTraining} settings={settings} promptLanguage={promptLanguage} onRestart={() => setRun(run + 1)} />
+  </>
 }

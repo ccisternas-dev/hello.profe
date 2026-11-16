@@ -500,8 +500,7 @@ td:not(:first-child) { font-weight: var(--font-weight-semibold); }
 .design-showcase-header nav { display: flex; flex-wrap: wrap; gap: var(--space-3); }
 .design-showcase .page { margin: 0 auto; }
 
-.challenge-settings { max-width: 760px; display: grid; gap: var(--space-3); }
-.challenge-settings select, .challenge-field input { width: 100%; min-height: 48px; padding: var(--space-2) var(--space-3); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface-raised); color: var(--text-primary); }
+.challenge-field input { width: 100%; min-height: 48px; padding: var(--space-2) var(--space-3); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface-raised); color: var(--text-primary); }
 .challenge-session { max-width: 960px; }
 .challenge-cue { overflow-wrap: anywhere; }
 .challenge-field input { font-size: var(--font-size-lg); }
@@ -511,7 +510,6 @@ td:not(:first-child) { font-weight: var(--font-weight-semibold); }
 .german-keys button { min-width: 44px; min-height: 44px; border: 1px solid var(--border-default); border-radius: var(--radius-sm); background: var(--surface-raised); cursor: pointer; }
 .challenge-feedback { overflow-wrap: anywhere; }
 .challenge-cue { font-size: var(--font-size-title); line-height: var(--line-height-snug); font-weight: var(--font-weight-medium); margin: var(--space-4) 0; }
-.challenge-settings h2 { font-size: var(--font-size-xl); font-weight: var(--font-weight-medium); }
 
 /* Learning pages share the flashcard surface and card treatment. */
 /* Compact practice session: one shared character row, one row per answer field */
@@ -564,10 +562,8 @@ td:not(:first-child) { font-weight: var(--font-weight-semibold); }
 .practice-page #learning-content { padding: var(--space-6); background: var(--surface-learning); border-radius: var(--radius-lg); }
 .practice-page .practice-card { max-width: none; padding: var(--space-6); border: 0; border-radius: var(--radius-lg); box-shadow: var(--shadow-learning-card); }
 .practice-page .challenge-session { max-width: none; }
-.practice-page .challenge-settings h2 { margin: 0; color: var(--text-accent); }
-.practice-page .challenge-settings > p { margin: 0 0 var(--space-2); color: var(--text-secondary); }
-.practice-page .challenge-settings > label, .practice-page .challenge-field label { color: var(--text-accent); font-weight: var(--font-weight-semibold); }
-.practice-page .challenge-settings select, .practice-page .challenge-field input { border-color: var(--border-default); }
+.practice-page .challenge-field label { color: var(--text-accent); font-weight: var(--font-weight-semibold); }
+.practice-page .challenge-field input { border-color: var(--border-default); }
 .practice-page .challenge-field input[aria-invalid="true"] { border-color: var(--feedback-error); }
 .practice-page .challenge-cue { margin: var(--space-3) 0 var(--space-2); font-size: var(--font-size-display); font-weight: var(--font-weight-bold); }
 .practice-page .button--secondary, .practice-page .german-keys button { background: var(--surface-learning-detail); border-color: transparent; }
@@ -672,6 +668,11 @@ td:not(:first-child) { font-weight: var(--font-weight-semibold); }
 .provider-settings { margin-bottom: var(--space-4); }
 .provider-settings .small-note { margin-top: var(--space-2); }
 .settings-card + .settings-card { margin-top: var(--space-4); }
+.challenge-preferences { display: grid; gap: var(--space-3); }
+.challenge-preferences h2 { margin: 0; font-size: var(--font-size-xl); }
+.challenge-preferences .small-note { margin: 0; }
+.challenge-preferences label { font-weight: var(--font-weight-semibold); }
+.challenge-preferences select { padding: 0 var(--space-3); border: 1px solid var(--border-default); border-radius: var(--radius-sm); background: var(--surface-raised); color: var(--text-primary); }
 .settings-card input[type="email"] { width: 100%; min-height: 44px; margin-top: var(--space-3); padding: var(--space-3); border: 1px solid var(--border-default); border-radius: var(--radius-sm); background: var(--surface-raised); }
 
 .deck-filters { display: flex; flex-wrap: wrap; gap: var(--space-4); padding: var(--space-4); margin-bottom: var(--space-6); background: var(--surface-learning); border-radius: var(--radius-lg); }

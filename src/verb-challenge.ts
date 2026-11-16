@@ -36,19 +36,19 @@ export function buildVerbs(cards: Card[], overrides: Overrides): Verb[] {
 }
 export const normalizeAnswer = (value: string) => value.normalize('NFC').trim().toLocaleLowerCase('de-DE')
 export const accepts = (answer: Answer, value: string) => !!normalizeAnswer(value) && [answer.canonical, ...answer.alternatives].some(a => normalizeAnswer(a) === normalizeAnswer(value))
-export function hintDetails(answer: string) {
-  const chars = Array.from(new Intl.Segmenter('de', { granularity: 'grapheme' }).segment(answer.normalize('NFC')), part => part.segment)
-  return { first: chars.find(char => /\p{L}/u.test(char)) || '', length: chars.filter(char => /[\p{L}\p{N}]/u.test(char)).length }
+/** Cue language for the interface locale: the locale itself when cues exist in it, otherwise the first supported language. */
+export function promptLanguageFor(locale: string, supported: readonly PromptLanguage[]): PromptLanguage {
+  return supported.find(language => language === locale) || supported[0]
 }
 export function insertCharacter(value: string, start: number, end: number, character: string) {
   return { value: value.slice(0, start) + character + value.slice(end), caret: start + character.length }
 }
-export type FieldState = { value: string; hints: number; mistakes: number; status: 'editing' | 'empty' | 'wrong' | 'correct' | 'revealed' }
+export type FieldState = { value: string; mistakes: number; status: 'editing' | 'empty' | 'wrong' | 'correct' | 'revealed' }
 type Stat = { seen: number; debt: number }
 type Task = { verbId: string; form: Form }
 export type Challenge = {
   settings: Settings; pool: Task[]; turn: number; verbId: string; fields: Partial<Record<Form, FieldState>>
-  stats: Record<string, Stat>; ended: boolean; score: number; answered: number; unaided: number; hinted: number; retried: number; revealed: number
+  stats: Record<string, Stat>; ended: boolean; score: number; answered: number; unaided: number; retried: number; revealed: number
 }
 const keyFor = (verb: string, form: Form) => `${verb}:${form}`
 export const finishedField = (field: FieldState) => field.status === 'correct' || field.status === 'revealed'
@@ -75,15 +75,15 @@ function nextQuestion(state: Challenge, verbs: Verb[], random: number): Challeng
   if (!selected) return { ...state, fields: {}, ended: true }
   const verb = verbs.find(v => v.id === selected.verbId)!
   const targets = state.settings.mode === 'complete' ? forms.filter(f => verb.forms[f]) : [selected.form]
-  return { ...state, verbId: verb.id, fields: Object.fromEntries(targets.map(f => [f, { value: '', hints: 0, mistakes: 0, status: 'editing' }])) }
+  return { ...state, verbId: verb.id, fields: Object.fromEntries(targets.map(f => [f, { value: '', mistakes: 0, status: 'editing' }])) }
 }
 export function startChallenge(verbs: Verb[], settings: Settings, random: number): Challenge {
   const pool = verbs.flatMap(v => v.cues[settings.language]?.trim() ? forms.filter(f => v.forms[f] && (settings.mode !== 'single' || settings.form === f)).map(form => ({ verbId: v.id, form })) : [])
-  return nextQuestion({ settings, pool, turn: 0, verbId: '', fields: {}, stats: {}, ended: false, score: 0, answered: 0, unaided: 0, hinted: 0, retried: 0, revealed: 0 }, verbs, random)
+  return nextQuestion({ settings, pool, turn: 0, verbId: '', fields: {}, stats: {}, ended: false, score: 0, answered: 0, unaided: 0, retried: 0, revealed: 0 }, verbs, random)
 }
 export type ChallengeAction =
   | { type: 'edit'; form: Form; turn: number; value: string }
-  | { type: 'submit' | 'hint' | 'reveal'; form: Form; turn: number }
+  | { type: 'submit' | 'reveal'; form: Form; turn: number }
   | { type: 'next'; turn: number; random: number }
   | { type: 'end' }
 export function reduceChallenge(state: Challenge, action: ChallengeAction, verbs: Verb[]): Challenge {
@@ -99,17 +99,15 @@ export function reduceChallenge(state: Challenge, action: ChallengeAction, verbs
   const stat = { ...(state.stats[key] || { seen: 0, debt: 0 }) }
   next.stats[key] = stat
   if (action.type === 'edit') { updated.value = action.value; updated.status = 'editing'; return next }
-  if (action.type === 'hint') { updated.hints = Math.min(2, updated.hints + 1); stat.debt = Math.max(1, stat.debt); return next }
   if (action.type === 'submit') {
     if (!normalizeAnswer(field.value)) { updated.status = 'empty'; return next }
     if (!accepts(answer, field.value)) {
       updated.status = 'wrong'; updated.mistakes++; stat.debt = Math.min(5, stat.debt + 1); return next
     }
     updated.status = 'correct'
-    next.score += field.hints === 2 ? 0 : field.hints === 1 ? 1 : field.mistakes ? 2 : 3
-    if (field.hints) next.hinted++
+    next.score += field.mistakes ? 2 : 3
     if (field.mistakes) next.retried++
-    if (!field.hints && !field.mistakes) { next.unaided++; stat.debt = Math.max(0, stat.debt - 1) }
+    else { next.unaided++; stat.debt = Math.max(0, stat.debt - 1) }
   } else { updated.status = 'revealed'; next.revealed++; stat.debt = Math.min(5, stat.debt + 2) }
   stat.seen++
   next.answered++
