@@ -145,7 +145,7 @@ function AppShell({
         )}
         {children}
         <footer className="page-footer">
-          <small>{t("© {year} hello.profe. Third-party materials retain their own licenses.", {year: new Date().getFullYear()})}</small>
+          <small>{t("© {year} hello.profe. Third-party materials retain their own licenses.", {year: String(new Date().getFullYear())})}</small>
           <a href="#about" aria-current={view === "about" ? "page" : undefined} onClick={() => setView("about")}>{t("About")}</a>
         </footer>
       </div>
