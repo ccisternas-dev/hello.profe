@@ -71,18 +71,15 @@ export default function Flashcards() {
 export function DeckStudy({deck}: {deck: StudyDeck}) {
   const {t} = useI18n()
   const [index,setIndex] = useState(0)
-  const [revealed,setRevealed] = useState(false)
   const card=deck.cards[index]
   if (!card) return <p>{t('No cards available in this deck.')}</p>
-  const move=(delta:number)=>{setIndex(index+delta);setRevealed(false)}
+  const move=(delta:number)=>setIndex(index+delta)
   return <div className="verb-flashcards deck-study">
     <article className="verb-reference-card" aria-live="polite" aria-atomic="true">
       <h2 lang={deck.language}>{card.prompt}</h2>
-      {!revealed ? <Button onClick={()=>setRevealed(true)}>{t('Reveal answer')}</Button> : <>
         <p className="deck-answer" lang={['gesundheit', 'freundschaft'].includes(deck.id) ? 'en' : deck.language}>{card.answer}</p>
         {card.detail && <p lang={deck.language}>{card.detail}</p>}
         <dl className="verb-translations">{Object.entries(card.translations).filter(([,value])=>value).map(([language,value])=><div key={language}><dt>{t(languageNames[language])}</dt><dd lang={language}>{value}</dd></div>)}</dl>
-      </>}
     </article>
     <nav className="verb-card-navigation" aria-label={t('Flashcards')}>
       <Button variant="secondary" icon="back" disabled={!index} onClick={()=>move(-1)}>{t('Previous card')}</Button>

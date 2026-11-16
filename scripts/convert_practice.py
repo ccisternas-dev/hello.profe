@@ -65,12 +65,13 @@ def convert():
     file = 'german_irregular_verbs_B2.xlsx'
     sheets = workbook(ROOT / 'practice' / file)
     d = deck('irregular-verbs', 'Irregular verbs')
+    dutch = json.loads((ROOT / 'src/data/verb-dutch-translations.json').read_text())
     rows = sheets['Irregular Verbs B2']
     assert rows[0][1].get('B') == 'Infinitiv', 'Unexpected verb headers'
     for row, c in rows[1:]:
         for col, label in [('C', 'Präsens (er/sie/es)'), ('D', 'Präteritum (er/sie/es)'), ('E', 'Perfekt (er/sie/es)'), ('F', 'Partizip II')]:
             add(d, file, 'Irregular Verbs B2', row, c['B'] + ':' + col,
-                c['B'] + ' — ' + label, c.get(col, ''), translations=translations(c, 'GHI'))
+                c['B'] + ' — ' + label, c.get(col, ''), translations={**translations(c, 'GHI'), 'nl': dutch[c['B']]})
     audit.append({'file': file, 'sheet': 'Irregular Verbs B2', 'rows': len(rows)-1, 'cards': len(d['cards'])})
 
     file = 'german_vocab_health_friendship_B2.xlsx'
