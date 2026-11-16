@@ -8,9 +8,9 @@ Outside `:root`, CSS uses `var(--…)` for every design decision:
 
 | Decision | Tokens |
 |---|---|
-| Color | `--surface-*` (including `-muted`, `-translucent`, `-inverse-hover`), `--text-*` (including `-inverse-secondary`), `--action-*`, `--accent-*`, `--feedback-*` (including `-border` variants), `--border-*`, `--focus-ring`, `--overlay` |
+| Color | `--surface-*` (including `-muted`, `-translucent`, `-inverse-hover`), `--text-*` (including `-inverse-secondary`, `-accent`, `-highlight`), `--surface-highlight`, `--action-*`, `--accent-*`, `--feedback-*` (including `-border` variants), `--border-*`, `--focus-ring`, `--overlay` |
 | Spacing (margin, padding, gap) | `--space-1` (4px) to `--space-16` (64px) |
-| Font size | `--font-size-xs` (12), `-sm` (14), `-md` (16), `-lg` (18), `-xl` (22), `-2xl` (28), `-display`, `-hero` |
+| Font size | `--font-size-xs` (12), `-sm` (14), `-md` (16), `-lg` (18), `-xl` (22), `-2xl` (28), `-3xl` (36), `-title` (24–36 fluid), `-display` (34–48 fluid), `-hero` |
 | Font weight | `--font-weight-regular` (400), `-medium` (600), `-semibold` (650), `-bold` (700) |
 | Line height | `--line-height-tight` (1.1), `-snug` (1.2), `-body` (1.5), `-relaxed` (1.7) |
 | Radius | `--radius-xs` (4), `--radius-sm` (8), `--radius-md` (12), `--radius-lg` (18). Use `999px` only for pills and `50%` only for circles |
@@ -78,4 +78,4 @@ Existing violations are recorded in `scripts/design-baseline.json`. The check fa
 
 The tokens for typography, control height, content width and layers were added on 16 November 2026. Existing CSS still contains raw values (for example 10 different font sizes, and many `px` values that match `--space-*` tokens). Migrate them screen by screen. Decision (16 November 2026): `13px` text maps to `--font-size-sm` (14px) for readability, and `11px` to `--font-size-xs` (12px).
 
-Migration progress: shared components and the app shell are aligned ([before/after screenshots](design-audit-2026-11-16/README.md)). Practice, Translate/Explore and raw buttons remain.
+Migration progress: shared components and the app shell are aligned ([before/after screenshots](design-audit-2026-11-16/README.md)). Practice is aligned ([screenshots](design-audit-2026-11-16/practice/README.md)). Translate/Explore and raw buttons remain.
