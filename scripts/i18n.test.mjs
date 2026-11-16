@@ -63,3 +63,10 @@ test("UI audit rejects new raw text, accessibility labels, dynamic messages and 
     [],
   )
 })
+
+test("years are interpolated as plain text, without thousands separators", () => {
+  for (const locale of ["en", "es", "fr", "de", "nl"]) {
+    assert.equal(formatMessage(locale, "© {year}", { year: "2026" }), "© 2026")
+  }
+  assert.doesNotMatch(readFileSync(new URL("../src/App.tsx", import.meta.url), "utf8"), /year:\s*new Date\(\)\.getFullYear\(\)/)
+})
