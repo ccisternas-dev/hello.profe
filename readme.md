@@ -106,7 +106,7 @@ pnpm worker:check
 
 Run `pnpm dev:design` to browse the developer-only Foundations and Components showcase. It documents colors, typography, spacing, controls and feedback states.
 
-[View foundations](docs/images/design-system-foundations.png) · [View components](docs/images/design-system-components.png) · [Showcase guide](docs/design-system-showcase.md)
+[View foundations](docs/images/design-system-foundations.png) · [View components](docs/images/design-system-components.png) · [Showcase guide](docs/design-system-showcase.md) · [Design rules](docs/design-rules.md)
 
 ### Deployment
 

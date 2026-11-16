@@ -12,3 +12,5 @@
 - Do not claim exact token use or remaining account allowance without actual metering. These are efficiency preferences, not an enforceable token cap.
 
 - Always use `GH_CONFIG_DIR="$HOME/.config/gh-personal"` for GitHub CLI and authenticated Git operations in this project (account `ccisternas-dev`).
+
+- For any UI or CSS change, follow `docs/design-rules.md`: tokens only, shared components from `src/components.tsx`, and the two breakpoints.
