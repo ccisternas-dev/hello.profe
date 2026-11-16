@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
-import { buildVerbs, accepts, hintDetails, insertCharacter, startChallenge, reduceChallenge, chooseTask, finishedQuestion, forms } from '../src/verb-challenge.ts'
+import { buildVerbs, accepts, insertCharacter, promptLanguageFor, startChallenge, reduceChallenge, chooseTask, finishedQuestion, forms } from '../src/verb-challenge.ts'
 const read = path => JSON.parse(readFileSync(new URL(path, import.meta.url)))
 const cards = read('../src/data/study-decks.json').decks.find(d => d.id === 'irregular-verbs').cards
 const overrides = read('../src/data/verb-overrides.json')
@@ -34,10 +34,12 @@ test('answer checking preserves umlauts and sharp-s, accepts NFC/case/trim and e
   assert.ok(accepts({canonical:'heißt',alternatives:['heisst']},'heisst'))
   assert.ok(accepts({canonical:'heißt',alternatives:[]},'HEIẞT'))
 })
-test('hints count visible letters/digits, excluding spaces and punctuation', () => {
-  assert.deepEqual(hintDetails('hat angeboten'),{first:'h',length:12})
-  assert.deepEqual(hintDetails('ba\u0308ckt'),{first:'b',length:5})
-  assert.deepEqual(hintDetails('… fährt!'),{first:'f',length:5})
+test('prompt language follows the interface language, with a fallback for locales without cues', () => {
+  assert.equal(promptLanguageFor('es',['en','es','fr']),'es')
+  assert.equal(promptLanguageFor('fr',['en','es','fr']),'fr')
+  assert.equal(promptLanguageFor('de',['en','es','fr']),'en')
+  assert.equal(promptLanguageFor('nl',['en','es','fr']),'en')
+  assert.equal(promptLanguageFor('en',['es','fr']),'es')
 })
 test('German characters insert at caret and replace selections', () => {
   assert.deepEqual(insertCharacter('fahrt',1,2,'ä'),{value:'fährt',caret:2})
@@ -56,14 +58,15 @@ test('retry before reveal, blank input and duplicate/stale actions cannot inflat
   assert.notEqual(next.verbId,s.verbId)
   assert.deepEqual(reduce(next,{type:'submit',form:'infinitive',turn:0}),next)
 })
-test('first-letter/length hints reduce points; reveal locks the answer at zero', () => {
-  for(const [hints,points] of [[0,3],[1,1],[2,0]]){
-    let s=startChallenge(verbs,settings,0)
-    for(let i=0;i<hints;i++) s=act(s,'hint')
-    s=act(s,'edit',{value:answer(s)});s=act(s,'submit')
-    assert.equal(s.score,points);assert.equal(s.hinted,hints?1:0)
-  }
-  let s=startChallenge(verbs,settings,0);s=act(s,'reveal')
+test('unaided answers score 3, retries 2, and reveal locks the answer at zero', () => {
+  let s=startChallenge(verbs,settings,0)
+  s=act(s,'edit',{value:answer(s)});s=act(s,'submit')
+  assert.equal(s.score,3);assert.equal(s.unaided,1)
+  s=startChallenge(verbs,settings,0)
+  s=act(s,'edit',{value:'wrong'});s=act(s,'submit');s=act(s,'edit',{value:answer(s)});s=act(s,'submit')
+  assert.equal(s.score,2);assert.equal(s.retried,1);assert.equal(s.unaided,0)
+  assert.equal('hinted' in s,false)
+  s=startChallenge(verbs,settings,0);s=act(s,'reveal')
   assert.equal(s.revealed,1);assert.equal(s.score,0)
   assert.deepEqual(act(s,'edit',{value:answer(s)}),s)
   assert.deepEqual(act(s,'submit'),s)
@@ -98,4 +101,12 @@ test('missing forms, empty data, single-item pools, stop and restart are safe', 
   const stopped=reduceChallenge(s,{type:'end'},subset)
   assert.deepEqual(reduceChallenge(stopped,{type:'submit',turn:1,form:'infinitive'},subset),stopped)
   assert.equal(startChallenge(subset,settings,0).score,0)
+})
+test('Translation Challenge preferences fall back to defaults for missing or invalid data', async () => {
+  const { parseChallengePreferences, defaultChallengePreferences } = await import('../src/challenge-settings.ts')
+  assert.deepEqual(defaultChallengePreferences,{mode:'single',form:'infinitive'})
+  assert.deepEqual(parseChallengePreferences(null),defaultChallengePreferences)
+  assert.deepEqual(parseChallengePreferences('not json'),defaultChallengePreferences)
+  assert.deepEqual(parseChallengePreferences('{"mode":"complete","form":"present"}'),defaultChallengePreferences)
+  assert.deepEqual(parseChallengePreferences('{"mode":"mixed","form":"perfect"}'),{mode:'mixed',form:'perfect'})
 })

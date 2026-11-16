@@ -2,6 +2,7 @@ import { useI18n, LocaleSelector, type MessageKey } from "./i18n"
 import StudyPractice from "./StudyPractice"
 import TranslationView from "./TranslationView"
 import TranslationSettings from "./TranslationSettings"
+import ChallengeSettings from "./ChallengeSettings"
 import Flashcards from "./Flashcards"
 import { useEffect, useRef, useState } from "react"
 import {
@@ -565,6 +566,7 @@ export default function App() {
           <p className="small-note">{t("Your language preference is saved in this browser when storage is available.")}</p>
         </section>
         <TranslationSettings />
+        <ChallengeSettings />
         <Button variant="text" onClick={() => setView("about")}>{t("About hello.profe")}</Button>
       </main>}
       {view === "about" && <main className="page about-page">
