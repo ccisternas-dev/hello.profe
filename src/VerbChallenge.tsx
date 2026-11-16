@@ -21,48 +21,49 @@ const modeLabels: Record<Settings['mode'], MessageKey> = { single: 'Single-form 
 const promptLabels = { en: 'English', es: 'Spanish', fr: 'French' } as const
 const initialSettings: Settings = { mode: 'single', form: 'infinitive', language: 'en' }
 
-function AnswerField({ form, field, state, dispatch, training }: { training: Training; form: Form; field: FieldState; state: Challenge; dispatch: (action: ChallengeAction) => void }) {
+const formDescriptions: Record<Form, MessageKey> = {
+  infinitive: 'Base dictionary form', present: 'Third-person singular present', preterite: 'Third-person singular past', perfect: 'Auxiliary + past participle', participle: 'Past participle alone',
+}
+const germanCharacters = ['ä', 'ö', 'ü', 'ß']
+
+/** Splits "Präsens (er/sie/es)" into the form name and its quieter qualifier. */
+function FormLabel({ text }: { text: string }) {
+  const open = text.indexOf(' (')
+  if (open < 0) return <>{text}</>
+  return <>{text.slice(0, open)} <span className="challenge-field-qualifier">{text.slice(open + 1)}</span></>
+}
+
+function AnswerField({ index, form, field, state, dispatch, training, inputRef, onFocus }: { index: number; training: Training; form: Form; field: FieldState; state: Challenge; dispatch: (action: ChallengeAction) => void; inputRef: (node: HTMLInputElement | null) => void; onFocus: () => void }) {
   const { t } = useI18n()
-  const input = useRef<HTMLInputElement>(null)
-  const pendingCaret = useRef<number | null>(null)
-  useLayoutEffect(() => {
-    if (pendingCaret.current !== null && input.current) {
-      input.current.focus()
-      input.current.setSelectionRange(pendingCaret.current, pendingCaret.current)
-      pendingCaret.current = null
-    }
-  })
   const {verbs, target, formLabels} = training
   const answer = verbs.find(v => v.id === state.verbId)!.forms[form]!
   const hint = hintDetails(answer.canonical)
   const done = finishedField(field)
   const send = (type: 'submit' | 'hint' | 'reveal') => dispatch({ type, form, turn: state.turn })
-  const insert = (character: string) => {
-    if (!input.current) return
-    const edit = insertCharacter(field.value, input.current.selectionStart ?? field.value.length, input.current.selectionEnd ?? field.value.length, character)
-    pendingCaret.current = edit.caret
-    dispatch({ type: 'edit', form, turn: state.turn, value: edit.value })
-  }
-  return <form className="challenge-field" onSubmit={e => { e.preventDefault(); send('submit') }} aria-label={t(formLabels[form])}>
-    <label htmlFor={`answer-${form}`}>{t(formLabels[form])}</label>
-    <input id={`answer-${form}`} ref={input} lang={target} value={field.value} disabled={done} autoComplete="off" autoCapitalize="none" autoCorrect="off" spellCheck={false}
-      aria-invalid={field.status === 'wrong' || field.status === 'empty'} aria-describedby={`feedback-${form}`}
-      onChange={e => dispatch({ type: 'edit', form, turn: state.turn, value: e.target.value })} />
-    {!done && target === 'de' && <div className="german-keys" role="group" aria-label={t('German characters')}>
-      {['ä','ö','ü','ß'].map(character => <Button key={character} variant="secondary" className="german-key" lang={target} label={t('Insert {character}', { character })} onPointerDown={e => e.preventDefault()} onClick={() => insert(character)}>{character}</Button>)}
-    </div>}
-    <div id={`feedback-${form}`} role="status" className="challenge-feedback">
-      {field.status === 'empty' && <p>{t('Enter an answer before checking.')}</p>}
-      {field.status === 'wrong' && <p>{t('Not yet. Try again, use a hint, or reveal the answer.')}</p>}
-      {field.status === 'correct' && <p>{t('Correct.')}</p>}
-      {field.status === 'revealed' && <p>{t('Answer revealed: no points.')} <span lang={target}>{answer.canonical}</span></p>}
-      {field.hints >= 1 && <p>{t('First letter: {letter}', { letter: hint.first })}</p>}
-      {field.hints >= 2 && <p>{t('Length: {count} letters or digits; spaces and punctuation excluded.', { count: hint.length })}</p>}
+  return <form className={`challenge-field challenge-field--${field.status}`} onSubmit={e => { e.preventDefault(); send('submit') }} aria-label={t(formLabels[form])}>
+    <div className="challenge-field-label">
+      <label htmlFor={`answer-${form}`}>{index + 1}. <FormLabel text={t(formLabels[form])} /></label>
+      <span className="challenge-field-description">{t(formDescriptions[form])}</span>
     </div>
-    {!done && <div className="study-toolbar">
-      <Button type="submit">{t('Check answer')}</Button>
-      {field.hints < 2 && <Button variant="secondary" onClick={() => send('hint')}>{field.hints === 0 ? t('First letter hint · maximum 1 point') : t('Length hint · 0 points')}</Button>}
-      <Button variant="text" onClick={() => send('reveal')}>{t('Reveal answer · 0 points')}</Button>
+    <div className="challenge-field-answer">
+      <div className="challenge-field-input">
+        <input id={`answer-${form}`} ref={inputRef} lang={target} value={field.value} disabled={done} autoComplete="off" autoCapitalize="none" autoCorrect="off" spellCheck={false}
+          aria-invalid={field.status === 'wrong' || field.status === 'empty'} aria-describedby={`feedback-${form}`} onFocus={onFocus}
+          onChange={e => dispatch({ type: 'edit', form, turn: state.turn, value: e.target.value })} />
+        {!done && <Button type="submit" variant="secondary" icon="check" label={t('Check answer')} className="challenge-check">{t('Check answer')}</Button>}
+      </div>
+      <div id={`feedback-${form}`} role="status" className="challenge-feedback">
+        {field.status === 'empty' && <p>{t('Enter an answer before checking.')}</p>}
+        {field.status === 'wrong' && <p>{t('Not yet. Try again, use a hint, or reveal the answer.')}</p>}
+        {field.status === 'correct' && <p>{t('Correct.')}</p>}
+        {field.status === 'revealed' && <p>{t('Answer revealed: no points.')} <span lang={target}>{answer.canonical}</span></p>}
+        {field.hints >= 1 && <p>{t('First letter: {letter}', { letter: hint.first })}</p>}
+        {field.hints >= 2 && <p>{t('Length: {count} letters or digits; spaces and punctuation excluded.', { count: hint.length })}</p>}
+      </div>
+    </div>
+    {!done && <div className="challenge-field-actions">
+      {field.hints < 2 && <Button variant="text" icon="info" onClick={() => send('hint')}>{field.hints === 0 ? t('Hint (1 pt)') : t('Length hint (0 pts)')}</Button>}
+      <Button variant="text" onClick={() => send('reveal')}>{t('Reveal (0 pts)')}</Button>
     </div>}
   </form>
 }
@@ -73,12 +74,36 @@ function ChallengeSession({ settings, onRestart, training }: { training: Trainin
   const [state, dispatch] = useReducer((s: Challenge, a: ChallengeAction) => reduceChallenge(s, a, verbs), undefined, () => startChallenge(verbs, settings, Math.random()))
   const verb = verbs.find(v => v.id === state.verbId)
   const promptHeading = useRef<HTMLHeadingElement>(null)
+  const inputs = useRef<Partial<Record<Form, HTMLInputElement | null>>>({})
+  const [activeForm, setActiveForm] = useState<Form | null>(null)
+  const pendingCaret = useRef<{ form: Form; caret: number } | null>(null)
+  useLayoutEffect(() => {
+    const pending = pendingCaret.current
+    const input = pending && inputs.current[pending.form]
+    if (pending && input) {
+      input.focus()
+      input.setSelectionRange(pending.caret, pending.caret)
+      pendingCaret.current = null
+    }
+  })
   if (!verb) return <div><p>{t('No eligible verb questions for these settings.')}</p><Button onClick={onRestart}>{t('Change settings')}</Button></div>
+  const shown = forms.filter(form => state.fields[form])
+  const open = shown.filter(form => !finishedField(state.fields[form]!))
+  // Insert into the field the learner last focused, or the first unfinished one.
+  const insertTarget = activeForm && open.includes(activeForm) ? activeForm : open[0]
+  const insert = (character: string) => {
+    const input = insertTarget && inputs.current[insertTarget]
+    if (!insertTarget || !input) return
+    const value = state.fields[insertTarget]!.value
+    const edit = insertCharacter(value, input.selectionStart ?? value.length, input.selectionEnd ?? value.length, character)
+    pendingCaret.current = { form: insertTarget, caret: edit.caret }
+    dispatch({ type: 'edit', form: insertTarget, turn: state.turn, value: edit.value })
+  }
   return <section className="challenge-session">
-    <div className="study-toolbar"><span>{t(modeLabels[settings.mode])} · {t(promptLabels[settings.language])}</span>
-      {!state.ended && <Button variant="secondary" onClick={() => dispatch({ type: 'end' })}>{t('End session')}</Button>}
+    <div className="challenge-status">
+      <span>{t('Score: {score} · Answers completed: {count}', { score: state.score, count: state.answered })}</span>
+      {!state.ended && <Button variant="text" className="challenge-end" onClick={() => dispatch({ type: 'end' })}>{t('End session')}</Button>}
     </div>
-    <p>{t('Score: {score} · Answers completed: {count}', { score: state.score, count: state.answered })}</p>
     {state.ended ? <div className="practice-card study-summary" role="status">
       <h2>{t('Challenge summary')}</h2>
       <p>{t('Unaided correct: {count}', { count: state.unaided })}</p>
@@ -87,19 +112,35 @@ function ChallengeSession({ settings, onRestart, training }: { training: Trainin
       <p>{t('Revealed answers: {count}', { count: state.revealed })}</p>
       <p>{t('Unfinished answers are not scored. Practice points do not measure mastery.')}</p>
       <Button onClick={onRestart}>{t('Change settings and restart')}</Button>
-    </div> : <div className="practice-card">
-      <p>{t('Translate into {language}. Use the exact form requested.', {language: t(languageNames[target])})}</p>
-      {target !== 'de' && <p className="small-note">{t('Use the infinitive without “to”; omit the subject in all answers.')}</p>}
-      <h2 className="challenge-cue" ref={promptHeading} tabIndex={-1} lang={settings.language}>{verb.cues[settings.language]}</h2>
-      <p>{t('Question {count}', { count: state.turn + 1 })}</p>
-      {forms.filter(form => state.fields[form]).map(form => <AnswerField key={`${state.turn}:${form}`} training={training} form={form} field={state.fields[form]!} state={state} dispatch={dispatch} />)}
-      <Button disabled={!finishedQuestion(state)} onClick={() => {
-        dispatch({ type: 'next', turn: state.turn, random: Math.random() })
-        promptHeading.current?.focus()
-      }}>{t('Next question')}</Button>
+    </div> : <div className="practice-card challenge-card">
+      <div className="challenge-prompt">
+        <div className="challenge-prompt-meta">
+          <span className="eyebrow">{t(modeLabels[settings.mode])} · {t(promptLabels[settings.language])} · {t('Question {count}', { count: state.turn + 1 })}</span>
+          <span className="challenge-points">{t('Up to {count} points', { count: 3 })}</span>
+        </div>
+        <h2 className="challenge-cue" ref={promptHeading} tabIndex={-1} lang={settings.language}>{verb.cues[settings.language]}</h2>
+        <p className="challenge-instruction">{t('Translate into {language}. Use the exact form requested.', {language: t(languageNames[target])})}</p>
+        {target !== 'de' && <p className="small-note">{t('Use the infinitive without “to”; omit the subject in all answers.')}</p>}
+      </div>
+      {target === 'de' && open.length > 0 && <div className="quick-insert" role="group" aria-label={t('German characters')}>
+        <span className="quick-insert-label" aria-hidden="true">{t('Quick insert')}</span>
+        <div className="german-keys">
+          {germanCharacters.map(character => <Button key={character} variant="secondary" className="german-key" lang={target} label={t('Insert {character}', { character })} onPointerDown={e => e.preventDefault()} onClick={() => insert(character)}>{character}</Button>)}
+        </div>
+      </div>}
+      <div className="challenge-fields">
+        {shown.map((form, index) => <AnswerField key={`${state.turn}:${form}`} index={index} training={training} form={form} field={state.fields[form]!} state={state} dispatch={dispatch}
+          inputRef={node => { inputs.current[form] = node }} onFocus={() => setActiveForm(form)} />)}
+      </div>
+      <div className="challenge-footer">
+        <p className="small-note">{t('Scoring per answer: 3 unaided, 2 after retry, 1 with a first-letter hint, 0 with length hint or reveal.')} {t('Missed forms return more often. Two coverage turns alternate with one review turn. Progress lasts for this session only.')}</p>
+        <Button icon="arrow" disabled={!finishedQuestion(state)} onClick={() => {
+          dispatch({ type: 'next', turn: state.turn, random: Math.random() })
+          setActiveForm(null)
+          promptHeading.current?.focus()
+        }}>{t('Next question')}</Button>
+      </div>
     </div>}
-    <p className="small-note">{t('Scoring per answer: 3 unaided, 2 after retry, 1 with a first-letter hint, 0 with length hint or reveal.')}</p>
-    <p className="small-note">{t('Missed forms return more often. Two coverage turns alternate with one review turn. Progress lasts for this session only.')}</p>
   </section>
 }
 

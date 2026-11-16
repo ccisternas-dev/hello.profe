@@ -388,5 +388,15 @@
   "English regular verbs": "English regular verbs",
   "French regular verbs": "French regular verbs",
   "Spanish regular verbs": "Spanish regular verbs",
-  "Dutch regular verbs": "Dutch regular verbs"
+  "Dutch regular verbs": "Dutch regular verbs",
+  "Base dictionary form": "Base dictionary form",
+  "Third-person singular present": "Third-person singular present",
+  "Third-person singular past": "Third-person singular past",
+  "Auxiliary + past participle": "Auxiliary + past participle",
+  "Past participle alone": "Past participle alone",
+  "Hint (1 pt)": "Hint (1 pt)",
+  "Length hint (0 pts)": "Length hint (0 pts)",
+  "Reveal (0 pts)": "Reveal (0 pts)",
+  "Up to {count} points": "Up to {count} points",
+  "Quick insert": "Quick insert"
 }
