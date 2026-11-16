@@ -14,7 +14,7 @@ The existing workbook-derived JSON supplies 148 verbs. Four source forms plus th
 
 `src/data/verb-overrides.json` contains explicit full-string alternatives for five source cells: backen/present, senden/preterite, senden/perfect, senden/participle, ziehen/perfect. Shorthand such as “hat gesandt / gesendet” is expanded explicitly, not split at runtime. The original source strings are retained for those entries; changed source answers fail the audit until reviewed. Accepted answers are canonical plus the named alternatives only; this is not a general-purpose synonym checker.
 
-Cue overrides distinguish overlapping translations with context or German starting letters/prefixes. These qualifiers are part of the question, not a scored hint. They help distinguish the requested workbook verb where translations such as “to begin” describe more than one entry. Flashcards use the original workbook translations without challenge cue qualifiers. Further linguistic review remains tracked under #5.
+Cue overrides distinguish overlapping translations with context or German prefixes (for example a separable an- verb). Starting-letter qualifiers such as “target verb begins with l…” were removed on 16 November 2026 because they acted as hints. These qualifiers are part of the question, not a scored hint. They help distinguish the requested workbook verb where translations such as “to begin” describe more than one entry. Flashcards use the original workbook translations without challenge cue qualifiers. Further linguistic review remains tracked under #5.
 
 ## Checking and scoring
 
