@@ -3,8 +3,8 @@ export type Form = typeof forms[number]
 export type PromptLanguage = 'en' | 'es' | 'fr'
 export type Settings = { mode: 'single' | 'complete' | 'mixed'; form: Form; language: PromptLanguage }
 export type Answer = { canonical: string; alternatives: string[] }
-export type Verb = { id: string; cues: Partial<Record<PromptLanguage, string>>; forms: Partial<Record<Form, Answer>> }
-type Card = { prompt: string; answer: string; translations: Partial<Record<PromptLanguage, string>> }
+export type Verb = { id: string; cues: Partial<Record<PromptLanguage | 'nl', string>>; forms: Partial<Record<Form, Answer>> }
+type Card = { prompt: string; answer: string; translations: Partial<Record<PromptLanguage | 'nl', string>> }
 type Overrides = { sourceAnswers?: Record<string, string>; answers: Record<string, string[]>; cues: Record<string, Partial<Record<PromptLanguage, string>>> }
 const labels: Record<string, Form> = { 'Präsens (er/sie/es)': 'present', 'Präteritum (er/sie/es)': 'preterite', 'Perfekt (er/sie/es)': 'perfect', 'Partizip II': 'participle' }
 

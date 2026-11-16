@@ -14,8 +14,8 @@ const principalForms: { form: Form; label: MessageKey }[] = [
   { form: "perfect", label: "Perfekt (er/sie/es)" },
   { form: "participle", label: "Partizip II" },
 ]
-const languages = ["en", "es", "fr"] as const
-const languageLabels = { en: "English", es: "Spanish", fr: "French" } as const
+const languages = ["en", "es", "fr", "nl"] as const
+const languageLabels = { en: "English", es: "Spanish", fr: "French", nl: "Dutch" } as const
 
 export default function VerbFlashcards() {
   const { t } = useI18n()
