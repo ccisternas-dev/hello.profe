@@ -49,7 +49,7 @@ function AnswerField({ form, field, state, dispatch, training }: { training: Tra
       aria-invalid={field.status === 'wrong' || field.status === 'empty'} aria-describedby={`feedback-${form}`}
       onChange={e => dispatch({ type: 'edit', form, turn: state.turn, value: e.target.value })} />
     {!done && target === 'de' && <div className="german-keys" role="group" aria-label={t('German characters')}>
-      {['ä','ö','ü','ß'].map(character => <button key={character} type="button" lang={target} aria-label={t('Insert {character}', { character })} onPointerDown={e => e.preventDefault()} onClick={() => insert(character)}>{character}</button>)}
+      {['ä','ö','ü','ß'].map(character => <Button key={character} variant="secondary" className="german-key" lang={target} label={t('Insert {character}', { character })} onPointerDown={e => e.preventDefault()} onClick={() => insert(character)}>{character}</Button>)}
     </div>}
     <div id={`feedback-${form}`} role="status" className="challenge-feedback">
       {field.status === 'empty' && <p>{t('Enter an answer before checking.')}</p>}

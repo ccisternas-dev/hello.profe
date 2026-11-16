@@ -38,9 +38,9 @@ The legacy `640px` and `1100px` queries were moved to these two breakpoints on 1
 
 ## 3. Use the shared components
 
-- Use `Button`, `IconButton`, `Badge`, `Chip`, `Field`, `LanguageSelect`, `SearchField`, `Tabs`, `Alert`, `Progress`, `Skeleton`, `EmptyState`, `Toast`, `Dialog` and `PageHeader` from `components.tsx`. Do not rebuild them with raw elements.
+- Use `Button`, `IconButton`, `NavItem`, `CardButton`, `Badge`, `Chip`, `Field`, `LanguageSelect`, `SearchField`, `Tabs`, `Alert`, `Progress`, `Skeleton`, `EmptyState`, `Toast`, `Dialog` and `PageHeader` from `components.tsx`. Do not rebuild them with raw elements.
 - Do not restyle a shared component for one screen. If a screen needs a new variant, add it to the component and the showcase.
-- Avoid a raw `<button>` in screen files. When one is unavoidable (for example a card that is itself the click target), give it a dedicated class that follows these rules.
+- Do not use a raw `<button>` in screen files. Use `Button`, `IconButton` or `Chip` for actions, `NavItem` for navigation entries, and `CardButton` when a whole card is the click target.
 - Do not use inline `style={{…}}` for visual styling. Use it only for values computed at runtime, such as a progress width.
 - Tailwind is imported but not used for screen styling. Do not add Tailwind utility classes. Use the project classes and tokens.
 
@@ -63,19 +63,24 @@ Every top-level screen follows the same structure:
 
 ## 6. Checklist for a UI change
 
-- [ ] `pnpm design:check` passes without adding baseline entries.
+- [ ] `pnpm design:check` passes.
 - [ ] Shared components used, or a new variant added to `components.tsx` and the showcase.
 - [ ] Checked at 390px and 1280px, in English and at least one longer locale (German or Dutch).
 - [ ] Screenshots of touched screens refreshed when the change is visible.
 
 ## Automated check
 
-`pnpm design:check` (also run in CI) enforces sections 1 to 3. It flags raw colors, font sizes, font weights, line heights, radii, spacing and z-index values outside `:root`, `--primitive-*` tokens outside `:root`, breakpoints other than 600px and 1199px, and raw `<button>` or inline `style={{…}}` in screen files (`components.tsx` and the `DesignSystem.tsx` showcase are exempt).
+`pnpm design:check` (also run in CI) enforces sections 1 to 3 in strict mode: any violation fails the build. It flags:
 
-Existing violations are recorded in `scripts/design-baseline.json`. The check fails only when a change adds a violation or repeats a known one more often. After fixing violations, run `pnpm design:check --update` and commit the smaller baseline. Never add entries to the baseline by hand to make a new violation pass. Use a token, or add one.
+- raw colors, font sizes, font weights, line heights, radii, spacing and z-index values outside `:root`;
+- `--primitive-*` tokens outside `:root`;
+- breakpoints other than 600px and 1199px;
+- raw `<button>` or inline `style={{…}}` in screen files. `components.tsx` and the `DesignSystem.tsx` showcase are exempt.
 
-## Current state
+If the check fails, use a token or a shared component. If none fits, add one to `:root` or `components.tsx`, document it here, and show it in the showcase.
 
-The tokens for typography, control height, content width and layers were added on 16 November 2026. Existing CSS still contains raw values (for example 10 different font sizes, and many `px` values that match `--space-*` tokens). Migrate them screen by screen. Decision (16 November 2026): `13px` text maps to `--font-size-sm` (14px) for readability, and `11px` to `--font-size-xs` (12px).
+## History
 
-Migration progress: shared components and the app shell are aligned ([before/after screenshots](design-audit-2026-11-16/README.md)). Practice is aligned ([screenshots](design-audit-2026-11-16/practice/README.md)). Translate, Explore and Notebook are aligned ([screenshots](design-audit-2026-11-16/translate/README.md)). Only the raw buttons remain.
+- 16 November 2026: tokens for typography, controls, content widths and layers added. The design check started with 315 known violations recorded in a baseline.
+- `13px` text was mapped to `--font-size-sm` (14px) for readability, and `11px` to `--font-size-xs` (12px).
+- The migration ran in four milestones: shared components and shell, Practice, Translate/Explore/Notebook, and raw buttons. Each has before/after screenshots in [design-audit-2026-11-16](design-audit-2026-11-16/README.md). The baseline then reached zero and was removed, so the check is now strict.

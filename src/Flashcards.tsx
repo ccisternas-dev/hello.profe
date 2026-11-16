@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Button, PageHeader } from './components'
+import { Button, CardButton, PageHeader } from './components'
 import { useI18n, type MessageKey } from './i18n'
 import data from './data/study-decks.json'
 import { availableDecks, filterDecks, countStudyCards, type StudyDeck } from './deck-catalog'
@@ -55,13 +55,13 @@ export default function Flashcards() {
           {!shown.length && <> {t('No decks match these filters.')}</>}
         </p>
         <div className="topic-grid">
-          {shown.map(deck=><button className="topic-card" key={deck.id} id={`deck-${deck.id}`} onClick={()=>setSelected(deck)}>
+          {shown.map(deck=><CardButton className="topic-card" key={deck.id} id={`deck-${deck.id}`} onClick={()=>setSelected(deck)}>
             <span className="eyebrow">{t(languageNames[deck.language!])} · {deck.levels ? deck.levels.join(' · ') : deck.level}</span>
             <strong>{t(deck.title as MessageKey)}</strong>
             {deck.topic && <span className="badge badge--language topic-pill"><span className="sr-only">{t('Topic')}: </span>{t(topicNames[deck.topic])}</span>}
             <span>{t('{count} cards', {count:countStudyCards(deck)})}</span>
             {deck.reviewed !== true && <span>{t('Draft content — awaiting owner review.')}</span>}
-          </button>)}
+          </CardButton>)}
         </div>
       </div>
     </>}

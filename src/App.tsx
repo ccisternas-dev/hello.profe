@@ -8,6 +8,7 @@ import {
   Alert,
   Badge,
   Button,
+  CardButton,
   Chip,
   Dialog,
   EmptyState,
@@ -15,6 +16,7 @@ import {
   Icon,
   IconButton,
   LanguageSelect,
+  NavItem,
   PageHeader,
   SearchField,
   Skeleton,
@@ -98,26 +100,14 @@ function AppShell({
         <Logo />
         <nav aria-label={t("Main navigation")}>
           {primaryNav.map((item) => (
-            <button
-              type="button"
+            <NavItem
               key={item.id}
-              className={`nav-item ${
-                view === item.id ||
-                (view === "explore" && item.id === "translate")
-                  ? "selected"
-                  : ""
-              }`}
-              aria-current={
-                view === item.id ||
-                (view === "explore" && item.id === "translate")
-                  ? "page"
-                  : undefined
-              }
+              className="nav-item"
+              icon={item.icon}
+              label={t(item.label)}
+              selected={view === item.id || (view === "explore" && item.id === "translate")}
               onClick={() => setView(item.id)}
-            >
-              <Icon name={item.icon} />
-              <span>{t(item.label)}</span>
-            </button>
+            />
           ))}
         </nav>
         <div className="offline-note">
@@ -152,26 +142,13 @@ function AppShell({
 
       <nav className="bottom-nav" hidden={keyboardOpen} aria-label={t("Mobile navigation")}>
         {mobileNav.map((item) => (
-          <button
-            type="button"
+          <NavItem
             key={item.id}
-            className={
-              view === item.id ||
-              (view === "explore" && item.id === "translate")
-                ? "selected"
-                : ""
-            }
-            aria-current={
-              view === item.id ||
-              (view === "explore" && item.id === "translate")
-                ? "page"
-                : undefined
-            }
+            icon={item.icon}
+            label={t(item.label)}
+            selected={view === item.id || (view === "explore" && item.id === "translate")}
             onClick={() => setView(item.id)}
-          >
-            <Icon name={item.icon} />
-            <span>{t(item.label)}</span>
-          </button>
+          />
         ))}
       </nav>
     </div>
@@ -449,7 +426,7 @@ function NotebookView({
             <span>{t("Last updated today")}</span>
           </div>
           <article className="vocab-card">
-            <button type="button" className="vocab-main" onClick={onExplore}>
+            <CardButton className="vocab-main" onClick={onExplore}>
               <div className="vocab-word">
                 <Badge tone="language">{t("Spanish")}</Badge>
                 <h2 lang="es">aprender</h2>
@@ -462,7 +439,7 @@ function NotebookView({
                 <p lang="es">Quiero aprender español este año.</p>
               </div>
               <Icon name="chevronRight" />
-            </button>
+            </CardButton>
             <div className="vocab-actions">
               <IconButton label={t("Edit aprender")} icon="edit" />
               <IconButton

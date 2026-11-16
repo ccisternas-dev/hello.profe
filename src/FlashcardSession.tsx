@@ -34,9 +34,9 @@ export default function FlashcardSession({title,onClose,children}: {title:string
     }}>
     <div className="session-toolbar">
       <Button variant="text" icon="back" onClick={onClose}>{t('Back to topics')}</Button>
-      <button ref={toggle} type="button" className="button button--secondary" onClick={()=>setFullscreen(!fullscreen)}>
+      <Button ref={toggle} variant="secondary" onClick={()=>setFullscreen(!fullscreen)}>
         {t(fullscreen?'Exit full screen':'Full screen')}
-      </button>
+      </Button>
     </div>
     <h2 id="study-deck-title">{title}</h2>
     <div className="study-stage">{children}</div>

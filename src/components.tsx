@@ -9,6 +9,7 @@ import {
   type KeyboardEvent as ReactKeyboardEvent,
   type ReactElement,
   type ReactNode,
+  type Ref,
 } from "react"
 
 export type IconName = "forms" | "cards" | "arrow" | "audio" | "back" | "book" | "bookmark" | "check" | "chevronDown" | "chevronRight" | "chevronUp" | "close" | "copy" | "edit" | "export" | "grid" | "history" | "import" | "info" | "more" | "palette" | "practice" | "retry" | "search" | "settings" | "spark" | "swap" | "translate" | "trash" | "warning"
@@ -171,6 +172,7 @@ export function Icon({ name }: { name: IconName }) {
 }
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  ref?: Ref<HTMLButtonElement>
   variant?: "primary" | "secondary" | "text" | "icon"
   icon?: IconName
   label?: string
@@ -214,6 +216,46 @@ export function IconButton({
 } & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <Button variant="icon" icon={icon} label={label} title={label} {...props} />
+  )
+}
+
+/** Navigation entry for the sidebar and bottom bar. Marks the current view with aria-current. */
+export function NavItem({
+  icon,
+  label,
+  selected,
+  className = "",
+  onClick,
+}: {
+  icon: IconName
+  label: string
+  selected: boolean
+  className?: string
+  onClick: () => void
+}) {
+  return (
+    <button
+      type="button"
+      className={`${className}${selected ? " selected" : ""}`.trim() || undefined}
+      aria-current={selected ? "page" : undefined}
+      onClick={onClick}
+    >
+      <Icon name={icon} />
+      <span>{label}</span>
+    </button>
+  )
+}
+
+/** A whole card that acts as one button, such as a topic or learning-mode card. Layout comes from className. */
+export function CardButton({
+  className = "",
+  children,
+  ...props
+}: ButtonHTMLAttributes<HTMLButtonElement>) {
+  return (
+    <button type="button" className={`card-button ${className}`.trim()} {...props}>
+      {children}
+    </button>
   )
 }
 
