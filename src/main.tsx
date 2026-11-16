@@ -3,6 +3,10 @@ import ReactDOM from "react-dom/client"
 import App from "./App"
 import { I18nProvider } from "./i18n"
 import "./index.css"
+import { applyTheme, followSystemTheme, readThemePreference } from "./theme"
+
+applyTheme(readThemePreference())
+followSystemTheme()
 
 // Vite removes this development-only import from production builds.
 const Screen = import.meta.env.DEV && new URLSearchParams(window.location.search).has("design-system")

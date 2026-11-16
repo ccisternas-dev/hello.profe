@@ -79,7 +79,6 @@
   "Design system / 01": "Design system / 01",
   "A warm, accessible language notebook built on semantic decisions—not one-off values.": "A warm, accessible language notebook built on semantic decisions—not one-off values.",
   "Colour": "Colour",
-  "Primitive values map to semantic roles. Components consume only semantic tokens, ready for a future dark theme.": "Primitive values map to semantic roles. Components consume only semantic tokens, ready for a future dark theme.",
   "Typography": "Typography",
   "Source Sans 3 is highly legible and supports every product language, including é, ñ, ü, ß and ë.": "Source Sans 3 is highly legible and supports every product language, including é, ñ, ü, ß and ë.",
   "Display / 48": "Display / 48",
@@ -387,5 +386,11 @@
   "Not yet. Try again or reveal the answer.": "Not yet. Try again or reveal the answer.",
   "Correct after retry: {count}": "Correct after retry: {count}",
   "Start a new challenge": "Start a new challenge",
-  "Scoring per answer: 3 unaided, 2 after retry, 0 when revealed.": "Scoring per answer: 3 unaided, 2 after retry, 0 when revealed."
+  "Scoring per answer: 3 unaided, 2 after retry, 0 when revealed.": "Scoring per answer: 3 unaided, 2 after retry, 0 when revealed.",
+  "Theme": "Theme",
+  "Match device": "Match device",
+  "Light": "Light",
+  "Dark": "Dark",
+  "Match device follows your phone or computer setting. Device high-contrast settings are also respected.": "Match device follows your phone or computer setting. Device high-contrast settings are also respected.",
+  "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values.": "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values."
 }

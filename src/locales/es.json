@@ -79,7 +79,6 @@
   "Design system / 01": "Sistema de diseño / 01",
   "A warm, accessible language notebook built on semantic decisions—not one-off values.": "Un cuaderno de idiomas cálido y accesible, basado en decisiones semánticas coherentes y no en valores aislados.",
   "Colour": "Color",
-  "Primitive values map to semantic roles. Components consume only semantic tokens, ready for a future dark theme.": "Los valores primitivos se asignan a roles semánticos. Los componentes usan únicamente tokens semánticos, listos para un futuro tema oscuro.",
   "Typography": "Tipografía",
   "Source Sans 3 is highly legible and supports every product language, including é, ñ, ü, ß and ë.": "Source Sans 3 es muy legible y admite todos los idiomas del producto, incluidos é, ñ, ü, ß y ë.",
   "Display / 48": "Texto destacado / 48",
@@ -387,5 +386,11 @@
   "Not yet. Try again or reveal the answer.": "Todavía no. Inténtalo de nuevo o muestra la respuesta.",
   "Correct after retry: {count}": "Correctas tras reintentar: {count}",
   "Start a new challenge": "Empezar un nuevo desafío",
-  "Scoring per answer: 3 unaided, 2 after retry, 0 when revealed.": "Puntos por respuesta: 3 sin ayuda, 2 tras reintentar, 0 si se muestra la respuesta."
+  "Scoring per answer: 3 unaided, 2 after retry, 0 when revealed.": "Puntos por respuesta: 3 sin ayuda, 2 tras reintentar, 0 si se muestra la respuesta.",
+  "Theme": "Tema",
+  "Match device": "Según el dispositivo",
+  "Light": "Claro",
+  "Dark": "Oscuro",
+  "Match device follows your phone or computer setting. Device high-contrast settings are also respected.": "«Según el dispositivo» sigue el ajuste de tu teléfono u ordenador. También se respetan los ajustes de alto contraste del dispositivo.",
+  "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values.": "Los valores primitivos se asignan a funciones semánticas. Los componentes solo usan tokens semánticos, que tienen valores claros y oscuros."
 }

@@ -39,7 +39,7 @@
   --feedback-error-subtle: var(--primitive-red-100);
   --feedback-warning-subtle: var(--primitive-amber-100);
   --border-default: #d8d5cd;
-  --border-strong: #9ba39f;
+  --border-strong: #858e8a;
   --surface-muted: var(--primitive-cream-200);
   --surface-translucent: rgba(247, 244, 237, 0.95);
   --surface-inverse-hover: rgba(255, 255, 255, 0.1);
@@ -52,7 +52,7 @@
   --feedback-error-border: #e5b8b1;
   --feedback-warning-border: #ead09f;
   --feedback-warning: #906019;
-  --focus-ring: #49a89d;
+  --focus-ring: #2f8a80;
   --overlay: rgba(24, 33, 31, 0.5);
 
   --space-1: 4px;
@@ -114,6 +114,63 @@
   font-family: 'Source Sans 3', system-ui, sans-serif;
   color: var(--text-primary);
   background: var(--surface-default);
+}
+
+/* Dark theme: the same semantic roles with dark values. Set by <html data-theme="dark">. */
+:root { color-scheme: light; }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-default: #121a19;
+  --surface-subtle: #172120;
+  --surface-raised: #1d2927;
+  --surface-selected: #1f3f3a;
+  --surface-learning: #152420;
+  --surface-learning-detail: #1c312d;
+  --surface-muted: #2a3533;
+  --surface-translucent: rgba(18, 26, 25, 0.95);
+  --surface-inverse-hover: rgba(18, 26, 25, 0.08);
+  --surface-highlight: #4a3816;
+  --surface-callout: #2e2615;
+  --text-primary: #e8eeec;
+  --text-secondary: #a9b5b2;
+  --text-inverse: #121a19;
+  --text-inverse-secondary: #3d4b48;
+  --text-accent: #7fd1c4;
+  --text-highlight: #ffd89a;
+  --action-primary: #4fb3a5;
+  --action-primary-hover: #6cc7b9;
+  --action-secondary: #1d2927;
+  --feedback-success: #6cc79a;
+  --feedback-success-subtle: #17302a;
+  --feedback-success-border: #2f5a48;
+  --feedback-error: #f08a7e;
+  --feedback-error-subtle: #3a1f1c;
+  --feedback-error-border: #6e3a33;
+  --feedback-warning: #e8b45c;
+  --feedback-warning-subtle: #33290f;
+  --feedback-warning-border: #6b5422;
+  --border-default: #33403d;
+  --border-strong: #6f7d7a;
+  --focus-ring: #6fd3c5;
+  --overlay: rgba(0, 0, 0, 0.6);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3);
+  --shadow-2: 0 18px 48px rgba(0, 0, 0, 0.5);
+  --shadow-3: 0 24px 70px rgba(0, 0, 0, 0.6);
+  --shadow-learning-card: 0 3px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* Device high-contrast preference: full-strength text, strong borders, no tinted panels. Placed after the dark theme so it wins in both. */
+@media (prefers-contrast: more) {
+  :root[data-theme] {
+    --text-secondary: var(--text-primary);
+    --border-default: var(--border-strong);
+    --surface-learning: var(--surface-raised);
+    --surface-learning-detail: var(--surface-raised);
+    --surface-callout: var(--surface-raised);
+    --focus-ring: var(--text-primary);
+  }
+  :root[data-theme="light"] { --border-strong: #4d5754; }
+  :root[data-theme="dark"] { --border-strong: #9aa8a5; }
 }
 
 @layer base {
@@ -721,4 +778,21 @@ td:not(:first-child) { font-weight: var(--font-weight-semibold); }
 @media (max-width: 600px) {
   .filter-actions { flex-basis: 100%; }
   .filter-actions .button { flex: 1; }
+}
+
+/* Theme settings */
+.theme-settings fieldset { margin: 0; padding: 0; border: 0; }
+.theme-settings legend { margin-bottom: var(--space-3); font-weight: var(--font-weight-semibold); }
+.theme-options { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.theme-option { display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--control-height); padding: 0 var(--space-4); border: 1px solid var(--border-default); border-radius: 999px; background: var(--surface-raised); cursor: pointer; }
+.theme-option:has(input:checked) { border-color: var(--action-primary); background: var(--surface-selected); color: var(--text-accent); font-weight: var(--font-weight-semibold); }
+.theme-option input { accent-color: var(--action-primary); }
+.theme-settings .small-note { margin: var(--space-3) 0 0; }
+
+/* Windows High Contrast and other forced-colour modes: shadows and backgrounds disappear, so keep focus and selection visible with outlines. */
+@media (forced-colors: active) {
+  button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible { outline: 2px solid CanvasText; outline-offset: 2px; }
+  .selected, [aria-current="page"], [aria-pressed="true"], .theme-option:has(input:checked) { outline: 2px solid Highlight; outline-offset: -2px; }
+  .progress span { forced-color-adjust: none; background: Highlight; }
+  .card-button, .challenge-field, .settings-card, .practice-card { border: 1px solid CanvasText; }
 }

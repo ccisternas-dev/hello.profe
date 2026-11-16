@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useI18n, LocaleSelector, type MessageKey } from "./i18n"
 import { Alert, Badge, IconButton, Button, Chip, EmptyState, Field, LanguageSelect, PageHeader, Progress, SearchField, Skeleton, Tabs, Toast } from "./components"
 
@@ -25,16 +25,19 @@ export default function DesignSystem() {
 function FoundationsView() {
   const { t } = useI18n()
 
-  const colors = [
-    ["surface-default", "#F7F4ED"],
-    ["surface-raised", "#FFFFFF"],
-    ["text-primary", "#1E2927"],
-    ["text-secondary", "#5C6B67"],
-    ["action-primary", "#176B62"],
-    ["accent-learning", "#E7A84C"],
-    ["feedback-success", "#2F7458"],
-    ["feedback-error", "#A83D34"],
-  ]
+  const colors = ["surface-default", "surface-raised", "text-primary", "text-secondary", "action-primary", "accent-learning", "feedback-success", "feedback-error"]
+  // Show the resolved value for the active theme, and refresh it when the theme changes.
+  const [values, setValues] = useState<Record<string, string>>({})
+  useEffect(() => {
+    const read = () => {
+      const style = getComputedStyle(document.documentElement)
+      setValues(Object.fromEntries(colors.map((name) => [name, style.getPropertyValue(`--${name}`).trim()])))
+    }
+    read()
+    const observer = new MutationObserver(read)
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] })
+    return () => observer.disconnect()
+  }, [])
   const spacing = [
     "space-1 · 4",
     "space-2 · 8",
@@ -58,16 +61,16 @@ function FoundationsView() {
           <span>{t("Colour")}</span>
           <p>
             {t(
-              "Primitive values map to semantic roles. Components consume only semantic tokens, ready for a future dark theme.",
+              "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values.",
             )}
           </p>
         </div>
         <div className="color-grid">
-          {colors.map(([name, value]) => (
+          {colors.map((name) => (
             <div className="color-token" key={name}>
-              <span style={{ backgroundColor: value }} />
+              <span style={{ backgroundColor: `var(--${name})` }} />
               <strong>{name}</strong>
-              <code>{value}</code>
+              <code>{values[name]}</code>
             </div>
           ))}
         </div>
