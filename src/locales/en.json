@@ -392,5 +392,22 @@
   "Light": "Light",
   "Dark": "Dark",
   "Match device follows your phone or computer setting. Device high-contrast settings are also respected.": "Match device follows your phone or computer setting. Device high-contrast settings are also respected.",
-  "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values.": "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values."
+  "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values.": "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values.",
+  "Word details": "Word details",
+  "Noun": "Noun",
+  "Verb": "Verb",
+  "Adjective": "Adjective",
+  "Adverb": "Adverb",
+  "Interjection": "Interjection",
+  "Conjunction": "Conjunction",
+  "Preposition": "Preposition",
+  "Determiner": "Determiner",
+  "Article": "Article",
+  "Number": "Number",
+  "Particle": "Particle",
+  "Contraction": "Contraction",
+  "Plural only": "Plural only",
+  "Plural: {word}": "Plural: {word}",
+  "Word details from Wiktionary (CC BY-SA 4.0).": "Word details from Wiktionary (CC BY-SA 4.0).",
+  "German word details: Wiktionary via kaikki.org, CC BY-SA 4.0": "German word details: Wiktionary via kaikki.org, CC BY-SA 4.0"
 }

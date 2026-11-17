@@ -43,6 +43,7 @@ const pairs = [
   ["feedback-success", "surface-raised", 4.5], ["feedback-success", "feedback-success-subtle", 4.5],
   ["feedback-warning", "surface-raised", 4.5], ["feedback-warning", "feedback-warning-subtle", 4.5],
   ["text-highlight", "surface-highlight", 4.5],
+  ["gender-masculine", "gender-masculine-subtle", 4.5], ["gender-feminine", "gender-feminine-subtle", 4.5], ["gender-neuter", "gender-neuter-subtle", 4.5],
   ["border-strong", "surface-raised", 3], ["focus-ring", "surface-default", 3], ["focus-ring", "surface-raised", 3],
 ]
 
