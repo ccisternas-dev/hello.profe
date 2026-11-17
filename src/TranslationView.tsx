@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Badge, Button, Chip, PageHeader } from './components'
+import WordCard from './WordCard'
 import { useI18n, type MessageKey } from './i18n'
 import { translateWithProvider, savedProvider, savePreference, readPreference, providerStorageKey, emailStorageKey, isTranslationProvider, inputBytes, type TranslationLanguage } from './translation-client'
 
@@ -116,7 +117,7 @@ export default function TranslationView() {
         return result && <article key={target} className="result-card">
           <Badge>{t(languages.find(language => language.code === target)!.label)}</Badge>
           {result.error ? <><p role="alert">{t(result.error)}</p><Button variant="secondary" disabled={loading} onClick={translate}>{t('Retry translation')}</Button></>
-            : <><p lang={target} className="translation-result">{result.text}</p><p className="small-note">{t('Machine translation may contain mistakes, including changed names. Verify important details.')}</p></>}
+            : <><p lang={target} className="translation-result">{result.text}</p>{target === 'de' && result.text && <WordCard text={result.text} />}<p className="small-note">{t('Machine translation may contain mistakes, including changed names. Verify important details.')}</p></>}
         </article>
       })}
     </section>

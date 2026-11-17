@@ -392,5 +392,22 @@
   "Light": "Hell",
   "Dark": "Dunkel",
   "Match device follows your phone or computer setting. Device high-contrast settings are also respected.": "„Wie Gerät“ folgt der Einstellung deines Telefons oder Computers. Kontrasteinstellungen des Geräts werden ebenfalls berücksichtigt.",
-  "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values.": "Primitive Werte werden semantischen Rollen zugeordnet. Komponenten verwenden nur semantische Tokens mit hellen und dunklen Werten."
+  "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values.": "Primitive Werte werden semantischen Rollen zugeordnet. Komponenten verwenden nur semantische Tokens mit hellen und dunklen Werten.",
+  "Word details": "Wortdetails",
+  "Noun": "Substantiv",
+  "Verb": "Verb",
+  "Adjective": "Adjektiv",
+  "Adverb": "Adverb",
+  "Interjection": "Interjektion",
+  "Conjunction": "Konjunktion",
+  "Preposition": "Präposition",
+  "Determiner": "Determinativ",
+  "Article": "Artikel",
+  "Number": "Numerale",
+  "Particle": "Partikel",
+  "Contraction": "Kontraktion",
+  "Plural only": "Nur Plural",
+  "Plural: {word}": "Plural: {word}",
+  "Word details from Wiktionary (CC BY-SA 4.0).": "Wortdetails aus dem Wiktionary (CC BY-SA 4.0).",
+  "German word details: Wiktionary via kaikki.org, CC BY-SA 4.0": "Deutsche Wortdetails: Wiktionary über kaikki.org, CC BY-SA 4.0"
 }

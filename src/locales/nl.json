@@ -392,5 +392,22 @@
   "Light": "Licht",
   "Dark": "Donker",
   "Match device follows your phone or computer setting. Device high-contrast settings are also respected.": "‘Zoals apparaat’ volgt de instelling van je telefoon of computer. Instellingen voor hoog contrast op het apparaat worden ook gerespecteerd.",
-  "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values.": "Primitieve waarden horen bij semantische rollen. Componenten gebruiken alleen semantische tokens, met lichte en donkere waarden."
+  "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values.": "Primitieve waarden horen bij semantische rollen. Componenten gebruiken alleen semantische tokens, met lichte en donkere waarden.",
+  "Word details": "Woorddetails",
+  "Noun": "Zelfstandig naamwoord",
+  "Verb": "Werkwoord",
+  "Adjective": "Bijvoeglijk naamwoord",
+  "Adverb": "Bijwoord",
+  "Interjection": "Tussenwerpsel",
+  "Conjunction": "Voegwoord",
+  "Preposition": "Voorzetsel",
+  "Determiner": "Lidwoord of determinator",
+  "Article": "Lidwoord",
+  "Number": "Telwoord",
+  "Particle": "Partikel",
+  "Contraction": "Samentrekking",
+  "Plural only": "Alleen meervoud",
+  "Plural: {word}": "Meervoud: {word}",
+  "Word details from Wiktionary (CC BY-SA 4.0).": "Woorddetails uit Wiktionary (CC BY-SA 4.0).",
+  "German word details: Wiktionary via kaikki.org, CC BY-SA 4.0": "Duitse woorddetails: Wiktionary via kaikki.org, CC BY-SA 4.0"
 }

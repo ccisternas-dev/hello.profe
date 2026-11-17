@@ -392,5 +392,22 @@
   "Light": "Clair",
   "Dark": "Sombre",
   "Match device follows your phone or computer setting. Device high-contrast settings are also respected.": "« Selon l’appareil » suit le réglage de votre téléphone ou ordinateur. Les réglages de contraste élevé de l’appareil sont aussi respectés.",
-  "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values.": "Les valeurs primitives correspondent à des rôles sémantiques. Les composants n’utilisent que des jetons sémantiques, avec des valeurs claires et sombres."
+  "Primitive values map to semantic roles. Components consume only semantic tokens, which have light and dark values.": "Les valeurs primitives correspondent à des rôles sémantiques. Les composants n’utilisent que des jetons sémantiques, avec des valeurs claires et sombres.",
+  "Word details": "Détails du mot",
+  "Noun": "Nom",
+  "Verb": "Verbe",
+  "Adjective": "Adjectif",
+  "Adverb": "Adverbe",
+  "Interjection": "Interjection",
+  "Conjunction": "Conjonction",
+  "Preposition": "Préposition",
+  "Determiner": "Déterminant",
+  "Article": "Article",
+  "Number": "Nombre",
+  "Particle": "Particule",
+  "Contraction": "Contraction",
+  "Plural only": "Uniquement au pluriel",
+  "Plural: {word}": "Pluriel : {word}",
+  "Word details from Wiktionary (CC BY-SA 4.0).": "Détails du mot issus du Wiktionnaire (CC BY-SA 4.0).",
+  "German word details: Wiktionary via kaikki.org, CC BY-SA 4.0": "Détails des mots allemands : Wiktionary via kaikki.org, CC BY-SA 4.0"
 }

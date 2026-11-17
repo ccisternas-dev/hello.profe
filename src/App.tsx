@@ -586,6 +586,7 @@ export default function App() {
             <li><a href="https://www.cloudflare.com/service-specific-terms-application-services/">{t("Cloudflare Workers AI")} · {t("Terms of service")}</a></li>
             {import.meta.env.VITE_MICROSOFT_ENABLED === true && <li><a href="https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/all">{t("Microsoft Translator")} · {t("Terms of service")}</a></li>}
             {import.meta.env.VITE_GOOGLE_ENABLED === true && <li><a href="https://cloud.google.com/terms/service-terms">{t("Google Cloud Translation")} · {t("Terms of service")}</a></li>}
+            <li><a href="https://kaikki.org/">{t("German word details: Wiktionary via kaikki.org, CC BY-SA 4.0")}</a></li>
             <li><a href="https://github.com/adobe-fonts/source-sans/blob/release/LICENSE.md">{t("Source Sans 3 — Adobe, SIL Open Font License")}</a></li>
           </ul>
           <p>{t("Interface design and inline icons: hello.profe, developed from the Figma Make prototype.")}</p>

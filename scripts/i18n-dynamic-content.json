@@ -29,6 +29,10 @@
     "values[name]": "Resolved CSS colour value for the active theme",
     "item": "CSS spacing token identifier"
   },
+  "src/WordCard.tsx": {
+    "articles[gender]": "German article (der, die, das), shown in German",
+    "entry.w": "German dictionary headword"
+  },
   "src/VerbChallenge.tsx": {
     "character": "German character input data",
     "answer.canonical": "Learning answer in the selected training language",
