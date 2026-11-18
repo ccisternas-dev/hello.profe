@@ -12,7 +12,7 @@ import {
   type Ref,
 } from "react"
 
-export type IconName = "forms" | "cards" | "arrow" | "audio" | "back" | "book" | "bookmark" | "check" | "chevronDown" | "chevronRight" | "chevronUp" | "close" | "copy" | "edit" | "export" | "grid" | "history" | "import" | "info" | "more" | "palette" | "practice" | "retry" | "search" | "settings" | "spark" | "swap" | "translate" | "trash" | "warning"
+export type IconName = "forms" | "cards" | "arrow" | "audio" | "back" | "book" | "bookmark" | "check" | "chevronDown" | "chevronRight" | "chevronUp" | "close" | "copy" | "edit" | "export" | "grid" | "history" | "import" | "info" | "more" | "palette" | "practice" | "retry" | "search" | "settings" | "spark" | "swap" | "table" | "translate" | "trash" | "warning"
 
 export function Icon({ name }: { name: IconName }) {
   const paths: Record<IconName, ReactNode> = {
@@ -87,6 +87,7 @@ export function Icon({ name }: { name: IconName }) {
         <path d="M5 13v7h14v-7" />
       </>
     ),
+    table: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 10h18M3 15h18M9 4v16" /></>,
     info: (
       <>
         <circle cx="12" cy="12" r="9" />
@@ -256,6 +257,32 @@ export function CardButton({
     <button type="button" className={`card-button ${className}`.trim()} {...props}>
       {children}
     </button>
+  )
+}
+
+/** Renders "d[er]" as "d" plus a highlighted "er". Highlights use colour and weight, so they do not rely on colour alone. */
+export function MarkedText({ text }: { text: string }) {
+  return <>{text.split(/\[([^\]]+)\]/).map((part, index) => index % 2 ? <strong key={index} className="grammar-highlight">{part}</strong> : part)}</>
+}
+
+/** Accessible reference table: the first column holds row headers, labelled by the visible heading. */
+export function GrammarTable({ columns, rows, labelledBy, lang }: { columns: string[]; rows: string[][]; labelledBy: string; lang: string }) {
+  return (
+    <div className="grammar-table-scroll">
+      <table className={`grammar-table${columns.length > 3 ? " grammar-table--grid" : ""}`} aria-labelledby={labelledBy} lang={lang}>
+        <thead>
+          <tr>{columns.map((column) => <th key={column} scope="col">{column}</th>)}</tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={row[0]}>
+              <th scope="row">{row[0]}</th>
+              {row.slice(1).map((cell, index) => <td key={index}><MarkedText text={cell} /></td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }
 
