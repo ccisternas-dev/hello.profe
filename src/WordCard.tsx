@@ -3,7 +3,7 @@ import { useI18n, type MessageKey } from './i18n'
 import { articles, type LexiconEntry, type WordClass } from './lexicon-core'
 import { lookupGerman } from './lexicon'
 
-const classLabels: Record<WordClass, MessageKey> = {
+export const classLabels: Record<WordClass, MessageKey> = {
   noun: 'Noun', verb: 'Verb', adj: 'Adjective', adv: 'Adverb', intj: 'Interjection', conj: 'Conjunction', prep: 'Preposition',
   pron: 'Pronoun', det: 'Determiner', article: 'Article', num: 'Number', particle: 'Particle', contraction: 'Contraction',
 }
@@ -27,7 +27,10 @@ export default function WordCard({ text }: { text: string }) {
         <span className="word-card-class">{t(classLabels[entry.c])}{entry.g?.includes('p') && <> · {t('Plural only')}</>}</span>
         {entry.pl && <span className="word-card-plural">{t('Plural: {word}', { word: entry.pl })}</span>}
       </li>)}
-    </ul>
-    <p className="small-note">{t('Word details from Wiktionary (CC BY-SA 4.0).')}</p>
+      </ul>
+    <p className="word-card-footer">
+      <a href={`#explore/${encodeURIComponent(entries[0].w)}`}>{t('Explore {word}', { word: entries[0].w })}</a>
+      <span className="small-note">{t('Word details from Wiktionary (CC BY-SA 4.0).')}</span>
+    </p>
   </section>
 }

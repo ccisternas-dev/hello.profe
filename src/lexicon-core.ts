@@ -14,6 +14,11 @@ export function lexiconLetter(key: string): string {
   const first = key.normalize('NFD').charAt(0).replace('ß', 's')
   return /[a-z]/.test(first) ? first : '_'
 }
+/** Explore details bucket: the first two letters with umlauts folded ("ging" → "gi"), so each chunk stays small. */
+export function detailsBucket(key: string): string {
+  const letters = key.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ß/g, 's').slice(0, 2)
+  return /^[a-z]{2}$/.test(letters) ? letters : lexiconLetter(key)
+}
 /** The single word in a translation result, optionally after an article; null for phrases. */
 export function singleWord(text: string): string | null {
   const word = text.normalize('NFC').trim().replace(/^[\s"'“”„«»(¿¡]+|[\s"'“”„«».,;:!?)]+$/g, '').replace(/^(der|die|das)\s+/i, '')
@@ -38,4 +43,50 @@ export function orderEntries(word: string, entries: LexiconEntry[]): LexiconEntr
   const exact = entries.filter(entry => entry.w === word)
   if (word === word.toLocaleLowerCase('de-DE')) return exact.length ? exact : entries
   return [...exact, ...entries.filter(entry => entry.w !== word)]
+}
+
+/** Explore details for one entry (#28). Table cells are null where Wiktionary has no form. */
+export type Meaning = { d: string; ex?: [string, string] }
+export type Conjugation = { pres: (string | null)[]; pret: (string | null)[]; pp?: string; aux?: string; imp?: (string | null)[] }
+export type Declension = { sg: (string | null)[]; pl: (string | null)[] }
+export type LexiconDetails = LexiconEntry & { s: Meaning[]; ipa?: string; audio?: string; conj?: Conjugation; decl?: Declension; cmp?: [string, string] }
+export type DetailsResult = { word: string; entries: LexiconDetails[]; formOf?: string[] }
+
+type Records<T> = Record<string, T> | undefined
+export type DetailsLoaders = {
+  details: (bucket: string) => Promise<Records<LexiconDetails[]>>
+  cards: (letter: string) => Promise<Records<LexiconEntry[]>>
+  forms: (letter: string) => Promise<Records<string[]>>
+}
+
+/** Single-word inflected forms in an entry's tables, as lookup keys ("ging" for gehen). Forms with a space are skipped. */
+export function inflectedForms(entry: Partial<LexiconDetails>): string[] {
+  const cells = [...(entry.conj?.pres || []), ...(entry.conj?.pret || []), ...(entry.conj?.imp || []), entry.conj?.pp,
+    ...(entry.decl?.sg || []), ...(entry.decl?.pl || []), ...(entry.cmp || []), entry.pl]
+  return [...new Set(cells.filter((cell): cell is string => !!cell).flatMap(cell => cell.split(' / ')).filter(form => !/\s/.test(form)).map(lexiconKey))]
+}
+
+/** Rebuilds the Wikimedia Commons MP3 URL from the stored path ("7/7e/De-Haus.ogg"). */
+export function audioUrl(path: string): string {
+  return `https://upload.wikimedia.org/wikipedia/commons/transcoded/${path}/${path.split('/').pop()}.mp3`
+}
+
+/**
+ * Dictionary details for a German word. A lemma is found directly; a noun plural ("Häuser") through the word cards;
+ * an inflected form ("ging") through the forms index. `formOf` lists the lemmas when the word was not one itself.
+ */
+export async function findDetails(text: string, load: DetailsLoaders): Promise<DetailsResult | null> {
+  const word = singleWord(text)
+  if (!word) return null
+  const key = lexiconKey(word)
+  const direct = (await load.details(detailsBucket(key)))?.[key]
+  if (direct?.length) return { word, entries: orderEntries(word, direct) as LexiconDetails[] }
+  const plurals = ((await load.cards(lexiconLetter(key)))?.[key] || []).map(card => lexiconKey(card.w))
+  const lemmas = [...new Set([...plurals, ...((await load.forms(lexiconLetter(key)))?.[key] || [])])]
+  const entries: LexiconDetails[] = []
+  for (const lemma of lemmas) entries.push(...((await load.details(detailsBucket(lemma)))?.[lemma] || []))
+  // A lemma key can hold unrelated entries ("fangen" the verb, "Fangen" the game); keep those that have this form.
+  const matching = entries.filter(entry => inflectedForms(entry).includes(key))
+  const found = matching.length ? matching : entries
+  return found.length ? { word, entries: found, formOf: [...new Set(found.map(entry => entry.w))] } : null
 }

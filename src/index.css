@@ -518,6 +518,7 @@ td:not(:first-child) { font-weight: var(--font-weight-semibold); }
   .synonyms { flex-wrap: wrap; }
   .notebook-tools { align-items: stretch; flex-direction: column; }
   .search-field { min-width: 0; }
+  .explore-search { margin-bottom: var(--space-6); }
   .vocab-main { grid-template-columns: 1fr 24px; gap: var(--space-4); }
   .personal-example { grid-column: 1 / -1; }
   .vocab-actions { flex-direction: column; }
@@ -815,7 +816,23 @@ td:not(:first-child) { font-weight: var(--font-weight-semibold); }
 .word-card-entry { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-1) var(--space-2); }
 .word-card-entry strong { font-size: var(--font-size-lg); }
 .word-card-class, .word-card-plural { color: var(--text-secondary); font-size: var(--font-size-sm); }
-.word-card .small-note { margin: var(--space-2) 0 0; }
+.word-card-footer { margin: var(--space-2) 0 0; display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-1) var(--space-3); }
+.word-card-footer a { font-weight: var(--font-weight-medium); }
+.word-card-footer .small-note { margin: 0; }
+
+/* Explore: German dictionary entry (#28) */
+.explore-search { max-width: var(--content-narrow); margin-bottom: var(--space-8); display: flex; gap: var(--space-2); }
+.explore-search .search-field { flex: 1; }
+.explore-page > .alert { margin-bottom: var(--space-2); }
+.explore-entry h3 { margin: var(--space-6) 0 var(--space-3); font-size: var(--font-size-md); font-weight: var(--font-weight-semibold); }
+.explore-entry-heading { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); }
+.explore-meanings { margin: 0; padding-left: var(--space-6); display: grid; gap: var(--space-4); }
+.explore-meanings > li > p { margin: 0; max-width: var(--measure-text); }
+.explore-meanings .example { margin: var(--space-2) 0 0; }
+.explore-forms { margin: var(--space-4) 0 0; display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-8); }
+.explore-forms div { display: grid; gap: var(--space-1); }
+.explore-forms dt { color: var(--text-secondary); font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); text-transform: uppercase; letter-spacing: .08em; }
+.explore-forms dd { margin: 0; font-weight: var(--font-weight-semibold); }
 .article-badge { padding: 0 var(--space-2); border-radius: var(--radius-xs); font-weight: var(--font-weight-bold); }
 .article-badge--m { background: var(--gender-masculine-subtle); color: var(--gender-masculine); }
 .article-badge--f, .article-badge--p { background: var(--gender-feminine-subtle); color: var(--gender-feminine); }
