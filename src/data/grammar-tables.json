@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "review": { "approvedBy": "ccisternas-dev", "approvedOn": "2026-11-18" },
+  "tables": [
+    {
+      "id": "de-definite-articles",
+      "language": "de",
+      "level": "A1",
+      "topic": "articles",
+      "reviewed": true,
+      "title": "Definite articles",
+      "columns": ["Kasus", "Maskulin", "Feminin", "Neutrum", "Plural"],
+      "rows": [
+        ["Nominativ", "d[er]", "d[ie]", "d[as]", "d[ie]"],
+        ["Akkusativ", "d[en]", "d[ie]", "d[as]", "d[ie]"],
+        ["Dativ", "d[em]", "d[er]", "d[em]", "d[en]"],
+        ["Genitiv", "d[es]", "d[er]", "d[es]", "d[er]"]
+      ],
+      "notes": [
+        "In the dative plural, nouns add -n (den Kindern), unless the plural already ends in -n or -s.",
+        "In the genitive, masculine and neuter nouns add -s or -es (des Mannes, des Kindes)."
+      ]
+    },
+    {
+      "id": "de-indefinite-articles",
+      "language": "de",
+      "level": "A1",
+      "topic": "articles",
+      "reviewed": true,
+      "title": "Indefinite articles",
+      "columns": ["Kasus", "Maskulin", "Feminin", "Neutrum", "Plural"],
+      "rows": [
+        ["Nominativ", "ein", "ein[e]", "ein", "– (kein[e])"],
+        ["Akkusativ", "ein[en]", "ein[e]", "ein", "– (kein[e])"],
+        ["Dativ", "ein[em]", "ein[er]", "ein[em]", "– (kein[en])"],
+        ["Genitiv", "ein[es]", "ein[er]", "ein[es]", "– (kein[er])"]
+      ],
+      "notes": [
+        "There is no indefinite article in the plural. kein and possessive articles (mein, dein, sein…) take the same endings and also have plural forms, shown in brackets."
+      ]
+    },
+    {
+      "id": "de-personal-pronouns",
+      "language": "de",
+      "level": "A1",
+      "topic": "pronouns",
+      "reviewed": true,
+      "title": "Personal pronouns",
+      "columns": ["Person", "Nominativ", "Akkusativ", "Dativ", "Possessivartikel"],
+      "rows": [
+        ["1. Singular", "ich", "[mich]", "[mir]", "mein"],
+        ["2. Singular", "du", "[dich]", "[dir]", "dein"],
+        ["3. Singular maskulin", "er", "[ihn]", "[ihm]", "sein"],
+        ["3. Singular feminin", "sie", "sie", "[ihr]", "ihr"],
+        ["3. Singular neutral", "es", "es", "[ihm]", "sein"],
+        ["1. Plural", "wir", "uns", "uns", "unser"],
+        ["2. Plural", "ihr", "[euch]", "[euch]", "euer"],
+        ["3. Plural", "sie", "sie", "[ihnen]", "ihr"],
+        ["Höflichkeitsform", "Sie", "Sie", "[Ihnen]", "Ihr"]
+      ],
+      "notes": [
+        "Sie (formal you) is always capitalised, in every case.",
+        "The possessive article takes the same endings as ein: mein Hund, meine Katze, mit meinem Freund.",
+        "Genitive pronoun forms (meiner, deiner…) are rare and not shown."
+      ]
+    },
+    {
+      "id": "de-prepositions",
+      "language": "de",
+      "level": "A2",
+      "topic": "prepositions",
+      "reviewed": true,
+      "title": "Prepositions and their cases",
+      "columns": ["Kasus", "Präpositionen", "Beispiel"],
+      "rows": [
+        ["Akkusativ", "bis, durch, für, gegen, ohne, um", "Das Geschenk ist für [meinen] Bruder."],
+        ["Dativ", "aus, außer, bei, gegenüber, mit, nach, seit, von, zu", "Ich fahre mit [dem] Bus zur Arbeit."],
+        ["Wechselpräpositionen: Wo? → Dativ", "an, auf, hinter, in, neben, über, unter, vor, zwischen", "Das Buch liegt auf [dem] Tisch."],
+        ["Wechselpräpositionen: Wohin? → Akkusativ", "an, auf, hinter, in, neben, über, unter, vor, zwischen", "Ich lege das Buch auf [den] Tisch."],
+        ["Genitiv", "außerhalb, innerhalb, statt, trotz, während, wegen", "Wegen [des] Regens bleiben wir zu Hause."]
+      ],
+      "notes": [
+        "Two-way prepositions take the dative for location (Wo?) and the accusative for direction (Wohin?).",
+        "Common contractions: am (an dem), im (in dem), ins (in das), beim (bei dem), vom (von dem), zum (zu dem), zur (zu der).",
+        "In everyday speech, wegen and trotz are often used with the dative."
+      ]
+    },
+    {
+      "id": "de-aduso",
+      "language": "de",
+      "level": "A2",
+      "topic": "aduso",
+      "reviewed": true,
+      "title": "ADUSO conjunctions",
+      "columns": ["Konjunktion", "Funktion", "Beispiel"],
+      "rows": [
+        ["aber", "Gegensatz", "Ich bin müde, aber ich [gehe] noch ins Kino."],
+        ["denn", "Grund", "Ich bleibe zu Hause, denn ich [bin] krank."],
+        ["und", "Addition", "Ich koche, und du [deckst] den Tisch."],
+        ["sondern", "Korrektur nach einer Verneinung", "Das ist nicht mein Auto, sondern es [gehört] meiner Schwester."],
+        ["oder", "Alternative", "Wir gehen ins Kino, oder wir [bleiben] zu Hause."]
+      ],
+      "notes": [
+        "ADUSO stands for aber, denn, und, sondern, oder. These conjunctions take position 0: the word order after them does not change, and the verb stays in second position.",
+        "sondern is used only after a negation (nicht, kein)."
+      ]
+    },
+    {
+      "id": "de-adjective-endings-weak",
+      "language": "de",
+      "level": "B1",
+      "topic": "adjectives",
+      "reviewed": true,
+      "title": "Adjective endings after der, die, das",
+      "columns": ["Kasus", "Maskulin", "Feminin", "Neutrum", "Plural"],
+      "rows": [
+        ["Nominativ", "der gut[e] Mann", "die gut[e] Frau", "das gut[e] Kind", "die gut[en] Kinder"],
+        ["Akkusativ", "den gut[en] Mann", "die gut[e] Frau", "das gut[e] Kind", "die gut[en] Kinder"],
+        ["Dativ", "dem gut[en] Mann", "der gut[en] Frau", "dem gut[en] Kind", "den gut[en] Kindern"],
+        ["Genitiv", "des gut[en] Mannes", "der gut[en] Frau", "des gut[en] Kindes", "der gut[en] Kinder"]
+      ],
+      "notes": [
+        "After der, die, das (and dieser, jeder, welcher), the adjective ends in -e or -en."
+      ]
+    },
+    {
+      "id": "de-adjective-endings-mixed",
+      "language": "de",
+      "level": "B1",
+      "topic": "adjectives",
+      "reviewed": true,
+      "title": "Adjective endings after ein, kein, mein",
+      "columns": ["Kasus", "Maskulin", "Feminin", "Neutrum", "Plural"],
+      "rows": [
+        ["Nominativ", "ein gut[er] Mann", "eine gut[e] Frau", "ein gut[es] Kind", "keine gut[en] Kinder"],
+        ["Akkusativ", "einen gut[en] Mann", "eine gut[e] Frau", "ein gut[es] Kind", "keine gut[en] Kinder"],
+        ["Dativ", "einem gut[en] Mann", "einer gut[en] Frau", "einem gut[en] Kind", "keinen gut[en] Kindern"],
+        ["Genitiv", "eines gut[en] Mannes", "einer gut[en] Frau", "eines gut[en] Kindes", "keiner gut[en] Kinder"]
+      ],
+      "notes": [
+        "After ein, kein and possessive articles, the adjective shows the gender where the article does not: ein guter Mann, ein gutes Kind."
+      ]
+    },
+    {
+      "id": "de-adjective-endings-strong",
+      "language": "de",
+      "level": "B1",
+      "topic": "adjectives",
+      "reviewed": true,
+      "title": "Adjective endings without an article",
+      "columns": ["Kasus", "Maskulin", "Feminin", "Neutrum", "Plural"],
+      "rows": [
+        ["Nominativ", "gut[er] Wein", "gut[e] Milch", "gut[es] Brot", "gut[e] Freunde"],
+        ["Akkusativ", "gut[en] Wein", "gut[e] Milch", "gut[es] Brot", "gut[e] Freunde"],
+        ["Dativ", "gut[em] Wein", "gut[er] Milch", "gut[em] Brot", "gut[en] Freunden"],
+        ["Genitiv", "gut[en] Weines", "gut[er] Milch", "gut[en] Brotes", "gut[er] Freunde"]
+      ],
+      "notes": [
+        "Without an article, the adjective takes the article's ending (guter Wein, like der Wein), except in the masculine and neuter genitive (-en)."
+      ]
+    },
+    {
+      "id": "de-subordinating-connectors",
+      "language": "de",
+      "level": "B1",
+      "topic": "connectors",
+      "reviewed": true,
+      "title": "Subordinating connectors",
+      "columns": ["Konnektor", "Funktion", "Beispiel"],
+      "rows": [
+        ["weil", "Grund", "Ich bleibe zu Hause, weil ich krank [bin]."],
+        ["dass", "Inhalt", "Ich glaube, dass er morgen [kommt]."],
+        ["obwohl", "Gegensatz", "Wir gehen spazieren, obwohl es [regnet]."],
+        ["wenn", "Bedingung, wiederholte Zeit", "Wenn ich Zeit [habe], rufe ich dich an."],
+        ["als", "einmalige Zeit in der Vergangenheit", "Als ich ein Kind [war], wohnte ich in Berlin."],
+        ["damit", "Ziel", "Ich spare Geld, damit ich reisen [kann]."],
+        ["ob", "indirekte Ja/Nein-Frage", "Ich weiß nicht, ob sie heute [kommt]."],
+        ["bevor", "Zeit (davor)", "Bevor ich [gehe], trinke ich einen Kaffee."],
+        ["nachdem", "Zeit (danach)", "Nachdem wir gegessen [hatten], gingen wir spazieren."]
+      ],
+      "notes": [
+        "Subordinating connectors send the conjugated verb to the end of the clause. If the subordinate clause comes first, the main clause starts with the verb: Wenn ich Zeit habe, rufe ich dich an."
+      ]
+    },
+    {
+      "id": "de-adverbial-connectors",
+      "language": "de",
+      "level": "B1",
+      "topic": "connectors",
+      "reviewed": true,
+      "title": "Adverbial connectors",
+      "columns": ["Konnektor", "Funktion", "Beispiel"],
+      "rows": [
+        ["deshalb", "Folge", "Ich bin krank, deshalb [bleibe] ich zu Hause."],
+        ["trotzdem", "Gegensatz", "Es regnet, trotzdem [gehen] wir spazieren."],
+        ["außerdem", "Ergänzung", "Die Wohnung ist groß, außerdem [ist] sie günstig."],
+        ["dann", "Zeitfolge", "Zuerst frühstücke ich, dann [gehe] ich zur Arbeit."],
+        ["danach", "Zeitfolge", "Ich arbeite bis fünf, danach [gehe] ich einkaufen."],
+        ["sonst", "Alternative, Warnung", "Beeil dich, sonst [verpassen] wir den Zug."]
+      ],
+      "notes": [
+        "Adverbial connectors take position 1, so the conjugated verb follows directly (position 2), before the subject."
+      ]
+    },
+    {
+      "id": "de-two-part-connectors",
+      "language": "de",
+      "level": "B1",
+      "topic": "connectors",
+      "reviewed": true,
+      "title": "Two-part connectors",
+      "columns": ["Konnektor", "Funktion", "Beispiel"],
+      "rows": [
+        ["entweder … oder", "Alternative", "Entweder [kommst] du mit, oder du bleibst hier."],
+        ["sowohl … als auch", "Addition", "Sie spricht sowohl Deutsch als auch Französisch."],
+        ["weder … noch", "doppelte Verneinung", "Ich trinke weder Kaffee noch Tee."],
+        ["nicht nur … sondern auch", "betonte Addition", "Er ist nicht nur nett, sondern auch klug."],
+        ["zwar … aber", "Einschränkung", "Das Auto ist zwar alt, aber es fährt gut."],
+        ["je … desto", "Proportion", "Je mehr ich [lerne], desto besser [verstehe] ich."]
+      ],
+      "notes": [
+        "Two-part connectors link two words, phrases or clauses."
+      ]
+    }
+  ]
+}

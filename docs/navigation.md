@@ -1,6 +1,6 @@
 # Responsive navigation
 
-Issue #22 adds Translate, Practice, Flashcards, and Settings to the bottom menu below 1200 CSS pixels. This covers phone portrait/landscape and common tablet portrait/landscape widths. At 1200px and above, the sidebar retains Notebook and includes the new Flashcards and Settings destinations.
+Issue #22 adds Translate, Practice, Flashcards, and Settings to the bottom menu below 1200 CSS pixels. Since 18 November 2026 the bottom menu shows Translate, Practice, Flashcards and Grammar; Settings moved to the footer, next to About, on every screen size, and stays in the desktop sidebar. This covers phone portrait/landscape and common tablet portrait/landscape widths. At 1200px and above, the sidebar retains Notebook and includes the new Flashcards and Settings destinations.
 
 Flashcards opens the verb reference directly, following the newer verb-only design from PR #24 rather than the issue's original deck-selection wording. Its dashboard card opens the same destination, keeping the selected navigation item consistent. Settings exposes the existing interface-language preference; it persists when browser storage is available. Translate keeps its prototype notice.
 

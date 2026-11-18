@@ -17,7 +17,10 @@
     "success": "React element or translated caller prop",
     "placeholder": "Translated caller prop",
     "eyebrow": "Translated component prop",
-    "actions": "React action elements"
+    "actions": "React action elements",
+    "part": "German grammar table content",
+    "column": "German grammar table header",
+    "row[0]": "German grammar table row header"
   },
   "src/i18n.tsx": {
     "children": "React content",
@@ -74,5 +77,8 @@
     "entry.cmp[1]": "German superlative form from Wiktionary",
     "first.w": "German dictionary headword",
     "ipa": "IPA pronunciation from Wiktionary"
+  },
+  "src/GrammarTables.tsx": {
+    "table.level": "CEFR level code"
   }
 }

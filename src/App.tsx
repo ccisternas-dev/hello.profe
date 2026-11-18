@@ -4,6 +4,7 @@ import TranslationView from "./TranslationView"
 import TranslationSettings from "./TranslationSettings"
 import ChallengeSettings from "./ChallengeSettings"
 import ThemeSettings from "./ThemeSettings"
+import GrammarTables from "./GrammarTables"
 import Flashcards from "./Flashcards"
 import ExploreView from "./ExploreView"
 import { useEffect, useRef, useState } from "react"
@@ -27,7 +28,7 @@ import {
   Toast,
 } from "./components"
 
-type View = "translate" | "explore" | "notebook" | "practice" | "flashcards" | "settings" | "about"
+type View = "translate" | "explore" | "notebook" | "practice" | "flashcards" | "grammar" | "settings" | "about"
 
 const languages: MessageKey[] = [
   "English",
@@ -65,17 +66,19 @@ function AppShell({
   const primaryNav: {
     id: View
     label: MessageKey
-    icon: "translate" | "book" | "practice" | "cards" | "settings" | "info"
+    icon: "translate" | "book" | "practice" | "cards" | "table" | "settings" | "info"
   }[] = [
     { id: "translate", label: "Translate", icon: "translate" },
     { id: "notebook", label: "Notebook", icon: "book" },
     { id: "practice", label: "Practice", icon: "practice" },
     { id: "flashcards", label: "Flashcards", icon: "cards" },
+    { id: "grammar", label: "Grammar", icon: "table" },
     { id: "settings", label: "Settings", icon: "settings" },
     { id: "about", label: "About", icon: "info" },
   ]
 
-  const mobileNav = primaryNav.filter(item => item.id !== "notebook" && item.id !== "about")
+  // The bottom bar keeps four entries; Notebook, Settings and About stay reachable from the sidebar or footer.
+  const mobileNav = primaryNav.filter(item => item.id !== "notebook" && item.id !== "settings" && item.id !== "about")
   const [keyboardOpen, setKeyboardOpen] = useState(false)
   useEffect(() => {
     const viewport = window.visualViewport
@@ -139,7 +142,10 @@ function AppShell({
         {children}
         <footer className="page-footer">
           <small>{t("© {year} hello.profe. Third-party materials retain their own licenses.", {year: String(new Date().getFullYear())})}</small>
-          <a href="#about" aria-current={view === "about" ? "page" : undefined} onClick={() => setView("about")}>{t("About")}</a>
+          <div className="page-footer-links">
+            <a href="#about" aria-current={view === "about" ? "page" : undefined} onClick={() => setView("about")}>{t("About")}</a>
+            <a href="#settings" aria-current={view === "settings" ? "page" : undefined} onClick={() => setView("settings")}>{t("Settings")}</a>
+          </div>
         </footer>
       </div>
 
@@ -273,7 +279,7 @@ function NotebookView({
 /** Hash routes are "#view", plus "#explore/<word>" for a dictionary entry. */
 function viewFromLocation(): View {
   const hash = window.location.hash.slice(1).split("/")[0]
-  return ["translate", "explore", "notebook", "practice", "flashcards", "settings", "about"].includes(hash)
+  return ["translate", "explore", "notebook", "practice", "flashcards", "grammar", "settings", "about"].includes(hash)
     ? hash as View
     : "translate"
 }
@@ -351,6 +357,7 @@ export default function App() {
       )}
       {view === "practice" && <StudyPractice onFlashcards={() => setView("flashcards")} />}
       {view === "flashcards" && <Flashcards />}
+      {view === "grammar" && <GrammarTables />}
       {view === "settings" && <main className="page settings-page">
         <PageHeader eyebrow="" title={t("Settings")} description={t("Choose the language used throughout the website.")} />
         <section className="settings-card" aria-label={t("Interface language")}>
