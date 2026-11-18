@@ -60,5 +60,19 @@
   "src/FlashcardSession.tsx": {
     "title": "Translated deck title",
     "children": "Learning card React elements"
+  },
+  "src/ExploreView.tsx": {
+    "person": "German personal pronoun, shown in German",
+    "conj.pp": "German past participle from Wiktionary",
+    "conj.aux": "German auxiliary verb from Wiktionary",
+    "articles[gender]": "German article (der, die, das), shown in German",
+    "entry.w": "German dictionary headword",
+    "meaning.d": "English Wiktionary gloss, labeled Meanings (English)",
+    "meaning.ex[0]": "German example sentence from Wiktionary",
+    "meaning.ex[1]": "English translation of a Wiktionary example",
+    "entry.cmp[0]": "German comparative form from Wiktionary",
+    "entry.cmp[1]": "German superlative form from Wiktionary",
+    "first.w": "German dictionary headword",
+    "ipa": "IPA pronunciation from Wiktionary"
   }
 }
